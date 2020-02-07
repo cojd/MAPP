@@ -4,14 +4,14 @@
 /* global $, control, data */
 'use strict';
 
-if (JSON.parse(odkCommon.getPlatformInfo()).container === 'Chrome') {
+if (JSON.parse(control.getPlatformInfo()).container === 'Chrome') {
     console.log('Welcome to Tables debugging in Chrome!');
     $.ajax({
-        url: odkCommon.getFileAsUrl('output/debug/life_check_data.json'),
+        url: control.getFileAsUrl('output/debug/ingrowth_data.json'),
         async: false,  // do it first
         success: function(dataObj) {
             if (dataObj === undefined || dataObj === null) {
-                console.log('Could not load data json for table: life_check');
+                console.log('Could not load data json for table: ingrowth');
             }
             window.data.setBackingObject(dataObj);
         }
