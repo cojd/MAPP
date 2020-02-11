@@ -442,34 +442,24 @@
     ],
     "choices": [
       {
-        "choice_list_name": "test_forms",
-        "data_value": "life_check",
-        "display": {
-          "title": {
-            "text": "Tree Life Check Form"
-          }
-        },
-        "_row_num": 2
-      },
-      {
-        "choice_list_name": "test_forms",
+        "choice_list_name": "forms",
         "data_value": "ingrowth",
         "display": {
           "title": {
             "text": "Tree Ingrowth Form"
           }
         },
-        "_row_num": 3
+        "_row_num": 2
       },
       {
-        "choice_list_name": "test_forms",
+        "choice_list_name": "forms",
         "data_value": "mortality",
         "display": {
           "title": {
             "text": "Tree Mortality Form"
           }
         },
-        "_row_num": 4
+        "_row_num": 3
       }
     ],
     "survey": [
@@ -480,10 +470,10 @@
       },
       {
         "type": "user_branch",
-        "values_list": "test_forms",
+        "values_list": "forms",
         "display": {
           "prompt": {
-            "text": "Choose a test form:"
+            "text": "Choose a form:"
           }
         },
         "_row_num": 3
@@ -510,26 +500,8 @@
         "_row_num": 7
       },
       {
-        "branch_label": "life_check",
-        "_row_num": 8
-      },
-      {
-        "url": "'?' + odkSurvey.getHashString('life_check')",
-        "type": "external_link",
-        "display": {
-          "prompt": {
-            "text": "Open Form"
-          }
-        },
-        "_row_num": 9
-      },
-      {
-        "clause": "exit section",
-        "_row_num": 10
-      },
-      {
         "branch_label": "ingrowth",
-        "_row_num": 11
+        "_row_num": 8
       },
       {
         "url": "'?' + odkSurvey.getHashString('ingrowth')",
@@ -539,15 +511,15 @@
             "text": "Open tree ingrowth form"
           }
         },
-        "_row_num": 12
+        "_row_num": 9
       },
       {
         "clause": "exit section",
-        "_row_num": 13
+        "_row_num": 10
       },
       {
         "branch_label": "mortality",
-        "_row_num": 14
+        "_row_num": 11
       },
       {
         "url": "'?' + odkSurvey.getHashString('mortality')",
@@ -557,11 +529,11 @@
             "text": "Open tree mortality form"
           }
         },
-        "_row_num": 15
+        "_row_num": 12
       },
       {
         "clause": "exit section",
-        "_row_num": 16
+        "_row_num": 13
       }
     ]
   },
@@ -636,36 +608,26 @@
       }
     },
     "choices": {
-      "test_forms": [
+      "forms": [
         {
-          "choice_list_name": "test_forms",
-          "data_value": "life_check",
-          "display": {
-            "title": {
-              "text": "Tree Life Check Form"
-            }
-          },
-          "_row_num": 2
-        },
-        {
-          "choice_list_name": "test_forms",
+          "choice_list_name": "forms",
           "data_value": "ingrowth",
           "display": {
             "title": {
               "text": "Tree Ingrowth Form"
             }
           },
-          "_row_num": 3
+          "_row_num": 2
         },
         {
-          "choice_list_name": "test_forms",
+          "choice_list_name": "forms",
           "data_value": "mortality",
           "display": {
             "title": {
               "text": "Tree Mortality Form"
             }
           },
-          "_row_num": 4
+          "_row_num": 3
         }
       ]
     },
@@ -1215,10 +1177,10 @@
         "prompts": [
           {
             "type": "user_branch",
-            "values_list": "test_forms",
+            "values_list": "forms",
             "display": {
               "prompt": {
-                "text": "Choose a test form:"
+                "text": "Choose a form:"
               }
             },
             "_row_num": 3,
@@ -1243,11 +1205,11 @@
             "promptIdx": 1
           },
           {
-            "url": "'?' + odkSurvey.getHashString('life_check')",
+            "url": "'?' + odkSurvey.getHashString('ingrowth')",
             "type": "external_link",
             "display": {
               "prompt": {
-                "text": "Open Form"
+                "text": "Open tree ingrowth form"
               }
             },
             "_row_num": 9,
@@ -1258,11 +1220,11 @@
             "promptIdx": 2
           },
           {
-            "url": "'?' + odkSurvey.getHashString('ingrowth')",
+            "url": "'?' + odkSurvey.getHashString('mortality')",
             "type": "external_link",
             "display": {
               "prompt": {
-                "text": "Open tree ingrowth form"
+                "text": "Open tree mortality form"
               }
             },
             "_row_num": 12,
@@ -1273,27 +1235,12 @@
             "promptIdx": 3
           },
           {
-            "url": "'?' + odkSurvey.getHashString('mortality')",
-            "type": "external_link",
-            "display": {
-              "prompt": {
-                "text": "Open tree mortality form"
-              }
-            },
-            "_row_num": 15,
-            "__rowNum__": 14,
-            "_token_type": "prompt",
-            "_type": "external_link",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 4
-          },
-          {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 17,
-            "_branch_label_enclosing_screen": "survey/_screen17",
-            "promptIdx": 5
+            "_row_num": 14,
+            "_branch_label_enclosing_screen": "survey/_screen14",
+            "promptIdx": 4
           }
         ],
         "validation_tag_map": {
@@ -1369,38 +1316,25 @@
             "operationIdx": 9
           },
           {
-            "_row_num": 15,
-            "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(4);\n\nreturn activePromptIndicies;\n}\n",
+            "_token_type": "exit_section",
+            "clause": "exit section",
+            "_row_num": 14,
             "operationIdx": 10
           },
           {
-            "clause": "exit section",
-            "_row_num": 16,
-            "__rowNum__": 15,
-            "_token_type": "exit_section",
-            "operationIdx": 11
-          },
-          {
-            "_token_type": "exit_section",
-            "clause": "exit section",
-            "_row_num": 17,
-            "operationIdx": 12
-          },
-          {
-            "_row_num": 17,
+            "_row_num": 14,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(5);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(4);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
-            "operationIdx": 13
+            "operationIdx": 11
           },
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 17,
-            "operationIdx": 14
+            "_row_num": 14,
+            "operationIdx": 12
           }
         ],
         "branch_label_map": {
@@ -1409,14 +1343,12 @@
           "_else4": 4,
           "_screen5": 4,
           "_endif6": 5,
-          "life_check": 6,
+          "ingrowth": 6,
           "_screen9": 6,
-          "ingrowth": 8,
+          "mortality": 8,
           "_screen12": 8,
-          "mortality": 10,
-          "_screen15": 10,
-          "_contents": 13,
-          "_screen17": 13
+          "_contents": 11,
+          "_screen14": 11
         }
       }
     },

@@ -1,8 +1,0 @@
-_partition,_aspect,_key,_type,_value
-Column,tree_alive,displayChoicesList,object,"[{""choice_list_name"":""yes_no"",""data_value"":""yes"",""display"":{""title"":{""text"":""Yes""}},""_row_num"":2},{""choice_list_name"":""yes_no"",""data_value"":""no"",""display"":{""title"":{""text"":""No""}},""_row_num"":3}]"
-FormType,default,FormType.formType,string,SURVEY
-SurveyUtil,default,SurveyUtil.formId,string,life_check
-Table,default,defaultViewType,string,LIST
-Table,default,detailViewFileName,string,config/tables/life_check/html/life_check_detail.html
-Table,default,displayName,object,"{""text"":""Tree Life Check""}"
-Table,default,listViewFileName,string,config/tables/life_check/html/life_check_list.html

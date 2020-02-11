@@ -58,6 +58,26 @@
         "_row_num": 2
       },
       {
+        "type": "integer",
+        "name": "plot",
+        "display": {
+          "prompt": {
+            "text": "Plot"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "type": "integer",
+        "name": "tag",
+        "display": {
+          "prompt": {
+            "text": "Tag"
+          }
+        },
+        "_row_num": 4
+      },
+      {
         "type": "select_one_integer",
         "values_list": "main_stem",
         "name": "main_stem",
@@ -66,7 +86,7 @@
             "text": "Main stem (MS)"
           }
         },
-        "_row_num": 3
+        "_row_num": 5
       },
       {
         "type": "select_one_integer",
@@ -77,7 +97,7 @@
             "text": "Rooting"
           }
         },
-        "_row_num": 4
+        "_row_num": 6
       },
       {
         "type": "decimal",
@@ -87,7 +107,7 @@
             "text": "Lean angle (deg)"
           }
         },
-        "_row_num": 5
+        "_row_num": 7
       },
       {
         "type": "decimal",
@@ -97,7 +117,7 @@
             "text": "Crown percentage"
           }
         },
-        "_row_num": 6
+        "_row_num": 8
       },
       {
         "type": "decimal",
@@ -107,7 +127,7 @@
             "text": "Tree percentage"
           }
         },
-        "_row_num": 7
+        "_row_num": 9
       },
       {
         "type": "decimal",
@@ -117,17 +137,17 @@
             "text": "Ground percentage"
           }
         },
-        "_row_num": 8
+        "_row_num": 10
       },
       {
         "type": "decimal",
         "name": "support_percentage",
         "display": {
           "prompt": {
-            "text": "support_percentage"
+            "text": "Support percentage"
           }
         },
-        "_row_num": 9
+        "_row_num": 11
       },
       {
         "type": "select_one_integer",
@@ -138,7 +158,7 @@
             "text": "Condition 1"
           }
         },
-        "_row_num": 10
+        "_row_num": 12
       },
       {
         "type": "select_one_integer",
@@ -149,7 +169,7 @@
             "text": "Condition 2"
           }
         },
-        "_row_num": 11
+        "_row_num": 13
       },
       {
         "type": "select_one_integer",
@@ -160,7 +180,7 @@
             "text": "Condition 3"
           }
         },
-        "_row_num": 12
+        "_row_num": 14
       },
       {
         "type": "select_one_integer",
@@ -171,7 +191,7 @@
             "text": "Condition 4"
           }
         },
-        "_row_num": 13
+        "_row_num": 15
       },
       {
         "type": "select_one_integer",
@@ -182,7 +202,7 @@
             "text": "Proximate"
           }
         },
-        "_row_num": 14
+        "_row_num": 16
       },
       {
         "type": "select_one_integer",
@@ -193,7 +213,7 @@
             "text": "Predisposing"
           }
         },
-        "_row_num": 15
+        "_row_num": 17
       },
       {
         "type": "note",
@@ -202,7 +222,7 @@
             "text": "Comments"
           }
         },
-        "_row_num": 16
+        "_row_num": 18
       },
       {
         "type": "note",
@@ -211,7 +231,7 @@
             "text": "*previous comment here*"
           }
         },
-        "_row_num": 17
+        "_row_num": 19
       },
       {
         "type": "select_one_dropdown",
@@ -222,7 +242,7 @@
             "text": "Comment 1"
           }
         },
-        "_row_num": 18
+        "_row_num": 20
       },
       {
         "type": "select_one_dropdown",
@@ -233,7 +253,7 @@
             "text": "Comment 2"
           }
         },
-        "_row_num": 19
+        "_row_num": 21
       },
       {
         "type": "select_one_dropdown",
@@ -244,7 +264,7 @@
             "text": "Comment 3"
           }
         },
-        "_row_num": 20
+        "_row_num": 22
       },
       {
         "type": "text",
@@ -254,11 +274,11 @@
             "text": "Custom comment"
           }
         },
-        "_row_num": 21
+        "_row_num": 23
       },
       {
         "clause": "end screen",
-        "_row_num": 22
+        "_row_num": 24
       }
     ],
     "choices": [
@@ -2864,10 +2884,30 @@
     "queries": {},
     "calculates": {},
     "model": {
-      "main_stem": {
+      "plot": {
         "_defn": [
           {
             "_row_num": 3,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "plot"
+      },
+      "tag": {
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "tag"
+      },
+      "main_stem": {
+        "_defn": [
+          {
+            "_row_num": 5,
             "section_name": "survey"
           }
         ],
@@ -2878,7 +2918,7 @@
       "rooting": {
         "_defn": [
           {
-            "_row_num": 4,
+            "_row_num": 6,
             "section_name": "survey"
           }
         ],
@@ -2889,7 +2929,7 @@
       "lean_angle": {
         "_defn": [
           {
-            "_row_num": 5,
+            "_row_num": 7,
             "section_name": "survey"
           }
         ],
@@ -2899,7 +2939,7 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 6,
+            "_row_num": 8,
             "section_name": "survey"
           }
         ],
@@ -2909,7 +2949,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 7,
+            "_row_num": 9,
             "section_name": "survey"
           }
         ],
@@ -2919,7 +2959,7 @@
       "ground_percentage": {
         "_defn": [
           {
-            "_row_num": 8,
+            "_row_num": 10,
             "section_name": "survey"
           }
         ],
@@ -2929,7 +2969,7 @@
       "support_percentage": {
         "_defn": [
           {
-            "_row_num": 9,
+            "_row_num": 11,
             "section_name": "survey"
           }
         ],
@@ -2939,7 +2979,7 @@
       "condition_1": {
         "_defn": [
           {
-            "_row_num": 10,
+            "_row_num": 12,
             "section_name": "survey"
           }
         ],
@@ -2950,7 +2990,7 @@
       "condition_2": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 13,
             "section_name": "survey"
           }
         ],
@@ -2961,7 +3001,7 @@
       "condition_3": {
         "_defn": [
           {
-            "_row_num": 12,
+            "_row_num": 14,
             "section_name": "survey"
           }
         ],
@@ -2972,7 +3012,7 @@
       "condition_4": {
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 15,
             "section_name": "survey"
           }
         ],
@@ -2983,7 +3023,7 @@
       "proximate": {
         "_defn": [
           {
-            "_row_num": 14,
+            "_row_num": 16,
             "section_name": "survey"
           }
         ],
@@ -2994,7 +3034,7 @@
       "predisposing": {
         "_defn": [
           {
-            "_row_num": 15,
+            "_row_num": 17,
             "section_name": "survey"
           }
         ],
@@ -3005,7 +3045,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 18,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -3016,7 +3056,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 21,
             "section_name": "survey"
           }
         ],
@@ -3027,7 +3067,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 22,
             "section_name": "survey"
           }
         ],
@@ -3038,7 +3078,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 21,
+            "_row_num": 23,
             "section_name": "survey"
           }
         ],
@@ -3057,6 +3097,36 @@
         "reachable_sections": {},
         "prompts": [
           {
+            "type": "integer",
+            "name": "plot",
+            "display": {
+              "prompt": {
+                "text": "Plot"
+              }
+            },
+            "_row_num": 3,
+            "__rowNum__": 2,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 0
+          },
+          {
+            "type": "integer",
+            "name": "tag",
+            "display": {
+              "prompt": {
+                "text": "Tag"
+              }
+            },
+            "_row_num": 4,
+            "__rowNum__": 3,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 1
+          },
+          {
             "type": "select_one_integer",
             "values_list": "main_stem",
             "name": "main_stem",
@@ -3065,12 +3135,12 @@
                 "text": "Main stem (MS)"
               }
             },
-            "_row_num": 3,
-            "__rowNum__": 2,
+            "_row_num": 5,
+            "__rowNum__": 4,
             "_token_type": "prompt",
             "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 0
+            "promptIdx": 2
           },
           {
             "type": "select_one_integer",
@@ -3081,12 +3151,12 @@
                 "text": "Rooting"
               }
             },
-            "_row_num": 4,
-            "__rowNum__": 3,
+            "_row_num": 6,
+            "__rowNum__": 5,
             "_token_type": "prompt",
             "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 1
+            "promptIdx": 3
           },
           {
             "type": "decimal",
@@ -3094,36 +3164,6 @@
             "display": {
               "prompt": {
                 "text": "Lean angle (deg)"
-              }
-            },
-            "_row_num": 5,
-            "__rowNum__": 4,
-            "_token_type": "prompt",
-            "_type": "decimal",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 2
-          },
-          {
-            "type": "decimal",
-            "name": "crown_percentage",
-            "display": {
-              "prompt": {
-                "text": "Crown percentage"
-              }
-            },
-            "_row_num": 6,
-            "__rowNum__": 5,
-            "_token_type": "prompt",
-            "_type": "decimal",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 3
-          },
-          {
-            "type": "decimal",
-            "name": "tree_percentage",
-            "display": {
-              "prompt": {
-                "text": "Tree percentage"
               }
             },
             "_row_num": 7,
@@ -3135,10 +3175,10 @@
           },
           {
             "type": "decimal",
-            "name": "ground_percentage",
+            "name": "crown_percentage",
             "display": {
               "prompt": {
-                "text": "Ground percentage"
+                "text": "Crown percentage"
               }
             },
             "_row_num": 8,
@@ -3150,10 +3190,10 @@
           },
           {
             "type": "decimal",
-            "name": "support_percentage",
+            "name": "tree_percentage",
             "display": {
               "prompt": {
-                "text": "support_percentage"
+                "text": "Tree percentage"
               }
             },
             "_row_num": 9,
@@ -3164,44 +3204,42 @@
             "promptIdx": 6
           },
           {
-            "type": "select_one_integer",
-            "values_list": "tree_condition",
-            "name": "condition_1",
+            "type": "decimal",
+            "name": "ground_percentage",
             "display": {
               "prompt": {
-                "text": "Condition 1"
+                "text": "Ground percentage"
               }
             },
             "_row_num": 10,
             "__rowNum__": 9,
             "_token_type": "prompt",
-            "_type": "select_one_integer",
+            "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
             "promptIdx": 7
           },
           {
-            "type": "select_one_integer",
-            "values_list": "tree_condition",
-            "name": "condition_2",
+            "type": "decimal",
+            "name": "support_percentage",
             "display": {
               "prompt": {
-                "text": "Condition 2"
+                "text": "Support percentage"
               }
             },
             "_row_num": 11,
             "__rowNum__": 10,
             "_token_type": "prompt",
-            "_type": "select_one_integer",
+            "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
             "promptIdx": 8
           },
           {
             "type": "select_one_integer",
             "values_list": "tree_condition",
-            "name": "condition_3",
+            "name": "condition_1",
             "display": {
               "prompt": {
-                "text": "Condition 3"
+                "text": "Condition 1"
               }
             },
             "_row_num": 12,
@@ -3214,10 +3252,10 @@
           {
             "type": "select_one_integer",
             "values_list": "tree_condition",
-            "name": "condition_4",
+            "name": "condition_2",
             "display": {
               "prompt": {
-                "text": "Condition 4"
+                "text": "Condition 2"
               }
             },
             "_row_num": 13,
@@ -3229,11 +3267,11 @@
           },
           {
             "type": "select_one_integer",
-            "values_list": "proximate_predisposing",
-            "name": "proximate",
+            "values_list": "tree_condition",
+            "name": "condition_3",
             "display": {
               "prompt": {
-                "text": "Proximate"
+                "text": "Condition 3"
               }
             },
             "_row_num": 14,
@@ -3245,11 +3283,11 @@
           },
           {
             "type": "select_one_integer",
-            "values_list": "proximate_predisposing",
-            "name": "predisposing",
+            "values_list": "tree_condition",
+            "name": "condition_4",
             "display": {
               "prompt": {
-                "text": "Predisposing"
+                "text": "Condition 4"
               }
             },
             "_row_num": 15,
@@ -3260,18 +3298,50 @@
             "promptIdx": 12
           },
           {
+            "type": "select_one_integer",
+            "values_list": "proximate_predisposing",
+            "name": "proximate",
+            "display": {
+              "prompt": {
+                "text": "Proximate"
+              }
+            },
+            "_row_num": 16,
+            "__rowNum__": 15,
+            "_token_type": "prompt",
+            "_type": "select_one_integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 13
+          },
+          {
+            "type": "select_one_integer",
+            "values_list": "proximate_predisposing",
+            "name": "predisposing",
+            "display": {
+              "prompt": {
+                "text": "Predisposing"
+              }
+            },
+            "_row_num": 17,
+            "__rowNum__": 16,
+            "_token_type": "prompt",
+            "_type": "select_one_integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 14
+          },
+          {
             "type": "note",
             "display": {
               "prompt": {
                 "text": "Comments"
               }
             },
-            "_row_num": 16,
-            "__rowNum__": 15,
+            "_row_num": 18,
+            "__rowNum__": 17,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 13
+            "promptIdx": 15
           },
           {
             "type": "note",
@@ -3280,12 +3350,12 @@
                 "text": "*previous comment here*"
               }
             },
-            "_row_num": 17,
-            "__rowNum__": 16,
+            "_row_num": 19,
+            "__rowNum__": 18,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 14
+            "promptIdx": 16
           },
           {
             "type": "select_one_dropdown",
@@ -3296,12 +3366,12 @@
                 "text": "Comment 1"
               }
             },
-            "_row_num": 18,
-            "__rowNum__": 17,
+            "_row_num": 20,
+            "__rowNum__": 19,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 15
+            "promptIdx": 17
           },
           {
             "type": "select_one_dropdown",
@@ -3312,12 +3382,12 @@
                 "text": "Comment 2"
               }
             },
-            "_row_num": 19,
-            "__rowNum__": 18,
+            "_row_num": 21,
+            "__rowNum__": 20,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 16
+            "promptIdx": 18
           },
           {
             "type": "select_one_dropdown",
@@ -3328,12 +3398,12 @@
                 "text": "Comment 3"
               }
             },
-            "_row_num": 20,
-            "__rowNum__": 19,
+            "_row_num": 22,
+            "__rowNum__": 21,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 17
+            "promptIdx": 19
           },
           {
             "type": "text",
@@ -3343,20 +3413,20 @@
                 "text": "Custom comment"
               }
             },
-            "_row_num": 21,
-            "__rowNum__": 20,
+            "_row_num": 23,
+            "__rowNum__": 22,
             "_token_type": "prompt",
             "_type": "text",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 18
+            "promptIdx": 20
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 23,
-            "_branch_label_enclosing_screen": "survey/_screen23",
-            "promptIdx": 19
+            "_row_num": 25,
+            "_branch_label_enclosing_screen": "survey/_screen25",
+            "promptIdx": 21
           }
         ],
         "validation_tag_map": {
@@ -3370,23 +3440,23 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 22,
-              "__rowNum__": 21,
+              "_row_num": 24,
+              "__rowNum__": 23,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nactivePromptIndicies.push(14);\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nactivePromptIndicies.push(14);\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nactivePromptIndicies.push(19);\nactivePromptIndicies.push(20);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 0
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 23,
+            "_row_num": 25,
             "operationIdx": 1
           },
           {
-            "_row_num": 23,
+            "_row_num": 25,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(19);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(21);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -3395,14 +3465,14 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 23,
+            "_row_num": 25,
             "operationIdx": 3
           }
         ],
         "branch_label_map": {
           "_screen2": 0,
           "_contents": 2,
-          "_screen23": 2
+          "_screen25": 2
         }
       },
       "initial": {
@@ -3584,10 +3654,36 @@
       }
     },
     "dataTableModel": {
-      "main_stem": {
+      "plot": {
         "_defn": [
           {
             "_row_num": 3,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "plot",
+        "elementName": "plot",
+        "elementSet": "data",
+        "elementPath": "plot"
+      },
+      "tag": {
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "tag",
+        "elementName": "tag",
+        "elementSet": "data",
+        "elementPath": "tag"
+      },
+      "main_stem": {
+        "_defn": [
+          {
+            "_row_num": 5,
             "section_name": "survey"
           }
         ],
@@ -3601,7 +3697,7 @@
       "rooting": {
         "_defn": [
           {
-            "_row_num": 4,
+            "_row_num": 6,
             "section_name": "survey"
           }
         ],
@@ -3615,7 +3711,7 @@
       "lean_angle": {
         "_defn": [
           {
-            "_row_num": 5,
+            "_row_num": 7,
             "section_name": "survey"
           }
         ],
@@ -3628,7 +3724,7 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 6,
+            "_row_num": 8,
             "section_name": "survey"
           }
         ],
@@ -3641,7 +3737,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 7,
+            "_row_num": 9,
             "section_name": "survey"
           }
         ],
@@ -3654,7 +3750,7 @@
       "ground_percentage": {
         "_defn": [
           {
-            "_row_num": 8,
+            "_row_num": 10,
             "section_name": "survey"
           }
         ],
@@ -3667,7 +3763,7 @@
       "support_percentage": {
         "_defn": [
           {
-            "_row_num": 9,
+            "_row_num": 11,
             "section_name": "survey"
           }
         ],
@@ -3680,7 +3776,7 @@
       "condition_1": {
         "_defn": [
           {
-            "_row_num": 10,
+            "_row_num": 12,
             "section_name": "survey"
           }
         ],
@@ -3694,7 +3790,7 @@
       "condition_2": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 13,
             "section_name": "survey"
           }
         ],
@@ -3708,7 +3804,7 @@
       "condition_3": {
         "_defn": [
           {
-            "_row_num": 12,
+            "_row_num": 14,
             "section_name": "survey"
           }
         ],
@@ -3722,7 +3818,7 @@
       "condition_4": {
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 15,
             "section_name": "survey"
           }
         ],
@@ -3736,7 +3832,7 @@
       "proximate": {
         "_defn": [
           {
-            "_row_num": 14,
+            "_row_num": 16,
             "section_name": "survey"
           }
         ],
@@ -3750,7 +3846,7 @@
       "predisposing": {
         "_defn": [
           {
-            "_row_num": 15,
+            "_row_num": 17,
             "section_name": "survey"
           }
         ],
@@ -3764,7 +3860,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 18,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -3778,7 +3874,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 21,
             "section_name": "survey"
           }
         ],
@@ -3792,7 +3888,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 22,
             "section_name": "survey"
           }
         ],
@@ -3806,7 +3902,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 21,
+            "_row_num": 23,
             "section_name": "survey"
           }
         ],

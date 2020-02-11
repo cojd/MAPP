@@ -1,19 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Detailed View -->
-    <head>
-        <link href="../../../assets/css/detail.css" type="text/css" rel="stylesheet" />
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../assets/css/detail.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../assets/commonDefinitions.js"></script>
+    <script type="text/javascript" src="../tableSpecificDefinitions.js"></script>
         <script type="text/javascript" src="../../../assets/libs/jquery-3.4.1.js"></script>
         <script type="text/javascript" src="../../../assets/libs/jquery-migrate-3.0.0.js"></script>
-        <script type="text/javascript" src="../../../framework/tables/js/control.js"></script>
-        <script type="text/javascript" src="../../../framework/tables/js/data.js"></script>
-    </head>
-    <body>
-        <script type="text/javascript" src="../js/ingrowth_detail.js"></script>
-        <!-- Define any HTML structure you rely on in your js files here, above
-        the call to display. -->
-        <script>
-            $(display);  // calls the detail display function when ready
-        </script>
-    </body>
+    <script type="text/javascript" src="../../../../system/js/odkCommon.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkData.js"></script>
+    <script type="text/javascript" src="../../../../system/tables/js/odkTables.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript" src="../js/ingrowth_detail.js"></script>
+
+    <h1><span id="TITLE" class="main-text"></span></h1>
+
+    <fieldset>
+        <label for="plot">Plot:</label>                         <input id="FIELD_1"  type="text" name="plot" disabled/><br/>
+        <label for="tag">tag:</label>                           <input id="FIELD_2"  type="text" name="tag" disabled/><br/>
+        <label for="species">species:</label>                   <input id="FIELD_3"  type="text" name="species" disabled/><br/>
+        <label for="dbh">dbh:</label>                           <input id="FIELD_4"  type="text" name="dbh" disabled/><br/>
+        <label for="status">status:</label>                     <input id="FIELD_5"  type="text" name="status" disabled/><br/>
+        <label for="canopy_class">canopy_class:</label>         <input id="FIELD_6"  type="text" name="canopy_class" disabled/><br/>
+        <label for="crown_ratio">crown_ratio:</label>           <input id="FIELD_7"  type="text" name="crown_ratio" disabled/><br/>
+        <label for="overall_vigor">overall_vigor:</label>       <input id="FIELD_8"  type="text" name="overall_vigor" disabled/><br/>
+        <label for="main_stem">main_stem:</label>               <input id="FIELD_9"  type="text" name="main_stem" disabled/><br/>
+        <label for="rooting">rooting:</label>                   <input id="FIELD_10" type="text" name="rooting" disabled/><br/>
+        <label for="lean_angle">lean_angle:</label>             <input id="FIELD_11" type="text" name="lean_angle" disabled/><br/>
+        <label for="crown_percentage">crown_percentage:</label> <input id="FIELD_12" type="text" name="crown_percentage" disabled/><br/>
+        <label for="tree_percentage">tree_percentage:</label>   <input id="FIELD_13" type="text" name="tree_percentage" disabled/><br/>
+        <label for="from_tag">from_tag:</label>                 <input id="FIELD_14" type="text" name="from_tag" disabled/><br/>
+        <label for="distance">distance:</label>                 <input id="FIELD_15" type="text" name="distance" disabled/><br/>
+        <label for="azimuth">azimuth:</label>                   <input id="FIELD_16" type="text" name="azimuth" disabled/><br/>
+        <label for="comment_1">comment_1:</label>               <input id="FIELD_17" type="text" name="comment_1" disabled/><br/>
+        <label for="comment_2">comment_2:</label>               <input id="FIELD_18" type="text" name="comment_2" disabled/><br/>
+        <label for="comment_3">comment_3:</label>               <input id="FIELD_19" type="text" name="comment_3" disabled/><br/>
+        <label for="comment_custom">comment_custom:</label>     <input id="FIELD_20" type="text" name="comment_custom" disabled/><br/>
+    </fieldset>
+
+    <script>
+        $(display);  // calls the detail display function when ready
+    </script>
+</body>
+
 </html>
