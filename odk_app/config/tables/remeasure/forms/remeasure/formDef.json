@@ -39,6 +39,7 @@
             "text": "DBH (cm)"
           }
         },
+        "default": 1,
         "_row_num": 3
       },
       {
@@ -80,19 +81,63 @@
         "display": {
           "prompt": {
             "text": "Lean Angle (deg)"
+          },
+          "contraint_message": {
+            "text": "Fix Lean Angle"
           }
         },
+        "constraint": "(function() { if (data('lean_angle') <= 120  && data('lean_angle') >=0){return true;} alert('Lean Angle Needs to be Fixed'); return false;})()",
         "_row_num": 7
       },
       {
-        "type": "integer",
+        "clause": "if",
+        "condition": "data('lean_angle') > 120 || data('crown_percentage') < 0",
+        "_row_num": 8
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Lean Angle must be between 0 and 120"
+          }
+        },
+        "_row_num": 9
+      },
+      {
+        "clause": "end if",
+        "_row_num": 10
+      },
+      {
+        "type": "decimal",
         "name": "crown_percentage",
         "display": {
           "prompt": {
             "text": "Crown Ratio (%)"
+          },
+          "contraint_message": {
+            "text": "Fix Crown Ratio"
           }
         },
-        "_row_num": 8
+        "constraint": "(function() { if (data('crown_percentage') <= 100  && data('crown_percentage') >=0){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
+        "_row_num": 11
+      },
+      {
+        "clause": "if",
+        "condition": "data('crown_percentage') > 100 || data('crown_percentage') < 0",
+        "_row_num": 12
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Crown Ratio must be between 0 and 100"
+          }
+        },
+        "_row_num": 13
+      },
+      {
+        "clause": "end if",
+        "_row_num": 14
       },
       {
         "type": "integer",
@@ -100,9 +145,31 @@
         "display": {
           "prompt": {
             "text": "Tree Percentage"
+          },
+          "contraint_message": {
+            "text": "Fix Tree Percentage"
           }
         },
-        "_row_num": 9
+        "constraint": "(function() { if (data('tree_percentage') <= 100  && data('tree_percentage') >=0){return true;} alert('Tree Percentage Needs to be Fixed'); return false;})()",
+        "_row_num": 15
+      },
+      {
+        "clause": "if",
+        "condition": "data('tree_percentage') > 100 || data('tree_percentage') < 0",
+        "_row_num": 16
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": "Tree Percentage must be between 0 and 100"
+          }
+        },
+        "_row_num": 17
+      },
+      {
+        "clause": "end if",
+        "_row_num": 18
       },
       {
         "type": "select_one_dropdown",
@@ -113,7 +180,7 @@
             "text": "Comment 1"
           }
         },
-        "_row_num": 10
+        "_row_num": 19
       },
       {
         "type": "select_one_dropdown",
@@ -124,7 +191,7 @@
             "text": "Comment 2"
           }
         },
-        "_row_num": 11
+        "_row_num": 20
       },
       {
         "type": "select_one_dropdown",
@@ -135,7 +202,7 @@
             "text": "Comment 3"
           }
         },
-        "_row_num": 12
+        "_row_num": 21
       },
       {
         "type": "text",
@@ -145,11 +212,11 @@
             "text": "Custom comment"
           }
         },
-        "_row_num": 13
+        "_row_num": 22
       },
       {
         "clause": "end screen",
-        "_row_num": 14
+        "_row_num": 23
       }
     ],
     "choices": [
@@ -1621,17 +1688,17 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 8,
+            "_row_num": 11,
             "section_name": "survey"
           }
         ],
-        "type": "integer",
+        "type": "number",
         "elementKey": "crown_percentage"
       },
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 9,
+            "_row_num": 15,
             "section_name": "survey"
           }
         ],
@@ -1641,7 +1708,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 10,
+            "_row_num": 19,
             "section_name": "survey"
           }
         ],
@@ -1652,7 +1719,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -1663,7 +1730,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 12,
+            "_row_num": 21,
             "section_name": "survey"
           }
         ],
@@ -1674,7 +1741,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 22,
             "section_name": "survey"
           }
         ],
@@ -1700,6 +1767,7 @@
                 "text": "DBH (cm)"
               }
             },
+            "default": 1,
             "_row_num": 3,
             "__rowNum__": 2,
             "_token_type": "prompt",
@@ -1761,8 +1829,12 @@
             "display": {
               "prompt": {
                 "text": "Lean Angle (deg)"
+              },
+              "contraint_message": {
+                "text": "Fix Lean Angle"
               }
             },
+            "constraint": "(function() { if (data('lean_angle') <= 120  && data('lean_angle') >=0){return true;} alert('Lean Angle Needs to be Fixed'); return false;})()",
             "_row_num": 7,
             "__rowNum__": 6,
             "_token_type": "prompt",
@@ -1771,19 +1843,51 @@
             "promptIdx": 4
           },
           {
-            "type": "integer",
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Lean Angle must be between 0 and 120"
+              }
+            },
+            "_row_num": 9,
+            "__rowNum__": 8,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 5
+          },
+          {
+            "type": "decimal",
             "name": "crown_percentage",
             "display": {
               "prompt": {
                 "text": "Crown Ratio (%)"
+              },
+              "contraint_message": {
+                "text": "Fix Crown Ratio"
               }
             },
-            "_row_num": 8,
-            "__rowNum__": 7,
+            "constraint": "(function() { if (data('crown_percentage') <= 100  && data('crown_percentage') >=0){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
+            "_row_num": 11,
+            "__rowNum__": 10,
             "_token_type": "prompt",
-            "_type": "integer",
+            "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 5
+            "promptIdx": 6
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Crown Ratio must be between 0 and 100"
+              }
+            },
+            "_row_num": 13,
+            "__rowNum__": 12,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 7
           },
           {
             "type": "integer",
@@ -1791,14 +1895,32 @@
             "display": {
               "prompt": {
                 "text": "Tree Percentage"
+              },
+              "contraint_message": {
+                "text": "Fix Tree Percentage"
               }
             },
-            "_row_num": 9,
-            "__rowNum__": 8,
+            "constraint": "(function() { if (data('tree_percentage') <= 100  && data('tree_percentage') >=0){return true;} alert('Tree Percentage Needs to be Fixed'); return false;})()",
+            "_row_num": 15,
+            "__rowNum__": 14,
             "_token_type": "prompt",
             "_type": "integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 6
+            "promptIdx": 8
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": "Tree Percentage must be between 0 and 100"
+              }
+            },
+            "_row_num": 17,
+            "__rowNum__": 16,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 9
           },
           {
             "type": "select_one_dropdown",
@@ -1809,12 +1931,12 @@
                 "text": "Comment 1"
               }
             },
-            "_row_num": 10,
-            "__rowNum__": 9,
+            "_row_num": 19,
+            "__rowNum__": 18,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 7
+            "promptIdx": 10
           },
           {
             "type": "select_one_dropdown",
@@ -1825,12 +1947,12 @@
                 "text": "Comment 2"
               }
             },
-            "_row_num": 11,
-            "__rowNum__": 10,
+            "_row_num": 20,
+            "__rowNum__": 19,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 8
+            "promptIdx": 11
           },
           {
             "type": "select_one_dropdown",
@@ -1841,12 +1963,12 @@
                 "text": "Comment 3"
               }
             },
-            "_row_num": 12,
-            "__rowNum__": 11,
+            "_row_num": 21,
+            "__rowNum__": 20,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 9
+            "promptIdx": 12
           },
           {
             "type": "text",
@@ -1856,24 +1978,28 @@
                 "text": "Custom comment"
               }
             },
-            "_row_num": 13,
-            "__rowNum__": 12,
+            "_row_num": 22,
+            "__rowNum__": 21,
             "_token_type": "prompt",
             "_type": "text",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 10
+            "promptIdx": 13
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 15,
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 11
+            "_row_num": 24,
+            "_branch_label_enclosing_screen": "survey/_screen24",
+            "promptIdx": 14
           }
         ],
         "validation_tag_map": {
-          "finalize": []
+          "finalize": [
+            4,
+            6,
+            8
+          ]
         },
         "operations": [
           {
@@ -1883,23 +2009,23 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 14,
-              "__rowNum__": 13,
+              "_row_num": 23,
+              "__rowNum__": 22,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\nactivePromptIndicies.push(10);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nif (data('lean_angle') > 120 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(5);\n}\nactivePromptIndicies.push(6);\nif (data('crown_percentage') > 100 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(7);\n}\nactivePromptIndicies.push(8);\nif (data('tree_percentage') > 100 || data('tree_percentage') < 0) {\nactivePromptIndicies.push(9);\n}\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 0
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 15,
+            "_row_num": 24,
             "operationIdx": 1
           },
           {
-            "_row_num": 15,
+            "_row_num": 24,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(11);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(14);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -1908,14 +2034,14 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 15,
+            "_row_num": 24,
             "operationIdx": 3
           }
         ],
         "branch_label_map": {
           "_screen2": 0,
           "_contents": 2,
-          "_screen15": 2
+          "_screen24": 2
         }
       },
       "initial": {
@@ -2168,11 +2294,11 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 8,
+            "_row_num": 11,
             "section_name": "survey"
           }
         ],
-        "type": "integer",
+        "type": "number",
         "elementKey": "crown_percentage",
         "elementName": "crown_percentage",
         "elementSet": "data",
@@ -2181,7 +2307,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 9,
+            "_row_num": 15,
             "section_name": "survey"
           }
         ],
@@ -2194,7 +2320,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 10,
+            "_row_num": 19,
             "section_name": "survey"
           }
         ],
@@ -2208,7 +2334,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -2222,7 +2348,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 12,
+            "_row_num": 21,
             "section_name": "survey"
           }
         ],
@@ -2236,7 +2362,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 22,
             "section_name": "survey"
           }
         ],
