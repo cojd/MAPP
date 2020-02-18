@@ -41,14 +41,25 @@ function genSelects()
 $(function () {
   // add options to selects
   genSelects();
+
+  // set up custom form validation
+  bindFormValidation();
   
   // grab form data on submit
   let f = $("form");
   f.submit(function (event) {
     event.preventDefault();
-    let data = formatFormData(f.serializeArray());
-    console.log(data);
-    createRow(f.attr('id'), data);
+    event.stopPropagation();
+    if (f[0].checkValidity() === false)
+    {
+      f.addClass('was-validated');
+    }
+    else
+    {
+      let data = formatFormData(f.serializeArray());
+      console.log(data);
+      createRow(f.attr('id'), data);
+    }
   });
 });
 
