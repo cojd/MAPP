@@ -7,5 +7,7 @@ Column,overall_vigor,displayChoicesList,object,"[{""choice_list_name"":""tree_vi
 Column,rooting,displayChoicesList,object,"[{""choice_list_name"":""rooting"",""data_value"":1,""display"":{""title"":{""text"":""1 - Fully rooted""}},""_row_num"":68},{""choice_list_name"":""rooting"",""data_value"":2,""display"":{""title"":{""text"":""2 - Partially rooted""}},""_row_num"":69},{""choice_list_name"":""rooting"",""data_value"":3,""display"":{""title"":{""text"":""3 - Uprooted""}},""_row_num"":70}]"
 FormType,default,FormType.formType,string,SURVEY
 SurveyUtil,default,SurveyUtil.formId,string,remeasure
-Table,default,defaultViewType,string,SPREADSHEET
+Table,default,defaultViewType,string,LIST
+Table,default,detailViewFileName,string,config/tables/remeasure/html/remeasure_detail.html
 Table,default,displayName,object,"{""text"":""Remeasure Form""}"
+Table,default,listViewFileName,string,config/tables/remeasure/html/remeasure_list.html

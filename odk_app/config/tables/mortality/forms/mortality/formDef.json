@@ -59,13 +59,23 @@
       },
       {
         "type": "integer",
+        "name": "stand",
+        "display": {
+          "prompt": {
+            "text": "Stand"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "type": "integer",
         "name": "plot",
         "display": {
           "prompt": {
             "text": "Plot"
           }
         },
-        "_row_num": 3
+        "_row_num": 4
       },
       {
         "type": "integer",
@@ -75,7 +85,7 @@
             "text": "Tag"
           }
         },
-        "_row_num": 4
+        "_row_num": 5
       },
       {
         "type": "select_one_integer",
@@ -86,7 +96,7 @@
             "text": "Main stem (MS)"
           }
         },
-        "_row_num": 5
+        "_row_num": 6
       },
       {
         "type": "select_one_integer",
@@ -97,7 +107,7 @@
             "text": "Rooting"
           }
         },
-        "_row_num": 6
+        "_row_num": 7
       },
       {
         "type": "decimal",
@@ -111,12 +121,12 @@
           }
         },
         "constraint": "(function() { if (data('lean_angle') <= 120  && data('lean_angle') >=0){return true;} alert('Lean Angle Needs to be Fixed'); return false;})()",
-        "_row_num": 7
+        "_row_num": 8
       },
       {
         "clause": "if",
         "condition": "data('lean_angle') > 120 || data('crown_percentage') < 0",
-        "_row_num": 8
+        "_row_num": 9
       },
       {
         "type": "note",
@@ -125,11 +135,11 @@
             "text": "Lean Angle must be between 0 and 120"
           }
         },
-        "_row_num": 9
+        "_row_num": 10
       },
       {
         "clause": "end if",
-        "_row_num": 10
+        "_row_num": 11
       },
       {
         "type": "decimal",
@@ -143,12 +153,12 @@
           }
         },
         "constraint": "(function() { if (data('crown_percentage') <= 100  && data('crown_percentage') >=0){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
-        "_row_num": 11
+        "_row_num": 12
       },
       {
         "clause": "if",
         "condition": "data('crown_percentage') > 100 || data('crown_percentage') < 0",
-        "_row_num": 12
+        "_row_num": 13
       },
       {
         "type": "note",
@@ -157,11 +167,11 @@
             "text": "Crown Percentage must be between 0 and 100"
           }
         },
-        "_row_num": 13
+        "_row_num": 14
       },
       {
         "clause": "end if",
-        "_row_num": 14
+        "_row_num": 15
       },
       {
         "type": "decimal",
@@ -175,12 +185,12 @@
           }
         },
         "constraint": "(function() { if (data('tree_percentage') <= 100  && data('tree_percentage') >=0){return true;} alert('Tree Percentage Needs to be Fixed'); return false;})()",
-        "_row_num": 15
+        "_row_num": 16
       },
       {
         "clause": "if",
         "condition": "data('tree_percentage') > 100 || data('tree_percentage') < 0",
-        "_row_num": 16
+        "_row_num": 17
       },
       {
         "type": "note",
@@ -189,11 +199,11 @@
             "text": "Tree Percentage must be between 0 and 100"
           }
         },
-        "_row_num": 17
+        "_row_num": 18
       },
       {
         "clause": "end if",
-        "_row_num": 18
+        "_row_num": 19
       },
       {
         "type": "decimal",
@@ -207,12 +217,12 @@
           }
         },
         "constraint": "(function() { if (data('ground_percentage') <= 100  && data('ground_percentage') >=-1){return true;} alert('Ground Percentage Needs to be Fixed'); return false;})()",
-        "_row_num": 19
+        "_row_num": 20
       },
       {
         "clause": "if",
         "condition": "data('ground_percentage') > 100 || data('ground_percentage') < 0",
-        "_row_num": 20
+        "_row_num": 21
       },
       {
         "type": "note",
@@ -221,11 +231,11 @@
             "text": "Ground Percentage must be between -1 and 100"
           }
         },
-        "_row_num": 21
+        "_row_num": 22
       },
       {
         "clause": "end if",
-        "_row_num": 22
+        "_row_num": 23
       },
       {
         "type": "decimal",
@@ -235,7 +245,7 @@
             "text": "Support percentage"
           }
         },
-        "_row_num": 23
+        "_row_num": 24
       },
       {
         "type": "select_one_integer",
@@ -246,7 +256,7 @@
             "text": "Condition 1"
           }
         },
-        "_row_num": 24
+        "_row_num": 25
       },
       {
         "type": "select_one_integer",
@@ -257,7 +267,7 @@
             "text": "Condition 2"
           }
         },
-        "_row_num": 25
+        "_row_num": 26
       },
       {
         "type": "select_one_integer",
@@ -268,7 +278,7 @@
             "text": "Condition 3"
           }
         },
-        "_row_num": 26
+        "_row_num": 27
       },
       {
         "type": "select_one_integer",
@@ -279,7 +289,7 @@
             "text": "Condition 4"
           }
         },
-        "_row_num": 27
+        "_row_num": 28
       },
       {
         "type": "select_one_integer",
@@ -290,7 +300,7 @@
             "text": "Proximate"
           }
         },
-        "_row_num": 28
+        "_row_num": 29
       },
       {
         "type": "select_one_integer",
@@ -301,7 +311,7 @@
             "text": "Predisposing"
           }
         },
-        "_row_num": 29
+        "_row_num": 30
       },
       {
         "type": "note",
@@ -310,7 +320,7 @@
             "text": "Comments"
           }
         },
-        "_row_num": 30
+        "_row_num": 31
       },
       {
         "type": "note",
@@ -319,7 +329,7 @@
             "text": "*previous comment here*"
           }
         },
-        "_row_num": 31
+        "_row_num": 32
       },
       {
         "type": "select_one_dropdown",
@@ -330,7 +340,7 @@
             "text": "Comment 1"
           }
         },
-        "_row_num": 32
+        "_row_num": 33
       },
       {
         "type": "select_one_dropdown",
@@ -341,7 +351,7 @@
             "text": "Comment 2"
           }
         },
-        "_row_num": 33
+        "_row_num": 34
       },
       {
         "type": "select_one_dropdown",
@@ -352,7 +362,7 @@
             "text": "Comment 3"
           }
         },
-        "_row_num": 34
+        "_row_num": 35
       },
       {
         "type": "text",
@@ -362,11 +372,11 @@
             "text": "Custom comment"
           }
         },
-        "_row_num": 35
+        "_row_num": 36
       },
       {
         "clause": "end screen",
-        "_row_num": 36
+        "_row_num": 37
       }
     ],
     "choices": [
@@ -2972,10 +2982,20 @@
     "queries": {},
     "calculates": {},
     "model": {
-      "plot": {
+      "stand": {
         "_defn": [
           {
             "_row_num": 3,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "stand"
+      },
+      "plot": {
+        "_defn": [
+          {
+            "_row_num": 4,
             "section_name": "survey"
           }
         ],
@@ -2985,7 +3005,7 @@
       "tag": {
         "_defn": [
           {
-            "_row_num": 4,
+            "_row_num": 5,
             "section_name": "survey"
           }
         ],
@@ -2995,7 +3015,7 @@
       "main_stem": {
         "_defn": [
           {
-            "_row_num": 5,
+            "_row_num": 6,
             "section_name": "survey"
           }
         ],
@@ -3006,7 +3026,7 @@
       "rooting": {
         "_defn": [
           {
-            "_row_num": 6,
+            "_row_num": 7,
             "section_name": "survey"
           }
         ],
@@ -3017,7 +3037,7 @@
       "lean_angle": {
         "_defn": [
           {
-            "_row_num": 7,
+            "_row_num": 8,
             "section_name": "survey"
           }
         ],
@@ -3027,7 +3047,7 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 12,
             "section_name": "survey"
           }
         ],
@@ -3037,7 +3057,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 15,
+            "_row_num": 16,
             "section_name": "survey"
           }
         ],
@@ -3047,7 +3067,7 @@
       "ground_percentage": {
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -3057,7 +3077,7 @@
       "support_percentage": {
         "_defn": [
           {
-            "_row_num": 23,
+            "_row_num": 24,
             "section_name": "survey"
           }
         ],
@@ -3067,7 +3087,7 @@
       "condition_1": {
         "_defn": [
           {
-            "_row_num": 24,
+            "_row_num": 25,
             "section_name": "survey"
           }
         ],
@@ -3078,7 +3098,7 @@
       "condition_2": {
         "_defn": [
           {
-            "_row_num": 25,
+            "_row_num": 26,
             "section_name": "survey"
           }
         ],
@@ -3089,7 +3109,7 @@
       "condition_3": {
         "_defn": [
           {
-            "_row_num": 26,
+            "_row_num": 27,
             "section_name": "survey"
           }
         ],
@@ -3100,7 +3120,7 @@
       "condition_4": {
         "_defn": [
           {
-            "_row_num": 27,
+            "_row_num": 28,
             "section_name": "survey"
           }
         ],
@@ -3111,7 +3131,7 @@
       "proximate": {
         "_defn": [
           {
-            "_row_num": 28,
+            "_row_num": 29,
             "section_name": "survey"
           }
         ],
@@ -3122,7 +3142,7 @@
       "predisposing": {
         "_defn": [
           {
-            "_row_num": 29,
+            "_row_num": 30,
             "section_name": "survey"
           }
         ],
@@ -3133,7 +3153,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 32,
+            "_row_num": 33,
             "section_name": "survey"
           }
         ],
@@ -3144,7 +3164,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 33,
+            "_row_num": 34,
             "section_name": "survey"
           }
         ],
@@ -3155,7 +3175,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 35,
             "section_name": "survey"
           }
         ],
@@ -3166,7 +3186,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 35,
+            "_row_num": 36,
             "section_name": "survey"
           }
         ],
@@ -3186,10 +3206,10 @@
         "prompts": [
           {
             "type": "integer",
-            "name": "plot",
+            "name": "stand",
             "display": {
               "prompt": {
-                "text": "Plot"
+                "text": "Stand"
               }
             },
             "_row_num": 3,
@@ -3201,10 +3221,10 @@
           },
           {
             "type": "integer",
-            "name": "tag",
+            "name": "plot",
             "display": {
               "prompt": {
-                "text": "Tag"
+                "text": "Plot"
               }
             },
             "_row_num": 4,
@@ -3215,6 +3235,21 @@
             "promptIdx": 1
           },
           {
+            "type": "integer",
+            "name": "tag",
+            "display": {
+              "prompt": {
+                "text": "Tag"
+              }
+            },
+            "_row_num": 5,
+            "__rowNum__": 4,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 2
+          },
+          {
             "type": "select_one_integer",
             "values_list": "main_stem",
             "name": "main_stem",
@@ -3223,12 +3258,12 @@
                 "text": "Main stem (MS)"
               }
             },
-            "_row_num": 5,
-            "__rowNum__": 4,
+            "_row_num": 6,
+            "__rowNum__": 5,
             "_token_type": "prompt",
             "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 2
+            "promptIdx": 3
           },
           {
             "type": "select_one_integer",
@@ -3239,12 +3274,12 @@
                 "text": "Rooting"
               }
             },
-            "_row_num": 6,
-            "__rowNum__": 5,
+            "_row_num": 7,
+            "__rowNum__": 6,
             "_token_type": "prompt",
             "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 3
+            "promptIdx": 4
           },
           {
             "type": "decimal",
@@ -3258,12 +3293,12 @@
               }
             },
             "constraint": "(function() { if (data('lean_angle') <= 120  && data('lean_angle') >=0){return true;} alert('Lean Angle Needs to be Fixed'); return false;})()",
-            "_row_num": 7,
-            "__rowNum__": 6,
+            "_row_num": 8,
+            "__rowNum__": 7,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 4
+            "promptIdx": 5
           },
           {
             "type": "note",
@@ -3272,12 +3307,12 @@
                 "text": "Lean Angle must be between 0 and 120"
               }
             },
-            "_row_num": 9,
-            "__rowNum__": 8,
+            "_row_num": 10,
+            "__rowNum__": 9,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 5
+            "promptIdx": 6
           },
           {
             "type": "decimal",
@@ -3291,12 +3326,12 @@
               }
             },
             "constraint": "(function() { if (data('crown_percentage') <= 100  && data('crown_percentage') >=0){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
-            "_row_num": 11,
-            "__rowNum__": 10,
+            "_row_num": 12,
+            "__rowNum__": 11,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 6
+            "promptIdx": 7
           },
           {
             "type": "note",
@@ -3305,12 +3340,12 @@
                 "text": "Crown Percentage must be between 0 and 100"
               }
             },
-            "_row_num": 13,
-            "__rowNum__": 12,
+            "_row_num": 14,
+            "__rowNum__": 13,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 7
+            "promptIdx": 8
           },
           {
             "type": "decimal",
@@ -3324,12 +3359,12 @@
               }
             },
             "constraint": "(function() { if (data('tree_percentage') <= 100  && data('tree_percentage') >=0){return true;} alert('Tree Percentage Needs to be Fixed'); return false;})()",
-            "_row_num": 15,
-            "__rowNum__": 14,
+            "_row_num": 16,
+            "__rowNum__": 15,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 8
+            "promptIdx": 9
           },
           {
             "type": "note",
@@ -3338,12 +3373,12 @@
                 "text": "Tree Percentage must be between 0 and 100"
               }
             },
-            "_row_num": 17,
-            "__rowNum__": 16,
+            "_row_num": 18,
+            "__rowNum__": 17,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 9
+            "promptIdx": 10
           },
           {
             "type": "decimal",
@@ -3357,12 +3392,12 @@
               }
             },
             "constraint": "(function() { if (data('ground_percentage') <= 100  && data('ground_percentage') >=-1){return true;} alert('Ground Percentage Needs to be Fixed'); return false;})()",
-            "_row_num": 19,
-            "__rowNum__": 18,
+            "_row_num": 20,
+            "__rowNum__": 19,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 10
+            "promptIdx": 11
           },
           {
             "type": "note",
@@ -3371,12 +3406,12 @@
                 "text": "Ground Percentage must be between -1 and 100"
               }
             },
-            "_row_num": 21,
-            "__rowNum__": 20,
+            "_row_num": 22,
+            "__rowNum__": 21,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 11
+            "promptIdx": 12
           },
           {
             "type": "decimal",
@@ -3386,12 +3421,12 @@
                 "text": "Support percentage"
               }
             },
-            "_row_num": 23,
-            "__rowNum__": 22,
+            "_row_num": 24,
+            "__rowNum__": 23,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 12
+            "promptIdx": 13
           },
           {
             "type": "select_one_integer",
@@ -3400,22 +3435,6 @@
             "display": {
               "prompt": {
                 "text": "Condition 1"
-              }
-            },
-            "_row_num": 24,
-            "__rowNum__": 23,
-            "_token_type": "prompt",
-            "_type": "select_one_integer",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 13
-          },
-          {
-            "type": "select_one_integer",
-            "values_list": "tree_condition",
-            "name": "condition_2",
-            "display": {
-              "prompt": {
-                "text": "Condition 2"
               }
             },
             "_row_num": 25,
@@ -3428,10 +3447,10 @@
           {
             "type": "select_one_integer",
             "values_list": "tree_condition",
-            "name": "condition_3",
+            "name": "condition_2",
             "display": {
               "prompt": {
-                "text": "Condition 3"
+                "text": "Condition 2"
               }
             },
             "_row_num": 26,
@@ -3444,10 +3463,10 @@
           {
             "type": "select_one_integer",
             "values_list": "tree_condition",
-            "name": "condition_4",
+            "name": "condition_3",
             "display": {
               "prompt": {
-                "text": "Condition 4"
+                "text": "Condition 3"
               }
             },
             "_row_num": 27,
@@ -3459,11 +3478,11 @@
           },
           {
             "type": "select_one_integer",
-            "values_list": "proximate_predisposing",
-            "name": "proximate",
+            "values_list": "tree_condition",
+            "name": "condition_4",
             "display": {
               "prompt": {
-                "text": "Proximate"
+                "text": "Condition 4"
               }
             },
             "_row_num": 28,
@@ -3476,10 +3495,10 @@
           {
             "type": "select_one_integer",
             "values_list": "proximate_predisposing",
-            "name": "predisposing",
+            "name": "proximate",
             "display": {
               "prompt": {
-                "text": "Predisposing"
+                "text": "Proximate"
               }
             },
             "_row_num": 29,
@@ -3490,16 +3509,18 @@
             "promptIdx": 18
           },
           {
-            "type": "note",
+            "type": "select_one_integer",
+            "values_list": "proximate_predisposing",
+            "name": "predisposing",
             "display": {
               "prompt": {
-                "text": "Comments"
+                "text": "Predisposing"
               }
             },
             "_row_num": 30,
             "__rowNum__": 29,
             "_token_type": "prompt",
-            "_type": "note",
+            "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
             "promptIdx": 19
           },
@@ -3507,7 +3528,7 @@
             "type": "note",
             "display": {
               "prompt": {
-                "text": "*previous comment here*"
+                "text": "Comments"
               }
             },
             "_row_num": 31,
@@ -3518,28 +3539,26 @@
             "promptIdx": 20
           },
           {
-            "type": "select_one_dropdown",
-            "values_list": "tree_mortality_comments",
-            "name": "comment_1",
+            "type": "note",
             "display": {
               "prompt": {
-                "text": "Comment 1"
+                "text": "*previous comment here*"
               }
             },
             "_row_num": 32,
             "__rowNum__": 31,
             "_token_type": "prompt",
-            "_type": "select_one_dropdown",
+            "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
             "promptIdx": 21
           },
           {
             "type": "select_one_dropdown",
             "values_list": "tree_mortality_comments",
-            "name": "comment_2",
+            "name": "comment_1",
             "display": {
               "prompt": {
-                "text": "Comment 2"
+                "text": "Comment 1"
               }
             },
             "_row_num": 33,
@@ -3552,10 +3571,10 @@
           {
             "type": "select_one_dropdown",
             "values_list": "tree_mortality_comments",
-            "name": "comment_3",
+            "name": "comment_2",
             "display": {
               "prompt": {
-                "text": "Comment 3"
+                "text": "Comment 2"
               }
             },
             "_row_num": 34,
@@ -3566,6 +3585,22 @@
             "promptIdx": 23
           },
           {
+            "type": "select_one_dropdown",
+            "values_list": "tree_mortality_comments",
+            "name": "comment_3",
+            "display": {
+              "prompt": {
+                "text": "Comment 3"
+              }
+            },
+            "_row_num": 35,
+            "__rowNum__": 34,
+            "_token_type": "prompt",
+            "_type": "select_one_dropdown",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 24
+          },
+          {
             "type": "text",
             "name": "comment_custom",
             "display": {
@@ -3573,28 +3608,28 @@
                 "text": "Custom comment"
               }
             },
-            "_row_num": 35,
-            "__rowNum__": 34,
+            "_row_num": 36,
+            "__rowNum__": 35,
             "_token_type": "prompt",
             "_type": "text",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 24
+            "promptIdx": 25
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 37,
-            "_branch_label_enclosing_screen": "survey/_screen37",
-            "promptIdx": 25
+            "_row_num": 38,
+            "_branch_label_enclosing_screen": "survey/_screen38",
+            "promptIdx": 26
           }
         ],
         "validation_tag_map": {
           "finalize": [
-            4,
-            6,
-            8,
-            10
+            5,
+            7,
+            9,
+            11
           ]
         },
         "operations": [
@@ -3605,23 +3640,23 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 36,
-              "__rowNum__": 35,
+              "_row_num": 37,
+              "__rowNum__": 36,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nif (data('lean_angle') > 120 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(5);\n}\nactivePromptIndicies.push(6);\nif (data('crown_percentage') > 100 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(7);\n}\nactivePromptIndicies.push(8);\nif (data('tree_percentage') > 100 || data('tree_percentage') < 0) {\nactivePromptIndicies.push(9);\n}\nactivePromptIndicies.push(10);\nif (data('ground_percentage') > 100 || data('ground_percentage') < 0) {\nactivePromptIndicies.push(11);\n}\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nactivePromptIndicies.push(14);\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nactivePromptIndicies.push(19);\nactivePromptIndicies.push(20);\nactivePromptIndicies.push(21);\nactivePromptIndicies.push(22);\nactivePromptIndicies.push(23);\nactivePromptIndicies.push(24);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nif (data('lean_angle') > 120 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(6);\n}\nactivePromptIndicies.push(7);\nif (data('crown_percentage') > 100 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(8);\n}\nactivePromptIndicies.push(9);\nif (data('tree_percentage') > 100 || data('tree_percentage') < 0) {\nactivePromptIndicies.push(10);\n}\nactivePromptIndicies.push(11);\nif (data('ground_percentage') > 100 || data('ground_percentage') < 0) {\nactivePromptIndicies.push(12);\n}\nactivePromptIndicies.push(13);\nactivePromptIndicies.push(14);\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nactivePromptIndicies.push(19);\nactivePromptIndicies.push(20);\nactivePromptIndicies.push(21);\nactivePromptIndicies.push(22);\nactivePromptIndicies.push(23);\nactivePromptIndicies.push(24);\nactivePromptIndicies.push(25);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 0
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 37,
+            "_row_num": 38,
             "operationIdx": 1
           },
           {
-            "_row_num": 37,
+            "_row_num": 38,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(25);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(26);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -3630,14 +3665,14 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 37,
+            "_row_num": 38,
             "operationIdx": 3
           }
         ],
         "branch_label_map": {
           "_screen2": 0,
           "_contents": 2,
-          "_screen37": 2
+          "_screen38": 2
         }
       },
       "initial": {
@@ -3819,10 +3854,23 @@
       }
     },
     "dataTableModel": {
-      "plot": {
+      "stand": {
         "_defn": [
           {
             "_row_num": 3,
+            "section_name": "survey"
+          }
+        ],
+        "type": "integer",
+        "elementKey": "stand",
+        "elementName": "stand",
+        "elementSet": "data",
+        "elementPath": "stand"
+      },
+      "plot": {
+        "_defn": [
+          {
+            "_row_num": 4,
             "section_name": "survey"
           }
         ],
@@ -3835,7 +3883,7 @@
       "tag": {
         "_defn": [
           {
-            "_row_num": 4,
+            "_row_num": 5,
             "section_name": "survey"
           }
         ],
@@ -3848,7 +3896,7 @@
       "main_stem": {
         "_defn": [
           {
-            "_row_num": 5,
+            "_row_num": 6,
             "section_name": "survey"
           }
         ],
@@ -3862,7 +3910,7 @@
       "rooting": {
         "_defn": [
           {
-            "_row_num": 6,
+            "_row_num": 7,
             "section_name": "survey"
           }
         ],
@@ -3876,7 +3924,7 @@
       "lean_angle": {
         "_defn": [
           {
-            "_row_num": 7,
+            "_row_num": 8,
             "section_name": "survey"
           }
         ],
@@ -3889,7 +3937,7 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 12,
             "section_name": "survey"
           }
         ],
@@ -3902,7 +3950,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 15,
+            "_row_num": 16,
             "section_name": "survey"
           }
         ],
@@ -3915,7 +3963,7 @@
       "ground_percentage": {
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -3928,7 +3976,7 @@
       "support_percentage": {
         "_defn": [
           {
-            "_row_num": 23,
+            "_row_num": 24,
             "section_name": "survey"
           }
         ],
@@ -3941,7 +3989,7 @@
       "condition_1": {
         "_defn": [
           {
-            "_row_num": 24,
+            "_row_num": 25,
             "section_name": "survey"
           }
         ],
@@ -3955,7 +4003,7 @@
       "condition_2": {
         "_defn": [
           {
-            "_row_num": 25,
+            "_row_num": 26,
             "section_name": "survey"
           }
         ],
@@ -3969,7 +4017,7 @@
       "condition_3": {
         "_defn": [
           {
-            "_row_num": 26,
+            "_row_num": 27,
             "section_name": "survey"
           }
         ],
@@ -3983,7 +4031,7 @@
       "condition_4": {
         "_defn": [
           {
-            "_row_num": 27,
+            "_row_num": 28,
             "section_name": "survey"
           }
         ],
@@ -3997,7 +4045,7 @@
       "proximate": {
         "_defn": [
           {
-            "_row_num": 28,
+            "_row_num": 29,
             "section_name": "survey"
           }
         ],
@@ -4011,7 +4059,7 @@
       "predisposing": {
         "_defn": [
           {
-            "_row_num": 29,
+            "_row_num": 30,
             "section_name": "survey"
           }
         ],
@@ -4025,7 +4073,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 32,
+            "_row_num": 33,
             "section_name": "survey"
           }
         ],
@@ -4039,7 +4087,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 33,
+            "_row_num": 34,
             "section_name": "survey"
           }
         ],
@@ -4053,7 +4101,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 35,
             "section_name": "survey"
           }
         ],
@@ -4067,7 +4115,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 35,
+            "_row_num": 36,
             "section_name": "survey"
           }
         ],

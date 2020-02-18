@@ -11,6 +11,19 @@ function display() {
   // Set the background to be a picture.
   // body.css('background-image', 'url(img/teaBackground.jpg)');
 
+  var remeasureFormButton = $('#remeasure-form');
+  remeasureFormButton.on(
+    'click',
+    function () {
+      odkTables.openTableToListView(
+        null,
+        'remeasure',
+        null,
+        null,
+        null);
+    }
+  );
+  
   var ingrowthFormButton = $('#ingrowth-form');
   ingrowthFormButton.on(
     'click',
