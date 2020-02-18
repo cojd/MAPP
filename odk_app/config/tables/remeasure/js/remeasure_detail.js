@@ -43,7 +43,7 @@ function updateContent() {
     nullCaseHelper('main_stem', '#FIELD_6');
     nullCaseHelper('rooting', '#FIELD_7');
     nullCaseHelper('lean_angle', '#FIELD_8');
-    nullCaseHelper('crown_ratio', '#FIELD_9');
+    nullCaseHelper('crown_percentage', '#FIELD_9');
     nullCaseHelper('tree_percentage', '#FIELD_10');
     nullCaseHelper('comment_1', '#FIELD_11');
     nullCaseHelper('comment_2', '#FIELD_12');

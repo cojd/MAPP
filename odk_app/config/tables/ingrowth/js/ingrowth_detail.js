@@ -35,26 +35,27 @@ function updateContent() {
     //     $('#FIELD_1').attr('checked', true);
     // }
 
-    nullCaseHelper('plot',              '#FIELD_1');
-    nullCaseHelper('tag',               '#FIELD_2');
-    nullCaseHelper('species',           '#FIELD_3');
-    nullCaseHelper('dbh',               '#FIELD_4');
-    nullCaseHelper('status',            '#FIELD_5');
-    nullCaseHelper('canopy_class',      '#FIELD_6');
-    nullCaseHelper('crown_ratio',       '#FIELD_7');
-    nullCaseHelper('overall_vigor',     '#FIELD_8');
-    nullCaseHelper('main_stem',         '#FIELD_9');
-    nullCaseHelper('rooting',           '#FIELD_10');
-    nullCaseHelper('lean_angle',        '#FIELD_11');
-    nullCaseHelper('crown_percentage',  '#FIELD_12');
-    nullCaseHelper('tree_percentage',   '#FIELD_13');
-    nullCaseHelper('from_tag',          '#FIELD_14');
-    nullCaseHelper('distance',          '#FIELD_15');
-    nullCaseHelper('azimuth',           '#FIELD_16');
-    nullCaseHelper('comment_1',         '#FIELD_17');
-    nullCaseHelper('comment_2',         '#FIELD_18');
-    nullCaseHelper('comment_3',         '#FIELD_19');
-    nullCaseHelper('comment_custom',    '#FIELD_20');
+    nullCaseHelper('stand',             '#FIELD_1');
+    nullCaseHelper('plot',              '#FIELD_2');
+    nullCaseHelper('tag',               '#FIELD_3');
+    nullCaseHelper('species',           '#FIELD_4');
+    nullCaseHelper('dbh',               '#FIELD_5');
+    nullCaseHelper('status',            '#FIELD_6');
+    nullCaseHelper('canopy_class',      '#FIELD_7');
+    nullCaseHelper('crown_ratio',       '#FIELD_8');
+    nullCaseHelper('overall_vigor',     '#FIELD_9');
+    nullCaseHelper('main_stem',         '#FIELD_10');
+    nullCaseHelper('rooting',           '#FIELD_11');
+    nullCaseHelper('lean_angle',        '#FIELD_12');
+    nullCaseHelper('crown_percentage',  '#FIELD_13');
+    nullCaseHelper('tree_percentage',   '#FIELD_14');
+    nullCaseHelper('from_tag',          '#FIELD_15');
+    nullCaseHelper('distance',          '#FIELD_16');
+    nullCaseHelper('azimuth',           '#FIELD_17');
+    nullCaseHelper('comment_1',         '#FIELD_18');
+    nullCaseHelper('comment_2',         '#FIELD_19');
+    nullCaseHelper('comment_3',         '#FIELD_20');
+    nullCaseHelper('comment_custom',    '#FIELD_21');
 }
 
 /**
