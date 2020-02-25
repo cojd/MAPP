@@ -46,7 +46,19 @@ function bindButtons() {
         'mortality',
         null,
         null,
-        'config/tables/mortality/html/mortality_list.html');
+        null);
+    }
+  );
+
+  var prevDataListButton = $('#prev-data-list');
+  prevDataListButton.on(
+    'click',
+    function () {
+      odkTables.openTableToSpreadsheetView(
+        null,
+        'prev_data',
+        null,
+        null);
     }
   );
 }

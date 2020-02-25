@@ -1,0 +1,3219 @@
+{
+  "xlsx": {
+    "settings": [
+      {
+        "setting_name": "form_id",
+        "value": "prev_data",
+        "_row_num": 2
+      },
+      {
+        "setting_name": "from_version",
+        "value": 20180101,
+        "_row_num": 3
+      },
+      {
+        "setting_name": "table_id",
+        "value": "prev_data",
+        "_row_num": 4
+      },
+      {
+        "setting_name": "survey",
+        "display": {
+          "title": {
+            "text": "Previous data"
+          }
+        },
+        "_row_num": 5
+      }
+    ],
+    "properties": [
+      {
+        "partition": "Table",
+        "aspect": "default",
+        "key": "defaultViewType",
+        "type": "string",
+        "value": "SPREADSHEET",
+        "_row_num": 2
+      }
+    ],
+    "survey": [
+      {
+        "type": "integer",
+        "name": "stand",
+        "display": {
+          "prompt": {
+            "text": "Stand"
+          }
+        },
+        "_row_num": 2
+      },
+      {
+        "type": "integer",
+        "name": "plot",
+        "display": {
+          "prompt": {
+            "text": "Plot"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "type": "integer",
+        "name": "tag",
+        "display": {
+          "prompt": {
+            "text": "Tag"
+          }
+        },
+        "_row_num": 4
+      },
+      {
+        "type": "select_one_dropdown",
+        "values_list": "species_list",
+        "name": "species",
+        "display": {
+          "prompt": {
+            "text": "Species"
+          }
+        },
+        "_row_num": 5
+      },
+      {
+        "type": "select_one_integer",
+        "values_list": "tree_status",
+        "name": "status",
+        "display": {
+          "prompt": {
+            "text": "Status"
+          }
+        },
+        "_row_num": 6
+      },
+      {
+        "type": "decimal",
+        "name": "dbh",
+        "display": {
+          "prompt": {
+            "text": "DBH"
+          }
+        },
+        "_row_num": 7
+      },
+      {
+        "type": "select_one_integer",
+        "values_list": "main_stem",
+        "name": "main_stem",
+        "display": {
+          "prompt": {
+            "text": "Main stem"
+          }
+        },
+        "_row_num": 8
+      },
+      {
+        "type": "decimal",
+        "name": "lean_angle",
+        "display": {
+          "prompt": {
+            "text": "Lean angle"
+          }
+        },
+        "_row_num": 9
+      },
+      {
+        "type": "text",
+        "name": "comments",
+        "display": {
+          "prompt": {
+            "text": "Comments"
+          }
+        },
+        "_row_num": 10
+      }
+    ],
+    "choices": [
+      {
+        "choice_list_name": "yes_no",
+        "data_value": "yes",
+        "display": {
+          "title": {
+            "text": "Yes"
+          }
+        },
+        "_row_num": 2
+      },
+      {
+        "choice_list_name": "yes_no",
+        "data_value": "no",
+        "display": {
+          "title": {
+            "text": "No"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "choice_list_name": "tree_status",
+        "data_value": 1,
+        "display": {
+          "title": {
+            "text": "1 - Alive"
+          }
+        },
+        "_row_num": 7
+      },
+      {
+        "choice_list_name": "tree_status",
+        "data_value": 2,
+        "display": {
+          "title": {
+            "text": "2 - Ingrowth"
+          }
+        },
+        "_row_num": 8
+      },
+      {
+        "choice_list_name": "tree_status",
+        "data_value": 3,
+        "display": {
+          "title": {
+            "text": "3 - Fused at DBH"
+          }
+        },
+        "_row_num": 9
+      },
+      {
+        "choice_list_name": "tree_status",
+        "data_value": 6,
+        "display": {
+          "title": {
+            "text": "6 - Dead"
+          }
+        },
+        "_row_num": 10
+      },
+      {
+        "choice_list_name": "tree_status",
+        "data_value": 9,
+        "display": {
+          "title": {
+            "text": "9 - Not found"
+          }
+        },
+        "_row_num": 11
+      },
+      {
+        "choice_list_name": "canopy_class",
+        "data_value": "S",
+        "display": {
+          "title": {
+            "text": "S - Suppressed"
+          }
+        },
+        "_row_num": 13
+      },
+      {
+        "choice_list_name": "canopy_class",
+        "data_value": "I",
+        "display": {
+          "title": {
+            "text": "I - Intermediate"
+          }
+        },
+        "_row_num": 14
+      },
+      {
+        "choice_list_name": "canopy_class",
+        "data_value": "C",
+        "display": {
+          "title": {
+            "text": "C - Co-dominant"
+          }
+        },
+        "_row_num": 15
+      },
+      {
+        "choice_list_name": "canopy_class",
+        "data_value": "D",
+        "display": {
+          "title": {
+            "text": "D - Dominant"
+          }
+        },
+        "_row_num": 16
+      },
+      {
+        "choice_list_name": "tree_vigor",
+        "data_value": 1,
+        "display": {
+          "title": {
+            "text": "1 - Good"
+          }
+        },
+        "_row_num": 18
+      },
+      {
+        "choice_list_name": "tree_vigor",
+        "data_value": 2,
+        "display": {
+          "title": {
+            "text": "2 - Fair"
+          }
+        },
+        "_row_num": 19
+      },
+      {
+        "choice_list_name": "tree_vigor",
+        "data_value": 3,
+        "display": {
+          "title": {
+            "text": "3 - Poor"
+          }
+        },
+        "_row_num": 20
+      },
+      {
+        "choice_list_name": "main_stem",
+        "data_value": 1,
+        "display": {
+          "title": {
+            "text": "1 - Main stem intact"
+          }
+        },
+        "_row_num": 22
+      },
+      {
+        "choice_list_name": "main_stem",
+        "data_value": 2,
+        "display": {
+          "title": {
+            "text": "2 - Broken above root collar"
+          }
+        },
+        "_row_num": 23
+      },
+      {
+        "choice_list_name": "main_stem",
+        "data_value": 3,
+        "display": {
+          "title": {
+            "text": "3 - Broken below root collar"
+          }
+        },
+        "_row_num": 24
+      },
+      {
+        "choice_list_name": "rooting",
+        "data_value": 1,
+        "display": {
+          "title": {
+            "text": "1 - Fully rooted"
+          }
+        },
+        "_row_num": 26
+      },
+      {
+        "choice_list_name": "rooting",
+        "data_value": 2,
+        "display": {
+          "title": {
+            "text": "2 - Partially rooted"
+          }
+        },
+        "_row_num": 27
+      },
+      {
+        "choice_list_name": "rooting",
+        "data_value": 3,
+        "display": {
+          "title": {
+            "text": "3 - Uprooted"
+          }
+        },
+        "_row_num": 28
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Bark_slough",
+        "display": {
+          "title": {
+            "text": "Bark sloughing"
+          }
+        },
+        "_row_num": 30
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "BlScrp",
+        "display": {
+          "title": {
+            "text": "Bole Scrape/Scar"
+          }
+        },
+        "_row_num": 31
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "BlSnp",
+        "display": {
+          "title": {
+            "text": "Bole Snap"
+          }
+        },
+        "_row_num": 32
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "BrknTp",
+        "display": {
+          "title": {
+            "text": "Broken Top"
+          }
+        },
+        "_row_num": 33
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Brown_needles",
+        "display": {
+          "title": {
+            "text": "Brown needles present"
+          }
+        },
+        "_row_num": 34
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "BttSwl",
+        "display": {
+          "title": {
+            "text": "Butt Swell"
+          }
+        },
+        "_row_num": 35
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Burls",
+        "display": {
+          "title": {
+            "text": "Burls"
+          }
+        },
+        "_row_num": 36
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "CHKLOC",
+        "display": {
+          "title": {
+            "text": "Check Location"
+          }
+        },
+        "_row_num": 37
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "CHKSPP",
+        "display": {
+          "title": {
+            "text": "Check Species ID"
+          }
+        },
+        "_row_num": 38
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Cnks",
+        "display": {
+          "title": {
+            "text": "Conks Present"
+          }
+        },
+        "_row_num": 39
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Crook",
+        "display": {
+          "title": {
+            "text": "Crook in Stem"
+          }
+        },
+        "_row_num": 40
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "DDC",
+        "display": {
+          "title": {
+            "text": "Diameter Double Checked"
+          }
+        },
+        "_row_num": 41
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "DdTp",
+        "display": {
+          "title": {
+            "text": "Dead Top"
+          }
+        },
+        "_row_num": 42
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "DwrfMstl",
+        "display": {
+          "title": {
+            "text": "Dwarf Mistletoe"
+          }
+        },
+        "_row_num": 43
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "EpBr",
+        "display": {
+          "title": {
+            "text": "Epicormic Branching"
+          }
+        },
+        "_row_num": 44
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "FltTp",
+        "display": {
+          "title": {
+            "text": "Flat Top"
+          }
+        },
+        "_row_num": 45
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Frass",
+        "display": {
+          "title": {
+            "text": "Frass"
+          }
+        },
+        "_row_num": 46
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "FrkTp",
+        "display": {
+          "title": {
+            "text": "Forked Top"
+          }
+        },
+        "_row_num": 47
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "GNA",
+        "display": {
+          "title": {
+            "text": "Guide Nails Added"
+          }
+        },
+        "_row_num": 48
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Hit_by_snag",
+        "display": {
+          "title": {
+            "text": "Hit by snag"
+          }
+        },
+        "_row_num": 49
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Hit_by_tree",
+        "display": {
+          "title": {
+            "text": "Hit by live tree"
+          }
+        },
+        "_row_num": 50
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Insect_holes",
+        "display": {
+          "title": {
+            "text": "Insect holes in bark"
+          }
+        },
+        "_row_num": 51
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "JointDBH",
+        "display": {
+          "title": {
+            "text": "Two Trees Measured Together"
+          }
+        },
+        "_row_num": 52
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Log_against_it",
+        "display": {
+          "title": {
+            "text": "Log pressed against it"
+          }
+        },
+        "_row_num": 53
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "LRR",
+        "display": {
+          "title": {
+            "text": "Laminated Root Rot"
+          }
+        },
+        "_row_num": 54
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "MeasSwell",
+        "display": {
+          "title": {
+            "text": "DBH measure includes swelling"
+          }
+        },
+        "_row_num": 55
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "MOX",
+        "display": {
+          "title": {
+            "text": "Measured perpend. to lean"
+          }
+        },
+        "_row_num": 56
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "NEWLOC",
+        "display": {
+          "title": {
+            "text": "New Location"
+          }
+        },
+        "_row_num": 57
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "NFAS",
+        "display": {
+          "title": {
+            "text": "Not Found After Search"
+          }
+        },
+        "_row_num": 58
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "NNT",
+        "display": {
+          "title": {
+            "text": "Needs New Tag"
+          }
+        },
+        "_row_num": 59
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "No_comment",
+        "display": {
+          "title": {
+            "text": "Void"
+          }
+        },
+        "_row_num": 60
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "On_nurse_log",
+        "display": {
+          "title": {
+            "text": "On nurse log"
+          }
+        },
+        "_row_num": 61
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Phellinus_pini",
+        "display": {
+          "title": {
+            "text": "Phellinus pini"
+          }
+        },
+        "_row_num": 62
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "PistlButt",
+        "display": {
+          "title": {
+            "text": "Pistol butt"
+          }
+        },
+        "_row_num": 63
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Pitch_sheets",
+        "display": {
+          "title": {
+            "text": "Pitch sheets"
+          }
+        },
+        "_row_num": 64
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Pitch_tubes",
+        "display": {
+          "title": {
+            "text": "Pitch tubes"
+          }
+        },
+        "_row_num": 65
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "PrevTagATD",
+        "display": {
+          "title": {
+            "text": "Prev tagged, add to database"
+          }
+        },
+        "_row_num": 66
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "ReitLdr",
+        "display": {
+          "title": {
+            "text": "Reiterated leader"
+          }
+        },
+        "_row_num": 67
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Rot_in_bole",
+        "display": {
+          "title": {
+            "text": "Rot in bole"
+          }
+        },
+        "_row_num": 68
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Sapsucker_holes",
+        "display": {
+          "title": {
+            "text": "Sapsucker holes"
+          }
+        },
+        "_row_num": 69
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Sawdust",
+        "display": {
+          "title": {
+            "text": "Sawdust"
+          }
+        },
+        "_row_num": 70
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Sparse_crown",
+        "display": {
+          "title": {
+            "text": "Sparse crown"
+          }
+        },
+        "_row_num": 71
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "StemSwp",
+        "display": {
+          "title": {
+            "text": "Stem Sweep"
+          }
+        },
+        "_row_num": 72
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "Stilt-rooted",
+        "display": {
+          "title": {
+            "text": "Stilt-rooted"
+          }
+        },
+        "_row_num": 73
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "SweepVert",
+        "display": {
+          "title": {
+            "text": "Sweeps to vertical"
+          }
+        },
+        "_row_num": 74
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "T_NBH",
+        "display": {
+          "title": {
+            "text": "Tag Nailed at Breast height"
+          }
+        },
+        "_row_num": 75
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "TF_NEstHt",
+        "display": {
+          "title": {
+            "text": "Tag Found, Nailed at Estimated Breast Height"
+          }
+        },
+        "_row_num": 76
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "TF_NPrevHt",
+        "display": {
+          "title": {
+            "text": "Tag Found, Nailed at Previous Height"
+          }
+        },
+        "_row_num": 77
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "TgRepl",
+        "display": {
+          "title": {
+            "text": "Tag Replaced"
+          }
+        },
+        "_row_num": 78
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "TNF_NEstHt",
+        "display": {
+          "title": {
+            "text": "Tag not found, temp tag at EstHt"
+          }
+        },
+        "_row_num": 79
+      },
+      {
+        "choice_list_name": "tree_comments",
+        "data_value": "WtchBrm",
+        "display": {
+          "title": {
+            "text": "Witches' Broom Present"
+          }
+        },
+        "_row_num": 80
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ABAM",
+        "display": {
+          "title": {
+            "text": "ABAM - Abies amabilis (Pacific silver fir)"
+          }
+        },
+        "_row_num": 82
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ABCO",
+        "display": {
+          "title": {
+            "text": "ABCO - Abies concolor (white fir)"
+          }
+        },
+        "_row_num": 83
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ABGR",
+        "display": {
+          "title": {
+            "text": "ABGR - Abies grandis (grand fir)"
+          }
+        },
+        "_row_num": 84
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ABLA",
+        "display": {
+          "title": {
+            "text": "ABLA - Abies lasiocarpa (subalpine fir)"
+          }
+        },
+        "_row_num": 85
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ABMA",
+        "display": {
+          "title": {
+            "text": "ABMA - Abies magnifica (Shasta red fir)"
+          }
+        },
+        "_row_num": 86
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ABPR",
+        "display": {
+          "title": {
+            "text": "ABPR - Abies procera (noble fir)"
+          }
+        },
+        "_row_num": 87
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ACGL",
+        "display": {
+          "title": {
+            "text": "ACGL - Acer glabrum (Rocky Mtn maple)"
+          }
+        },
+        "_row_num": 88
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ACMA3",
+        "display": {
+          "title": {
+            "text": "ACMA3 - Acer macrophyllum (bigleaf maple)"
+          }
+        },
+        "_row_num": 89
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ALRU2",
+        "display": {
+          "title": {
+            "text": "ALRU2 - Alnus rubra (red alder)"
+          }
+        },
+        "_row_num": 90
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ALVIS",
+        "display": {
+          "title": {
+            "text": "ALVIS - Alnus viridis ssp sinuata (Sitka alder)"
+          }
+        },
+        "_row_num": 91
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "ARME",
+        "display": {
+          "title": {
+            "text": "ARME - Arbutus menziesii (Pacific madrone)"
+          }
+        },
+        "_row_num": 92
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "CHCH7",
+        "display": {
+          "title": {
+            "text": "CHCH7 - Chrysolepis chrysophylla (golden chinquapin)"
+          }
+        },
+        "_row_num": 93
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "CADE27",
+        "display": {
+          "title": {
+            "text": "CADE27 - Calocedrus decurrens (incense cedar)"
+          }
+        },
+        "_row_num": 94
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "CANO9",
+        "display": {
+          "title": {
+            "text": "CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)"
+          }
+        },
+        "_row_num": 95
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "CONU4",
+        "display": {
+          "title": {
+            "text": "CONU4 - Cornus nuttalli (Pacific dogwood)"
+          }
+        },
+        "_row_num": 96
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "FRPU7",
+        "display": {
+          "title": {
+            "text": "FRPU7 - Frangula purshiana (Cascara buckthorn)"
+          }
+        },
+        "_row_num": 97
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PICO",
+        "display": {
+          "title": {
+            "text": "PICO - Pinus contorta (Lodgepole pine)"
+          }
+        },
+        "_row_num": 98
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PIEN",
+        "display": {
+          "title": {
+            "text": "PIEN - Picea engelmanii (Engelmnn spruce)"
+          }
+        },
+        "_row_num": 99
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PILA",
+        "display": {
+          "title": {
+            "text": "PILA - Pinus lambertiana (sugar pine)"
+          }
+        },
+        "_row_num": 100
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PIMO3",
+        "display": {
+          "title": {
+            "text": "PIMO3 - Pinus monticola (w. white pine)"
+          }
+        },
+        "_row_num": 101
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PIPO",
+        "display": {
+          "title": {
+            "text": "PIPO - Pinus ponderosa (ponderosa pine)"
+          }
+        },
+        "_row_num": 102
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PISI",
+        "display": {
+          "title": {
+            "text": "PISI - Picea sitchensis (Sitka spruce)"
+          }
+        },
+        "_row_num": 103
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "POBAT",
+        "display": {
+          "title": {
+            "text": "POBAT - Populus balsamifer v. trich. (black cottonwood)"
+          }
+        },
+        "_row_num": 104
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PREM",
+        "display": {
+          "title": {
+            "text": "PREM - Prunus emarginata (bitter cherry)"
+          }
+        },
+        "_row_num": 105
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PRUNU",
+        "display": {
+          "title": {
+            "text": "PRUNU - Prunus spp. (cherry)"
+          }
+        },
+        "_row_num": 106
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "PSME",
+        "display": {
+          "title": {
+            "text": "PSME - Pseudotsuga menziesii (Douglas-fir)"
+          }
+        },
+        "_row_num": 107
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "QUGA4",
+        "display": {
+          "title": {
+            "text": "QUGA4 - Quercus garryana (Oregon white oak)"
+          }
+        },
+        "_row_num": 108
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "QUKE",
+        "display": {
+          "title": {
+            "text": "QUKE - Quercus kelloggii (California black oak)"
+          }
+        },
+        "_row_num": 109
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "TABR2",
+        "display": {
+          "title": {
+            "text": "TABR2 - Taxus brevifolia (Pacific yew)"
+          }
+        },
+        "_row_num": 110
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "THPL",
+        "display": {
+          "title": {
+            "text": "THPL - Thuja plicata (western redcedar)"
+          }
+        },
+        "_row_num": 111
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "TSHE",
+        "display": {
+          "title": {
+            "text": "TSHE - Tsuga heterophylla (western hemlock)"
+          }
+        },
+        "_row_num": 112
+      },
+      {
+        "choice_list_name": "species_list",
+        "data_value": "TSME",
+        "display": {
+          "title": {
+            "text": "TSME - Tsuga mertensiana (mountain hemlock)"
+          }
+        },
+        "_row_num": 113
+      }
+    ],
+    "model": [
+      {
+        "type": "integer",
+        "name": "stand",
+        "_row_num": 2
+      },
+      {
+        "type": "integer",
+        "name": "plot",
+        "_row_num": 3
+      },
+      {
+        "type": "integer",
+        "name": "tag",
+        "_row_num": 4
+      },
+      {
+        "type": "select_one_dropdown",
+        "name": "species",
+        "_row_num": 5
+      },
+      {
+        "type": "select_one_integer",
+        "name": "status",
+        "_row_num": 6
+      },
+      {
+        "type": "decimal",
+        "name": "dbh",
+        "_row_num": 7
+      },
+      {
+        "type": "select_one_integer",
+        "name": "main_stem",
+        "_row_num": 8
+      },
+      {
+        "type": "decimal",
+        "name": "lean_angle",
+        "_row_num": 9
+      },
+      {
+        "type": "text",
+        "name": "comments",
+        "_row_num": 10
+      }
+    ]
+  },
+  "specification": {
+    "column_types": {
+      "_screen_block": "function",
+      "condition": "formula",
+      "constraint": "formula",
+      "required": "formula",
+      "calculation": "formula",
+      "newRowInitialElementKeyToValueMap": "formula",
+      "openRowInitialElementKeyToValueMap": "formula",
+      "selectionArgs": "formula",
+      "url": "formula",
+      "uri": "formula",
+      "callback": "formula(context)",
+      "choice_filter": "formula(choice_item)",
+      "templatePath": "requirejs_path"
+    },
+    "settings": {
+      "form_id": {
+        "setting_name": "form_id",
+        "value": "prev_data",
+        "_row_num": 2
+      },
+      "from_version": {
+        "setting_name": "from_version",
+        "value": 20180101,
+        "_row_num": 3
+      },
+      "table_id": {
+        "setting_name": "table_id",
+        "value": "prev_data",
+        "_row_num": 4
+      },
+      "survey": {
+        "setting_name": "survey",
+        "display": {
+          "title": {
+            "text": "Previous data"
+          }
+        },
+        "_row_num": 5
+      },
+      "_locales": {
+        "setting_name": "_locales",
+        "_row_num": 5,
+        "value": [
+          {
+            "display": {
+              "locale": {
+                "text": "default"
+              }
+            },
+            "name": "default"
+          }
+        ]
+      },
+      "_default_locale": {
+        "setting_name": "_default_locale",
+        "_row_num": 5,
+        "value": "default"
+      },
+      "initial": {
+        "setting_name": "survey",
+        "display": {
+          "title": {
+            "text": "Previous data"
+          }
+        },
+        "_row_num": 5
+      }
+    },
+    "choices": {
+      "yes_no": [
+        {
+          "choice_list_name": "yes_no",
+          "data_value": "yes",
+          "display": {
+            "title": {
+              "text": "Yes"
+            }
+          },
+          "_row_num": 2
+        },
+        {
+          "choice_list_name": "yes_no",
+          "data_value": "no",
+          "display": {
+            "title": {
+              "text": "No"
+            }
+          },
+          "_row_num": 3
+        }
+      ],
+      "tree_status": [
+        {
+          "choice_list_name": "tree_status",
+          "data_value": 1,
+          "display": {
+            "title": {
+              "text": "1 - Alive"
+            }
+          },
+          "_row_num": 7
+        },
+        {
+          "choice_list_name": "tree_status",
+          "data_value": 2,
+          "display": {
+            "title": {
+              "text": "2 - Ingrowth"
+            }
+          },
+          "_row_num": 8
+        },
+        {
+          "choice_list_name": "tree_status",
+          "data_value": 3,
+          "display": {
+            "title": {
+              "text": "3 - Fused at DBH"
+            }
+          },
+          "_row_num": 9
+        },
+        {
+          "choice_list_name": "tree_status",
+          "data_value": 6,
+          "display": {
+            "title": {
+              "text": "6 - Dead"
+            }
+          },
+          "_row_num": 10
+        },
+        {
+          "choice_list_name": "tree_status",
+          "data_value": 9,
+          "display": {
+            "title": {
+              "text": "9 - Not found"
+            }
+          },
+          "_row_num": 11
+        }
+      ],
+      "canopy_class": [
+        {
+          "choice_list_name": "canopy_class",
+          "data_value": "S",
+          "display": {
+            "title": {
+              "text": "S - Suppressed"
+            }
+          },
+          "_row_num": 13
+        },
+        {
+          "choice_list_name": "canopy_class",
+          "data_value": "I",
+          "display": {
+            "title": {
+              "text": "I - Intermediate"
+            }
+          },
+          "_row_num": 14
+        },
+        {
+          "choice_list_name": "canopy_class",
+          "data_value": "C",
+          "display": {
+            "title": {
+              "text": "C - Co-dominant"
+            }
+          },
+          "_row_num": 15
+        },
+        {
+          "choice_list_name": "canopy_class",
+          "data_value": "D",
+          "display": {
+            "title": {
+              "text": "D - Dominant"
+            }
+          },
+          "_row_num": 16
+        }
+      ],
+      "tree_vigor": [
+        {
+          "choice_list_name": "tree_vigor",
+          "data_value": 1,
+          "display": {
+            "title": {
+              "text": "1 - Good"
+            }
+          },
+          "_row_num": 18
+        },
+        {
+          "choice_list_name": "tree_vigor",
+          "data_value": 2,
+          "display": {
+            "title": {
+              "text": "2 - Fair"
+            }
+          },
+          "_row_num": 19
+        },
+        {
+          "choice_list_name": "tree_vigor",
+          "data_value": 3,
+          "display": {
+            "title": {
+              "text": "3 - Poor"
+            }
+          },
+          "_row_num": 20
+        }
+      ],
+      "main_stem": [
+        {
+          "choice_list_name": "main_stem",
+          "data_value": 1,
+          "display": {
+            "title": {
+              "text": "1 - Main stem intact"
+            }
+          },
+          "_row_num": 22
+        },
+        {
+          "choice_list_name": "main_stem",
+          "data_value": 2,
+          "display": {
+            "title": {
+              "text": "2 - Broken above root collar"
+            }
+          },
+          "_row_num": 23
+        },
+        {
+          "choice_list_name": "main_stem",
+          "data_value": 3,
+          "display": {
+            "title": {
+              "text": "3 - Broken below root collar"
+            }
+          },
+          "_row_num": 24
+        }
+      ],
+      "rooting": [
+        {
+          "choice_list_name": "rooting",
+          "data_value": 1,
+          "display": {
+            "title": {
+              "text": "1 - Fully rooted"
+            }
+          },
+          "_row_num": 26
+        },
+        {
+          "choice_list_name": "rooting",
+          "data_value": 2,
+          "display": {
+            "title": {
+              "text": "2 - Partially rooted"
+            }
+          },
+          "_row_num": 27
+        },
+        {
+          "choice_list_name": "rooting",
+          "data_value": 3,
+          "display": {
+            "title": {
+              "text": "3 - Uprooted"
+            }
+          },
+          "_row_num": 28
+        }
+      ],
+      "tree_comments": [
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Bark_slough",
+          "display": {
+            "title": {
+              "text": "Bark sloughing"
+            }
+          },
+          "_row_num": 30
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "BlScrp",
+          "display": {
+            "title": {
+              "text": "Bole Scrape/Scar"
+            }
+          },
+          "_row_num": 31
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "BlSnp",
+          "display": {
+            "title": {
+              "text": "Bole Snap"
+            }
+          },
+          "_row_num": 32
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "BrknTp",
+          "display": {
+            "title": {
+              "text": "Broken Top"
+            }
+          },
+          "_row_num": 33
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Brown_needles",
+          "display": {
+            "title": {
+              "text": "Brown needles present"
+            }
+          },
+          "_row_num": 34
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "BttSwl",
+          "display": {
+            "title": {
+              "text": "Butt Swell"
+            }
+          },
+          "_row_num": 35
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Burls",
+          "display": {
+            "title": {
+              "text": "Burls"
+            }
+          },
+          "_row_num": 36
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "CHKLOC",
+          "display": {
+            "title": {
+              "text": "Check Location"
+            }
+          },
+          "_row_num": 37
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "CHKSPP",
+          "display": {
+            "title": {
+              "text": "Check Species ID"
+            }
+          },
+          "_row_num": 38
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Cnks",
+          "display": {
+            "title": {
+              "text": "Conks Present"
+            }
+          },
+          "_row_num": 39
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Crook",
+          "display": {
+            "title": {
+              "text": "Crook in Stem"
+            }
+          },
+          "_row_num": 40
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "DDC",
+          "display": {
+            "title": {
+              "text": "Diameter Double Checked"
+            }
+          },
+          "_row_num": 41
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "DdTp",
+          "display": {
+            "title": {
+              "text": "Dead Top"
+            }
+          },
+          "_row_num": 42
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "DwrfMstl",
+          "display": {
+            "title": {
+              "text": "Dwarf Mistletoe"
+            }
+          },
+          "_row_num": 43
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "EpBr",
+          "display": {
+            "title": {
+              "text": "Epicormic Branching"
+            }
+          },
+          "_row_num": 44
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "FltTp",
+          "display": {
+            "title": {
+              "text": "Flat Top"
+            }
+          },
+          "_row_num": 45
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Frass",
+          "display": {
+            "title": {
+              "text": "Frass"
+            }
+          },
+          "_row_num": 46
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "FrkTp",
+          "display": {
+            "title": {
+              "text": "Forked Top"
+            }
+          },
+          "_row_num": 47
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "GNA",
+          "display": {
+            "title": {
+              "text": "Guide Nails Added"
+            }
+          },
+          "_row_num": 48
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Hit_by_snag",
+          "display": {
+            "title": {
+              "text": "Hit by snag"
+            }
+          },
+          "_row_num": 49
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Hit_by_tree",
+          "display": {
+            "title": {
+              "text": "Hit by live tree"
+            }
+          },
+          "_row_num": 50
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Insect_holes",
+          "display": {
+            "title": {
+              "text": "Insect holes in bark"
+            }
+          },
+          "_row_num": 51
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "JointDBH",
+          "display": {
+            "title": {
+              "text": "Two Trees Measured Together"
+            }
+          },
+          "_row_num": 52
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Log_against_it",
+          "display": {
+            "title": {
+              "text": "Log pressed against it"
+            }
+          },
+          "_row_num": 53
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "LRR",
+          "display": {
+            "title": {
+              "text": "Laminated Root Rot"
+            }
+          },
+          "_row_num": 54
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "MeasSwell",
+          "display": {
+            "title": {
+              "text": "DBH measure includes swelling"
+            }
+          },
+          "_row_num": 55
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "MOX",
+          "display": {
+            "title": {
+              "text": "Measured perpend. to lean"
+            }
+          },
+          "_row_num": 56
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "NEWLOC",
+          "display": {
+            "title": {
+              "text": "New Location"
+            }
+          },
+          "_row_num": 57
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "NFAS",
+          "display": {
+            "title": {
+              "text": "Not Found After Search"
+            }
+          },
+          "_row_num": 58
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "NNT",
+          "display": {
+            "title": {
+              "text": "Needs New Tag"
+            }
+          },
+          "_row_num": 59
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "No_comment",
+          "display": {
+            "title": {
+              "text": "Void"
+            }
+          },
+          "_row_num": 60
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "On_nurse_log",
+          "display": {
+            "title": {
+              "text": "On nurse log"
+            }
+          },
+          "_row_num": 61
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Phellinus_pini",
+          "display": {
+            "title": {
+              "text": "Phellinus pini"
+            }
+          },
+          "_row_num": 62
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "PistlButt",
+          "display": {
+            "title": {
+              "text": "Pistol butt"
+            }
+          },
+          "_row_num": 63
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Pitch_sheets",
+          "display": {
+            "title": {
+              "text": "Pitch sheets"
+            }
+          },
+          "_row_num": 64
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Pitch_tubes",
+          "display": {
+            "title": {
+              "text": "Pitch tubes"
+            }
+          },
+          "_row_num": 65
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "PrevTagATD",
+          "display": {
+            "title": {
+              "text": "Prev tagged, add to database"
+            }
+          },
+          "_row_num": 66
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "ReitLdr",
+          "display": {
+            "title": {
+              "text": "Reiterated leader"
+            }
+          },
+          "_row_num": 67
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Rot_in_bole",
+          "display": {
+            "title": {
+              "text": "Rot in bole"
+            }
+          },
+          "_row_num": 68
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Sapsucker_holes",
+          "display": {
+            "title": {
+              "text": "Sapsucker holes"
+            }
+          },
+          "_row_num": 69
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Sawdust",
+          "display": {
+            "title": {
+              "text": "Sawdust"
+            }
+          },
+          "_row_num": 70
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Sparse_crown",
+          "display": {
+            "title": {
+              "text": "Sparse crown"
+            }
+          },
+          "_row_num": 71
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "StemSwp",
+          "display": {
+            "title": {
+              "text": "Stem Sweep"
+            }
+          },
+          "_row_num": 72
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "Stilt-rooted",
+          "display": {
+            "title": {
+              "text": "Stilt-rooted"
+            }
+          },
+          "_row_num": 73
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "SweepVert",
+          "display": {
+            "title": {
+              "text": "Sweeps to vertical"
+            }
+          },
+          "_row_num": 74
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "T_NBH",
+          "display": {
+            "title": {
+              "text": "Tag Nailed at Breast height"
+            }
+          },
+          "_row_num": 75
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "TF_NEstHt",
+          "display": {
+            "title": {
+              "text": "Tag Found, Nailed at Estimated Breast Height"
+            }
+          },
+          "_row_num": 76
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "TF_NPrevHt",
+          "display": {
+            "title": {
+              "text": "Tag Found, Nailed at Previous Height"
+            }
+          },
+          "_row_num": 77
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "TgRepl",
+          "display": {
+            "title": {
+              "text": "Tag Replaced"
+            }
+          },
+          "_row_num": 78
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "TNF_NEstHt",
+          "display": {
+            "title": {
+              "text": "Tag not found, temp tag at EstHt"
+            }
+          },
+          "_row_num": 79
+        },
+        {
+          "choice_list_name": "tree_comments",
+          "data_value": "WtchBrm",
+          "display": {
+            "title": {
+              "text": "Witches' Broom Present"
+            }
+          },
+          "_row_num": 80
+        }
+      ],
+      "species_list": [
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABAM",
+          "display": {
+            "title": {
+              "text": "ABAM - Abies amabilis (Pacific silver fir)"
+            }
+          },
+          "_row_num": 82
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABCO",
+          "display": {
+            "title": {
+              "text": "ABCO - Abies concolor (white fir)"
+            }
+          },
+          "_row_num": 83
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABGR",
+          "display": {
+            "title": {
+              "text": "ABGR - Abies grandis (grand fir)"
+            }
+          },
+          "_row_num": 84
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABLA",
+          "display": {
+            "title": {
+              "text": "ABLA - Abies lasiocarpa (subalpine fir)"
+            }
+          },
+          "_row_num": 85
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABMA",
+          "display": {
+            "title": {
+              "text": "ABMA - Abies magnifica (Shasta red fir)"
+            }
+          },
+          "_row_num": 86
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABPR",
+          "display": {
+            "title": {
+              "text": "ABPR - Abies procera (noble fir)"
+            }
+          },
+          "_row_num": 87
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ACGL",
+          "display": {
+            "title": {
+              "text": "ACGL - Acer glabrum (Rocky Mtn maple)"
+            }
+          },
+          "_row_num": 88
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ACMA3",
+          "display": {
+            "title": {
+              "text": "ACMA3 - Acer macrophyllum (bigleaf maple)"
+            }
+          },
+          "_row_num": 89
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ALRU2",
+          "display": {
+            "title": {
+              "text": "ALRU2 - Alnus rubra (red alder)"
+            }
+          },
+          "_row_num": 90
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ALVIS",
+          "display": {
+            "title": {
+              "text": "ALVIS - Alnus viridis ssp sinuata (Sitka alder)"
+            }
+          },
+          "_row_num": 91
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ARME",
+          "display": {
+            "title": {
+              "text": "ARME - Arbutus menziesii (Pacific madrone)"
+            }
+          },
+          "_row_num": 92
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CHCH7",
+          "display": {
+            "title": {
+              "text": "CHCH7 - Chrysolepis chrysophylla (golden chinquapin)"
+            }
+          },
+          "_row_num": 93
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CADE27",
+          "display": {
+            "title": {
+              "text": "CADE27 - Calocedrus decurrens (incense cedar)"
+            }
+          },
+          "_row_num": 94
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CANO9",
+          "display": {
+            "title": {
+              "text": "CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)"
+            }
+          },
+          "_row_num": 95
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CONU4",
+          "display": {
+            "title": {
+              "text": "CONU4 - Cornus nuttalli (Pacific dogwood)"
+            }
+          },
+          "_row_num": 96
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "FRPU7",
+          "display": {
+            "title": {
+              "text": "FRPU7 - Frangula purshiana (Cascara buckthorn)"
+            }
+          },
+          "_row_num": 97
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PICO",
+          "display": {
+            "title": {
+              "text": "PICO - Pinus contorta (Lodgepole pine)"
+            }
+          },
+          "_row_num": 98
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PIEN",
+          "display": {
+            "title": {
+              "text": "PIEN - Picea engelmanii (Engelmnn spruce)"
+            }
+          },
+          "_row_num": 99
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PILA",
+          "display": {
+            "title": {
+              "text": "PILA - Pinus lambertiana (sugar pine)"
+            }
+          },
+          "_row_num": 100
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PIMO3",
+          "display": {
+            "title": {
+              "text": "PIMO3 - Pinus monticola (w. white pine)"
+            }
+          },
+          "_row_num": 101
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PIPO",
+          "display": {
+            "title": {
+              "text": "PIPO - Pinus ponderosa (ponderosa pine)"
+            }
+          },
+          "_row_num": 102
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PISI",
+          "display": {
+            "title": {
+              "text": "PISI - Picea sitchensis (Sitka spruce)"
+            }
+          },
+          "_row_num": 103
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "POBAT",
+          "display": {
+            "title": {
+              "text": "POBAT - Populus balsamifer v. trich. (black cottonwood)"
+            }
+          },
+          "_row_num": 104
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PREM",
+          "display": {
+            "title": {
+              "text": "PREM - Prunus emarginata (bitter cherry)"
+            }
+          },
+          "_row_num": 105
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PRUNU",
+          "display": {
+            "title": {
+              "text": "PRUNU - Prunus spp. (cherry)"
+            }
+          },
+          "_row_num": 106
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PSME",
+          "display": {
+            "title": {
+              "text": "PSME - Pseudotsuga menziesii (Douglas-fir)"
+            }
+          },
+          "_row_num": 107
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "QUGA4",
+          "display": {
+            "title": {
+              "text": "QUGA4 - Quercus garryana (Oregon white oak)"
+            }
+          },
+          "_row_num": 108
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "QUKE",
+          "display": {
+            "title": {
+              "text": "QUKE - Quercus kelloggii (California black oak)"
+            }
+          },
+          "_row_num": 109
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "TABR2",
+          "display": {
+            "title": {
+              "text": "TABR2 - Taxus brevifolia (Pacific yew)"
+            }
+          },
+          "_row_num": 110
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "THPL",
+          "display": {
+            "title": {
+              "text": "THPL - Thuja plicata (western redcedar)"
+            }
+          },
+          "_row_num": 111
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "TSHE",
+          "display": {
+            "title": {
+              "text": "TSHE - Tsuga heterophylla (western hemlock)"
+            }
+          },
+          "_row_num": 112
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "TSME",
+          "display": {
+            "title": {
+              "text": "TSME - Tsuga mertensiana (mountain hemlock)"
+            }
+          },
+          "_row_num": 113
+        }
+      ]
+    },
+    "table_specific_definitions": {
+      "_tokens": {}
+    },
+    "queries": {},
+    "calculates": {},
+    "model": {
+      "stand": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 2,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 2,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "stand"
+      },
+      "plot": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 3,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 3,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "plot"
+      },
+      "tag": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 4,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "tag"
+      },
+      "species": {
+        "type": "string",
+        "valuesList": "species_list",
+        "_defn": [
+          {
+            "_row_num": 5,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 5,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "species"
+      },
+      "status": {
+        "type": "integer",
+        "valuesList": "tree_status",
+        "_defn": [
+          {
+            "_row_num": 6,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 6,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "status"
+      },
+      "dbh": {
+        "type": "number",
+        "_defn": [
+          {
+            "_row_num": 7,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 7,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "dbh"
+      },
+      "main_stem": {
+        "type": "integer",
+        "valuesList": "main_stem",
+        "_defn": [
+          {
+            "_row_num": 8,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 8,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "main_stem"
+      },
+      "lean_angle": {
+        "type": "number",
+        "_defn": [
+          {
+            "_row_num": 9,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 9,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "lean_angle"
+      },
+      "comments": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 10,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 10,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "comments"
+      }
+    },
+    "section_names": [
+      "initial",
+      "survey"
+    ],
+    "sections": {
+      "survey": {
+        "section_name": "survey",
+        "nested_sections": {},
+        "reachable_sections": {},
+        "prompts": [
+          {
+            "type": "integer",
+            "name": "stand",
+            "display": {
+              "prompt": {
+                "text": "Stand"
+              }
+            },
+            "_row_num": 2,
+            "__rowNum__": 1,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 0
+          },
+          {
+            "type": "integer",
+            "name": "plot",
+            "display": {
+              "prompt": {
+                "text": "Plot"
+              }
+            },
+            "_row_num": 3,
+            "__rowNum__": 2,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen3",
+            "promptIdx": 1
+          },
+          {
+            "type": "integer",
+            "name": "tag",
+            "display": {
+              "prompt": {
+                "text": "Tag"
+              }
+            },
+            "_row_num": 4,
+            "__rowNum__": 3,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen4",
+            "promptIdx": 2
+          },
+          {
+            "type": "select_one_dropdown",
+            "values_list": "species_list",
+            "name": "species",
+            "display": {
+              "prompt": {
+                "text": "Species"
+              }
+            },
+            "_row_num": 5,
+            "__rowNum__": 4,
+            "_token_type": "prompt",
+            "_type": "select_one_dropdown",
+            "_branch_label_enclosing_screen": "survey/_screen5",
+            "promptIdx": 3
+          },
+          {
+            "type": "select_one_integer",
+            "values_list": "tree_status",
+            "name": "status",
+            "display": {
+              "prompt": {
+                "text": "Status"
+              }
+            },
+            "_row_num": 6,
+            "__rowNum__": 5,
+            "_token_type": "prompt",
+            "_type": "select_one_integer",
+            "_branch_label_enclosing_screen": "survey/_screen6",
+            "promptIdx": 4
+          },
+          {
+            "type": "decimal",
+            "name": "dbh",
+            "display": {
+              "prompt": {
+                "text": "DBH"
+              }
+            },
+            "_row_num": 7,
+            "__rowNum__": 6,
+            "_token_type": "prompt",
+            "_type": "decimal",
+            "_branch_label_enclosing_screen": "survey/_screen7",
+            "promptIdx": 5
+          },
+          {
+            "type": "select_one_integer",
+            "values_list": "main_stem",
+            "name": "main_stem",
+            "display": {
+              "prompt": {
+                "text": "Main stem"
+              }
+            },
+            "_row_num": 8,
+            "__rowNum__": 7,
+            "_token_type": "prompt",
+            "_type": "select_one_integer",
+            "_branch_label_enclosing_screen": "survey/_screen8",
+            "promptIdx": 6
+          },
+          {
+            "type": "decimal",
+            "name": "lean_angle",
+            "display": {
+              "prompt": {
+                "text": "Lean angle"
+              }
+            },
+            "_row_num": 9,
+            "__rowNum__": 8,
+            "_token_type": "prompt",
+            "_type": "decimal",
+            "_branch_label_enclosing_screen": "survey/_screen9",
+            "promptIdx": 7
+          },
+          {
+            "type": "text",
+            "name": "comments",
+            "display": {
+              "prompt": {
+                "text": "Comments"
+              }
+            },
+            "_row_num": 10,
+            "__rowNum__": 9,
+            "_token_type": "prompt",
+            "_type": "text",
+            "_branch_label_enclosing_screen": "survey/_screen10",
+            "promptIdx": 8
+          },
+          {
+            "_token_type": "prompt",
+            "type": "contents",
+            "_type": "contents",
+            "_row_num": 11,
+            "_branch_label_enclosing_screen": "survey/_screen11",
+            "promptIdx": 9
+          }
+        ],
+        "validation_tag_map": {
+          "finalize": []
+        },
+        "operations": [
+          {
+            "_row_num": 2,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 0
+          },
+          {
+            "_row_num": 3,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(1);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 1
+          },
+          {
+            "_row_num": 4,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(2);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 2
+          },
+          {
+            "_row_num": 5,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(3);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 3
+          },
+          {
+            "_row_num": 6,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(4);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 4
+          },
+          {
+            "_row_num": 7,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(5);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 5
+          },
+          {
+            "_row_num": 8,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(6);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 6
+          },
+          {
+            "_row_num": 9,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(7);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 7
+          },
+          {
+            "_row_num": 10,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(8);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 8
+          },
+          {
+            "_token_type": "exit_section",
+            "clause": "exit section",
+            "_row_num": 11,
+            "operationIdx": 9
+          },
+          {
+            "_row_num": 11,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(9);\n\nreturn activePromptIndicies;\n}\n",
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 10
+          },
+          {
+            "_token_type": "resume",
+            "clause": "resume",
+            "_row_num": 11,
+            "operationIdx": 11
+          }
+        ],
+        "branch_label_map": {
+          "_screen2": 0,
+          "_screen3": 1,
+          "_screen4": 2,
+          "_screen5": 3,
+          "_screen6": 4,
+          "_screen7": 5,
+          "_screen8": 6,
+          "_screen9": 7,
+          "_screen10": 8,
+          "_contents": 10,
+          "_screen11": 10
+        }
+      },
+      "initial": {
+        "section_name": "initial",
+        "nested_sections": {
+          "survey": true
+        },
+        "reachable_sections": {
+          "survey": true
+        },
+        "prompts": [
+          {
+            "_row_num": 3,
+            "type": "opening",
+            "display": {
+              "text": "Edit form"
+            },
+            "_token_type": "prompt",
+            "_type": "opening",
+            "_branch_label_enclosing_screen": "initial/_screen3",
+            "promptIdx": 0
+          },
+          {
+            "_row_num": 4,
+            "clause": "do section survey",
+            "_token_type": "prompt",
+            "_do_section_name": "survey",
+            "_type": "_section",
+            "promptIdx": 1,
+            "display": {
+              "title": {
+                "text": "Previous data"
+              }
+            },
+            "_branch_label_enclosing_screen": "survey/0"
+          },
+          {
+            "_row_num": 5,
+            "type": "finalize",
+            "display": {
+              "text": "Save form"
+            },
+            "_token_type": "prompt",
+            "_type": "finalize",
+            "_branch_label_enclosing_screen": "initial/_screen5",
+            "promptIdx": 2
+          },
+          {
+            "_row_num": 7,
+            "type": "instances",
+            "display": {
+              "text": "Saved instances"
+            },
+            "_token_type": "prompt",
+            "_type": "instances",
+            "_branch_label_enclosing_screen": "initial/_screen7",
+            "promptIdx": 3
+          },
+          {
+            "_token_type": "prompt",
+            "type": "contents",
+            "_type": "contents",
+            "_row_num": 9,
+            "_branch_label_enclosing_screen": "initial/_screen9",
+            "promptIdx": 4
+          }
+        ],
+        "validation_tag_map": {
+          "finalize": []
+        },
+        "operations": [
+          {
+            "_row_num": 2,
+            "clause": "if // start",
+            "condition": "(opendatakit.getCurrentInstanceId() != null)",
+            "_token_type": "goto_label",
+            "_tag_name": "start",
+            "_branch_label": "_then2",
+            "operationIdx": 0
+          },
+          {
+            "clause": "else // start",
+            "_token_type": "goto_label",
+            "_branch_label": "_else6",
+            "_row_num": 6,
+            "operationIdx": 1
+          },
+          {
+            "_row_num": 3,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 2
+          },
+          {
+            "_row_num": 4,
+            "clause": "do section survey",
+            "_token_type": "do_section",
+            "_do_section_name": "survey",
+            "operationIdx": 3
+          },
+          {
+            "_row_num": 5,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(2);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 4
+          },
+          {
+            "clause": "end if // start",
+            "_token_type": "goto_label",
+            "_branch_label": "_endif8",
+            "_row_num": 8,
+            "operationIdx": 5
+          },
+          {
+            "_row_num": 7,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(3);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 6
+          },
+          {
+            "_token_type": "exit_section",
+            "clause": "exit section",
+            "_row_num": 9,
+            "operationIdx": 7
+          },
+          {
+            "_row_num": 9,
+            "_token_type": "begin_screen",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(4);\n\nreturn activePromptIndicies;\n}\n",
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 8
+          },
+          {
+            "_token_type": "resume",
+            "clause": "resume",
+            "_row_num": 9,
+            "operationIdx": 9
+          },
+          {
+            "_token_type": "validate",
+            "clause": "validate finalize",
+            "_sweep_name": "finalize",
+            "_row_num": 9,
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 10
+          },
+          {
+            "_token_type": "save_and_terminate",
+            "clause": "save and terminate",
+            "calculation": true,
+            "_row_num": 9,
+            "screen": {
+              "hideInBackHistory": true
+            },
+            "operationIdx": 11
+          },
+          {
+            "_token_type": "resume",
+            "clause": "resume",
+            "_row_num": 9,
+            "operationIdx": 12
+          }
+        ],
+        "branch_label_map": {
+          "_then2": 2,
+          "_screen3": 2,
+          "_screen5": 4,
+          "_else6": 6,
+          "_screen7": 6,
+          "_endif8": 7,
+          "_contents": 8,
+          "_screen9": 8,
+          "_finalize": 10
+        }
+      }
+    },
+    "dataTableModel": {
+      "stand": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 2,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 2,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "stand",
+        "elementName": "stand",
+        "elementSet": "data",
+        "elementPath": "stand"
+      },
+      "plot": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 3,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 3,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "plot",
+        "elementName": "plot",
+        "elementSet": "data",
+        "elementPath": "plot"
+      },
+      "tag": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 4,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "tag",
+        "elementName": "tag",
+        "elementSet": "data",
+        "elementPath": "tag"
+      },
+      "species": {
+        "type": "string",
+        "valuesList": "species_list",
+        "_defn": [
+          {
+            "_row_num": 5,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 5,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "species",
+        "elementName": "species",
+        "elementSet": "data",
+        "elementPath": "species"
+      },
+      "status": {
+        "type": "integer",
+        "valuesList": "tree_status",
+        "_defn": [
+          {
+            "_row_num": 6,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 6,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "status",
+        "elementName": "status",
+        "elementSet": "data",
+        "elementPath": "status"
+      },
+      "dbh": {
+        "type": "number",
+        "_defn": [
+          {
+            "_row_num": 7,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 7,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "dbh",
+        "elementName": "dbh",
+        "elementSet": "data",
+        "elementPath": "dbh"
+      },
+      "main_stem": {
+        "type": "integer",
+        "valuesList": "main_stem",
+        "_defn": [
+          {
+            "_row_num": 8,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 8,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "main_stem",
+        "elementName": "main_stem",
+        "elementSet": "data",
+        "elementPath": "main_stem"
+      },
+      "lean_angle": {
+        "type": "number",
+        "_defn": [
+          {
+            "_row_num": 9,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 9,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "lean_angle",
+        "elementName": "lean_angle",
+        "elementSet": "data",
+        "elementPath": "lean_angle"
+      },
+      "comments": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 10,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 10,
+            "section_name": "model"
+          }
+        ],
+        "elementKey": "comments",
+        "elementName": "comments",
+        "elementSet": "data",
+        "elementPath": "comments"
+      },
+      "_id": {
+        "type": "string",
+        "isNotNullable": true,
+        "elementKey": "_id",
+        "elementName": "_id",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_id"
+      },
+      "_row_etag": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_row_etag",
+        "elementName": "_row_etag",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_row_etag"
+      },
+      "_sync_state": {
+        "type": "string",
+        "isNotNullable": true,
+        "elementKey": "_sync_state",
+        "elementName": "_sync_state",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_sync_state"
+      },
+      "_conflict_type": {
+        "type": "integer",
+        "isNotNullable": false,
+        "elementKey": "_conflict_type",
+        "elementName": "_conflict_type",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_conflict_type"
+      },
+      "_default_access": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_default_access",
+        "elementName": "_default_access",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_default_access"
+      },
+      "_form_id": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_form_id",
+        "elementName": "_form_id",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_form_id"
+      },
+      "_group_modify": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_group_modify",
+        "elementName": "_group_modify",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_group_modify"
+      },
+      "_group_privileged": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_group_privileged",
+        "elementName": "_group_privileged",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_group_privileged"
+      },
+      "_group_read_only": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_group_read_only",
+        "elementName": "_group_read_only",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_group_read_only"
+      },
+      "_locale": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_locale",
+        "elementName": "_locale",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_locale"
+      },
+      "_row_owner": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_row_owner",
+        "elementName": "_row_owner",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_row_owner"
+      },
+      "_savepoint_type": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_savepoint_type",
+        "elementName": "_savepoint_type",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_savepoint_type"
+      },
+      "_savepoint_timestamp": {
+        "type": "string",
+        "isNotNullable": true,
+        "elementKey": "_savepoint_timestamp",
+        "elementName": "_savepoint_timestamp",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_savepoint_timestamp"
+      },
+      "_savepoint_creator": {
+        "type": "string",
+        "isNotNullable": false,
+        "elementKey": "_savepoint_creator",
+        "elementName": "_savepoint_creator",
+        "elementSet": "instanceMetadata",
+        "elementPath": "_savepoint_creator"
+      }
+    },
+    "properties": [
+      {
+        "_partition": "Column",
+        "_aspect": "main_stem",
+        "_key": "displayChoicesList",
+        "_type": "object",
+        "_value": "[{\"choice_list_name\":\"main_stem\",\"data_value\":1,\"display\":{\"title\":{\"text\":\"1 - Main stem intact\"}},\"_row_num\":22},{\"choice_list_name\":\"main_stem\",\"data_value\":2,\"display\":{\"title\":{\"text\":\"2 - Broken above root collar\"}},\"_row_num\":23},{\"choice_list_name\":\"main_stem\",\"data_value\":3,\"display\":{\"title\":{\"text\":\"3 - Broken below root collar\"}},\"_row_num\":24}]"
+      },
+      {
+        "_partition": "Column",
+        "_aspect": "species",
+        "_key": "displayChoicesList",
+        "_type": "object",
+        "_value": "[{\"choice_list_name\":\"species_list\",\"data_value\":\"ABAM\",\"display\":{\"title\":{\"text\":\"ABAM - Abies amabilis (Pacific silver fir)\"}},\"_row_num\":82},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABCO\",\"display\":{\"title\":{\"text\":\"ABCO - Abies concolor (white fir)\"}},\"_row_num\":83},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABGR\",\"display\":{\"title\":{\"text\":\"ABGR - Abies grandis (grand fir)\"}},\"_row_num\":84},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABLA\",\"display\":{\"title\":{\"text\":\"ABLA - Abies lasiocarpa (subalpine fir)\"}},\"_row_num\":85},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABMA\",\"display\":{\"title\":{\"text\":\"ABMA - Abies magnifica (Shasta red fir)\"}},\"_row_num\":86},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABPR\",\"display\":{\"title\":{\"text\":\"ABPR - Abies procera (noble fir)\"}},\"_row_num\":87},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACGL\",\"display\":{\"title\":{\"text\":\"ACGL - Acer glabrum (Rocky Mtn maple)\"}},\"_row_num\":88},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACMA3\",\"display\":{\"title\":{\"text\":\"ACMA3 - Acer macrophyllum (bigleaf maple)\"}},\"_row_num\":89},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALRU2\",\"display\":{\"title\":{\"text\":\"ALRU2 - Alnus rubra (red alder)\"}},\"_row_num\":90},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALVIS\",\"display\":{\"title\":{\"text\":\"ALVIS - Alnus viridis ssp sinuata (Sitka alder)\"}},\"_row_num\":91},{\"choice_list_name\":\"species_list\",\"data_value\":\"ARME\",\"display\":{\"title\":{\"text\":\"ARME - Arbutus menziesii (Pacific madrone)\"}},\"_row_num\":92},{\"choice_list_name\":\"species_list\",\"data_value\":\"CHCH7\",\"display\":{\"title\":{\"text\":\"CHCH7 - Chrysolepis chrysophylla (golden chinquapin)\"}},\"_row_num\":93},{\"choice_list_name\":\"species_list\",\"data_value\":\"CADE27\",\"display\":{\"title\":{\"text\":\"CADE27 - Calocedrus decurrens (incense cedar)\"}},\"_row_num\":94},{\"choice_list_name\":\"species_list\",\"data_value\":\"CANO9\",\"display\":{\"title\":{\"text\":\"CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)\"}},\"_row_num\":95},{\"choice_list_name\":\"species_list\",\"data_value\":\"CONU4\",\"display\":{\"title\":{\"text\":\"CONU4 - Cornus nuttalli (Pacific dogwood)\"}},\"_row_num\":96},{\"choice_list_name\":\"species_list\",\"data_value\":\"FRPU7\",\"display\":{\"title\":{\"text\":\"FRPU7 - Frangula purshiana (Cascara buckthorn)\"}},\"_row_num\":97},{\"choice_list_name\":\"species_list\",\"data_value\":\"PICO\",\"display\":{\"title\":{\"text\":\"PICO - Pinus contorta (Lodgepole pine)\"}},\"_row_num\":98},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIEN\",\"display\":{\"title\":{\"text\":\"PIEN - Picea engelmanii (Engelmnn spruce)\"}},\"_row_num\":99},{\"choice_list_name\":\"species_list\",\"data_value\":\"PILA\",\"display\":{\"title\":{\"text\":\"PILA - Pinus lambertiana (sugar pine)\"}},\"_row_num\":100},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIMO3\",\"display\":{\"title\":{\"text\":\"PIMO3 - Pinus monticola (w. white pine)\"}},\"_row_num\":101},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIPO\",\"display\":{\"title\":{\"text\":\"PIPO - Pinus ponderosa (ponderosa pine)\"}},\"_row_num\":102},{\"choice_list_name\":\"species_list\",\"data_value\":\"PISI\",\"display\":{\"title\":{\"text\":\"PISI - Picea sitchensis (Sitka spruce)\"}},\"_row_num\":103},{\"choice_list_name\":\"species_list\",\"data_value\":\"POBAT\",\"display\":{\"title\":{\"text\":\"POBAT - Populus balsamifer v. trich. (black cottonwood)\"}},\"_row_num\":104},{\"choice_list_name\":\"species_list\",\"data_value\":\"PREM\",\"display\":{\"title\":{\"text\":\"PREM - Prunus emarginata (bitter cherry)\"}},\"_row_num\":105},{\"choice_list_name\":\"species_list\",\"data_value\":\"PRUNU\",\"display\":{\"title\":{\"text\":\"PRUNU - Prunus spp. (cherry)\"}},\"_row_num\":106},{\"choice_list_name\":\"species_list\",\"data_value\":\"PSME\",\"display\":{\"title\":{\"text\":\"PSME - Pseudotsuga menziesii (Douglas-fir)\"}},\"_row_num\":107},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUGA4\",\"display\":{\"title\":{\"text\":\"QUGA4 - Quercus garryana (Oregon white oak)\"}},\"_row_num\":108},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUKE\",\"display\":{\"title\":{\"text\":\"QUKE - Quercus kelloggii (California black oak)\"}},\"_row_num\":109},{\"choice_list_name\":\"species_list\",\"data_value\":\"TABR2\",\"display\":{\"title\":{\"text\":\"TABR2 - Taxus brevifolia (Pacific yew)\"}},\"_row_num\":110},{\"choice_list_name\":\"species_list\",\"data_value\":\"THPL\",\"display\":{\"title\":{\"text\":\"THPL - Thuja plicata (western redcedar)\"}},\"_row_num\":111},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSHE\",\"display\":{\"title\":{\"text\":\"TSHE - Tsuga heterophylla (western hemlock)\"}},\"_row_num\":112},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSME\",\"display\":{\"title\":{\"text\":\"TSME - Tsuga mertensiana (mountain hemlock)\"}},\"_row_num\":113}]"
+      },
+      {
+        "_partition": "Column",
+        "_aspect": "status",
+        "_key": "displayChoicesList",
+        "_type": "object",
+        "_value": "[{\"choice_list_name\":\"tree_status\",\"data_value\":1,\"display\":{\"title\":{\"text\":\"1 - Alive\"}},\"_row_num\":7},{\"choice_list_name\":\"tree_status\",\"data_value\":2,\"display\":{\"title\":{\"text\":\"2 - Ingrowth\"}},\"_row_num\":8},{\"choice_list_name\":\"tree_status\",\"data_value\":3,\"display\":{\"title\":{\"text\":\"3 - Fused at DBH\"}},\"_row_num\":9},{\"choice_list_name\":\"tree_status\",\"data_value\":6,\"display\":{\"title\":{\"text\":\"6 - Dead\"}},\"_row_num\":10},{\"choice_list_name\":\"tree_status\",\"data_value\":9,\"display\":{\"title\":{\"text\":\"9 - Not found\"}},\"_row_num\":11}]"
+      },
+      {
+        "_partition": "FormType",
+        "_aspect": "default",
+        "_key": "FormType.formType",
+        "_type": "string",
+        "_value": "SURVEY"
+      },
+      {
+        "_partition": "SurveyUtil",
+        "_aspect": "default",
+        "_key": "SurveyUtil.formId",
+        "_type": "string",
+        "_value": "prev_data"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "defaultViewType",
+        "_type": "string",
+        "_value": "SPREADSHEET"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "displayName",
+        "_type": "object",
+        "_value": "{\"text\":\"Previous data\"}"
+      }
+    ]
+  }
+}
