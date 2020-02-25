@@ -8,8 +8,6 @@ $(function () {
     return true;
   });
   
-  // null out stored tree query data
-  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify(null));
   // grab stand and plot from session variables
   var params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
   console.log('params');
@@ -18,6 +16,9 @@ $(function () {
     $('#stand').val(params.stand);
     $('#plot').val(params.plot);
   }
+
+  // remove tree specific data from query results
+  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
 
   // grab the form and do custom submission logic
   let f = $('form#picker');
@@ -39,7 +40,7 @@ $(function () {
       // store the queried tree data in session variables
       odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify(records[0]));
       // and move to the correct form
-      if (params.status === 6) {
+      if (Number(params.status) === 6) {
         window.location.replace('./mortality_form.html');
       }
       else {

@@ -125,7 +125,7 @@
         "name": "comments",
         "display": {
           "prompt": {
-            "text": "Comments"
+            "text": "Previous comments"
           }
         },
         "_row_num": 10
@@ -2603,7 +2603,7 @@
             "name": "comments",
             "display": {
               "prompt": {
-                "text": "Comments"
+                "text": "Previous comments"
               }
             },
             "_row_num": 10,

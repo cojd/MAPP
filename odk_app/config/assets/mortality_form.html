@@ -29,17 +29,34 @@
         <div class="card-header">Tree Info</div>
         <div class="card-body">
        
-          <div class="form-group">
-            <label for="stand">Stand</label>
-            <input type="number" class="form-control" name="stand" id="stand">
+          <div class="form-row">
+            <div class="form-group col-4">
+              <label for="stand">Stand</label>
+              <input type="number" class="form-control" name="stand" id="stand" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-4">
+              <label for="plot">Plot</label>
+              <input type="number" class="form-control" name="plot" id="plot" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-4">
+              <label for="tag">Tag</label>
+              <input type="number" class="form-control" name="tag" id="tag" data-prev-action="replace" readonly>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="plot">Plot</label>
-            <input type="number" class="form-control" name="plot" id="plot">
-          </div>
-          <div class="form-group">
-            <label for="tag">Tag</label>
-            <input type="number" class="form-control" name="tag" id="tag">
+          
+          <div class="form-row">
+            <div class="form-group col-8">
+              <label for="species">Species</label>
+              <select class="form-control" name="species" id="species" data-prev-action="replace" readonly disabled>
+                <option value="">No previous value...</option>
+              </select>
+            </div>
+            <div class="form-group col-4">
+              <label for="status">Status</label>
+              <select class="form-control" name="status" id="status" data-prev-action="replace" readonly disabled>
+                <option value="">No previous value...</option>
+              </select>
+            </div>
           </div>
           
         </div>
@@ -51,7 +68,7 @@
 
           <div class="form-group">
             <label for="main_stem">Main stem (MS)</label>
-            <select class="form-control" name="main_stem" id="main_stem">
+            <select class="form-control" name="main_stem" id="main_stem" data-prev-action="prepend">
               <option value="">Please select an option...</option>
             </select>
           </div>
@@ -63,7 +80,7 @@
           </div>
           <div class="form-group">
             <label for="lean_angle">Lean angle (deg)</label>
-            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle">
+            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle" data-prev-action="prepend">
           </div>
           <div class="form-group">
             <label for="crown_percentage">Crown percentage</label>
@@ -150,26 +167,10 @@
       
           <div id="comments-previous-collapse" class="collapse" aria-labelledby="comments-previous-header" data-parent="#comments-previous">
             <div class="card-body">
-      
+
               <div class="form-group">
-                <label for="comment_1_previous">Comment 1</label>
-                <input class="form-control" name="comment_1_previous" id="comment_1_previous" type="text" placeholder="Readonly input here..." readonly disabled>
-              </div>
-              <div class="form-group">
-                <label for="comment_2_previous">Comment 2</label>
-                <input class="form-control" name="comment_2_previous" id="comment_2_previous" type="text" placeholder="Readonly input here..." readonly disabled>
-              </div>
-              <div class="form-group">
-                <label for="comment_3_previous">Comment 3</label>
-                <input class="form-control" name="comment_3_previous" id="comment_3_previous" type="text" placeholder="Readonly input here..." readonly disabled>
-              </div>
-              <div class="form-group">
-                <label for="comment_4_previous">Comment 4</label>
-                <input class="form-control" name="comment_4_previous" id="comment_4_previous" type="text" placeholder="Readonly input here..." readonly disabled>
-              </div>
-              <div class="form-group">
-                <label for="comment_custom_previous">Custom comment</label>
-                <textarea class="form-control" name="comment_custom_previous" id="comment_custom_previous" rows="3" readonly disabled></textarea>
+                <label for="comment_custom_previous">Previous comments</label>
+                <textarea class="form-control" name="comments" id="comments" rows="3" data-prev-action="replace" readonly disabled></textarea>
               </div>
       
             </div>

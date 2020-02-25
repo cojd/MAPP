@@ -36,6 +36,33 @@ function genSelects()
   $('select#mortality_comment_3').append(options);
 }
 
+function populateFormFromPrev(prev)
+{
+  // iterate through 
+  $.each(prev, (key, value) => {
+    if (key !== '_id')
+    {
+      let e = $('#' + key);
+      let a = e.data('prev-action');
+      console.log("populateFormFromPrev: " + key + ":" + value);
+      if (a === "replace")
+      {
+        e.val(value);
+      }
+      else if (a === "prepend")
+      {
+        let l = e.prev('label');
+        let b = ' <span class="badge badge-success">Previous: ' + value + '</span>';
+        l.append(b);
+        // let h = `<div class="input-group-prepend">
+        //           <span class="input-group-text" id="inputGroupPrepend">Was: `+ value +`</span>
+        //         </div>`
+        // $(h).insertBefore(e);
+      }
+    }
+  });
+}
+
 // on document:ready
 $(function () {
   // add options to selects
@@ -50,6 +77,7 @@ $(function () {
   console.log(params);
   console.log('prev');
   console.log(prev);
+  populateFormFromPrev(prev);
 
   // grab form data on submit
   let f = $("form");

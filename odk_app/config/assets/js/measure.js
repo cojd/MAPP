@@ -1,12 +1,13 @@
 $(function () {
-  // null out stored tree query data
-  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify(null));
 
   // grab session params
   let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
   console.log(params);
   $('#stand').val(params.stand);
   $('#plot').val(params.plot);
+
+  // remove tree specific data from query results
+  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
 
   bindButtons();
 });
