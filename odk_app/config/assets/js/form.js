@@ -1,10 +1,9 @@
-function populateSelect(selectElem, OptionsJSON) 
-{
+function populateSelect(selectElem, OptionsJSON, filter) {
   var selectItems = '';
   $.each(OptionsJSON, (key, value) => {
     let item = '<option value=\'' + key + '\'>' + value + '</option>';
     // console.log(item);
-    selectItems += item;
+    if (filter === null || filter === undefined || filter(key, value)) selectItems += item;
   });
   if (selectElem) selectElem.append(selectItems);
   return selectItems;
@@ -41,10 +40,17 @@ function genSelects()
 $(function () {
   // add options to selects
   genSelects();
-
   // set up custom form validation
-  bindFormValidation();
+  bindFormValidation(); // function from validate.js
   
+  // grab and populate from prev tree record stored in session variables
+  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  let prev   = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
+  console.log('params');
+  console.log(params);
+  console.log('prev');
+  console.log(prev);
+
   // grab form data on submit
   let f = $("form");
   f.submit(function (event) {

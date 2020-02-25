@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link href="css/form.css" type="text/css" rel="stylesheet" />
   <script type="text/javascript" src="commonDefinitions.js"></script>
   <script type="text/javascript" src="libs/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="libs/jquery-migrate-3.0.0.js"></script>
@@ -12,35 +13,58 @@
   <script type="text/javascript" src="../../system/js/odkData.js"></script>
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
   <script type="text/javascript" src="js/measure.js"></script>
+  <script type="text/javascript" src="dataLists.js"></script>
 </head>
 
 <body id="main">
 
   <div class="container">
-    
+
     <label for="params">Params</label>
     <div class="form-group">
       <input class="form-control p-1" name="stand" id="stand" type="text" placeholder="Stand" readonly disabled>
-      <input class="form-control p-1" name="plot"  id="plot"  type="text" placeholder="Plot"  readonly disabled>
-      <input class="form-control p-1" name="tag"   id="tag"   type="text" placeholder="Tag"   readonly disabled>
+      <input class="form-control p-1" name="plot" id="plot" type="text" placeholder="Plot" readonly disabled>
     </div>
 
     <div class="d-flex flex-column">
       <div id="description">Pick a form:</div>
-      <div class="row">
-        <a id="remeasure-form" class="btn btn-primary" href="./remeasure_form.html" role="button">Remeasure Form</a>
-        <a id="remeasure-list" class="btn btn-secondary" href="#" role="button">List</a>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="remeasure-form" class="btn btn-block btn-primary" href="./tag_picker.html" role="button">Remeasure
+            a tagged tree</a>
+        </div>
       </div>
-      <div class="row">
-        <a id="ingrowth-form" class="btn btn-primary" href="./ingrowth_form.html" role="button">Ingrowth Form</a>
-        <a id="ingrowth-list" class="btn btn-secondary" href="#" role="button">List</a>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="ingrowth-form" class="btn btn-block btn-primary" href="./ingrowth_form.html" role="button">Measure
+            ingrowth</a>
+        </div>
       </div>
-      <div class="row">
-        <a id="mortality-form" class="btn btn-primary" href="./mortality_form.html" role="button">Mortality Form</a>
-        <a id="mortality-list" class="btn btn-secondary" href="#" role="button">List</a>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="mortality-form" class="btn btn-block btn-primary" href="./mortality_form.html" role="button">Mortality
+            Form</a>
+        </div>
       </div>
-      <div class="row">
-        <a id="prev-data-list" class="btn btn-secondary" href="#" role="button">prev_data</a>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="remeasure-list" class="btn btn-block btn-secondary" href="#" role="button">View measurement data</a>
+        </div>
+      </div>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="ingrowth-list" class="btn btn-block btn-secondary" href="#" role="button">View ingrowth data</a>
+        </div>
+      </div>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="mortality-list" class="btn btn-block btn-secondary" href="#" role="button">View mortality data</a>
+        </div>
+      </div>
+      <div class="row btn-row">
+        <div class="col">
+          <a id="prev-data-list" class="btn btn-block btn-secondary" href="#" role="button">prev_data</a>
+        </div>
       </div>
     </div>
     <a class="btn btn-danger" href="./index.html" role="button">Cancel</a>

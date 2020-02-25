@@ -1,11 +1,12 @@
-const PARAMS = "PARAMS";
-
 $(function () {
-  let params = JSON.parse(odkCommon.getSessionVariable(PARAMS));
+  // null out stored tree query data
+  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify(null));
+
+  // grab session params
+  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
   console.log(params);
   $('#stand').val(params.stand);
   $('#plot').val(params.plot);
-  $('#tag').val(params.tag);
 
   bindButtons();
 });
