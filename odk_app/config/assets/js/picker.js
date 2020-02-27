@@ -3,13 +3,15 @@ let records = [];
 $(function () {
   // populate the status list
   let st = $('#status');
-  if (st) populateSelect(st, DataLists.StatusList, (k, v) => {
-    if (v === DataLists.StatusList[2]) return false;
-    return true;
-  });
-  
+  if (st) {
+    Utils.populateSelects((k, v) => { // gen options but filter out ingrowth
+      if (v === DataLists.StatusList[2]) return false;
+      return true;
+    });
+  }
+
   // grab stand and plot from session variables
-  var params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
   if (params) {
@@ -17,10 +19,19 @@ $(function () {
     $('#plot').val(params.plot);
   }
 
-  // remove tree specific data from query results
+  // remove tree specific data from query results just to be safe
   odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
 
+  // watch the searchbar for when it changes so we can query the DB
+  bindSearchChange(params);
+
   // grab the form and do custom submission logic
+  watchForm(params);
+
+});
+
+function watchForm(params)
+{
   let f = $('form#picker');
   f.submit((event) => {
     event.preventDefault();
@@ -49,31 +60,31 @@ $(function () {
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback
   });
+}
 
 ////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////// HANDLE DB QUERY
 ////////////////////////////////////////////////////////
-  let query_prefix = null;
-  let query_prefix_value = null;
+
+function bindSearchChange(params)
+{
   // query for the right plot type
-  switch (params.type) {
-    case Constants.PlotTypes.REFERENCE_STAND:
-      query_prefix = 'stand=? AND ';
-      query_prefix_value = params.stand;
-      break;
-    case Constants.PlotTypes.FIXED_RADIUS_PLOT:
-      query_prefix = 'plot=? AND ';
-      query_prefix_value = params.plot;
-      break;
-    default:
-      console.log("UNKNOWN PLOT TYPE!!!");
-      break;
-  }
   // requery when the tag input changes
   let qd = $('input#tag');
   qd.change(() => {
-    queryDB('prev_data', query_prefix + 'tag=?', [query_prefix_value, qd.val()]);
+    switch (params.type) {
+      case Constants.PlotTypes.REFERENCE_STAND:
+        queryDB('prev_data', 'StandID=? AND Tag=?', [params.stand, qd.val()]);
+        break;
+      case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        queryDB('prev_data', 'StandID=? AND Plot=? AND Tag=?', [params.stand, params.plot, qd.val()]);
+        break;
+      default:
+        console.log("UNKNOWN PLOT TYPE!!!");
+        break;
+    }
   });
-});
+}
 
 function queryDB(table, query, params) {
   var failureFn = function (errorMsg) {
@@ -85,51 +96,43 @@ function queryDB(table, query, params) {
     records = [];
     for (var row = 0; row < result.getCount(); row++) {
       var r = {};
-      r['_id'] = result.getData(row, "_id");
-      r['stand'] = result.getData(row, "stand");
-      r['plot'] = result.getData(row, "plot");
-      r['tag'] = result.getData(row, "tag");
-      r['species'] = result.getData(row, "species");
-      r['status'] = result.getData(row, "status");
-      r['dbh'] = result.getData(row, "dbh");
-      r['main_stem'] = result.getData(row, "main_stem");
-      r['lean_angle'] = result.getData(row, "lean_angle");
-      r['comments'] = result.getData(row, "comments");
+      r['_id']        = result.getData(row, "_id");
+      r['TreeID']     = result.getData(row, "TreeID");
+      r['stand']      = result.getData(row, "StandID");
+      r['plot']       = result.getData(row, "Plot");
+      r['tag']        = result.getData(row, "Tag");
+      r['PrevYear']   = result.getData(row, "PrevYear");
+      r['species']    = result.getData(row, "Species");
+      r['status']     = result.getData(row, "PrevStatus");
+      r['dbh']        = result.getData(row, "PrevDBH");
+      r['main_stem']  = result.getData(row, "PrevMS");
+      r['rooting']    = result.getData(row, "PrevRT");
+      r['lean_angle'] = result.getData(row, "PrevLA");
+      r['comments']   = result.getData(row, "PrevComments");
       records.push(r);
     }
 
     // grab the results div and set its value and validity depending on if we found a matching record
     let tag = $('input#tag')[0];
     let res_div = $('#result-tag');
-    if (records.length === 0) {
+    if (records.length === 0) // we didn't get any records for that stand/plot/tag combo so the input is invalid
+    { 
       tag.setCustomValidity('is-invalid');
       res_div.val('');
       res_div.addClass('is-invalid');
     }
-    else {
+    else // we did get a record
+    {
       let r = records[0];
-      let st = "[Tag | " + r.tag + '][Status | ' + DataLists.StatusList[r.status] + ']';
+      // build a string from some of the values
+      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status]; 
       console.log(st);
-      res_div.val(st);
-      res_div.removeClass('is-invalid');
-      tag.setCustomValidity('');
+      res_div.val(st); // add it to the result div
+      res_div.removeClass('is-invalid'); // remove the class if it was there
+      tag.setCustomValidity(''); // set the input to valid
     }
   }
 
   // query the db
   odkData.query(table, query, params, null, null, '_savepoint_timestamp', 'DESC', 50, 0, null, successFn, failureFn);
-}
-////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////
-
-
-function populateSelect(selectElem, OptionsJSON, filter) {
-  var selectItems = '';
-  $.each(OptionsJSON, (key, value) => {
-    let item = '<option value=\'' + key + '\'>' + value + '</option>';
-    // console.log(item);
-    if (filter === null || filter === undefined || filter(key, value)) selectItems += item;
-  });
-  if (selectElem) selectElem.append(selectItems);
-  return selectItems;
 }

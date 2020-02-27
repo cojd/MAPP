@@ -58,14 +58,24 @@
         "_row_num": 2
       },
       {
-        "type": "integer",
+        "type": "string",
+        "name": "TreeID",
+        "display": {
+          "prompt": {
+            "text": "TreeID"
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "type": "string",
         "name": "stand",
         "display": {
           "prompt": {
             "text": "Stand"
           }
         },
-        "_row_num": 3
+        "_row_num": 4
       },
       {
         "type": "integer",
@@ -75,7 +85,7 @@
             "text": "Plot"
           }
         },
-        "_row_num": 4
+        "_row_num": 5
       },
       {
         "type": "integer",
@@ -89,12 +99,12 @@
           }
         },
         "constraint": "(function() { if (data('tag')!=2){return true;} alert('Fix Tag Number'); return false;})()",
-        "_row_num": 5
+        "_row_num": 6
       },
       {
         "clause": "if",
         "condition": "data('tag') == 2",
-        "_row_num": 6
+        "_row_num": 7
       },
       {
         "type": "note",
@@ -103,11 +113,11 @@
             "text": "Tag number already in use"
           }
         },
-        "_row_num": 7
+        "_row_num": 8
       },
       {
         "clause": "end if",
-        "_row_num": 8
+        "_row_num": 9
       },
       {
         "type": "select_one_dropdown",
@@ -118,7 +128,7 @@
             "text": "Species"
           }
         },
-        "_row_num": 9
+        "_row_num": 10
       },
       {
         "type": "decimal",
@@ -128,7 +138,7 @@
             "text": "DBH (cm)"
           }
         },
-        "_row_num": 10
+        "_row_num": 11
       },
       {
         "type": "select_one_integer",
@@ -139,7 +149,7 @@
             "text": "Status"
           }
         },
-        "_row_num": 11
+        "_row_num": 12
       },
       {
         "type": "select_one_dropdown",
@@ -150,7 +160,7 @@
             "text": "Canopy class"
           }
         },
-        "_row_num": 12
+        "_row_num": 13
       },
       {
         "type": "decimal",
@@ -164,12 +174,12 @@
           }
         },
         "constraint": "(function() { if (data('crown_ratio') <= 100  && data('crown_ratio') >=1){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
-        "_row_num": 13
+        "_row_num": 14
       },
       {
         "clause": "if",
         "condition": "data('crown_ratio') > 100 || data('crown_ratio') < 1",
-        "_row_num": 14
+        "_row_num": 15
       },
       {
         "type": "note",
@@ -178,11 +188,11 @@
             "text": "Crown Ratio must be between 1 and 100"
           }
         },
-        "_row_num": 15
+        "_row_num": 16
       },
       {
         "clause": "end if",
-        "_row_num": 16
+        "_row_num": 17
       },
       {
         "type": "select_one_integer",
@@ -193,7 +203,7 @@
             "text": "Overall vigor (OV)"
           }
         },
-        "_row_num": 17
+        "_row_num": 18
       },
       {
         "type": "select_one_integer",
@@ -204,7 +214,7 @@
             "text": "Main stem (MS)"
           }
         },
-        "_row_num": 18
+        "_row_num": 19
       },
       {
         "type": "select_one_integer",
@@ -215,7 +225,7 @@
             "text": "Rooting"
           }
         },
-        "_row_num": 19
+        "_row_num": 20
       },
       {
         "type": "decimal",
@@ -229,12 +239,12 @@
           }
         },
         "constraint": "(function() { if (data('lean_angle') <= 120  && data('lean_angle') >=0){return true;} alert('Lean Angle Needs to be Fixed'); return false;})()",
-        "_row_num": 20
+        "_row_num": 21
       },
       {
         "clause": "if",
         "condition": "data('lean_angle') > 120 || data('crown_percentage') < 0",
-        "_row_num": 21
+        "_row_num": 22
       },
       {
         "type": "note",
@@ -243,11 +253,11 @@
             "text": "Lean Angle must be between 0 and 120"
           }
         },
-        "_row_num": 22
+        "_row_num": 23
       },
       {
         "clause": "end if",
-        "_row_num": 23
+        "_row_num": 24
       },
       {
         "type": "decimal",
@@ -261,12 +271,12 @@
           }
         },
         "constraint": "(function() { if (data('crown_percentage') <= 100  && data('crown_percentage') >=0){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
-        "_row_num": 24
+        "_row_num": 25
       },
       {
         "clause": "if",
         "condition": "data('crown_percentage') > 100 || data('crown_percentage') < 0",
-        "_row_num": 25
+        "_row_num": 26
       },
       {
         "type": "note",
@@ -275,11 +285,11 @@
             "text": "Crown Percentage must be between 0 and 100"
           }
         },
-        "_row_num": 26
+        "_row_num": 27
       },
       {
         "clause": "end if",
-        "_row_num": 27
+        "_row_num": 28
       },
       {
         "type": "decimal",
@@ -293,12 +303,12 @@
           }
         },
         "constraint": "(function() { if (data('tree_percentage') <= 100  && data('tree_percentage') >=0){return true;} alert('Tree Percentage Needs to be Fixed'); return false;})()",
-        "_row_num": 28
+        "_row_num": 29
       },
       {
         "clause": "if",
         "condition": "data('tree_percentage') > 100 || data('tree_percentage') < 0",
-        "_row_num": 29
+        "_row_num": 30
       },
       {
         "type": "note",
@@ -307,11 +317,11 @@
             "text": "Tree Percentage must be between 0 and 100"
           }
         },
-        "_row_num": 30
+        "_row_num": 31
       },
       {
         "clause": "end if",
-        "_row_num": 31
+        "_row_num": 32
       },
       {
         "type": "note",
@@ -320,7 +330,7 @@
             "text": "Mapping"
           }
         },
-        "_row_num": 32
+        "_row_num": 33
       },
       {
         "type": "integer",
@@ -330,7 +340,7 @@
             "text": "From (tag)"
           }
         },
-        "_row_num": 33
+        "_row_num": 34
       },
       {
         "type": "decimal",
@@ -344,12 +354,12 @@
           }
         },
         "constraint": "(function() { if (data('distance') <= 25.0  && data('distance') >=0.1){return true;} alert('Distance Needs to be Fixed'); return false;})()",
-        "_row_num": 34
+        "_row_num": 35
       },
       {
         "clause": "if",
         "condition": "data('distance') > 25 || data('distance') < 0.1",
-        "_row_num": 35
+        "_row_num": 36
       },
       {
         "type": "note",
@@ -358,11 +368,11 @@
             "text": "Distance must be between 0.1m and 25.0m"
           }
         },
-        "_row_num": 36
+        "_row_num": 37
       },
       {
         "clause": "end if",
-        "_row_num": 37
+        "_row_num": 38
       },
       {
         "type": "decimal",
@@ -376,12 +386,12 @@
           }
         },
         "constraint": "(function() { if (data('azimuth') <= 360  && data('azimuth') >=0){return true;} alert('Azimuth Range needs to be fixed'); return false;})()",
-        "_row_num": 38
+        "_row_num": 39
       },
       {
         "clause": "if",
         "condition": "data('azimuth') > 360 || data('azimuth') < 0",
-        "_row_num": 39
+        "_row_num": 40
       },
       {
         "type": "note",
@@ -390,11 +400,11 @@
             "text": "Azimuth value must be between 0 and 360"
           }
         },
-        "_row_num": 40
+        "_row_num": 41
       },
       {
         "clause": "end if",
-        "_row_num": 41
+        "_row_num": 42
       },
       {
         "type": "note",
@@ -403,7 +413,7 @@
             "text": "Comments"
           }
         },
-        "_row_num": 42
+        "_row_num": 43
       },
       {
         "type": "select_one_dropdown",
@@ -414,7 +424,7 @@
             "text": "Comment 1"
           }
         },
-        "_row_num": 43
+        "_row_num": 44
       },
       {
         "type": "select_one_dropdown",
@@ -425,7 +435,7 @@
             "text": "Comment 2"
           }
         },
-        "_row_num": 44
+        "_row_num": 45
       },
       {
         "type": "select_one_dropdown",
@@ -436,7 +446,7 @@
             "text": "Comment 3"
           }
         },
-        "_row_num": 45
+        "_row_num": 46
       },
       {
         "type": "text",
@@ -446,11 +456,11 @@
             "text": "Custom comment"
           }
         },
-        "_row_num": 46
+        "_row_num": 47
       },
       {
         "clause": "end screen",
-        "_row_num": 47
+        "_row_num": 48
       }
     ],
     "choices": [
@@ -473,16 +483,6 @@
           }
         },
         "_row_num": 3
-      },
-      {
-        "choice_list_name": "species_list",
-        "data_value": 0,
-        "display": {
-          "title": {
-            "text": "Tree species"
-          }
-        },
-        "_row_num": 5
       },
       {
         "choice_list_name": "tree_status",
@@ -1589,338 +1589,6 @@
           "_row_num": 3
         }
       ],
-      "species_list": [
-        {
-          "choice_list_name": "species_list",
-          "data_value": 0,
-          "display": {
-            "title": {
-              "text": "Tree species"
-            }
-          },
-          "_row_num": 5
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ABAM",
-          "display": {
-            "title": {
-              "text": "ABAM - Abies amabilis (Pacific silver fir)"
-            }
-          },
-          "_row_num": 82
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ABCO",
-          "display": {
-            "title": {
-              "text": "ABCO - Abies concolor (white fir)"
-            }
-          },
-          "_row_num": 83
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ABGR",
-          "display": {
-            "title": {
-              "text": "ABGR - Abies grandis (grand fir)"
-            }
-          },
-          "_row_num": 84
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ABLA",
-          "display": {
-            "title": {
-              "text": "ABLA - Abies lasiocarpa (subalpine fir)"
-            }
-          },
-          "_row_num": 85
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ABMA",
-          "display": {
-            "title": {
-              "text": "ABMA - Abies magnifica (Shasta red fir)"
-            }
-          },
-          "_row_num": 86
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ABPR",
-          "display": {
-            "title": {
-              "text": "ABPR - Abies procera (noble fir)"
-            }
-          },
-          "_row_num": 87
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ACGL",
-          "display": {
-            "title": {
-              "text": "ACGL - Acer glabrum (Rocky Mtn maple)"
-            }
-          },
-          "_row_num": 88
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ACMA3",
-          "display": {
-            "title": {
-              "text": "ACMA3 - Acer macrophyllum (bigleaf maple)"
-            }
-          },
-          "_row_num": 89
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ALRU2",
-          "display": {
-            "title": {
-              "text": "ALRU2 - Alnus rubra (red alder)"
-            }
-          },
-          "_row_num": 90
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ALVIS",
-          "display": {
-            "title": {
-              "text": "ALVIS - Alnus viridis ssp sinuata (Sitka alder)"
-            }
-          },
-          "_row_num": 91
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "ARME",
-          "display": {
-            "title": {
-              "text": "ARME - Arbutus menziesii (Pacific madrone)"
-            }
-          },
-          "_row_num": 92
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "CHCH7",
-          "display": {
-            "title": {
-              "text": "CHCH7 - Chrysolepis chrysophylla (golden chinquapin)"
-            }
-          },
-          "_row_num": 93
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "CADE27",
-          "display": {
-            "title": {
-              "text": "CADE27 - Calocedrus decurrens (incense cedar)"
-            }
-          },
-          "_row_num": 94
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "CANO9",
-          "display": {
-            "title": {
-              "text": "CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)"
-            }
-          },
-          "_row_num": 95
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "CONU4",
-          "display": {
-            "title": {
-              "text": "CONU4 - Cornus nuttalli (Pacific dogwood)"
-            }
-          },
-          "_row_num": 96
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "FRPU7",
-          "display": {
-            "title": {
-              "text": "FRPU7 - Frangula purshiana (Cascara buckthorn)"
-            }
-          },
-          "_row_num": 97
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PICO",
-          "display": {
-            "title": {
-              "text": "PICO - Pinus contorta (Lodgepole pine)"
-            }
-          },
-          "_row_num": 98
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PIEN",
-          "display": {
-            "title": {
-              "text": "PIEN - Picea engelmanii (Engelmnn spruce)"
-            }
-          },
-          "_row_num": 99
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PILA",
-          "display": {
-            "title": {
-              "text": "PILA - Pinus lambertiana (sugar pine)"
-            }
-          },
-          "_row_num": 100
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PIMO3",
-          "display": {
-            "title": {
-              "text": "PIMO3 - Pinus monticola (w. white pine)"
-            }
-          },
-          "_row_num": 101
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PIPO",
-          "display": {
-            "title": {
-              "text": "PIPO - Pinus ponderosa (ponderosa pine)"
-            }
-          },
-          "_row_num": 102
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PISI",
-          "display": {
-            "title": {
-              "text": "PISI - Picea sitchensis (Sitka spruce)"
-            }
-          },
-          "_row_num": 103
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "POBAT",
-          "display": {
-            "title": {
-              "text": "POBAT - Populus balsamifer v. trich. (black cottonwood)"
-            }
-          },
-          "_row_num": 104
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PREM",
-          "display": {
-            "title": {
-              "text": "PREM - Prunus emarginata (bitter cherry)"
-            }
-          },
-          "_row_num": 105
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PRUNU",
-          "display": {
-            "title": {
-              "text": "PRUNU - Prunus spp. (cherry)"
-            }
-          },
-          "_row_num": 106
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "PSME",
-          "display": {
-            "title": {
-              "text": "PSME - Pseudotsuga menziesii (Douglas-fir)"
-            }
-          },
-          "_row_num": 107
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "QUGA4",
-          "display": {
-            "title": {
-              "text": "QUGA4 - Quercus garryana (Oregon white oak)"
-            }
-          },
-          "_row_num": 108
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "QUKE",
-          "display": {
-            "title": {
-              "text": "QUKE - Quercus kelloggii (California black oak)"
-            }
-          },
-          "_row_num": 109
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "TABR2",
-          "display": {
-            "title": {
-              "text": "TABR2 - Taxus brevifolia (Pacific yew)"
-            }
-          },
-          "_row_num": 110
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "THPL",
-          "display": {
-            "title": {
-              "text": "THPL - Thuja plicata (western redcedar)"
-            }
-          },
-          "_row_num": 111
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "TSHE",
-          "display": {
-            "title": {
-              "text": "TSHE - Tsuga heterophylla (western hemlock)"
-            }
-          },
-          "_row_num": 112
-        },
-        {
-          "choice_list_name": "species_list",
-          "data_value": "TSME",
-          "display": {
-            "title": {
-              "text": "TSME - Tsuga mertensiana (mountain hemlock)"
-            }
-          },
-          "_row_num": 113
-        }
-      ],
       "tree_status": [
         {
           "choice_list_name": "tree_status",
@@ -2622,6 +2290,328 @@
           },
           "_row_num": 80
         }
+      ],
+      "species_list": [
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABAM",
+          "display": {
+            "title": {
+              "text": "ABAM - Abies amabilis (Pacific silver fir)"
+            }
+          },
+          "_row_num": 82
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABCO",
+          "display": {
+            "title": {
+              "text": "ABCO - Abies concolor (white fir)"
+            }
+          },
+          "_row_num": 83
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABGR",
+          "display": {
+            "title": {
+              "text": "ABGR - Abies grandis (grand fir)"
+            }
+          },
+          "_row_num": 84
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABLA",
+          "display": {
+            "title": {
+              "text": "ABLA - Abies lasiocarpa (subalpine fir)"
+            }
+          },
+          "_row_num": 85
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABMA",
+          "display": {
+            "title": {
+              "text": "ABMA - Abies magnifica (Shasta red fir)"
+            }
+          },
+          "_row_num": 86
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ABPR",
+          "display": {
+            "title": {
+              "text": "ABPR - Abies procera (noble fir)"
+            }
+          },
+          "_row_num": 87
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ACGL",
+          "display": {
+            "title": {
+              "text": "ACGL - Acer glabrum (Rocky Mtn maple)"
+            }
+          },
+          "_row_num": 88
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ACMA3",
+          "display": {
+            "title": {
+              "text": "ACMA3 - Acer macrophyllum (bigleaf maple)"
+            }
+          },
+          "_row_num": 89
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ALRU2",
+          "display": {
+            "title": {
+              "text": "ALRU2 - Alnus rubra (red alder)"
+            }
+          },
+          "_row_num": 90
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ALVIS",
+          "display": {
+            "title": {
+              "text": "ALVIS - Alnus viridis ssp sinuata (Sitka alder)"
+            }
+          },
+          "_row_num": 91
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "ARME",
+          "display": {
+            "title": {
+              "text": "ARME - Arbutus menziesii (Pacific madrone)"
+            }
+          },
+          "_row_num": 92
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CHCH7",
+          "display": {
+            "title": {
+              "text": "CHCH7 - Chrysolepis chrysophylla (golden chinquapin)"
+            }
+          },
+          "_row_num": 93
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CADE27",
+          "display": {
+            "title": {
+              "text": "CADE27 - Calocedrus decurrens (incense cedar)"
+            }
+          },
+          "_row_num": 94
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CANO9",
+          "display": {
+            "title": {
+              "text": "CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)"
+            }
+          },
+          "_row_num": 95
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "CONU4",
+          "display": {
+            "title": {
+              "text": "CONU4 - Cornus nuttalli (Pacific dogwood)"
+            }
+          },
+          "_row_num": 96
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "FRPU7",
+          "display": {
+            "title": {
+              "text": "FRPU7 - Frangula purshiana (Cascara buckthorn)"
+            }
+          },
+          "_row_num": 97
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PICO",
+          "display": {
+            "title": {
+              "text": "PICO - Pinus contorta (Lodgepole pine)"
+            }
+          },
+          "_row_num": 98
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PIEN",
+          "display": {
+            "title": {
+              "text": "PIEN - Picea engelmanii (Engelmnn spruce)"
+            }
+          },
+          "_row_num": 99
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PILA",
+          "display": {
+            "title": {
+              "text": "PILA - Pinus lambertiana (sugar pine)"
+            }
+          },
+          "_row_num": 100
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PIMO3",
+          "display": {
+            "title": {
+              "text": "PIMO3 - Pinus monticola (w. white pine)"
+            }
+          },
+          "_row_num": 101
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PIPO",
+          "display": {
+            "title": {
+              "text": "PIPO - Pinus ponderosa (ponderosa pine)"
+            }
+          },
+          "_row_num": 102
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PISI",
+          "display": {
+            "title": {
+              "text": "PISI - Picea sitchensis (Sitka spruce)"
+            }
+          },
+          "_row_num": 103
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "POBAT",
+          "display": {
+            "title": {
+              "text": "POBAT - Populus balsamifer v. trich. (black cottonwood)"
+            }
+          },
+          "_row_num": 104
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PREM",
+          "display": {
+            "title": {
+              "text": "PREM - Prunus emarginata (bitter cherry)"
+            }
+          },
+          "_row_num": 105
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PRUNU",
+          "display": {
+            "title": {
+              "text": "PRUNU - Prunus spp. (cherry)"
+            }
+          },
+          "_row_num": 106
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "PSME",
+          "display": {
+            "title": {
+              "text": "PSME - Pseudotsuga menziesii (Douglas-fir)"
+            }
+          },
+          "_row_num": 107
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "QUGA4",
+          "display": {
+            "title": {
+              "text": "QUGA4 - Quercus garryana (Oregon white oak)"
+            }
+          },
+          "_row_num": 108
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "QUKE",
+          "display": {
+            "title": {
+              "text": "QUKE - Quercus kelloggii (California black oak)"
+            }
+          },
+          "_row_num": 109
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "TABR2",
+          "display": {
+            "title": {
+              "text": "TABR2 - Taxus brevifolia (Pacific yew)"
+            }
+          },
+          "_row_num": 110
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "THPL",
+          "display": {
+            "title": {
+              "text": "THPL - Thuja plicata (western redcedar)"
+            }
+          },
+          "_row_num": 111
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "TSHE",
+          "display": {
+            "title": {
+              "text": "TSHE - Tsuga heterophylla (western hemlock)"
+            }
+          },
+          "_row_num": 112
+        },
+        {
+          "choice_list_name": "species_list",
+          "data_value": "TSME",
+          "display": {
+            "title": {
+              "text": "TSME - Tsuga mertensiana (mountain hemlock)"
+            }
+          },
+          "_row_num": 113
+        }
       ]
     },
     "table_specific_definitions": {
@@ -2630,20 +2620,30 @@
     "queries": {},
     "calculates": {},
     "model": {
-      "stand": {
+      "TreeID": {
         "_defn": [
           {
             "_row_num": 3,
             "section_name": "survey"
           }
         ],
-        "type": "integer",
+        "type": "string",
+        "elementKey": "TreeID"
+      },
+      "stand": {
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
         "elementKey": "stand"
       },
       "plot": {
         "_defn": [
           {
-            "_row_num": 4,
+            "_row_num": 5,
             "section_name": "survey"
           }
         ],
@@ -2653,7 +2653,7 @@
       "tag": {
         "_defn": [
           {
-            "_row_num": 5,
+            "_row_num": 6,
             "section_name": "survey"
           }
         ],
@@ -2663,7 +2663,7 @@
       "species": {
         "_defn": [
           {
-            "_row_num": 9,
+            "_row_num": 10,
             "section_name": "survey"
           }
         ],
@@ -2674,7 +2674,7 @@
       "dbh": {
         "_defn": [
           {
-            "_row_num": 10,
+            "_row_num": 11,
             "section_name": "survey"
           }
         ],
@@ -2684,7 +2684,7 @@
       "status": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 12,
             "section_name": "survey"
           }
         ],
@@ -2695,7 +2695,7 @@
       "canopy_class": {
         "_defn": [
           {
-            "_row_num": 12,
+            "_row_num": 13,
             "section_name": "survey"
           }
         ],
@@ -2706,7 +2706,7 @@
       "crown_ratio": {
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 14,
             "section_name": "survey"
           }
         ],
@@ -2716,7 +2716,7 @@
       "overall_vigor": {
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 18,
             "section_name": "survey"
           }
         ],
@@ -2727,7 +2727,7 @@
       "main_stem": {
         "_defn": [
           {
-            "_row_num": 18,
+            "_row_num": 19,
             "section_name": "survey"
           }
         ],
@@ -2738,7 +2738,7 @@
       "rooting": {
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -2749,7 +2749,7 @@
       "lean_angle": {
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 21,
             "section_name": "survey"
           }
         ],
@@ -2759,7 +2759,7 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 24,
+            "_row_num": 25,
             "section_name": "survey"
           }
         ],
@@ -2769,7 +2769,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 28,
+            "_row_num": 29,
             "section_name": "survey"
           }
         ],
@@ -2779,7 +2779,7 @@
       "from_tag": {
         "_defn": [
           {
-            "_row_num": 33,
+            "_row_num": 34,
             "section_name": "survey"
           }
         ],
@@ -2789,7 +2789,7 @@
       "distance": {
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 35,
             "section_name": "survey"
           }
         ],
@@ -2799,7 +2799,7 @@
       "azimuth": {
         "_defn": [
           {
-            "_row_num": 38,
+            "_row_num": 39,
             "section_name": "survey"
           }
         ],
@@ -2809,7 +2809,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 43,
+            "_row_num": 44,
             "section_name": "survey"
           }
         ],
@@ -2820,7 +2820,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 44,
+            "_row_num": 45,
             "section_name": "survey"
           }
         ],
@@ -2831,7 +2831,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 45,
+            "_row_num": 46,
             "section_name": "survey"
           }
         ],
@@ -2842,7 +2842,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 46,
+            "_row_num": 47,
             "section_name": "survey"
           }
         ],
@@ -2861,19 +2861,34 @@
         "reachable_sections": {},
         "prompts": [
           {
-            "type": "integer",
+            "type": "string",
+            "name": "TreeID",
+            "display": {
+              "prompt": {
+                "text": "TreeID"
+              }
+            },
+            "_row_num": 3,
+            "__rowNum__": 2,
+            "_token_type": "prompt",
+            "_type": "string",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 0
+          },
+          {
+            "type": "string",
             "name": "stand",
             "display": {
               "prompt": {
                 "text": "Stand"
               }
             },
-            "_row_num": 3,
-            "__rowNum__": 2,
+            "_row_num": 4,
+            "__rowNum__": 3,
             "_token_type": "prompt",
-            "_type": "integer",
+            "_type": "string",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 0
+            "promptIdx": 1
           },
           {
             "type": "integer",
@@ -2883,12 +2898,12 @@
                 "text": "Plot"
               }
             },
-            "_row_num": 4,
-            "__rowNum__": 3,
+            "_row_num": 5,
+            "__rowNum__": 4,
             "_token_type": "prompt",
             "_type": "integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 1
+            "promptIdx": 2
           },
           {
             "type": "integer",
@@ -2902,12 +2917,12 @@
               }
             },
             "constraint": "(function() { if (data('tag')!=2){return true;} alert('Fix Tag Number'); return false;})()",
-            "_row_num": 5,
-            "__rowNum__": 4,
+            "_row_num": 6,
+            "__rowNum__": 5,
             "_token_type": "prompt",
             "_type": "integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 2
+            "promptIdx": 3
           },
           {
             "type": "note",
@@ -2916,12 +2931,12 @@
                 "text": "Tag number already in use"
               }
             },
-            "_row_num": 7,
-            "__rowNum__": 6,
+            "_row_num": 8,
+            "__rowNum__": 7,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 3
+            "promptIdx": 4
           },
           {
             "type": "select_one_dropdown",
@@ -2932,12 +2947,12 @@
                 "text": "Species"
               }
             },
-            "_row_num": 9,
-            "__rowNum__": 8,
+            "_row_num": 10,
+            "__rowNum__": 9,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 4
+            "promptIdx": 5
           },
           {
             "type": "decimal",
@@ -2947,12 +2962,12 @@
                 "text": "DBH (cm)"
               }
             },
-            "_row_num": 10,
-            "__rowNum__": 9,
+            "_row_num": 11,
+            "__rowNum__": 10,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 5
+            "promptIdx": 6
           },
           {
             "type": "select_one_integer",
@@ -2963,12 +2978,12 @@
                 "text": "Status"
               }
             },
-            "_row_num": 11,
-            "__rowNum__": 10,
+            "_row_num": 12,
+            "__rowNum__": 11,
             "_token_type": "prompt",
             "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 6
+            "promptIdx": 7
           },
           {
             "type": "select_one_dropdown",
@@ -2979,12 +2994,12 @@
                 "text": "Canopy class"
               }
             },
-            "_row_num": 12,
-            "__rowNum__": 11,
+            "_row_num": 13,
+            "__rowNum__": 12,
             "_token_type": "prompt",
             "_type": "select_one_dropdown",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 7
+            "promptIdx": 8
           },
           {
             "type": "decimal",
@@ -2998,12 +3013,12 @@
               }
             },
             "constraint": "(function() { if (data('crown_ratio') <= 100  && data('crown_ratio') >=1){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
-            "_row_num": 13,
-            "__rowNum__": 12,
+            "_row_num": 14,
+            "__rowNum__": 13,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 8
+            "promptIdx": 9
           },
           {
             "type": "note",
@@ -3012,12 +3027,12 @@
                 "text": "Crown Ratio must be between 1 and 100"
               }
             },
-            "_row_num": 15,
-            "__rowNum__": 14,
+            "_row_num": 16,
+            "__rowNum__": 15,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 9
+            "promptIdx": 10
           },
           {
             "type": "select_one_integer",
@@ -3026,22 +3041,6 @@
             "display": {
               "prompt": {
                 "text": "Overall vigor (OV)"
-              }
-            },
-            "_row_num": 17,
-            "__rowNum__": 16,
-            "_token_type": "prompt",
-            "_type": "select_one_integer",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 10
-          },
-          {
-            "type": "select_one_integer",
-            "values_list": "main_stem",
-            "name": "main_stem",
-            "display": {
-              "prompt": {
-                "text": "Main stem (MS)"
               }
             },
             "_row_num": 18,
@@ -3053,11 +3052,11 @@
           },
           {
             "type": "select_one_integer",
-            "values_list": "rooting",
-            "name": "rooting",
+            "values_list": "main_stem",
+            "name": "main_stem",
             "display": {
               "prompt": {
-                "text": "Rooting"
+                "text": "Main stem (MS)"
               }
             },
             "_row_num": 19,
@@ -3066,6 +3065,22 @@
             "_type": "select_one_integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
             "promptIdx": 12
+          },
+          {
+            "type": "select_one_integer",
+            "values_list": "rooting",
+            "name": "rooting",
+            "display": {
+              "prompt": {
+                "text": "Rooting"
+              }
+            },
+            "_row_num": 20,
+            "__rowNum__": 19,
+            "_token_type": "prompt",
+            "_type": "select_one_integer",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 13
           },
           {
             "type": "decimal",
@@ -3079,12 +3094,12 @@
               }
             },
             "constraint": "(function() { if (data('lean_angle') <= 120  && data('lean_angle') >=0){return true;} alert('Lean Angle Needs to be Fixed'); return false;})()",
-            "_row_num": 20,
-            "__rowNum__": 19,
+            "_row_num": 21,
+            "__rowNum__": 20,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 13
+            "promptIdx": 14
           },
           {
             "type": "note",
@@ -3093,12 +3108,12 @@
                 "text": "Lean Angle must be between 0 and 120"
               }
             },
-            "_row_num": 22,
-            "__rowNum__": 21,
+            "_row_num": 23,
+            "__rowNum__": 22,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 14
+            "promptIdx": 15
           },
           {
             "type": "decimal",
@@ -3112,12 +3127,12 @@
               }
             },
             "constraint": "(function() { if (data('crown_percentage') <= 100  && data('crown_percentage') >=0){return true;} alert('Crown Ratio Needs to be Fixed'); return false;})()",
-            "_row_num": 24,
-            "__rowNum__": 23,
+            "_row_num": 25,
+            "__rowNum__": 24,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 15
+            "promptIdx": 16
           },
           {
             "type": "note",
@@ -3126,12 +3141,12 @@
                 "text": "Crown Percentage must be between 0 and 100"
               }
             },
-            "_row_num": 26,
-            "__rowNum__": 25,
+            "_row_num": 27,
+            "__rowNum__": 26,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 16
+            "promptIdx": 17
           },
           {
             "type": "decimal",
@@ -3145,12 +3160,12 @@
               }
             },
             "constraint": "(function() { if (data('tree_percentage') <= 100  && data('tree_percentage') >=0){return true;} alert('Tree Percentage Needs to be Fixed'); return false;})()",
-            "_row_num": 28,
-            "__rowNum__": 27,
+            "_row_num": 29,
+            "__rowNum__": 28,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 17
+            "promptIdx": 18
           },
           {
             "type": "note",
@@ -3159,12 +3174,12 @@
                 "text": "Tree Percentage must be between 0 and 100"
               }
             },
-            "_row_num": 30,
-            "__rowNum__": 29,
+            "_row_num": 31,
+            "__rowNum__": 30,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 18
+            "promptIdx": 19
           },
           {
             "type": "note",
@@ -3173,12 +3188,12 @@
                 "text": "Mapping"
               }
             },
-            "_row_num": 32,
-            "__rowNum__": 31,
+            "_row_num": 33,
+            "__rowNum__": 32,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 19
+            "promptIdx": 20
           },
           {
             "type": "integer",
@@ -3188,12 +3203,12 @@
                 "text": "From (tag)"
               }
             },
-            "_row_num": 33,
-            "__rowNum__": 32,
+            "_row_num": 34,
+            "__rowNum__": 33,
             "_token_type": "prompt",
             "_type": "integer",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 20
+            "promptIdx": 21
           },
           {
             "type": "decimal",
@@ -3207,12 +3222,12 @@
               }
             },
             "constraint": "(function() { if (data('distance') <= 25.0  && data('distance') >=0.1){return true;} alert('Distance Needs to be Fixed'); return false;})()",
-            "_row_num": 34,
-            "__rowNum__": 33,
+            "_row_num": 35,
+            "__rowNum__": 34,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 21
+            "promptIdx": 22
           },
           {
             "type": "note",
@@ -3221,12 +3236,12 @@
                 "text": "Distance must be between 0.1m and 25.0m"
               }
             },
-            "_row_num": 36,
-            "__rowNum__": 35,
+            "_row_num": 37,
+            "__rowNum__": 36,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 22
+            "promptIdx": 23
           },
           {
             "type": "decimal",
@@ -3240,12 +3255,12 @@
               }
             },
             "constraint": "(function() { if (data('azimuth') <= 360  && data('azimuth') >=0){return true;} alert('Azimuth Range needs to be fixed'); return false;})()",
-            "_row_num": 38,
-            "__rowNum__": 37,
+            "_row_num": 39,
+            "__rowNum__": 38,
             "_token_type": "prompt",
             "_type": "decimal",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 23
+            "promptIdx": 24
           },
           {
             "type": "note",
@@ -3254,12 +3269,12 @@
                 "text": "Azimuth value must be between 0 and 360"
               }
             },
-            "_row_num": 40,
-            "__rowNum__": 39,
+            "_row_num": 41,
+            "__rowNum__": 40,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 24
+            "promptIdx": 25
           },
           {
             "type": "note",
@@ -3268,12 +3283,12 @@
                 "text": "Comments"
               }
             },
-            "_row_num": 42,
-            "__rowNum__": 41,
+            "_row_num": 43,
+            "__rowNum__": 42,
             "_token_type": "prompt",
             "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 25
+            "promptIdx": 26
           },
           {
             "type": "select_one_dropdown",
@@ -3282,22 +3297,6 @@
             "display": {
               "prompt": {
                 "text": "Comment 1"
-              }
-            },
-            "_row_num": 43,
-            "__rowNum__": 42,
-            "_token_type": "prompt",
-            "_type": "select_one_dropdown",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 26
-          },
-          {
-            "type": "select_one_dropdown",
-            "values_list": "tree_comments",
-            "name": "comment_2",
-            "display": {
-              "prompt": {
-                "text": "Comment 2"
               }
             },
             "_row_num": 44,
@@ -3310,10 +3309,10 @@
           {
             "type": "select_one_dropdown",
             "values_list": "tree_comments",
-            "name": "comment_3",
+            "name": "comment_2",
             "display": {
               "prompt": {
-                "text": "Comment 3"
+                "text": "Comment 2"
               }
             },
             "_row_num": 45,
@@ -3324,6 +3323,22 @@
             "promptIdx": 28
           },
           {
+            "type": "select_one_dropdown",
+            "values_list": "tree_comments",
+            "name": "comment_3",
+            "display": {
+              "prompt": {
+                "text": "Comment 3"
+              }
+            },
+            "_row_num": 46,
+            "__rowNum__": 45,
+            "_token_type": "prompt",
+            "_type": "select_one_dropdown",
+            "_branch_label_enclosing_screen": "survey/_screen2",
+            "promptIdx": 29
+          },
+          {
             "type": "text",
             "name": "comment_custom",
             "display": {
@@ -3331,31 +3346,31 @@
                 "text": "Custom comment"
               }
             },
-            "_row_num": 46,
-            "__rowNum__": 45,
+            "_row_num": 47,
+            "__rowNum__": 46,
             "_token_type": "prompt",
             "_type": "text",
             "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 29
+            "promptIdx": 30
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 48,
-            "_branch_label_enclosing_screen": "survey/_screen48",
-            "promptIdx": 30
+            "_row_num": 49,
+            "_branch_label_enclosing_screen": "survey/_screen49",
+            "promptIdx": 31
           }
         ],
         "validation_tag_map": {
           "finalize": [
-            2,
-            8,
-            13,
-            15,
-            17,
-            21,
-            23
+            3,
+            9,
+            14,
+            16,
+            18,
+            22,
+            24
           ]
         },
         "operations": [
@@ -3366,23 +3381,23 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 47,
-              "__rowNum__": 46,
+              "_row_num": 48,
+              "__rowNum__": 47,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nif (data('tag') == 2) {\nactivePromptIndicies.push(3);\n}\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nif (data('crown_ratio') > 100 || data('crown_ratio') < 1) {\nactivePromptIndicies.push(9);\n}\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('lean_angle') > 120 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(14);\n}\nactivePromptIndicies.push(15);\nif (data('crown_percentage') > 100 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(16);\n}\nactivePromptIndicies.push(17);\nif (data('tree_percentage') > 100 || data('tree_percentage') < 0) {\nactivePromptIndicies.push(18);\n}\nactivePromptIndicies.push(19);\nactivePromptIndicies.push(20);\nactivePromptIndicies.push(21);\nif (data('distance') > 25 || data('distance') < 0.1) {\nactivePromptIndicies.push(22);\n}\nactivePromptIndicies.push(23);\nif (data('azimuth') > 360 || data('azimuth') < 0) {\nactivePromptIndicies.push(24);\n}\nactivePromptIndicies.push(25);\nactivePromptIndicies.push(26);\nactivePromptIndicies.push(27);\nactivePromptIndicies.push(28);\nactivePromptIndicies.push(29);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nif (data('tag') == 2) {\nactivePromptIndicies.push(4);\n}\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\nif (data('crown_ratio') > 100 || data('crown_ratio') < 1) {\nactivePromptIndicies.push(10);\n}\nactivePromptIndicies.push(11);\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nactivePromptIndicies.push(14);\nif (data('lean_angle') > 120 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(15);\n}\nactivePromptIndicies.push(16);\nif (data('crown_percentage') > 100 || data('crown_percentage') < 0) {\nactivePromptIndicies.push(17);\n}\nactivePromptIndicies.push(18);\nif (data('tree_percentage') > 100 || data('tree_percentage') < 0) {\nactivePromptIndicies.push(19);\n}\nactivePromptIndicies.push(20);\nactivePromptIndicies.push(21);\nactivePromptIndicies.push(22);\nif (data('distance') > 25 || data('distance') < 0.1) {\nactivePromptIndicies.push(23);\n}\nactivePromptIndicies.push(24);\nif (data('azimuth') > 360 || data('azimuth') < 0) {\nactivePromptIndicies.push(25);\n}\nactivePromptIndicies.push(26);\nactivePromptIndicies.push(27);\nactivePromptIndicies.push(28);\nactivePromptIndicies.push(29);\nactivePromptIndicies.push(30);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 0
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 48,
+            "_row_num": 49,
             "operationIdx": 1
           },
           {
-            "_row_num": 48,
+            "_row_num": 49,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(30);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(31);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -3391,14 +3406,14 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 48,
+            "_row_num": 49,
             "operationIdx": 3
           }
         ],
         "branch_label_map": {
           "_screen2": 0,
           "_contents": 2,
-          "_screen48": 2
+          "_screen49": 2
         }
       },
       "initial": {
@@ -3580,14 +3595,27 @@
       }
     },
     "dataTableModel": {
-      "stand": {
+      "TreeID": {
         "_defn": [
           {
             "_row_num": 3,
             "section_name": "survey"
           }
         ],
-        "type": "integer",
+        "type": "string",
+        "elementKey": "TreeID",
+        "elementName": "TreeID",
+        "elementSet": "data",
+        "elementPath": "TreeID"
+      },
+      "stand": {
+        "_defn": [
+          {
+            "_row_num": 4,
+            "section_name": "survey"
+          }
+        ],
+        "type": "string",
         "elementKey": "stand",
         "elementName": "stand",
         "elementSet": "data",
@@ -3596,7 +3624,7 @@
       "plot": {
         "_defn": [
           {
-            "_row_num": 4,
+            "_row_num": 5,
             "section_name": "survey"
           }
         ],
@@ -3609,7 +3637,7 @@
       "tag": {
         "_defn": [
           {
-            "_row_num": 5,
+            "_row_num": 6,
             "section_name": "survey"
           }
         ],
@@ -3622,7 +3650,7 @@
       "species": {
         "_defn": [
           {
-            "_row_num": 9,
+            "_row_num": 10,
             "section_name": "survey"
           }
         ],
@@ -3636,7 +3664,7 @@
       "dbh": {
         "_defn": [
           {
-            "_row_num": 10,
+            "_row_num": 11,
             "section_name": "survey"
           }
         ],
@@ -3649,7 +3677,7 @@
       "status": {
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 12,
             "section_name": "survey"
           }
         ],
@@ -3663,7 +3691,7 @@
       "canopy_class": {
         "_defn": [
           {
-            "_row_num": 12,
+            "_row_num": 13,
             "section_name": "survey"
           }
         ],
@@ -3677,7 +3705,7 @@
       "crown_ratio": {
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 14,
             "section_name": "survey"
           }
         ],
@@ -3690,7 +3718,7 @@
       "overall_vigor": {
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 18,
             "section_name": "survey"
           }
         ],
@@ -3704,7 +3732,7 @@
       "main_stem": {
         "_defn": [
           {
-            "_row_num": 18,
+            "_row_num": 19,
             "section_name": "survey"
           }
         ],
@@ -3718,7 +3746,7 @@
       "rooting": {
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 20,
             "section_name": "survey"
           }
         ],
@@ -3732,7 +3760,7 @@
       "lean_angle": {
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 21,
             "section_name": "survey"
           }
         ],
@@ -3745,7 +3773,7 @@
       "crown_percentage": {
         "_defn": [
           {
-            "_row_num": 24,
+            "_row_num": 25,
             "section_name": "survey"
           }
         ],
@@ -3758,7 +3786,7 @@
       "tree_percentage": {
         "_defn": [
           {
-            "_row_num": 28,
+            "_row_num": 29,
             "section_name": "survey"
           }
         ],
@@ -3771,7 +3799,7 @@
       "from_tag": {
         "_defn": [
           {
-            "_row_num": 33,
+            "_row_num": 34,
             "section_name": "survey"
           }
         ],
@@ -3784,7 +3812,7 @@
       "distance": {
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 35,
             "section_name": "survey"
           }
         ],
@@ -3797,7 +3825,7 @@
       "azimuth": {
         "_defn": [
           {
-            "_row_num": 38,
+            "_row_num": 39,
             "section_name": "survey"
           }
         ],
@@ -3810,7 +3838,7 @@
       "comment_1": {
         "_defn": [
           {
-            "_row_num": 43,
+            "_row_num": 44,
             "section_name": "survey"
           }
         ],
@@ -3824,7 +3852,7 @@
       "comment_2": {
         "_defn": [
           {
-            "_row_num": 44,
+            "_row_num": 45,
             "section_name": "survey"
           }
         ],
@@ -3838,7 +3866,7 @@
       "comment_3": {
         "_defn": [
           {
-            "_row_num": 45,
+            "_row_num": 46,
             "section_name": "survey"
           }
         ],
@@ -3852,7 +3880,7 @@
       "comment_custom": {
         "_defn": [
           {
-            "_row_num": 46,
+            "_row_num": 47,
             "section_name": "survey"
           }
         ],
@@ -4030,7 +4058,7 @@
         "_aspect": "species",
         "_key": "displayChoicesList",
         "_type": "object",
-        "_value": "[{\"choice_list_name\":\"species_list\",\"data_value\":0,\"display\":{\"title\":{\"text\":\"Tree species\"}},\"_row_num\":5},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABAM\",\"display\":{\"title\":{\"text\":\"ABAM - Abies amabilis (Pacific silver fir)\"}},\"_row_num\":82},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABCO\",\"display\":{\"title\":{\"text\":\"ABCO - Abies concolor (white fir)\"}},\"_row_num\":83},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABGR\",\"display\":{\"title\":{\"text\":\"ABGR - Abies grandis (grand fir)\"}},\"_row_num\":84},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABLA\",\"display\":{\"title\":{\"text\":\"ABLA - Abies lasiocarpa (subalpine fir)\"}},\"_row_num\":85},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABMA\",\"display\":{\"title\":{\"text\":\"ABMA - Abies magnifica (Shasta red fir)\"}},\"_row_num\":86},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABPR\",\"display\":{\"title\":{\"text\":\"ABPR - Abies procera (noble fir)\"}},\"_row_num\":87},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACGL\",\"display\":{\"title\":{\"text\":\"ACGL - Acer glabrum (Rocky Mtn maple)\"}},\"_row_num\":88},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACMA3\",\"display\":{\"title\":{\"text\":\"ACMA3 - Acer macrophyllum (bigleaf maple)\"}},\"_row_num\":89},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALRU2\",\"display\":{\"title\":{\"text\":\"ALRU2 - Alnus rubra (red alder)\"}},\"_row_num\":90},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALVIS\",\"display\":{\"title\":{\"text\":\"ALVIS - Alnus viridis ssp sinuata (Sitka alder)\"}},\"_row_num\":91},{\"choice_list_name\":\"species_list\",\"data_value\":\"ARME\",\"display\":{\"title\":{\"text\":\"ARME - Arbutus menziesii (Pacific madrone)\"}},\"_row_num\":92},{\"choice_list_name\":\"species_list\",\"data_value\":\"CHCH7\",\"display\":{\"title\":{\"text\":\"CHCH7 - Chrysolepis chrysophylla (golden chinquapin)\"}},\"_row_num\":93},{\"choice_list_name\":\"species_list\",\"data_value\":\"CADE27\",\"display\":{\"title\":{\"text\":\"CADE27 - Calocedrus decurrens (incense cedar)\"}},\"_row_num\":94},{\"choice_list_name\":\"species_list\",\"data_value\":\"CANO9\",\"display\":{\"title\":{\"text\":\"CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)\"}},\"_row_num\":95},{\"choice_list_name\":\"species_list\",\"data_value\":\"CONU4\",\"display\":{\"title\":{\"text\":\"CONU4 - Cornus nuttalli (Pacific dogwood)\"}},\"_row_num\":96},{\"choice_list_name\":\"species_list\",\"data_value\":\"FRPU7\",\"display\":{\"title\":{\"text\":\"FRPU7 - Frangula purshiana (Cascara buckthorn)\"}},\"_row_num\":97},{\"choice_list_name\":\"species_list\",\"data_value\":\"PICO\",\"display\":{\"title\":{\"text\":\"PICO - Pinus contorta (Lodgepole pine)\"}},\"_row_num\":98},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIEN\",\"display\":{\"title\":{\"text\":\"PIEN - Picea engelmanii (Engelmnn spruce)\"}},\"_row_num\":99},{\"choice_list_name\":\"species_list\",\"data_value\":\"PILA\",\"display\":{\"title\":{\"text\":\"PILA - Pinus lambertiana (sugar pine)\"}},\"_row_num\":100},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIMO3\",\"display\":{\"title\":{\"text\":\"PIMO3 - Pinus monticola (w. white pine)\"}},\"_row_num\":101},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIPO\",\"display\":{\"title\":{\"text\":\"PIPO - Pinus ponderosa (ponderosa pine)\"}},\"_row_num\":102},{\"choice_list_name\":\"species_list\",\"data_value\":\"PISI\",\"display\":{\"title\":{\"text\":\"PISI - Picea sitchensis (Sitka spruce)\"}},\"_row_num\":103},{\"choice_list_name\":\"species_list\",\"data_value\":\"POBAT\",\"display\":{\"title\":{\"text\":\"POBAT - Populus balsamifer v. trich. (black cottonwood)\"}},\"_row_num\":104},{\"choice_list_name\":\"species_list\",\"data_value\":\"PREM\",\"display\":{\"title\":{\"text\":\"PREM - Prunus emarginata (bitter cherry)\"}},\"_row_num\":105},{\"choice_list_name\":\"species_list\",\"data_value\":\"PRUNU\",\"display\":{\"title\":{\"text\":\"PRUNU - Prunus spp. (cherry)\"}},\"_row_num\":106},{\"choice_list_name\":\"species_list\",\"data_value\":\"PSME\",\"display\":{\"title\":{\"text\":\"PSME - Pseudotsuga menziesii (Douglas-fir)\"}},\"_row_num\":107},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUGA4\",\"display\":{\"title\":{\"text\":\"QUGA4 - Quercus garryana (Oregon white oak)\"}},\"_row_num\":108},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUKE\",\"display\":{\"title\":{\"text\":\"QUKE - Quercus kelloggii (California black oak)\"}},\"_row_num\":109},{\"choice_list_name\":\"species_list\",\"data_value\":\"TABR2\",\"display\":{\"title\":{\"text\":\"TABR2 - Taxus brevifolia (Pacific yew)\"}},\"_row_num\":110},{\"choice_list_name\":\"species_list\",\"data_value\":\"THPL\",\"display\":{\"title\":{\"text\":\"THPL - Thuja plicata (western redcedar)\"}},\"_row_num\":111},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSHE\",\"display\":{\"title\":{\"text\":\"TSHE - Tsuga heterophylla (western hemlock)\"}},\"_row_num\":112},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSME\",\"display\":{\"title\":{\"text\":\"TSME - Tsuga mertensiana (mountain hemlock)\"}},\"_row_num\":113}]"
+        "_value": "[{\"choice_list_name\":\"species_list\",\"data_value\":\"ABAM\",\"display\":{\"title\":{\"text\":\"ABAM - Abies amabilis (Pacific silver fir)\"}},\"_row_num\":82},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABCO\",\"display\":{\"title\":{\"text\":\"ABCO - Abies concolor (white fir)\"}},\"_row_num\":83},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABGR\",\"display\":{\"title\":{\"text\":\"ABGR - Abies grandis (grand fir)\"}},\"_row_num\":84},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABLA\",\"display\":{\"title\":{\"text\":\"ABLA - Abies lasiocarpa (subalpine fir)\"}},\"_row_num\":85},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABMA\",\"display\":{\"title\":{\"text\":\"ABMA - Abies magnifica (Shasta red fir)\"}},\"_row_num\":86},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABPR\",\"display\":{\"title\":{\"text\":\"ABPR - Abies procera (noble fir)\"}},\"_row_num\":87},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACGL\",\"display\":{\"title\":{\"text\":\"ACGL - Acer glabrum (Rocky Mtn maple)\"}},\"_row_num\":88},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACMA3\",\"display\":{\"title\":{\"text\":\"ACMA3 - Acer macrophyllum (bigleaf maple)\"}},\"_row_num\":89},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALRU2\",\"display\":{\"title\":{\"text\":\"ALRU2 - Alnus rubra (red alder)\"}},\"_row_num\":90},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALVIS\",\"display\":{\"title\":{\"text\":\"ALVIS - Alnus viridis ssp sinuata (Sitka alder)\"}},\"_row_num\":91},{\"choice_list_name\":\"species_list\",\"data_value\":\"ARME\",\"display\":{\"title\":{\"text\":\"ARME - Arbutus menziesii (Pacific madrone)\"}},\"_row_num\":92},{\"choice_list_name\":\"species_list\",\"data_value\":\"CHCH7\",\"display\":{\"title\":{\"text\":\"CHCH7 - Chrysolepis chrysophylla (golden chinquapin)\"}},\"_row_num\":93},{\"choice_list_name\":\"species_list\",\"data_value\":\"CADE27\",\"display\":{\"title\":{\"text\":\"CADE27 - Calocedrus decurrens (incense cedar)\"}},\"_row_num\":94},{\"choice_list_name\":\"species_list\",\"data_value\":\"CANO9\",\"display\":{\"title\":{\"text\":\"CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)\"}},\"_row_num\":95},{\"choice_list_name\":\"species_list\",\"data_value\":\"CONU4\",\"display\":{\"title\":{\"text\":\"CONU4 - Cornus nuttalli (Pacific dogwood)\"}},\"_row_num\":96},{\"choice_list_name\":\"species_list\",\"data_value\":\"FRPU7\",\"display\":{\"title\":{\"text\":\"FRPU7 - Frangula purshiana (Cascara buckthorn)\"}},\"_row_num\":97},{\"choice_list_name\":\"species_list\",\"data_value\":\"PICO\",\"display\":{\"title\":{\"text\":\"PICO - Pinus contorta (Lodgepole pine)\"}},\"_row_num\":98},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIEN\",\"display\":{\"title\":{\"text\":\"PIEN - Picea engelmanii (Engelmnn spruce)\"}},\"_row_num\":99},{\"choice_list_name\":\"species_list\",\"data_value\":\"PILA\",\"display\":{\"title\":{\"text\":\"PILA - Pinus lambertiana (sugar pine)\"}},\"_row_num\":100},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIMO3\",\"display\":{\"title\":{\"text\":\"PIMO3 - Pinus monticola (w. white pine)\"}},\"_row_num\":101},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIPO\",\"display\":{\"title\":{\"text\":\"PIPO - Pinus ponderosa (ponderosa pine)\"}},\"_row_num\":102},{\"choice_list_name\":\"species_list\",\"data_value\":\"PISI\",\"display\":{\"title\":{\"text\":\"PISI - Picea sitchensis (Sitka spruce)\"}},\"_row_num\":103},{\"choice_list_name\":\"species_list\",\"data_value\":\"POBAT\",\"display\":{\"title\":{\"text\":\"POBAT - Populus balsamifer v. trich. (black cottonwood)\"}},\"_row_num\":104},{\"choice_list_name\":\"species_list\",\"data_value\":\"PREM\",\"display\":{\"title\":{\"text\":\"PREM - Prunus emarginata (bitter cherry)\"}},\"_row_num\":105},{\"choice_list_name\":\"species_list\",\"data_value\":\"PRUNU\",\"display\":{\"title\":{\"text\":\"PRUNU - Prunus spp. (cherry)\"}},\"_row_num\":106},{\"choice_list_name\":\"species_list\",\"data_value\":\"PSME\",\"display\":{\"title\":{\"text\":\"PSME - Pseudotsuga menziesii (Douglas-fir)\"}},\"_row_num\":107},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUGA4\",\"display\":{\"title\":{\"text\":\"QUGA4 - Quercus garryana (Oregon white oak)\"}},\"_row_num\":108},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUKE\",\"display\":{\"title\":{\"text\":\"QUKE - Quercus kelloggii (California black oak)\"}},\"_row_num\":109},{\"choice_list_name\":\"species_list\",\"data_value\":\"TABR2\",\"display\":{\"title\":{\"text\":\"TABR2 - Taxus brevifolia (Pacific yew)\"}},\"_row_num\":110},{\"choice_list_name\":\"species_list\",\"data_value\":\"THPL\",\"display\":{\"title\":{\"text\":\"THPL - Thuja plicata (western redcedar)\"}},\"_row_num\":111},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSHE\",\"display\":{\"title\":{\"text\":\"TSHE - Tsuga heterophylla (western hemlock)\"}},\"_row_num\":112},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSME\",\"display\":{\"title\":{\"text\":\"TSME - Tsuga mertensiana (mountain hemlock)\"}},\"_row_num\":113}]"
       },
       {
         "_partition": "Column",

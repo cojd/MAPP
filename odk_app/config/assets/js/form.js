@@ -1,56 +1,56 @@
-function populateSelect(selectElem, OptionsJSON, filter) {
-  var selectItems = '';
-  $.each(OptionsJSON, (key, value) => {
-    let item = '<option value=\'' + key + '\'>' + value + '</option>';
-    // console.log(item);
-    if (filter === null || filter === undefined || filter(key, value)) selectItems += item;
-  });
-  if (selectElem) selectElem.append(selectItems);
-  return selectItems;
-}
+// on document:ready
+$(function () {
+  
+  // add options to selects
+  // populateSelects();
+  Utils.populateSelects();
+  
+  // set up custom form validation
+  bindFormValidation(); // function from validate.js
+  
+  // get params from session variables. (stand, plot, status, etc.)
+  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  console.log('params');
+  console.log(params);
+  // for the remeasure form specifically, since it needs to carry the selected status over from the picker screen
+  if (params.status)
+  {
+    $('#display_status').val(params.status); // set the value of the select which the user can actually see
+    $('#status').val(params.status); // set the value of the hidden input
+    
+    // we have to do it this way since <select> elements don't have proper support for the readonly attribute
+    // setting the status select as disabled prevents the user from clicking on the select to change its value
+    // however, that also removes it from the form's output when we serialize it later on
+    
+    // having a disabled select and a hidden input solves this issue
+  }
+  
+  // grab prev tree record stored in session variables
+  let prev   = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
+  console.log('prev');
+  console.log(prev);
+  populateFormFromPrev(prev); // do stuff with the prev data
+  
+  watchForm(); // catch / handle form submission
+  
+});
 
-function genSelects()
-{
-  populateSelect($('select#species'),       DataLists.SpeciesList);
-  populateSelect($('select#status'),        DataLists.StatusList);
-  populateSelect($('select#canopy_class'),  DataLists.CanopyClassList);
-  populateSelect($('select#overall_vigor'), DataLists.TreeVigorList);
-  populateSelect($('select#main_stem'),     DataLists.MainStemList);
-  populateSelect($('select#rooting'),       DataLists.RootingList);
-  let options = populateSelect(null, DataLists.CommentList);
-  $('select#comment_1').append(options);
-  $('select#comment_2').append(options);
-  $('select#comment_3').append(options);
-  $('select#comment_4').append(options);
-  options = populateSelect(null, DataLists.ConditionList);
-  $('select#condition_1').append(options);
-  $('select#condition_2').append(options);
-  $('select#condition_3').append(options);
-  $('select#condition_4').append(options);
-  options = populateSelect(null, DataLists.ProximatePredisposingList);
-  $('select#proximate').append(options);
-  $('select#predisposing').append(options);
-  options = populateSelect(null, DataLists.MortalityCommentList);
-  $('select#mortality_comment_1').append(options);
-  $('select#mortality_comment_2').append(options);
-  $('select#mortality_comment_3').append(options);
-}
-
+// add the previous data to the DOM somehow, where applicable
 function populateFormFromPrev(prev)
 {
   // iterate through 
   $.each(prev, (key, value) => {
     if (key !== '_id')
     {
-      let e = $('#' + key);
+      let e = $('[name=\"' + key + '\"][data-prev-action]'); // grab the element with name=key and has a data-prev-action set
       let a = e.data('prev-action');
-      console.log("populateFormFromPrev: " + key + ":" + value);
+      console.log("populateFormFromPrev: " + key + ": " + value);
       if (a === "replace")
       {
-        e.val(value);
+        e.val(value); // if the action is replace then just set the value
       }
       else if (a === "prepend")
-      {
+      { // otherwise append some html somewhere relative to the input
         let l = e.prev('label');
         let b = ' <span class="badge badge-success">Previous: ' + value + '</span>';
         l.append(b);
@@ -63,75 +63,60 @@ function populateFormFromPrev(prev)
   });
 }
 
-// on document:ready
-$(function () {
-  // add options to selects
-  genSelects();
-  // set up custom form validation
-  bindFormValidation(); // function from validate.js
-  
-  // grab and populate from prev tree record stored in session variables
-  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
-  let prev   = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
-  console.log('params');
-  console.log(params);
-  console.log('prev');
-  console.log(prev);
-  populateFormFromPrev(prev);
+///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////// HANDLE FORM DATA
+///////////////////////////////////////////////////////////
 
+function watchForm()
+{
   // grab form data on submit
   let f = $("form");
   f.submit(function (event) {
-    event.preventDefault();
+    event.preventDefault();  // prevent default action
     event.stopPropagation();
-    if (f[0].checkValidity() === false)
-    {
-      f.addClass('was-validated');
+
+    if (f[0].checkValidity() === false) 
+    { 
+      // if the form is not valid
+      f.addClass('was-validated'); // add the class so bootstrap can do its thing
     }
-    else
+    else 
     {
-      let data = formatFormData(f.serializeArray());
+      let data = formatFormData(f.serializeArray()); // grab the form data and pass it to the formatter
       console.log(data);
-      createRow(f.attr('id'), data);
+      createRow(f.attr('id'), data); // pass it and the form id to the create row function
     }
   });
-});
+}
 
+// translate from what serializeArray does to what odkData will accept
 function formatFormData(formData)
 {
   let data = {};
-  for (let i = 0; i < formData.length; i++)
+  for (let i = 0; i < formData.length; i++) // serializeArray outputs a 2d array for the form [["key", "value"], ...]
   {
-    let item = formData[i];
-    data[item.name] = item.value;
+    let item = formData[i]; // grab the item from the serialized form data
+    if (item.value !== '' && item.value !== null && item.value !== undefined) { // as long as it isnt empty or null
+      data[item.name] = item.value; // add it to our output as a key value pair
+    }
   }
-  return data;
+  return data; // our output is a JSON object of the form {"key":"value", ...}
 }
 
 function createRow(tableID, data)
 {
-  var genUUID = function() {
-    var d = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0;
-      d = Math.floor(d / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
-  };
-
-  var successFnCreate = function (result) {
+  var success = function (result) {
     console.log("SUCCESS!");
     console.log(result);
     window.history.back();
     // window.location.replace('../index.html');
   }
 
-  var failureFnCreate = function (errorMsg) {
+  var failure = function (errorMsg) {
     console.log("FAILURE");
     console.log(errorMsg);
   }
   
   console.log(tableID);
-  odkData.addRow(tableID, data, genUUID(), successFnCreate, failureFnCreate);
+  odkData.addRow(tableID, data, Utils.genUUID(), success, failure);
 }

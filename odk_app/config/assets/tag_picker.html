@@ -12,6 +12,7 @@
   <script type="text/javascript" src="../../system/js/odkCommon.js"></script>
   <script type="text/javascript" src="../../system/js/odkData.js"></script>
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
+  <script type="text/javascript" src="js/Utils.js"></script>
   <script type="text/javascript" src="js/picker.js"></script>
   <script type="text/javascript" src="StaticData.js"></script>
 </head>
@@ -46,7 +47,7 @@
           
           <div class="form-group">
             <label for="status">Status</label>
-            <select class="form-control" name="status" id="status" required>
+            <select class="form-control" name="status" id="status" data-options-list="StatusList" required>
               <option value="">Please select an option...</option>
               <div class="invalid-feedback">You must select a status.</div>
             </select>
