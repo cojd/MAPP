@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link href="css/form.css" type="text/css" rel="stylesheet" />
   <script type="text/javascript" src="commonDefinitions.js"></script>
   <script type="text/javascript" src="libs/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="libs/jquery-migrate-3.0.0.js"></script>
@@ -13,73 +14,37 @@
   <script type="text/javascript" src="../../system/js/odkData.js"></script>
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="dataLists.js"></script>
 </head>
 
 <body id="main">
 
   <div class="container">
     <h2>PNW-PSP</h2>
-    
-    <div class="accordion" id="selectPlotType">
 
-      <div class="card" id="reference-stand">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              Reference Stand
-            </button>
-          </h2>
+    <div class="card" id="card-tree-info">
+      <div class="card-header">Reference Stand</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="stand">Stand</label>
+          <input type="number" class="form-control" name="stand" id="rs_stand">
         </div>
-    
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#selectPlotType">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="stand">Stand</label>
-              <input type="number" class="form-control" name="stand" id="rs_stand">
-            </div>
-            <div class="form-group">
-              <label for="plot">Plot</label>
-              <input type="number" class="form-control" name="plot" id="rs_plot">
-            </div>
-            <div class="form-group">
-              <label for="tag">Tag</label>
-              <input type="number" class="form-control" name="tag" id="rs_tag">
-            </div>
-            <button class="btn btn-primary" id="rs-submit">Submit</button>
-          </div>
-        </div>
+        <button class="btn btn-primary" id="rs-submit">Submit</button>
       </div>
-
-      <div class="card" id="fixed-radius-plot">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-              aria-expanded="false" aria-controls="collapseTwo">
-              Fixed-radius Plot
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#selectPlotType">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="stand">Stand</label>
-              <input type="number" class="form-control" name="stand" id="frp_stand">
-            </div>
-            <div class="form-group">
-              <label for="plot">Plot</label>
-              <input type="number" class="form-control" name="plot" id="frp_plot">
-            </div>
-            <div class="form-group">
-              <label for="tag">Tag</label>
-              <input type="number" class="form-control" name="tag" id="frp_tag">
-            </div>
-            <button class="btn btn-primary" id="frp-submit">Submit</button>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <div class="card" id="card-tree-info">
+      <div class="card-header">Fixed-radius Plot</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="plot">Plot</label>
+          <input type="number" class="form-control" name="plot" id="frp_plot">
+        </div>
+        <button class="btn btn-primary" id="frp-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 

@@ -1,10 +1,9 @@
-function populateSelect(selectElem, OptionsJSON) 
-{
+function populateSelect(selectElem, OptionsJSON, filter) {
   var selectItems = '';
   $.each(OptionsJSON, (key, value) => {
     let item = '<option value=\'' + key + '\'>' + value + '</option>';
     // console.log(item);
-    selectItems += item;
+    if (filter === null || filter === undefined || filter(key, value)) selectItems += item;
   });
   if (selectElem) selectElem.append(selectItems);
   return selectItems;
@@ -37,14 +36,49 @@ function genSelects()
   $('select#mortality_comment_3').append(options);
 }
 
+function populateFormFromPrev(prev)
+{
+  // iterate through 
+  $.each(prev, (key, value) => {
+    if (key !== '_id')
+    {
+      let e = $('#' + key);
+      let a = e.data('prev-action');
+      console.log("populateFormFromPrev: " + key + ":" + value);
+      if (a === "replace")
+      {
+        e.val(value);
+      }
+      else if (a === "prepend")
+      {
+        let l = e.prev('label');
+        let b = ' <span class="badge badge-success">Previous: ' + value + '</span>';
+        l.append(b);
+        // let h = `<div class="input-group-prepend">
+        //           <span class="input-group-text" id="inputGroupPrepend">Was: `+ value +`</span>
+        //         </div>`
+        // $(h).insertBefore(e);
+      }
+    }
+  });
+}
+
 // on document:ready
 $(function () {
   // add options to selects
   genSelects();
-
   // set up custom form validation
-  bindFormValidation();
+  bindFormValidation(); // function from validate.js
   
+  // grab and populate from prev tree record stored in session variables
+  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  let prev   = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
+  console.log('params');
+  console.log(params);
+  console.log('prev');
+  console.log(prev);
+  populateFormFromPrev(prev);
+
   // grab form data on submit
   let f = $("form");
   f.submit(function (event) {

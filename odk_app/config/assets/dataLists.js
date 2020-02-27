@@ -1,4 +1,16 @@
-var DataLists = {
+const Constants = {
+  PlotTypes: {
+    'REFERENCE_STAND':'REFERENCE_STAND',
+    'FIXED_RADIUS_PLOT':'FIXED_RADIUS_PLOT',
+  },
+  SessionVariableKeys: {
+    'SELECTION_PARAMS':'SELECTION_PARAMS',
+    'TREE_QUERY_RESULTS':'TREE_QUERY_RESULTS',
+  },
+}
+Object.freeze(Constants);
+
+const DataLists = {
   SpeciesList: {
     'ABAM':   'Abies amabilis(Pacific silver fir)',
     'ABCO':   'Abies concolor(white fir)',
@@ -170,3 +182,4 @@ var DataLists = {
     'Velvet top butt rot (Phaeolus schweinitzii)':      'Velvet top butt rot (Phaeolus schweinitzii)',
   },
 }
+Object.freeze(DataLists);

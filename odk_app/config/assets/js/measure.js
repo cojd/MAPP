@@ -1,11 +1,13 @@
-const PARAMS = "PARAMS";
-
 $(function () {
-  let params = JSON.parse(odkCommon.getSessionVariable(PARAMS));
+
+  // grab session params
+  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
   console.log(params);
   $('#stand').val(params.stand);
   $('#plot').val(params.plot);
-  $('#tag').val(params.tag);
+
+  // remove tree specific data from query results
+  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
 
   bindButtons();
 });
@@ -46,7 +48,19 @@ function bindButtons() {
         'mortality',
         null,
         null,
-        'config/tables/mortality/html/mortality_list.html');
+        null);
+    }
+  );
+
+  var prevDataListButton = $('#prev-data-list');
+  prevDataListButton.on(
+    'click',
+    function () {
+      odkTables.openTableToSpreadsheetView(
+        null,
+        'prev_data',
+        null,
+        null);
     }
   );
 }

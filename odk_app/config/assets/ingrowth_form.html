@@ -29,14 +29,17 @@
         <div class="card-header">Tree info</div>
         <div class="card-body">
 
-          <div class="form-group">
-            <label for="stand">Stand</label>
-            <input type="number" class="form-control" name="stand" id="stand">
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="stand">Stand</label>
+              <input type="number" class="form-control" name="stand" id="stand" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-6">
+              <label for="plot">Plot</label>
+              <input type="number" class="form-control" name="plot" id="plot" data-prev-action="replace" readonly>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="plot">Plot</label>
-            <input type="number" class="form-control" name="plot" id="plot">
-          </div>
+
           <div class="form-group">
             <label for="tag">Tag</label>
             <input type="number" class="form-control" name="tag" id="tag">
