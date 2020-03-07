@@ -1,6 +1,6 @@
 //NOTE: possibly add range constraints in here as well
 //      in order to keep consistency and allow for
-//      a simpler/(more inuitive) modification eperience for future users
+//      a simpler/(more inuitive) modification experience for future users
 
 function bindIngrowthValidate(){
 
