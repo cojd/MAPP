@@ -1,46 +1,38 @@
 //NOTE: possibly add range constraints in here as well
 //      in order to keep consistency and allow for
-//      a simpler/(more inuitive) modification experience for future users
+//      a simpler/(more inuitive) modification eperience for future users
 
+// ALSO: CREATE Classes/Objects for functions in each validation file
+
+//need to set required fields
 function bindIngrowthValidate(){
 
+ speciesCheck() // can't be null (REQUIRE) need message
+
+ //statusDefault()
+
+ statusSetUp_ingrowth() // need work
+ $('input#status_i').change(() => { statusSetUp_ingrowth(); });
+
+ dbhCheck_ingrowth() // need more work
+ $('input#dbh_i').change(() => { dbhCheck_ingrowth(); });
 
 
-  let s = $('select#rooting');
- s.change(()=>{
-   console.log(s.val())
- })
 
- speciesCheck() // not working
+ crownPercentageCheck_ingrowth()
+ $('input#crown_percentage_i').change(() => { crownPercentageCheck_ingrowth(); });
+ $('select#main_stem_i').change(() => { crownPercentageCheck_ingrowth(); });
 
- statusSetUp() // need work
+// treePercentageDefault()
 
- dbhCheck() // need more work
-
- overallVigorDefault()
-
- mainStemDefault()
-
- rootingDefault()
-
- leanAngleDefault()
-
- crownPercentageDefault()
-
- crownPercentageCheck()
- $('input#crown_percentage').change(() => { crownPercentageCheck(); });
- $('select#main_stem').change(() => { crownPercentageCheck(); });
-
- treePercentageDefault()
-
- treePercentageCheck()
- $('input#tree_percentage').change(() => { treePercentageCheck(); });
- $('input#crown_percentage').change(() => { treePercentageCheck(); });
+ treePercentageCheck_ingrowth()
+ $('input#tree_percentage_i').change(() => { treePercentageCheck_ingrowth(); });
+ $('input#crown_percentage_i').change(() => { treePercentageCheck_ingrowth(); });
 
  // mapping
- fromCheck() // need to do database look up
+ fromCheck_ingrowth() // need to do database look up
 
- distanceCheck()
+ distanceCheck_ingrowth()
  //$('input#distance').change(() => { distanceCheck(); });
 
 }
@@ -52,20 +44,43 @@ function speciesCheck(){
   // species.change(()=>{
   //   console.log(species.val())
   // })
-  $('#species').prop('require',true)
+  $('#species_i').prop('require',true)
 
 }
 
-function statusSetUp(){
-
+function  statusDefault(){
+  $('select#status_i option[value="2"]').attr("selected",true);
 }
 
-function dbhCheck(){
+function statusSetUp_ingrowth(){
 
-  let dbh = $('input#dbh')
+  let treeStatus = $('select#status_i')
+
+  treeStatus.change(()=>{
+
+    console.log(treeStatus.val())
+
+    let treeStatusVal = Number(treeStatus.val())
+    console.log(treeStatusVal)
+    if(treeStatusVal == 2){
+      //(alert("Option1 Selected"))
+      // still need to make fields required
+      $('select#overall_vigor_i option[value="1"]').attr("selected",true)
+      $('select#main_stem_i option[value="1"]').attr("selected",true)
+      $('select#rooting_i option[value="1"]').attr("selected",true)
+      $('select#lean_angle_i option[value="0"]').attr("selected",true)
+      $('input#crown_percentage_i').val(100)
+      $('input#tree_percentage_i').val(100)
+
+    }
+  })
+}
+
+function dbhCheck_ingrowth(){
+
+  let dbh = $('input#dbh_i')
 
   dbh.change(()=>{
-
     let dbhVal = Number(dbh.val())
     console.log(dbhVal) // for testing
     if(dbhVal < 5){
@@ -77,53 +92,23 @@ function dbhCheck(){
     // }
 
   })
-
 }
 
-function overallVigorDefault(){
-  // the default value is specified inside of option[value="changeMe"]
-  $('select#overall_vigor option[value="1"]').attr("selected",true);
-}
-
-function mainStemDefault(){
-  // the default value is specified inside of option[value="changeMe"]
-  $('select#main_stem option[value="1"]').attr("selected",true);
-}
-
-function rootingDefault(){
-  // the default value is specified inside of option[value="changeMe"]
-  $('select#rooting option[value="1"]').attr("selected",true);
-}
-
-function leanAngleDefault(){
-  //the default value is specified inside of val(changeMe)
-  $('input#lean_angle').val(0)
-}
-
-function crownPercentageDefault(){
-  $('input#crown_percentage').val(100)
-}
-
-function crownPercentageCheck(){
-  let crownPct = $('input#crown_percentage')
+function crownPercentageCheck_ingrowth(){
+  let crownPct = $('input#crown_percentage_i')
   let crownPctVal = Number(crownPct.val())
-  let mainStemVal = Number($('select#main_stem').val())
+  let mainStemVal = Number($('select#main_stem_i').val())
 
   if(mainStemVal === 2 && crownPctVal === 100){
     setValidityMsg(crownPct, 'If main stem is 2 then crown % must be < 100%')
   }
 }
 
-function treePercentageDefault(){
-  //the default value is specified inside of val(changeMe)
-  $('input#tree_percentage').val(100)
-}
+function treePercentageCheck_ingrowth(){
 
-function treePercentageCheck(){
-
-  let tree = $('input#tree_percentage')
+  let tree = $('input#tree_percentage_i')
   let treeVal = Number(tree.val())
-  let crownVal = Number($('input#crown_percentage').val())
+  let crownVal = Number($('input#crown_percentage_i').val())
 
   if(treeVal < crownVal){
     setValidityMsg(tree, 'Tree % cannot be less then crown %.')
@@ -131,13 +116,13 @@ function treePercentageCheck(){
 
 }
 
-function fromCheck(){
+function fromCheck_ingrowth(){
 
 }
 
-function distanceCheck(){
+function distanceCheck_ingrowth(){
 
-  let distance = $('input#distance')
+  let distance = $('input#distance_i')
 
   distance.change(()=>{
     let distanceVal = Number(distance.val())

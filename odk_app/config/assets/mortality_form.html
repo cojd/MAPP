@@ -16,20 +16,23 @@
   <script type="text/javascript" src="js/Utils.js"></script>
   <script type="text/javascript" src="js/form.js"></script>
   <script type="text/javascript" src="js/validate.js"></script>
+  <script type="text/javascript" src="js/ingrowthValidate.js"></script>
+  <script type="text/javascript" src="js/remeasureValidate.js"></script>
+  <script type="text/javascript" src="js/mortalityValidate.js"></script>
   <script type="text/javascript" src="StaticData.js"></script>
 </head>
 
 <body id="main">
 
   <div class="container">
-    <form id="mortality">
+    <form id="mortality" novalidate>
 
       <h3 class="mb-0">Mortality Form</h3>
 
       <div class="card" id="card-tree-info">
         <div class="card-header">Tree Info</div>
         <div class="card-body">
-       
+
           <div class="form-row">
 
             <div class="form-group col-3">
@@ -50,7 +53,7 @@
             </div>
 
           </div>
-          
+
           <div class="form-row">
             <div class="form-group col-8">
               <label for="species">Species</label>
@@ -65,7 +68,7 @@
               </select>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -74,36 +77,41 @@
         <div class="card-body">
 
           <div class="form-group">
-            <label for="main_stem">Main stem (MS)</label>
-            <select class="form-control" name="main_stem" id="main_stem" data-prev-action="prepend" data-options-list="MainStemList">
+            <label for="main_stem_m">Main stem (MS)</label>
+            <select class="form-control" name="main_stem" id="main_stem_m" data-prev-action="prepend" data-options-list="MainStemList">
               <option value="">Please select an option...</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="rooting">Rooting</label>
-            <select class="form-control" name="rooting" id="rooting" data-prev-action="prepend" data-options-list="RootingList">
+            <label for="rooting_m">Rooting</label>
+            <select class="form-control" name="rooting" id="rooting_m" data-prev-action="prepend" data-options-list="RootingList">
               <option value="">Please select an option...</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="lean_angle">Lean angle (deg)</label>
-            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle" data-prev-action="prepend">
+            <label for="lean_angle_m">Lean angle (deg)</label>
+            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle_m" data-prev-action="prepend" min="0" max="120">
+            <div class="invalid-feedback">Lean angle must be within the range 0-120.</div>
           </div>
           <div class="form-group">
-            <label for="crown_percentage">Crown percentage</label>
-            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage">
+            <label for="crown_percentage_m">Crown percentage</label>
+            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_m" min="0" max="100">
+              <div class="invalid-feedback">Lean angle must be within the range 0-100.</div>
           </div>
           <div class="form-group">
-            <label for="tree_percentage">Tree percentage</label>
-            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage">
+            <label for="tree_percentage_m">Tree percentage</label>
+            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_m" min="0" max="100">
+            <div class="invalid-feedback">Tree percentage must be within the range 0-100.</div>
           </div>
           <div class="form-group">
-            <label for="ground_percentage">Ground percentage</label>
-            <input type="number" step="0.01" class="form-control" name="ground_percentage" id="ground_percentage">
+            <label for="ground_percentage_m">Ground percentage</label>
+            <input type="number" step="0.01" class="form-control" name="ground_percentage" id="ground_percentage_m" min="-1" max="100">
+            <div class="invalid-feedback">Ground percentage must be within the range -1 - 100.</div>
           </div>
           <div class="form-group">
-            <label for="support_percentage">Support percentage</label>
-            <input type="number" step="0.01" class="form-control" name="support_percentage" id="support_percentage">
+            <label for="support_percentage_m">Support percentage</label>
+            <input type="number" step="0.01" class="form-control" name="support_percentage" id="support_percentage_m" min="-1" max="100">
+            <div class="invalid-feedback">Support percentage must be within the range -1 - 100.</div>
           </div>
 
         </div>
@@ -112,7 +120,7 @@
       <div class="card" id="card-conditions">
         <div class="card-header">Conditions</div>
         <div class="card-body">
-          
+
           <div class="form-group">
             <label for="condition_1">Condition 1</label>
             <select class="form-control" name="condition_1" id="condition_1" data-options-list="ConditionList">
@@ -140,11 +148,11 @@
 
         </div>
       </div>
-      
+
       <div class="card" id="card-proximate-predisposing">
         <div class="card-header">Proximate/Predisposing</div>
         <div class="card-body">
-          
+
           <div class="form-group">
             <label for="proximate">Proximate</label>
             <select class="form-control" name="proximate" id="proximate" data-options-list="ProximatePredisposingList">
@@ -171,7 +179,7 @@
               </button>
             </h2>
           </div>
-      
+
           <div id="comments-previous-collapse" class="collapse" aria-labelledby="comments-previous-header" data-parent="#comments-previous">
             <div class="card-body">
 
@@ -179,17 +187,17 @@
                 <label for="comment_custom_previous">Previous comments</label>
                 <textarea class="form-control" name="comments" id="comments" rows="3" data-prev-action="replace" readonly disabled></textarea>
               </div>
-      
+
             </div>
           </div>
-      
+
         </div>
       </div>
 
       <div class="card" id="card-mortality-comments">
         <div class="card-header">Mortality Comments</div>
         <div class="card-body">
-        
+
           <div class="form-group">
             <label for="mortality_comment_1">Comment 1</label>
             <select class="form-control" name="comment_1" id="mortality_comment_1" data-options-list="MortalityCommentList">
@@ -212,7 +220,7 @@
             <label for="mortality_comment_custom">Custom comment</label>
             <textarea class="form-control" name="comment_custom" id="mortality_comment_custom" rows="3"></textarea>
           </div>
-        
+
         </div>
       </div>
 
