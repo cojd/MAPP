@@ -34,18 +34,28 @@ function dbhCheck_remeasure(){
 
     let dbh = $('input#dbh_r')
 
+    //getting previous value from database
+    prevDbhVal = 'NULL'
+    let prevData = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
+    $.each(prevData, (key,value) =>{
+      if(key == 'dbh')
+        prevDbhVal = value
+    })
+
     dbh.change(()=>{
       let dbhVal = Number(dbh.val())
       console.log(dbhVal) // for testing
       if(dbhVal < 5){
         alert("Is this correct?")
       }
+
       //check if greater by 10 cm since previous
-      // if(dbhVal > (previousDbh + 10){
-      //   alert("Is this correct?")
-      // }
+      if(dbhVal > (prevDbhVal + 10)){
+        alert("Is this correct? Highly unusual for a tree to be 10 cm more in diameter since last measurement")
+      }
 
     })
+
 }
 
 

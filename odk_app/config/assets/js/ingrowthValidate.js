@@ -86,12 +86,16 @@ function dbhCheck_ingrowth(){
     if(dbhVal < 5){
       alert("Is this correct?")
     }
+  })
+
+    // I don't think this needs to be here
     //check if greater by 10 cm since previous
     // if(dbhVal > (previousDbh + 10){
     //   alert("Is this correct?")
     // }
 
-  })
+
+
 }
 
 function crownPercentageCheck_ingrowth(){

@@ -1,13 +1,13 @@
 // on document:ready
 $(function () {
-  
+
   // add options to selects
   // populateSelects();
   Utils.populateSelects();
-  
+
   // set up custom form validation
   bindFormValidation(); // function from validate.js
-  
+
   // get params from session variables. (stand, plot, status, etc.)
   let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
   console.log('params');
@@ -17,28 +17,28 @@ $(function () {
   {
     $('#display_status').val(params.status); // set the value of the select which the user can actually see
     $('#status').val(params.status); // set the value of the hidden input
-    
+
     // we have to do it this way since <select> elements don't have proper support for the readonly attribute
     // setting the status select as disabled prevents the user from clicking on the select to change its value
     // however, that also removes it from the form's output when we serialize it later on
-    
+
     // having a disabled select and a hidden input solves this issue
   }
-  
+
   // grab prev tree record stored in session variables
   let prev   = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
   console.log('prev');
   console.log(prev);
   populateFormFromPrev(prev); // do stuff with the prev data
-  
+
   watchForm(); // catch / handle form submission
-  
+
 });
 
 // add the previous data to the DOM somehow, where applicable
 function populateFormFromPrev(prev)
 {
-  // iterate through 
+  // iterate through
   $.each(prev, (key, value) => {
     if (key !== '_id')
     {
@@ -52,7 +52,7 @@ function populateFormFromPrev(prev)
       else if (a === "prepend")
       { // otherwise append some html somewhere relative to the input
         let l = e.prev('label');
-        let b = ' <span class="badge badge-success">Previous: ' + value + '</span>';
+        let b = ' <span class="badge badge-success">Previous ' + value + '</span>';
         l.append(b);
         // let h = `<div class="input-group-prepend">
         //           <span class="input-group-text" id="inputGroupPrepend">Was: `+ value +`</span>
@@ -75,12 +75,12 @@ function watchForm()
     event.preventDefault();  // prevent default action
     event.stopPropagation();
 
-    if (f[0].checkValidity() === false) 
-    { 
+    if (f[0].checkValidity() === false)
+    {
       // if the form is not valid
       f.addClass('was-validated'); // add the class so bootstrap can do its thing
     }
-    else 
+    else
     {
       let data = formatFormData(f.serializeArray()); // grab the form data and pass it to the formatter
       console.log(data);
@@ -116,7 +116,7 @@ function createRow(tableID, data)
     console.log("FAILURE");
     console.log(errorMsg);
   }
-  
+
   console.log(tableID);
   odkData.addRow(tableID, data, Utils.genUUID(), success, failure);
 }
