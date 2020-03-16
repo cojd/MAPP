@@ -38,13 +38,27 @@ $(function () {
 
   // this all serves to find all prev_data records for the chosen [stand, plot] for which there
   // is no corresponding record in remeasure with matching stand, plot, tag values
-  odkData.arbitraryQuery('prev_data', 
-                         `SELECT * 
-                            FROM prev_data
-                            LEFT OUTER JOIN remeasure 
-                              ON prev_data.StandID=remeasure.stand
-                             AND prev_data.plot=remeasure.plot
-                             AND prev_data.tag=remeasure.tag
-                           WHERE prev_data.StandID=? AND prev_data.plot=? AND remeasure.tag IS NULL`
-                      , [params.stand, params.plot], null, null, success, console.log);
+  let query = `SELECT * 
+                 FROM prev_data
+                 LEFT OUTER JOIN remeasure 
+                   ON prev_data.StandID=remeasure.stand
+                  AND prev_data.plot=remeasure.plot
+                  AND prev_data.tag=remeasure.tag `; // trailing space here is important 
+  let p = [params.stand];
+
+  switch (params.type)
+  {
+    case Constants.PlotTypes.REFERENCE_STAND:
+      query += `WHERE prev_data.StandID=? AND remeasure.tag IS NULL`;
+      break;
+    case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+      query += `WHERE prev_data.StandID=? AND prev_data.plot=? AND remeasure.tag IS NULL`;
+      p.push(params.plot);
+      break;
+    default:
+      console.log('missing_trees.js: THIS REALLY SHOULDN\'T HAPPEN');
+      break;
+  }
+
+  odkData.arbitraryQuery('prev_data', query, p, null, null, success, console.log);
 });
