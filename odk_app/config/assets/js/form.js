@@ -110,7 +110,7 @@ function createRow(tableID, data)
     console.log(result);
 
     // reset params and exit window
-    let params = localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS);
+    let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
     let np = {type: params.type, stand: params.stand};
     if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) np.plot = params.plot;
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(np))
