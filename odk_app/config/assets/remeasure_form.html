@@ -15,11 +15,16 @@
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
   <script type="text/javascript" src="js/Utils.js"></script>
   <script type="text/javascript" src="js/form.js"></script>
+  <!-- Most likely change structure later -->
   <script type="text/javascript" src="js/validate.js"></script>
+  <script type="text/javascript" src="js/remeasureValidate.js"></script>
+  <script type="text/javascript" src="js/ingrowthValidate.js"></script>  <!-- not being used -->
+  <script type="text/javascript" src="js/mortalityValidate.js"></script>
+  <!--          CHANGE       -->
   <script type="text/javascript" src="StaticData.js"></script>
 </head>
 
-<body id="main">
+<body id="main" novalidate>
 
   <div class="container">
     <form id="remeasure">
@@ -31,7 +36,7 @@
         <div class="card-body">
 
           <div class="form-row">
-            
+
             <div class="form-group col-3">
               <label for="TreeID">TreeID</label>
               <input class="form-control" name="TreeID" id="TreeID" data-prev-action="replace" readonly>
@@ -90,41 +95,78 @@
 
           <div class="form-group">
             <label for="dbh">DBH (cm)</label>
-            <input type="number" class="form-control" name="dbh" id="dbh" data-prev-action="prepend">
+            <input type="number" class="form-control" name="dbh" id="dbh_r" data-prev-action="prepend">
           </div>
           <div class="form-group">
             <label for="overall_vigor">Overall vigor (OV)</label>
-            <select class="form-control" name="overall_vigor" id="overall_vigor" data-options-list="TreeVigorList">
+            <select class="form-control" name="overall_vigor" id="overall_vigor_r" data-options-list="TreeVigorList">
               <option value="">Please select an option...</option>
             </select>
           </div>
           <div class="form-group">
             <label for="main_stem">Main stem (MS)</label>
-            <select class="form-control" name="main_stem" id="main_stem" data-prev-action="prepend" data-options-list="MainStemList">
+            <select class="form-control" name="main_stem" id="main_stem_r" data-prev-action="prepend" data-options-list="MainStemList">
               <option value="">Please select an option...</option>
             </select>
           </div>
           <div class="form-group">
             <label for="rooting">Rooting</label>
-            <select class="form-control" name="rooting" id="rooting" data-prev-action="prepend" data-options-list="RootingList">
+            <select class="form-control" name="rooting" id="rooting_r" data-prev-action="prepend" data-options-list="RootingList">
               <option value="">Please select an option...</option>
             </select>
           </div>
           <div class="form-group">
             <label for="lean_angle">Lean angle (deg)</label>
-            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle" data-prev-action="prepend">
+            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle_r" data-prev-action="prepend" min="0" max="120">
+            <div class="invalid-feedback">Lean angle must be within the range 0-120.</div>
           </div>
           <div class="form-group">
             <label for="crown_percentage">Crown percentage</label>
-            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage">
+            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_r" min="0" max="100">
+            <div class="invalid-feedback">Lean angle must be within the range 0-100.</div>
           </div>
           <div class="form-group">
             <label for="tree_percentage">Tree percentage</label>
-            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage">
+            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_r">
           </div>
 
         </div>
       </div>
+
+      <div class="accordion" id="mapping">
+        <div class="card" id="card-mapping">
+          <div class="card-header" id="mapping-header">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#mapping-collapse" aria-expanded="false" aria-controls="mapping-collapse">
+                Mapping
+              </button>
+            </h2>
+          </div>
+
+          <div id="mapping-collapse" class="collapse" aria-labelledby="mapping-header" data-parent="#mapping">
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="from_tag">From (tag)</label>
+                <input type="number" class="form-control" name="from_tag" id="from_tag_r">
+              </div>
+              <div class="form-group">
+                <label for="distance">Distance (m)</label>
+                <input type="number" step="0.01" class="form-control" name="distance" id="distance_r" min="0.1" max="25.0">
+                <div class="invalid-feedback">Distance must be within the range 0.1-25.0</div>
+              </div>
+              <div class="form-group">
+                <label for="azimuth">Azimuth</label>
+                <input type="number" class="form-control" name="azimuth" id="azimuth_r" min="0" max="360">
+                <div class="invalid-feedback">Azimuth must be within the range 0-360</div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
 
       <div class="card" id="card-comments">
         <div class="card-header">Comments</div>
