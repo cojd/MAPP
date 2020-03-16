@@ -9,7 +9,7 @@ function bindIngrowthValidate(){
 
  speciesCheck() // can't be null (REQUIRE) need message
 
- //statusDefault()
+ statusDefault()
 
  statusSetUp_ingrowth() // need work
  $('input#status_i').change(() => { statusSetUp_ingrowth(); });
@@ -48,9 +48,20 @@ function speciesCheck(){
 
 }
 
-function  statusDefault(){
+function statusDefault(){
   $('select#status_i option[value="2"]').attr("selected",true);
+
+  $('select#overall_vigor_i option[value="1"]').attr("selected",true)
+  $('select#main_stem_i option[value="1"]').attr("selected",true)
+  $('select#rooting_i option[value="1"]').attr("selected",true)
+  $('select#lean_angle_i option[value="0"]').attr("selected",true)
+  $('input#lean_angle_i').val(0)
+  $('input#crown_percentage_i').val(100)
+  $('input#tree_percentage_i').val(100)
+
 }
+
+
 
 function statusSetUp_ingrowth(){
 
@@ -62,16 +73,26 @@ function statusSetUp_ingrowth(){
 
     let treeStatusVal = Number(treeStatus.val())
     console.log(treeStatusVal)
+
+
+
     if(treeStatusVal == 2){
       //(alert("Option1 Selected"))
       // still need to make fields required
       $('select#overall_vigor_i option[value="1"]').attr("selected",true)
       $('select#main_stem_i option[value="1"]').attr("selected",true)
       $('select#rooting_i option[value="1"]').attr("selected",true)
-      $('select#lean_angle_i option[value="0"]').attr("selected",true)
+      $('input#lean_angle_i').val(0)
       $('input#crown_percentage_i').val(100)
       $('input#tree_percentage_i').val(100)
 
+    } else{
+      $('select#overall_vigor_i option[value="1"]').attr("selected",false)
+      $('select#main_stem_i option[value="1"]').attr("selected",false)
+      $('select#rooting_i option[value="1"]').attr("selected",false)
+      $('input#lean_angle_i').val("")
+      $('input#crown_percentage_i').val("")
+      $('input#tree_percentage_i').val("")
     }
   })
 }
@@ -121,6 +142,8 @@ function treePercentageCheck_ingrowth(){
 }
 
 function fromCheck_ingrowth(){
+  // 0 only allowed in fixed radius plots
+
 
 }
 
