@@ -2,6 +2,7 @@ TreeID,StandID,Plot,Tag,TempID,PrevYear,Species,PrevStatus,PrevDBH,PrevMS,PrevRT
 ,CH14,1,84,CH1484,2014,TSHE,2,7,1,1,0,rooted on old log; from 427 5.00 m at 300 deg
 ,CH14,1,85,CH1485,2014,TSHE,2,6.1,1,1,0,rooted on old log; from 427 5.00 m at 325 deg
 ,CH14,1,86,CH1486,2014,TSHE,2,6.8,1,1,0,on nurse log; from 905 3.60 m at 165 deg
+,CH14,2,86,CH1486,2014,TSHE,2,6.8,1,1,0,on nurse log; from 905 3.60 m at 165 deg
 CH14000100001,CH14,1,341,CH14341,1978,PSME,6,51.6,,,,
 CH14000100002,CH14,1,342,CH14342,1957,TSHE,6,13,,,,
 CH14000100003,CH14,1,343,CH14343,2014,PSME,1,75.3,1,1,10,

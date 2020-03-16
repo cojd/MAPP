@@ -15,8 +15,8 @@ $(function () {
       let stand = result.getData(row, "StandID");
       let plot = result.getData(row, "Plot");
       let tag = result.getData(row, "Tag");
-      let species = result.getData(row, "species");
-      let status = result.getData(row, "status");
+      let species = result.getData(row, "Species");
+      let status = result.getData(row, "PrevStatus");
       
       let item = $(`
       <div class="card">

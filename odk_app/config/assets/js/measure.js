@@ -1,13 +1,21 @@
 $(function () {
 
-  // grab session params
+  // grab stand and plot from session variables
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
+  console.log('params');
   console.log(params);
-  $('#stand').val(params.stand);
-  $('#plot').val(params.plot);
 
-  // remove tree specific data from query results
-  localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
+  if (params) {
+    // remove tree specific data from query results just to be safe
+    let p = { type: params.type, stand: params.stand };
+    if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) p.plot = params.plot;
+    localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(p));
+    localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({}));
+
+    $('#stand').val(p.stand);
+    $('#plot').val(p.plot);
+  }
+
 
   bindButtons();
 });

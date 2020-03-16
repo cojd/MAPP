@@ -1,4 +1,5 @@
-let records = [];
+let records = {};
+let record_strings = {};
 
 $(function () {
   // populate the status list
@@ -14,13 +15,17 @@ $(function () {
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
+  
   if (params) {
-    $('#stand').val(params.stand);
-    $('#plot').val(params.plot);
+    // remove tree specific data from query results just to be safe
+    let p = { type: params.type, stand: params.stand };
+    if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) p.plot = params.plot;
+    localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(p));
+    localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({}));
+    
+    $('#stand').val(p.stand);
+    $('#plot').val(p.plot);
   }
-
-  // remove tree specific data from query results just to be safe
-  localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
 
   // watch the searchbar for when it changes so we can query the DB
   bindSearchChange(params);
@@ -42,14 +47,16 @@ function watchForm(params)
       // add tag and status to params
       let tag = $('input#tag').val();
       let status = $('select#status').val();
+      let plot = $('#results').val();
       params.tag = tag;
-      params.status = status;
+      params.status = status; // status goes in params here since we select it in the UI not from the DB
+      params.plot = plot;
       console.log('params final');
       console.log(params);
       // store it in session variables
       localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
       // store the queried tree data in session variables
-      localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[0]));
+      localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
       // and move to the correct form
       if (Number(params.status) === 6) {
         // window.location.replace('./mortality_form.html');
@@ -95,7 +102,8 @@ function queryDB(table, query, params) {
 
   var successFn = function (result) {
     // iterate through the results to get the matching record
-    records = [];
+    records = {};
+    record_strings = {};
     for (var row = 0; row < result.getCount(); row++) {
       var r = {};
       r['_id']        = result.getData(row, "_id");
@@ -111,27 +119,41 @@ function queryDB(table, query, params) {
       r['rooting']    = result.getData(row, "PrevRT");
       r['lean_angle'] = result.getData(row, "PrevLA");
       r['comments']   = result.getData(row, "PrevComments");
-      records.push(r);
+      // records.push(r);
+      // build a string from some of the values
+      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status]; 
+      records[r.plot] = r;
+      record_strings[r.plot] = st;
     }
 
     // grab the results div and set its value and validity depending on if we found a matching record
     let tag = $('input#tag')[0];
-    let res_div = $('#result-tag');
+    // let res_div = $('#result-tag');
+    let res_select = $('#results');
+    res_select.html('<option value="">Please select a tree...</option>');
     if (records.length === 0) // we didn't get any records for that stand/plot/tag combo so the input is invalid
     { 
       tag.setCustomValidity('is-invalid');
-      res_div.val('');
-      res_div.addClass('is-invalid');
+      // res_div.val('');
+      // res_div.addClass('is-invalid');
+      // res_select.val('');
+      // res_select.addClass('is-invalid');
     }
     else // we did get a record
     {
-      let r = records[0];
-      // build a string from some of the values
-      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status]; 
-      console.log(st);
-      res_div.val(st); // add it to the result div
-      res_div.removeClass('is-invalid'); // remove the class if it was there
-      tag.setCustomValidity(''); // set the input to valid
+      res_select.append(Utils.genSelectOptions(record_strings));
+      
+      // if only one result just set the value of the select
+      let keys = Object.keys(record_strings);
+      if (keys.length === 1) res_select.val(keys[0]); 
+    
+      // let p = res_select.val();
+      // let r = records[p];
+      // console.log(p);
+
+      // // res_div.removeClass('is-invalid'); // remove the class if it was there
+      // res_select.removeClass('is-invalid'); // remove the class if it was there
+      // tag.setCustomValidity(''); // set the input to valid
     }
   }
 
