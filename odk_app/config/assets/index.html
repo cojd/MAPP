@@ -2,31 +2,54 @@
 <html>
 
 <head>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link href="css/form.css" type="text/css" rel="stylesheet" />
   <script type="text/javascript" src="commonDefinitions.js"></script>
   <script type="text/javascript" src="libs/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="libs/jquery-migrate-3.0.0.js"></script>
+  <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../system/js/odkCommon.js"></script>
   <script type="text/javascript" src="../../system/js/odkData.js"></script>
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="StaticData.js"></script>
 </head>
 
 <body id="main">
 
   <div class="container">
-    <div class="d-flex flex-column">
-      <div id="description">Pick a form:</div>
-      <a id="remeasure-form" class="btn btn-primary" href="#" role="button">Remeasure</a>
-      <a id="ingrowth-form" class="btn btn-primary" href="#" role="button">Ingrowth</a>
-      <a id="mortality-form" class="btn btn-primary" href="#" role="button">Mortality</a>
+    <h2>PNW-PSP</h2>
+
+    <div class="card" id="card-tree-info">
+      <div class="card-header">Reference Stand</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="stand">Stand</label>
+          <input class="form-control" name="stand" id="rs_stand">
+        </div>
+        <button class="btn btn-primary" id="rs-submit">Submit</button>
+      </div>
+    </div>
+
+    <div class="card" id="card-tree-info">
+      <div class="card-header">Fixed-radius Plot</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="stand">Stand</label>
+          <input class="form-control" name="stand" id="frp_stand">
+        </div>
+        <div class="form-group">
+          <label for="plot">Plot</label>
+          <input type="number" class="form-control" name="plot" id="frp_plot">
+        </div>
+        <button class="btn btn-primary" id="frp-submit">Submit</button>
+      </div>
     </div>
   </div>
 
-  <script type="text/javascript">
-    $(display);
-  </script>
+
 </body>
 
 </html>

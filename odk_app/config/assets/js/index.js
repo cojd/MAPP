@@ -1,52 +1,20 @@
-'use strict';
-/* global $, odkTables */
-/* exported display */
+$(function () {
+  bindPlotSubmit($('#rs-submit'), 'rs', Constants.PlotTypes.REFERENCE_STAND);
+  bindPlotSubmit($('#frp-submit'), 'frp', Constants.PlotTypes.FIXED_RADIUS_PLOT);
+});
 
-/**
- * Responsible for rendering the home screen.
- */
-function display() {
-
-  var body = $('#main');
-  // Set the background to be a picture.
-  // body.css('background-image', 'url(img/teaBackground.jpg)');
-
-  var remeasureFormButton = $('#remeasure-form');
-  remeasureFormButton.on(
-    'click',
-    function () {
-      odkTables.openTableToListView(
-        null,
-        'remeasure',
-        null,
-        null,
-        null);
-    }
-  );
-  
-  var ingrowthFormButton = $('#ingrowth-form');
-  ingrowthFormButton.on(
-    'click',
-    function () {
-      odkTables.openTableToListView(
-        null,
-        'ingrowth',
-        null,
-        null,
-        null);
-    }
-  );
-
-  var mortalityFormButton = $('#mortality-form');
-  mortalityFormButton.on(
-    'click',
-    function () {
-      odkTables.openTableToListView(
-        null,
-        'mortality',
-        null,
-        null,
-        'config/tables/mortality/html/mortality_list.html');
-    }
-  );
+function bindPlotSubmit(e, prefix, key)
+{
+  e.click(() => {
+    let stand = $('#' + prefix + '_stand').val();
+    let plot = $('#' + prefix + '_plot').val();
+    let params = {
+      'type': key,
+      'stand': stand,
+      'plot': plot,
+    };
+    console.log(JSON.stringify(params));
+    localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
+    odkTables.launchHTML(params, 'config/assets/measure.html')
+  });
 }
