@@ -36,7 +36,7 @@ function dbhCheck_remeasure(){
 
     //getting previous value from database
     prevDbhVal = 'NULL'
-    let prevData = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
+    let prevData = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
     $.each(prevData, (key,value) =>{
       if(key == 'dbh')
         prevDbhVal = value
