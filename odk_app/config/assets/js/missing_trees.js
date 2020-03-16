@@ -1,5 +1,5 @@
 $(function () {
-  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log(params);
   if (params) {
     $('#stand').val(params.stand);

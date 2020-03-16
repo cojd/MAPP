@@ -11,7 +11,7 @@ $(function () {
   }
 
   // grab stand and plot from session variables
-  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
   if (params) {
@@ -20,7 +20,7 @@ $(function () {
   }
 
   // remove tree specific data from query results just to be safe
-  odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
+  localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({ stand: params.stand, plot: params.plot }));
 
   // watch the searchbar for when it changes so we can query the DB
   bindSearchChange(params);
@@ -47,15 +47,17 @@ function watchForm(params)
       console.log('params final');
       console.log(params);
       // store it in session variables
-      odkCommon.setSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS, JSON.stringify(params));
+      localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
       // store the queried tree data in session variables
-      odkCommon.setSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS, JSON.stringify(records[0]));
+      localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[0]));
       // and move to the correct form
       if (Number(params.status) === 6) {
-        window.location.replace('./mortality_form.html');
+        // window.location.replace('./mortality_form.html');
+        odkTables.launchHTML(null, 'config/assets/mortality_form.html')
       }
       else {
-        window.location.replace('./remeasure_form.html');
+        // window.location.replace('./remeasure_form.html');
+        odkTables.launchHTML(null, 'config/assets/remeasure_form.html')
       }
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback

@@ -14,7 +14,7 @@ function bindPlotSubmit(e, prefix, key)
       'plot': plot,
     };
     console.log(JSON.stringify(params));
-    odkCommon.setSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS, JSON.stringify(params));
-    window.location.replace('./measure.html');
+    localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
+    odkTables.launchHTML(params, 'config/assets/measure.html')
   });
 }

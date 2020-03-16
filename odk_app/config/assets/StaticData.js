@@ -3,7 +3,7 @@ const Constants = {
     'REFERENCE_STAND':'REFERENCE_STAND',
     'FIXED_RADIUS_PLOT':'FIXED_RADIUS_PLOT',
   },
-  SessionVariableKeys: {
+  LocalStorageKeys: {
     'SELECTION_PARAMS':'SELECTION_PARAMS',
     'TREE_QUERY_RESULTS':'TREE_QUERY_RESULTS',
   },

@@ -38,7 +38,7 @@ var success = function (resultSet) {
   for (var i = 0; i < resultSet.getCount(); i++) {
 
     // Creates the item space and stores the row ID in it
-    let tag = resultSet.get('tag');
+    let tag = resultSet.getData(i, 'tag');
     var stand = resultSet.getData(i, 'stand');
     var plot = resultSet.getData(i, 'plot');
     var TreeID = resultSet.getData(i, 'TreeID');

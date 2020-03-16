@@ -9,7 +9,7 @@ $(function () {
   bindFormValidation(); // function from validate.js
   
   // get params from session variables. (stand, plot, status, etc.)
-  let params = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.SELECTION_PARAMS));
+  let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
   // for the remeasure form specifically, since it needs to carry the selected status over from the picker screen
@@ -26,7 +26,7 @@ $(function () {
   }
   
   // grab prev tree record stored in session variables
-  let prev   = JSON.parse(odkCommon.getSessionVariable(Constants.SessionVariableKeys.TREE_QUERY_RESULTS));
+  let prev   = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
   console.log('prev');
   console.log(prev);
   populateFormFromPrev(prev); // do stuff with the prev data
@@ -108,8 +108,7 @@ function createRow(tableID, data)
   var success = function (result) {
     console.log("SUCCESS!");
     console.log(result);
-    window.history.back();
-    // window.location.replace('../index.html');
+    odkCommon.closeWindow(0, null);
   }
 
   var failure = function (errorMsg) {
