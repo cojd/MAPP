@@ -13,7 +13,7 @@
       },
       {
         "setting_name": "table_id",
-        "value": "ingrowth",
+        "value": "measure",
         "_row_num": 4
       },
       {
@@ -24,32 +24,6 @@
           }
         },
         "_row_num": 5
-      }
-    ],
-    "properties": [
-      {
-        "partition": "Table",
-        "aspect": "default",
-        "key": "defaultViewType",
-        "type": "string",
-        "value": "LIST",
-        "_row_num": 2
-      },
-      {
-        "partition": "Table",
-        "aspect": "default",
-        "key": "detailViewFileName",
-        "type": "string",
-        "value": "config/tables/ingrowth/html/ingrowth_detail.html",
-        "_row_num": 3
-      },
-      {
-        "partition": "Table",
-        "aspect": "default",
-        "key": "listViewFileName",
-        "type": "string",
-        "value": "config/tables/ingrowth/html/ingrowth_list.html",
-        "_row_num": 4
       }
     ],
     "survey": [
@@ -1494,6 +1468,120 @@
         },
         "_row_num": 113
       }
+    ],
+    "model": [
+      {
+        "name": "TreeID",
+        "type": "string",
+        "__EMPTY_1": "remeasure/ingrowth",
+        "_row_num": 2
+      },
+      {
+        "name": "stand",
+        "type": "string",
+        "__EMPTY_1": "unique to ingrowth",
+        "_row_num": 3
+      },
+      {
+        "name": "plot",
+        "type": "integer",
+        "_row_num": 4
+      },
+      {
+        "name": "tag",
+        "type": "integer",
+        "_row_num": 5
+      },
+      {
+        "name": "species",
+        "type": "select_one_dropdown",
+        "_row_num": 6
+      },
+      {
+        "name": "dbh",
+        "type": "decimal",
+        "_row_num": 7
+      },
+      {
+        "name": "status",
+        "type": "select_one_integer",
+        "_row_num": 8
+      },
+      {
+        "name": "canopy_class",
+        "type": "select_one_dropdown",
+        "_row_num": 9
+      },
+      {
+        "name": "crown_ratio",
+        "type": "decimal",
+        "_row_num": 10
+      },
+      {
+        "name": "overall_vigor",
+        "type": "select_one_integer",
+        "_row_num": 11
+      },
+      {
+        "name": "main_stem",
+        "type": "select_one_integer",
+        "_row_num": 12
+      },
+      {
+        "name": "rooting",
+        "type": "select_one_integer",
+        "_row_num": 13
+      },
+      {
+        "name": "lean_angle",
+        "type": "decimal",
+        "_row_num": 14
+      },
+      {
+        "name": "crown_percentage",
+        "type": "decimal",
+        "_row_num": 15
+      },
+      {
+        "name": "tree_percentage",
+        "type": "decimal",
+        "_row_num": 16
+      },
+      {
+        "name": "from_tag",
+        "type": "integer",
+        "_row_num": 17
+      },
+      {
+        "name": "distance",
+        "type": "decimal",
+        "_row_num": 18
+      },
+      {
+        "name": "azimuth",
+        "type": "decimal",
+        "_row_num": 19
+      },
+      {
+        "name": "comment_1",
+        "type": "select_one_dropdown",
+        "_row_num": 20
+      },
+      {
+        "name": "comment_2",
+        "type": "select_one_dropdown",
+        "_row_num": 21
+      },
+      {
+        "name": "comment_3",
+        "type": "select_one_dropdown",
+        "_row_num": 22
+      },
+      {
+        "name": "comment_custom",
+        "type": "text",
+        "_row_num": 23
+      }
     ]
   },
   "specification": {
@@ -1525,7 +1613,7 @@
       },
       "table_id": {
         "setting_name": "table_id",
-        "value": "ingrowth",
+        "value": "measure",
         "_row_num": 4
       },
       "survey": {
@@ -2614,239 +2702,326 @@
         }
       ]
     },
-    "table_specific_definitions": {
-      "_tokens": {}
-    },
     "queries": {},
     "calculates": {},
     "model": {
       "TreeID": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 3,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 2,
+            "section_name": "model"
           }
         ],
-        "type": "string",
+        "__EMPTY_1": "remeasure/ingrowth",
         "elementKey": "TreeID"
       },
       "stand": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 4,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 3,
+            "section_name": "model"
           }
         ],
-        "type": "string",
+        "__EMPTY_1": "unique to ingrowth",
         "elementKey": "stand"
       },
       "plot": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 5,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 4,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
         "elementKey": "plot"
       },
       "tag": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 6,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 5,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
         "elementKey": "tag"
       },
       "species": {
+        "type": "string",
+        "valuesList": "species_list",
         "_defn": [
           {
             "_row_num": 10,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 6,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "species_list",
         "elementKey": "species"
       },
       "dbh": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 11,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 7,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "dbh"
       },
       "status": {
+        "type": "integer",
+        "valuesList": "tree_status",
         "_defn": [
           {
             "_row_num": 12,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 8,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "tree_status",
         "elementKey": "status"
       },
       "canopy_class": {
+        "type": "string",
+        "valuesList": "canopy_class",
         "_defn": [
           {
             "_row_num": 13,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 9,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "canopy_class",
         "elementKey": "canopy_class"
       },
       "crown_ratio": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 14,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 10,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "crown_ratio"
       },
       "overall_vigor": {
+        "type": "integer",
+        "valuesList": "tree_vigor",
         "_defn": [
           {
             "_row_num": 18,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 11,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "tree_vigor",
         "elementKey": "overall_vigor"
       },
       "main_stem": {
+        "type": "integer",
+        "valuesList": "main_stem",
         "_defn": [
           {
             "_row_num": 19,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 12,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "main_stem",
         "elementKey": "main_stem"
       },
       "rooting": {
+        "type": "integer",
+        "valuesList": "rooting",
         "_defn": [
           {
             "_row_num": 20,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 13,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "rooting",
         "elementKey": "rooting"
       },
       "lean_angle": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 21,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 14,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "lean_angle"
       },
       "crown_percentage": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 25,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 15,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "crown_percentage"
       },
       "tree_percentage": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 29,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 16,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "tree_percentage"
       },
       "from_tag": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 34,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 17,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
         "elementKey": "from_tag"
       },
       "distance": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 35,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 18,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "distance"
       },
       "azimuth": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 39,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 19,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "azimuth"
       },
       "comment_1": {
+        "type": "string",
+        "valuesList": "tree_comments",
         "_defn": [
           {
             "_row_num": 44,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 20,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "tree_comments",
         "elementKey": "comment_1"
       },
       "comment_2": {
+        "type": "string",
+        "valuesList": "tree_comments",
         "_defn": [
           {
             "_row_num": 45,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 21,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "tree_comments",
         "elementKey": "comment_2"
       },
       "comment_3": {
+        "type": "string",
+        "valuesList": "tree_comments",
         "_defn": [
           {
             "_row_num": 46,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 22,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "tree_comments",
         "elementKey": "comment_3"
       },
       "comment_custom": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 47,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 23,
+            "section_name": "model"
           }
         ],
-        "type": "string",
         "elementKey": "comment_custom"
       }
     },
@@ -3596,295 +3771,385 @@
     },
     "dataTableModel": {
       "TreeID": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 3,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 2,
+            "section_name": "model"
           }
         ],
-        "type": "string",
+        "__EMPTY_1": "remeasure/ingrowth",
         "elementKey": "TreeID",
         "elementName": "TreeID",
         "elementSet": "data",
         "elementPath": "TreeID"
       },
       "stand": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 4,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 3,
+            "section_name": "model"
           }
         ],
-        "type": "string",
+        "__EMPTY_1": "unique to ingrowth",
         "elementKey": "stand",
         "elementName": "stand",
         "elementSet": "data",
         "elementPath": "stand"
       },
       "plot": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 5,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 4,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
         "elementKey": "plot",
         "elementName": "plot",
         "elementSet": "data",
         "elementPath": "plot"
       },
       "tag": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 6,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 5,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
         "elementKey": "tag",
         "elementName": "tag",
         "elementSet": "data",
         "elementPath": "tag"
       },
       "species": {
+        "type": "string",
+        "valuesList": "species_list",
         "_defn": [
           {
             "_row_num": 10,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 6,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "species_list",
         "elementKey": "species",
         "elementName": "species",
         "elementSet": "data",
         "elementPath": "species"
       },
       "dbh": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 11,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 7,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "dbh",
         "elementName": "dbh",
         "elementSet": "data",
         "elementPath": "dbh"
       },
       "status": {
+        "type": "integer",
+        "valuesList": "tree_status",
         "_defn": [
           {
             "_row_num": 12,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 8,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "tree_status",
         "elementKey": "status",
         "elementName": "status",
         "elementSet": "data",
         "elementPath": "status"
       },
       "canopy_class": {
+        "type": "string",
+        "valuesList": "canopy_class",
         "_defn": [
           {
             "_row_num": 13,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 9,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "canopy_class",
         "elementKey": "canopy_class",
         "elementName": "canopy_class",
         "elementSet": "data",
         "elementPath": "canopy_class"
       },
       "crown_ratio": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 14,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 10,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "crown_ratio",
         "elementName": "crown_ratio",
         "elementSet": "data",
         "elementPath": "crown_ratio"
       },
       "overall_vigor": {
+        "type": "integer",
+        "valuesList": "tree_vigor",
         "_defn": [
           {
             "_row_num": 18,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 11,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "tree_vigor",
         "elementKey": "overall_vigor",
         "elementName": "overall_vigor",
         "elementSet": "data",
         "elementPath": "overall_vigor"
       },
       "main_stem": {
+        "type": "integer",
+        "valuesList": "main_stem",
         "_defn": [
           {
             "_row_num": 19,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 12,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "main_stem",
         "elementKey": "main_stem",
         "elementName": "main_stem",
         "elementSet": "data",
         "elementPath": "main_stem"
       },
       "rooting": {
+        "type": "integer",
+        "valuesList": "rooting",
         "_defn": [
           {
             "_row_num": 20,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 13,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
-        "valuesList": "rooting",
         "elementKey": "rooting",
         "elementName": "rooting",
         "elementSet": "data",
         "elementPath": "rooting"
       },
       "lean_angle": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 21,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 14,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "lean_angle",
         "elementName": "lean_angle",
         "elementSet": "data",
         "elementPath": "lean_angle"
       },
       "crown_percentage": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 25,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 15,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "crown_percentage",
         "elementName": "crown_percentage",
         "elementSet": "data",
         "elementPath": "crown_percentage"
       },
       "tree_percentage": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 29,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 16,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "tree_percentage",
         "elementName": "tree_percentage",
         "elementSet": "data",
         "elementPath": "tree_percentage"
       },
       "from_tag": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 34,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 17,
+            "section_name": "model"
           }
         ],
-        "type": "integer",
         "elementKey": "from_tag",
         "elementName": "from_tag",
         "elementSet": "data",
         "elementPath": "from_tag"
       },
       "distance": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 35,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 18,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "distance",
         "elementName": "distance",
         "elementSet": "data",
         "elementPath": "distance"
       },
       "azimuth": {
+        "type": "number",
         "_defn": [
           {
             "_row_num": 39,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 19,
+            "section_name": "model"
           }
         ],
-        "type": "number",
         "elementKey": "azimuth",
         "elementName": "azimuth",
         "elementSet": "data",
         "elementPath": "azimuth"
       },
       "comment_1": {
+        "type": "string",
+        "valuesList": "tree_comments",
         "_defn": [
           {
             "_row_num": 44,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 20,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "tree_comments",
         "elementKey": "comment_1",
         "elementName": "comment_1",
         "elementSet": "data",
         "elementPath": "comment_1"
       },
       "comment_2": {
+        "type": "string",
+        "valuesList": "tree_comments",
         "_defn": [
           {
             "_row_num": 45,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 21,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "tree_comments",
         "elementKey": "comment_2",
         "elementName": "comment_2",
         "elementSet": "data",
         "elementPath": "comment_2"
       },
       "comment_3": {
+        "type": "string",
+        "valuesList": "tree_comments",
         "_defn": [
           {
             "_row_num": 46,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 22,
+            "section_name": "model"
           }
         ],
-        "type": "string",
-        "valuesList": "tree_comments",
         "elementKey": "comment_3",
         "elementName": "comment_3",
         "elementSet": "data",
         "elementPath": "comment_3"
       },
       "comment_custom": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 47,
             "section_name": "survey"
+          },
+          {
+            "_row_num": 23,
+            "section_name": "model"
           }
         ],
-        "type": "string",
         "elementKey": "comment_custom",
         "elementName": "comment_custom",
         "elementSet": "data",
@@ -4002,113 +4267,6 @@
         "elementSet": "instanceMetadata",
         "elementPath": "_savepoint_creator"
       }
-    },
-    "properties": [
-      {
-        "_partition": "Column",
-        "_aspect": "canopy_class",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"canopy_class\",\"data_value\":\"S\",\"display\":{\"title\":{\"text\":\"S - Suppressed\"}},\"_row_num\":13},{\"choice_list_name\":\"canopy_class\",\"data_value\":\"I\",\"display\":{\"title\":{\"text\":\"I - Intermediate\"}},\"_row_num\":14},{\"choice_list_name\":\"canopy_class\",\"data_value\":\"C\",\"display\":{\"title\":{\"text\":\"C - Co-dominant\"}},\"_row_num\":15},{\"choice_list_name\":\"canopy_class\",\"data_value\":\"D\",\"display\":{\"title\":{\"text\":\"D - Dominant\"}},\"_row_num\":16}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "comment_1",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Bark_slough\",\"display\":{\"title\":{\"text\":\"Bark sloughing\"}},\"_row_num\":30},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BlScrp\",\"display\":{\"title\":{\"text\":\"Bole Scrape/Scar\"}},\"_row_num\":31},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BlSnp\",\"display\":{\"title\":{\"text\":\"Bole Snap\"}},\"_row_num\":32},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BrknTp\",\"display\":{\"title\":{\"text\":\"Broken Top\"}},\"_row_num\":33},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Brown_needles\",\"display\":{\"title\":{\"text\":\"Brown needles present\"}},\"_row_num\":34},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BttSwl\",\"display\":{\"title\":{\"text\":\"Butt Swell\"}},\"_row_num\":35},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Burls\",\"display\":{\"title\":{\"text\":\"Burls\"}},\"_row_num\":36},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"CHKLOC\",\"display\":{\"title\":{\"text\":\"Check Location\"}},\"_row_num\":37},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"CHKSPP\",\"display\":{\"title\":{\"text\":\"Check Species ID\"}},\"_row_num\":38},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Cnks\",\"display\":{\"title\":{\"text\":\"Conks Present\"}},\"_row_num\":39},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Crook\",\"display\":{\"title\":{\"text\":\"Crook in Stem\"}},\"_row_num\":40},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DDC\",\"display\":{\"title\":{\"text\":\"Diameter Double Checked\"}},\"_row_num\":41},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DdTp\",\"display\":{\"title\":{\"text\":\"Dead Top\"}},\"_row_num\":42},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DwrfMstl\",\"display\":{\"title\":{\"text\":\"Dwarf Mistletoe\"}},\"_row_num\":43},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"EpBr\",\"display\":{\"title\":{\"text\":\"Epicormic Branching\"}},\"_row_num\":44},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"FltTp\",\"display\":{\"title\":{\"text\":\"Flat Top\"}},\"_row_num\":45},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Frass\",\"display\":{\"title\":{\"text\":\"Frass\"}},\"_row_num\":46},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"FrkTp\",\"display\":{\"title\":{\"text\":\"Forked Top\"}},\"_row_num\":47},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"GNA\",\"display\":{\"title\":{\"text\":\"Guide Nails Added\"}},\"_row_num\":48},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Hit_by_snag\",\"display\":{\"title\":{\"text\":\"Hit by snag\"}},\"_row_num\":49},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Hit_by_tree\",\"display\":{\"title\":{\"text\":\"Hit by live tree\"}},\"_row_num\":50},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Insect_holes\",\"display\":{\"title\":{\"text\":\"Insect holes in bark\"}},\"_row_num\":51},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"JointDBH\",\"display\":{\"title\":{\"text\":\"Two Trees Measured Together\"}},\"_row_num\":52},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Log_against_it\",\"display\":{\"title\":{\"text\":\"Log pressed against it\"}},\"_row_num\":53},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"LRR\",\"display\":{\"title\":{\"text\":\"Laminated Root Rot\"}},\"_row_num\":54},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"MeasSwell\",\"display\":{\"title\":{\"text\":\"DBH measure includes swelling\"}},\"_row_num\":55},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"MOX\",\"display\":{\"title\":{\"text\":\"Measured perpend. to lean\"}},\"_row_num\":56},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NEWLOC\",\"display\":{\"title\":{\"text\":\"New Location\"}},\"_row_num\":57},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NFAS\",\"display\":{\"title\":{\"text\":\"Not Found After Search\"}},\"_row_num\":58},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NNT\",\"display\":{\"title\":{\"text\":\"Needs New Tag\"}},\"_row_num\":59},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"No_comment\",\"display\":{\"title\":{\"text\":\"Void\"}},\"_row_num\":60},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"On_nurse_log\",\"display\":{\"title\":{\"text\":\"On nurse log\"}},\"_row_num\":61},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Phellinus_pini\",\"display\":{\"title\":{\"text\":\"Phellinus pini\"}},\"_row_num\":62},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"PistlButt\",\"display\":{\"title\":{\"text\":\"Pistol butt\"}},\"_row_num\":63},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Pitch_sheets\",\"display\":{\"title\":{\"text\":\"Pitch sheets\"}},\"_row_num\":64},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Pitch_tubes\",\"display\":{\"title\":{\"text\":\"Pitch tubes\"}},\"_row_num\":65},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"PrevTagATD\",\"display\":{\"title\":{\"text\":\"Prev tagged, add to database\"}},\"_row_num\":66},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"ReitLdr\",\"display\":{\"title\":{\"text\":\"Reiterated leader\"}},\"_row_num\":67},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Rot_in_bole\",\"display\":{\"title\":{\"text\":\"Rot in bole\"}},\"_row_num\":68},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sapsucker_holes\",\"display\":{\"title\":{\"text\":\"Sapsucker holes\"}},\"_row_num\":69},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sawdust\",\"display\":{\"title\":{\"text\":\"Sawdust\"}},\"_row_num\":70},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sparse_crown\",\"display\":{\"title\":{\"text\":\"Sparse crown\"}},\"_row_num\":71},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"StemSwp\",\"display\":{\"title\":{\"text\":\"Stem Sweep\"}},\"_row_num\":72},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Stilt-rooted\",\"display\":{\"title\":{\"text\":\"Stilt-rooted\"}},\"_row_num\":73},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"SweepVert\",\"display\":{\"title\":{\"text\":\"Sweeps to vertical\"}},\"_row_num\":74},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"T_NBH\",\"display\":{\"title\":{\"text\":\"Tag Nailed at Breast height\"}},\"_row_num\":75},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TF_NEstHt\",\"display\":{\"title\":{\"text\":\"Tag Found, Nailed at Estimated Breast Height\"}},\"_row_num\":76},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TF_NPrevHt\",\"display\":{\"title\":{\"text\":\"Tag Found, Nailed at Previous Height\"}},\"_row_num\":77},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TgRepl\",\"display\":{\"title\":{\"text\":\"Tag Replaced\"}},\"_row_num\":78},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TNF_NEstHt\",\"display\":{\"title\":{\"text\":\"Tag not found, temp tag at EstHt\"}},\"_row_num\":79},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"WtchBrm\",\"display\":{\"title\":{\"text\":\"Witches' Broom Present\"}},\"_row_num\":80}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "comment_2",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Bark_slough\",\"display\":{\"title\":{\"text\":\"Bark sloughing\"}},\"_row_num\":30},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BlScrp\",\"display\":{\"title\":{\"text\":\"Bole Scrape/Scar\"}},\"_row_num\":31},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BlSnp\",\"display\":{\"title\":{\"text\":\"Bole Snap\"}},\"_row_num\":32},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BrknTp\",\"display\":{\"title\":{\"text\":\"Broken Top\"}},\"_row_num\":33},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Brown_needles\",\"display\":{\"title\":{\"text\":\"Brown needles present\"}},\"_row_num\":34},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BttSwl\",\"display\":{\"title\":{\"text\":\"Butt Swell\"}},\"_row_num\":35},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Burls\",\"display\":{\"title\":{\"text\":\"Burls\"}},\"_row_num\":36},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"CHKLOC\",\"display\":{\"title\":{\"text\":\"Check Location\"}},\"_row_num\":37},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"CHKSPP\",\"display\":{\"title\":{\"text\":\"Check Species ID\"}},\"_row_num\":38},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Cnks\",\"display\":{\"title\":{\"text\":\"Conks Present\"}},\"_row_num\":39},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Crook\",\"display\":{\"title\":{\"text\":\"Crook in Stem\"}},\"_row_num\":40},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DDC\",\"display\":{\"title\":{\"text\":\"Diameter Double Checked\"}},\"_row_num\":41},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DdTp\",\"display\":{\"title\":{\"text\":\"Dead Top\"}},\"_row_num\":42},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DwrfMstl\",\"display\":{\"title\":{\"text\":\"Dwarf Mistletoe\"}},\"_row_num\":43},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"EpBr\",\"display\":{\"title\":{\"text\":\"Epicormic Branching\"}},\"_row_num\":44},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"FltTp\",\"display\":{\"title\":{\"text\":\"Flat Top\"}},\"_row_num\":45},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Frass\",\"display\":{\"title\":{\"text\":\"Frass\"}},\"_row_num\":46},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"FrkTp\",\"display\":{\"title\":{\"text\":\"Forked Top\"}},\"_row_num\":47},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"GNA\",\"display\":{\"title\":{\"text\":\"Guide Nails Added\"}},\"_row_num\":48},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Hit_by_snag\",\"display\":{\"title\":{\"text\":\"Hit by snag\"}},\"_row_num\":49},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Hit_by_tree\",\"display\":{\"title\":{\"text\":\"Hit by live tree\"}},\"_row_num\":50},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Insect_holes\",\"display\":{\"title\":{\"text\":\"Insect holes in bark\"}},\"_row_num\":51},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"JointDBH\",\"display\":{\"title\":{\"text\":\"Two Trees Measured Together\"}},\"_row_num\":52},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Log_against_it\",\"display\":{\"title\":{\"text\":\"Log pressed against it\"}},\"_row_num\":53},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"LRR\",\"display\":{\"title\":{\"text\":\"Laminated Root Rot\"}},\"_row_num\":54},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"MeasSwell\",\"display\":{\"title\":{\"text\":\"DBH measure includes swelling\"}},\"_row_num\":55},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"MOX\",\"display\":{\"title\":{\"text\":\"Measured perpend. to lean\"}},\"_row_num\":56},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NEWLOC\",\"display\":{\"title\":{\"text\":\"New Location\"}},\"_row_num\":57},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NFAS\",\"display\":{\"title\":{\"text\":\"Not Found After Search\"}},\"_row_num\":58},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NNT\",\"display\":{\"title\":{\"text\":\"Needs New Tag\"}},\"_row_num\":59},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"No_comment\",\"display\":{\"title\":{\"text\":\"Void\"}},\"_row_num\":60},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"On_nurse_log\",\"display\":{\"title\":{\"text\":\"On nurse log\"}},\"_row_num\":61},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Phellinus_pini\",\"display\":{\"title\":{\"text\":\"Phellinus pini\"}},\"_row_num\":62},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"PistlButt\",\"display\":{\"title\":{\"text\":\"Pistol butt\"}},\"_row_num\":63},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Pitch_sheets\",\"display\":{\"title\":{\"text\":\"Pitch sheets\"}},\"_row_num\":64},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Pitch_tubes\",\"display\":{\"title\":{\"text\":\"Pitch tubes\"}},\"_row_num\":65},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"PrevTagATD\",\"display\":{\"title\":{\"text\":\"Prev tagged, add to database\"}},\"_row_num\":66},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"ReitLdr\",\"display\":{\"title\":{\"text\":\"Reiterated leader\"}},\"_row_num\":67},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Rot_in_bole\",\"display\":{\"title\":{\"text\":\"Rot in bole\"}},\"_row_num\":68},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sapsucker_holes\",\"display\":{\"title\":{\"text\":\"Sapsucker holes\"}},\"_row_num\":69},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sawdust\",\"display\":{\"title\":{\"text\":\"Sawdust\"}},\"_row_num\":70},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sparse_crown\",\"display\":{\"title\":{\"text\":\"Sparse crown\"}},\"_row_num\":71},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"StemSwp\",\"display\":{\"title\":{\"text\":\"Stem Sweep\"}},\"_row_num\":72},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Stilt-rooted\",\"display\":{\"title\":{\"text\":\"Stilt-rooted\"}},\"_row_num\":73},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"SweepVert\",\"display\":{\"title\":{\"text\":\"Sweeps to vertical\"}},\"_row_num\":74},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"T_NBH\",\"display\":{\"title\":{\"text\":\"Tag Nailed at Breast height\"}},\"_row_num\":75},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TF_NEstHt\",\"display\":{\"title\":{\"text\":\"Tag Found, Nailed at Estimated Breast Height\"}},\"_row_num\":76},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TF_NPrevHt\",\"display\":{\"title\":{\"text\":\"Tag Found, Nailed at Previous Height\"}},\"_row_num\":77},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TgRepl\",\"display\":{\"title\":{\"text\":\"Tag Replaced\"}},\"_row_num\":78},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TNF_NEstHt\",\"display\":{\"title\":{\"text\":\"Tag not found, temp tag at EstHt\"}},\"_row_num\":79},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"WtchBrm\",\"display\":{\"title\":{\"text\":\"Witches' Broom Present\"}},\"_row_num\":80}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "comment_3",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Bark_slough\",\"display\":{\"title\":{\"text\":\"Bark sloughing\"}},\"_row_num\":30},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BlScrp\",\"display\":{\"title\":{\"text\":\"Bole Scrape/Scar\"}},\"_row_num\":31},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BlSnp\",\"display\":{\"title\":{\"text\":\"Bole Snap\"}},\"_row_num\":32},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BrknTp\",\"display\":{\"title\":{\"text\":\"Broken Top\"}},\"_row_num\":33},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Brown_needles\",\"display\":{\"title\":{\"text\":\"Brown needles present\"}},\"_row_num\":34},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"BttSwl\",\"display\":{\"title\":{\"text\":\"Butt Swell\"}},\"_row_num\":35},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Burls\",\"display\":{\"title\":{\"text\":\"Burls\"}},\"_row_num\":36},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"CHKLOC\",\"display\":{\"title\":{\"text\":\"Check Location\"}},\"_row_num\":37},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"CHKSPP\",\"display\":{\"title\":{\"text\":\"Check Species ID\"}},\"_row_num\":38},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Cnks\",\"display\":{\"title\":{\"text\":\"Conks Present\"}},\"_row_num\":39},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Crook\",\"display\":{\"title\":{\"text\":\"Crook in Stem\"}},\"_row_num\":40},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DDC\",\"display\":{\"title\":{\"text\":\"Diameter Double Checked\"}},\"_row_num\":41},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DdTp\",\"display\":{\"title\":{\"text\":\"Dead Top\"}},\"_row_num\":42},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"DwrfMstl\",\"display\":{\"title\":{\"text\":\"Dwarf Mistletoe\"}},\"_row_num\":43},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"EpBr\",\"display\":{\"title\":{\"text\":\"Epicormic Branching\"}},\"_row_num\":44},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"FltTp\",\"display\":{\"title\":{\"text\":\"Flat Top\"}},\"_row_num\":45},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Frass\",\"display\":{\"title\":{\"text\":\"Frass\"}},\"_row_num\":46},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"FrkTp\",\"display\":{\"title\":{\"text\":\"Forked Top\"}},\"_row_num\":47},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"GNA\",\"display\":{\"title\":{\"text\":\"Guide Nails Added\"}},\"_row_num\":48},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Hit_by_snag\",\"display\":{\"title\":{\"text\":\"Hit by snag\"}},\"_row_num\":49},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Hit_by_tree\",\"display\":{\"title\":{\"text\":\"Hit by live tree\"}},\"_row_num\":50},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Insect_holes\",\"display\":{\"title\":{\"text\":\"Insect holes in bark\"}},\"_row_num\":51},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"JointDBH\",\"display\":{\"title\":{\"text\":\"Two Trees Measured Together\"}},\"_row_num\":52},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Log_against_it\",\"display\":{\"title\":{\"text\":\"Log pressed against it\"}},\"_row_num\":53},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"LRR\",\"display\":{\"title\":{\"text\":\"Laminated Root Rot\"}},\"_row_num\":54},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"MeasSwell\",\"display\":{\"title\":{\"text\":\"DBH measure includes swelling\"}},\"_row_num\":55},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"MOX\",\"display\":{\"title\":{\"text\":\"Measured perpend. to lean\"}},\"_row_num\":56},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NEWLOC\",\"display\":{\"title\":{\"text\":\"New Location\"}},\"_row_num\":57},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NFAS\",\"display\":{\"title\":{\"text\":\"Not Found After Search\"}},\"_row_num\":58},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"NNT\",\"display\":{\"title\":{\"text\":\"Needs New Tag\"}},\"_row_num\":59},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"No_comment\",\"display\":{\"title\":{\"text\":\"Void\"}},\"_row_num\":60},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"On_nurse_log\",\"display\":{\"title\":{\"text\":\"On nurse log\"}},\"_row_num\":61},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Phellinus_pini\",\"display\":{\"title\":{\"text\":\"Phellinus pini\"}},\"_row_num\":62},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"PistlButt\",\"display\":{\"title\":{\"text\":\"Pistol butt\"}},\"_row_num\":63},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Pitch_sheets\",\"display\":{\"title\":{\"text\":\"Pitch sheets\"}},\"_row_num\":64},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Pitch_tubes\",\"display\":{\"title\":{\"text\":\"Pitch tubes\"}},\"_row_num\":65},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"PrevTagATD\",\"display\":{\"title\":{\"text\":\"Prev tagged, add to database\"}},\"_row_num\":66},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"ReitLdr\",\"display\":{\"title\":{\"text\":\"Reiterated leader\"}},\"_row_num\":67},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Rot_in_bole\",\"display\":{\"title\":{\"text\":\"Rot in bole\"}},\"_row_num\":68},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sapsucker_holes\",\"display\":{\"title\":{\"text\":\"Sapsucker holes\"}},\"_row_num\":69},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sawdust\",\"display\":{\"title\":{\"text\":\"Sawdust\"}},\"_row_num\":70},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Sparse_crown\",\"display\":{\"title\":{\"text\":\"Sparse crown\"}},\"_row_num\":71},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"StemSwp\",\"display\":{\"title\":{\"text\":\"Stem Sweep\"}},\"_row_num\":72},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"Stilt-rooted\",\"display\":{\"title\":{\"text\":\"Stilt-rooted\"}},\"_row_num\":73},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"SweepVert\",\"display\":{\"title\":{\"text\":\"Sweeps to vertical\"}},\"_row_num\":74},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"T_NBH\",\"display\":{\"title\":{\"text\":\"Tag Nailed at Breast height\"}},\"_row_num\":75},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TF_NEstHt\",\"display\":{\"title\":{\"text\":\"Tag Found, Nailed at Estimated Breast Height\"}},\"_row_num\":76},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TF_NPrevHt\",\"display\":{\"title\":{\"text\":\"Tag Found, Nailed at Previous Height\"}},\"_row_num\":77},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TgRepl\",\"display\":{\"title\":{\"text\":\"Tag Replaced\"}},\"_row_num\":78},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"TNF_NEstHt\",\"display\":{\"title\":{\"text\":\"Tag not found, temp tag at EstHt\"}},\"_row_num\":79},{\"choice_list_name\":\"tree_comments\",\"data_value\":\"WtchBrm\",\"display\":{\"title\":{\"text\":\"Witches' Broom Present\"}},\"_row_num\":80}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "main_stem",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"main_stem\",\"data_value\":1,\"display\":{\"title\":{\"text\":\"1 - Main stem intact\"}},\"_row_num\":22},{\"choice_list_name\":\"main_stem\",\"data_value\":2,\"display\":{\"title\":{\"text\":\"2 - Broken above root collar\"}},\"_row_num\":23},{\"choice_list_name\":\"main_stem\",\"data_value\":3,\"display\":{\"title\":{\"text\":\"3 - Broken below root collar\"}},\"_row_num\":24}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "overall_vigor",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"tree_vigor\",\"data_value\":1,\"display\":{\"title\":{\"text\":\"1 - Good\"}},\"_row_num\":18},{\"choice_list_name\":\"tree_vigor\",\"data_value\":2,\"display\":{\"title\":{\"text\":\"2 - Fair\"}},\"_row_num\":19},{\"choice_list_name\":\"tree_vigor\",\"data_value\":3,\"display\":{\"title\":{\"text\":\"3 - Poor\"}},\"_row_num\":20}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "rooting",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"rooting\",\"data_value\":1,\"display\":{\"title\":{\"text\":\"1 - Fully rooted\"}},\"_row_num\":26},{\"choice_list_name\":\"rooting\",\"data_value\":2,\"display\":{\"title\":{\"text\":\"2 - Partially rooted\"}},\"_row_num\":27},{\"choice_list_name\":\"rooting\",\"data_value\":3,\"display\":{\"title\":{\"text\":\"3 - Uprooted\"}},\"_row_num\":28}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "species",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"species_list\",\"data_value\":\"ABAM\",\"display\":{\"title\":{\"text\":\"ABAM - Abies amabilis (Pacific silver fir)\"}},\"_row_num\":82},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABCO\",\"display\":{\"title\":{\"text\":\"ABCO - Abies concolor (white fir)\"}},\"_row_num\":83},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABGR\",\"display\":{\"title\":{\"text\":\"ABGR - Abies grandis (grand fir)\"}},\"_row_num\":84},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABLA\",\"display\":{\"title\":{\"text\":\"ABLA - Abies lasiocarpa (subalpine fir)\"}},\"_row_num\":85},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABMA\",\"display\":{\"title\":{\"text\":\"ABMA - Abies magnifica (Shasta red fir)\"}},\"_row_num\":86},{\"choice_list_name\":\"species_list\",\"data_value\":\"ABPR\",\"display\":{\"title\":{\"text\":\"ABPR - Abies procera (noble fir)\"}},\"_row_num\":87},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACGL\",\"display\":{\"title\":{\"text\":\"ACGL - Acer glabrum (Rocky Mtn maple)\"}},\"_row_num\":88},{\"choice_list_name\":\"species_list\",\"data_value\":\"ACMA3\",\"display\":{\"title\":{\"text\":\"ACMA3 - Acer macrophyllum (bigleaf maple)\"}},\"_row_num\":89},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALRU2\",\"display\":{\"title\":{\"text\":\"ALRU2 - Alnus rubra (red alder)\"}},\"_row_num\":90},{\"choice_list_name\":\"species_list\",\"data_value\":\"ALVIS\",\"display\":{\"title\":{\"text\":\"ALVIS - Alnus viridis ssp sinuata (Sitka alder)\"}},\"_row_num\":91},{\"choice_list_name\":\"species_list\",\"data_value\":\"ARME\",\"display\":{\"title\":{\"text\":\"ARME - Arbutus menziesii (Pacific madrone)\"}},\"_row_num\":92},{\"choice_list_name\":\"species_list\",\"data_value\":\"CHCH7\",\"display\":{\"title\":{\"text\":\"CHCH7 - Chrysolepis chrysophylla (golden chinquapin)\"}},\"_row_num\":93},{\"choice_list_name\":\"species_list\",\"data_value\":\"CADE27\",\"display\":{\"title\":{\"text\":\"CADE27 - Calocedrus decurrens (incense cedar)\"}},\"_row_num\":94},{\"choice_list_name\":\"species_list\",\"data_value\":\"CANO9\",\"display\":{\"title\":{\"text\":\"CANO9 - Callitropsis nootkatensis (Alaska yellow cedar)\"}},\"_row_num\":95},{\"choice_list_name\":\"species_list\",\"data_value\":\"CONU4\",\"display\":{\"title\":{\"text\":\"CONU4 - Cornus nuttalli (Pacific dogwood)\"}},\"_row_num\":96},{\"choice_list_name\":\"species_list\",\"data_value\":\"FRPU7\",\"display\":{\"title\":{\"text\":\"FRPU7 - Frangula purshiana (Cascara buckthorn)\"}},\"_row_num\":97},{\"choice_list_name\":\"species_list\",\"data_value\":\"PICO\",\"display\":{\"title\":{\"text\":\"PICO - Pinus contorta (Lodgepole pine)\"}},\"_row_num\":98},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIEN\",\"display\":{\"title\":{\"text\":\"PIEN - Picea engelmanii (Engelmnn spruce)\"}},\"_row_num\":99},{\"choice_list_name\":\"species_list\",\"data_value\":\"PILA\",\"display\":{\"title\":{\"text\":\"PILA - Pinus lambertiana (sugar pine)\"}},\"_row_num\":100},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIMO3\",\"display\":{\"title\":{\"text\":\"PIMO3 - Pinus monticola (w. white pine)\"}},\"_row_num\":101},{\"choice_list_name\":\"species_list\",\"data_value\":\"PIPO\",\"display\":{\"title\":{\"text\":\"PIPO - Pinus ponderosa (ponderosa pine)\"}},\"_row_num\":102},{\"choice_list_name\":\"species_list\",\"data_value\":\"PISI\",\"display\":{\"title\":{\"text\":\"PISI - Picea sitchensis (Sitka spruce)\"}},\"_row_num\":103},{\"choice_list_name\":\"species_list\",\"data_value\":\"POBAT\",\"display\":{\"title\":{\"text\":\"POBAT - Populus balsamifer v. trich. (black cottonwood)\"}},\"_row_num\":104},{\"choice_list_name\":\"species_list\",\"data_value\":\"PREM\",\"display\":{\"title\":{\"text\":\"PREM - Prunus emarginata (bitter cherry)\"}},\"_row_num\":105},{\"choice_list_name\":\"species_list\",\"data_value\":\"PRUNU\",\"display\":{\"title\":{\"text\":\"PRUNU - Prunus spp. (cherry)\"}},\"_row_num\":106},{\"choice_list_name\":\"species_list\",\"data_value\":\"PSME\",\"display\":{\"title\":{\"text\":\"PSME - Pseudotsuga menziesii (Douglas-fir)\"}},\"_row_num\":107},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUGA4\",\"display\":{\"title\":{\"text\":\"QUGA4 - Quercus garryana (Oregon white oak)\"}},\"_row_num\":108},{\"choice_list_name\":\"species_list\",\"data_value\":\"QUKE\",\"display\":{\"title\":{\"text\":\"QUKE - Quercus kelloggii (California black oak)\"}},\"_row_num\":109},{\"choice_list_name\":\"species_list\",\"data_value\":\"TABR2\",\"display\":{\"title\":{\"text\":\"TABR2 - Taxus brevifolia (Pacific yew)\"}},\"_row_num\":110},{\"choice_list_name\":\"species_list\",\"data_value\":\"THPL\",\"display\":{\"title\":{\"text\":\"THPL - Thuja plicata (western redcedar)\"}},\"_row_num\":111},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSHE\",\"display\":{\"title\":{\"text\":\"TSHE - Tsuga heterophylla (western hemlock)\"}},\"_row_num\":112},{\"choice_list_name\":\"species_list\",\"data_value\":\"TSME\",\"display\":{\"title\":{\"text\":\"TSME - Tsuga mertensiana (mountain hemlock)\"}},\"_row_num\":113}]"
-      },
-      {
-        "_partition": "Column",
-        "_aspect": "status",
-        "_key": "displayChoicesList",
-        "_type": "object",
-        "_value": "[{\"choice_list_name\":\"tree_status\",\"data_value\":1,\"display\":{\"title\":{\"text\":\"1 - Alive\"}},\"_row_num\":7},{\"choice_list_name\":\"tree_status\",\"data_value\":2,\"display\":{\"title\":{\"text\":\"2 - Ingrowth\"}},\"_row_num\":8},{\"choice_list_name\":\"tree_status\",\"data_value\":3,\"display\":{\"title\":{\"text\":\"3 - Fused at DBH\"}},\"_row_num\":9},{\"choice_list_name\":\"tree_status\",\"data_value\":6,\"display\":{\"title\":{\"text\":\"6 - Dead\"}},\"_row_num\":10},{\"choice_list_name\":\"tree_status\",\"data_value\":9,\"display\":{\"title\":{\"text\":\"9 - Not found\"}},\"_row_num\":11}]"
-      },
-      {
-        "_partition": "FormType",
-        "_aspect": "default",
-        "_key": "FormType.formType",
-        "_type": "string",
-        "_value": "SURVEY"
-      },
-      {
-        "_partition": "SurveyUtil",
-        "_aspect": "default",
-        "_key": "SurveyUtil.formId",
-        "_type": "string",
-        "_value": "ingrowth"
-      },
-      {
-        "_partition": "Table",
-        "_aspect": "default",
-        "_key": "defaultViewType",
-        "_type": "string",
-        "_value": "LIST"
-      },
-      {
-        "_partition": "Table",
-        "_aspect": "default",
-        "_key": "detailViewFileName",
-        "_type": "string",
-        "_value": "config/tables/ingrowth/html/ingrowth_detail.html"
-      },
-      {
-        "_partition": "Table",
-        "_aspect": "default",
-        "_key": "displayName",
-        "_type": "object",
-        "_value": "{\"text\":\"Ingrowth\"}"
-      },
-      {
-        "_partition": "Table",
-        "_aspect": "default",
-        "_key": "listViewFileName",
-        "_type": "string",
-        "_value": "config/tables/ingrowth/html/ingrowth_list.html"
-      }
-    ]
+    }
   }
 }

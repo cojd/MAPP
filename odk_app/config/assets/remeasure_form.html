@@ -24,10 +24,10 @@
   <script type="text/javascript" src="StaticData.js"></script>
 </head>
 
-<body id="main" novalidate>
+<body id="main">
 
   <div class="container">
-    <form id="remeasure">
+    <form id="measure" novalidate> <!-- id here is measure since ingrowth and reameasure forms share a table -->
 
       <h3 class="mb-0">Remeasure Form</h3>
 
@@ -58,9 +58,10 @@
 
           <div class="form-group">
             <label for="species">Species</label>
-            <select class="form-control" name="species" id="species" data-prev-action="replace" data-options-list="SpeciesList" readonly disabled>
+            <select class="form-control" name="species" id="display_species" data-prev-action="replace" data-options-list="SpeciesList" readonly disabled>
               <option value="">No previous value...</option>
             </select>
+            <input type="hidden" name="species" id="species" data-prev-action="replace"> <!--this is where the value for species is actually read. need to set prev-action since prev sets the value -->
           </div>
 
           <div class="form-row">
@@ -76,7 +77,7 @@
               <select class="form-control" name="status" id="display_status" data-options-list="StatusList" readonly disabled>
                 <option value="">Failed to load status...</option>
               </select>
-              <input type="hidden" name="status" id="status"> <!--this is where the value for status is actually read from, check form.js for more-->
+              <input type="hidden" name="status" id="status"> <!--this is where the value for status is actually read from when submitting, check form.js for more-->
             </div>
 
           </div>
@@ -199,7 +200,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
-      <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Cancel</button>
+      <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
       <!-- <button onClick="window.history.back()" class="btn btn-danger">Cancel</button> -->
       <!-- <a class="btn btn-danger" href="./index.html" role="button">Cancel</a> -->
     </form>

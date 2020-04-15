@@ -40,19 +40,19 @@ $(function () {
   // is no corresponding record in remeasure with matching stand, plot, tag values
   let query = `SELECT * 
                  FROM prev_data
-                 LEFT OUTER JOIN remeasure 
-                   ON prev_data.StandID=remeasure.stand
-                  AND prev_data.plot=remeasure.plot
-                  AND prev_data.tag=remeasure.tag `; // trailing space here is important 
+                 LEFT OUTER JOIN measure 
+                   ON prev_data.StandID=measure.stand
+                  AND prev_data.plot=measure.plot
+                  AND prev_data.tag=measure.tag `; // trailing space here is important 
   let p = [params.stand];
 
   switch (params.type)
   {
     case Constants.PlotTypes.REFERENCE_STAND:
-      query += `WHERE prev_data.StandID=? AND remeasure.tag IS NULL`;
+      query += `WHERE prev_data.StandID=? AND measure.tag IS NULL`;
       break;
     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
-      query += `WHERE prev_data.StandID=? AND prev_data.plot=? AND remeasure.tag IS NULL`;
+      query += `WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL`;
       p.push(params.plot);
       break;
     default:

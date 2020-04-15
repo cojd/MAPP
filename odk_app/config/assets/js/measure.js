@@ -30,31 +30,19 @@ function bindButtons() {
   var missingTreesButton = $('#missing-trees');
   missingTreesButton.on('click', function () {odkTables.launchHTML(null, 'config/assets/missing_trees.html')});
 
-  var remeasureListButton = $('#remeasure-list');
+  var remeasureListButton = $('#measure-list');
   remeasureListButton.on(
     'click',
     function () {
       odkTables.openTableToListView(
         null,
-        'remeasure',
+        'measure',
         null,
         null,
         null);
     }
   );
 
-  var ingrowthListButton = $('#ingrowth-list');
-  ingrowthListButton.on(
-    'click',
-    function () {
-      odkTables.openTableToListView(
-        null,
-        'ingrowth',
-        null,
-        null,
-        null);
-    }
-  );
 
   var mortalityListButton = $('#mortality-list');
   mortalityListButton.on(
