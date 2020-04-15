@@ -12,6 +12,10 @@ $(function () {
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
+
+  // set these for ingrowth since it can't get them from prev
+  if (params.stand) $('#stand').val(params.stand);
+  if (params.plot)  $('#plot').val(params.plot);
   // for the remeasure form specifically, since it needs to carry the selected status over from the picker screen
   if (params.status)
   {
@@ -61,6 +65,8 @@ function populateFormFromPrev(prev)
       }
     }
   });
+
+  $('#display_species').val(prev['species']); // do this for species in remeasure. need to carry this along but cant do it through the loop above. same thing as status
 }
 
 ///////////////////////////////////////////////////////////
