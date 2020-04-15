@@ -14,6 +14,7 @@
   <script type="text/javascript" src="../../system/js/odkData.js"></script>
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/Utils.js"></script>
   <script type="text/javascript" src="StaticData.js"></script>
 </head>
 
@@ -26,8 +27,9 @@
       <div class="card-header">Reference Stand</div>
       <div class="card-body">
         <div class="form-group">
-          <label for="stand">Stand</label>
-          <input class="form-control" name="stand" id="rs_stand">
+          <select class="form-control" name="stand" id="rs_stand" required>
+            <option value="">Please select a stand...</option>
+          </select>
         </div>
         <button class="btn btn-primary" id="rs-submit">Submit</button>
       </div>
@@ -37,12 +39,14 @@
       <div class="card-header">Fixed-radius Plot</div>
       <div class="card-body">
         <div class="form-group">
-          <label for="stand">Stand</label>
-          <input class="form-control" name="stand" id="frp_stand">
+          <select class="form-control" name="stand" id="frp_stand" required>
+            <option value="">Please select a stand...</option>
+          </select>
         </div>
         <div class="form-group">
-          <label for="plot">Plot</label>
-          <input type="number" class="form-control" name="plot" id="frp_plot">
+          <select class="form-control" name="plot" id="frp_plot" required>
+            <option value="">Please select a plot...</option>
+          </select>
         </div>
         <button class="btn btn-primary" id="frp-submit">Submit</button>
       </div>
