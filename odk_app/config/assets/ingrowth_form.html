@@ -73,6 +73,38 @@
             <label for="dbh">DBH (cm)</label>
             <input type="number" class="form-control" name="dbh" id="dbh_i">
           </div>
+
+          <!-- modal option1 (if dbhVal < 5) -->
+          <div class="modal fade" id="dbh_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op1_Label_i" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dbh_check_op1_Label_i">DBH Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Dbh is < 5 cm - is that correct?</p>
+                  <button type="button" id="yes_dbh_op1_i" class="btn btn-primary">Yes</button>
+                  <button type="button" id="no_dbh_op1_i" class="btn btn-danger">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal option2 (if dbhVal > 10) -->
+          <div class="modal fade" id="dbh_check_op2_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op2_Label_i" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dbh_check_op2_Label_i">DBH Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Dbh > 10 cm - is that correct?</p>
+                  <button type="button" id="yes_dbh_op2_i" class="btn btn-primary">Yes</button>
+                  <button type="button" id="no_dbh_op2_i" class="btn btn-danger">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="status">Status</label>
             <select class="form-control" name="status" id="status_i" data-options-list="StatusList">

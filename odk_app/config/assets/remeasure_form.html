@@ -98,6 +98,38 @@
             <label for="dbh">DBH (cm)</label>
             <input type="number" class="form-control" name="dbh" id="dbh_r" data-prev-action="prepend">
           </div>
+          <!-- modal option1 (if dbhVal < 5) -->
+          <div class="modal fade" id="dbh_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op1_Label_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dbh_check_op1_Label_r">DBH Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Dbh is less than previous - is that correct?</p>
+                  <button type="button" id="yes_dbh_op1_r" class="btn btn-primary">Yes</button>
+                  <button type="button" id="no_dbh_op1_r" class="btn btn-danger">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal option2 (if dbhVal > 10) -->
+          <div class="modal fade" id="dbh_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op2_Label_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dbh_check_op2_Label_r">DBH Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Dbh increased > 5 cm - is that correct?</p>
+                  <button type="button" id="yes_dbh_op2_r" class="btn btn-primary">Yes</button>
+                  <button type="button" id="no_dbh_op2_r" class="btn btn-danger">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="overall_vigor">Overall vigor (OV)</label>
             <select class="form-control" name="overall_vigor" id="overall_vigor_r" data-options-list="TreeVigorList">
