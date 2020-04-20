@@ -61,8 +61,6 @@ function statusDefault(){
 
 }
 
-
-
 function statusSetUp_ingrowth(){
 
   let treeStatus = $('select#status_i')
@@ -104,18 +102,31 @@ function dbhCheck_ingrowth(){
   dbh.change(()=>{
     let dbhVal = Number(dbh.val())
     console.log(dbhVal) // for testing
+
+    //check if greater than 10 cm
     if(dbhVal < 5){
-      alert("Is this correct?")
+      $('#dbh_check_op1_i').modal('show')
+      $( "#yes_dbh_op1_i" ).click(function() {
+        $('#dbh_check_op1_i').modal('hide')
+      })
+      $( "#no_dbh_op1_i" ).click(function() {
+        $('#dbh_i').val(" ")
+        $('#dbh_check_op1_i').modal('hide')
+      })
+    }
+
+    //check if greater than 10 cm
+    if(dbhVal > 10){
+      $('#dbh_check_op2_i').modal('show')
+      $( "#yes_dbh_op2_i" ).click(function() {
+        $('#dbh_check_op2_i').modal('hide')
+      })
+      $( "#no_dbh_op2_i" ).click(function() {
+        $('#dbh_i').val(" ")
+        $('#dbh_check_op2_i').modal('hide')
+      })
     }
   })
-
-    // I don't think this needs to be here
-    //check if greater by 10 cm since previous
-    // if(dbhVal > (previousDbh + 10){
-    //   alert("Is this correct?")
-    // }
-
-
 
 }
 

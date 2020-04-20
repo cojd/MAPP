@@ -25,7 +25,7 @@ function setDefaults_remeasure(){
         $('select#overall_vigor_r option[value="1"]').attr("selected",true)
         $('select#main_stem_r option[value="1"]').attr("selected",true)
         $('select#rooting_r option[value="1"]').attr("selected",true)
-        $('select#lean_angle_r option[value="0"]').attr("selected",true)
+        $('input#lean_angle_r').val(0)
         $('input#crown_percentage_r').val(100)
         $('input#tree_percentage_r').val(100)
 }
@@ -45,19 +45,32 @@ function dbhCheck_remeasure(){
     dbh.change(()=>{
       let dbhVal = Number(dbh.val())
       console.log(dbhVal) // for testing
-      if(dbhVal < 5){
-        alert("Is this correct?")
+      //check if less than previous
+      if(dbhVal < prevDbhVal){
+        $('#dbh_check_op1_r').modal('show')
+        $( "#yes_dbh_op1_r" ).click(function() {
+          $('#dbh_check_op1_r').modal('hide')
+        })
+        $( "#no_dbh_op1_r" ).click(function() {
+          $('#dbh_r').val(" ")
+          $('#dbh_check_op1_r').modal('hide')
+        })
       }
 
-      //check if greater by 10 cm since previous
-      if(dbhVal > (prevDbhVal + 10)){
-        alert("Is this correct? Highly unusual for a tree to be 10 cm more in diameter since last measurement")
+      //check if greater by 5 cm since previous
+      if(dbhVal > (prevDbhVal + 5)){
+        $('#dbh_check_op2_r').modal('show')
+        $( "#yes_dbh_op2_r" ).click(function() {
+          $('#dbh_check_op2_r').modal('hide')
+        })
+        $( "#no_dbh_op2_r" ).click(function() {
+          $('#dbh_r').val(" ")
+          $('#dbh_check_op2_r').modal('hide')
+        })
       }
-
     })
 
 }
-
 
 function crownPercentageCheck_remeasure(){
   let crownPct = $('input#crown_percentage_r')
