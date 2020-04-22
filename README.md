@@ -13,7 +13,7 @@ You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
 - [Installation](#installation)
-- [Author Info](#author-info)
+- [Author Info](#authors)
 
 ---
 
