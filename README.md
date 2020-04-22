@@ -1,6 +1,6 @@
 # Mobile Application for Forest Ecology Research 
 
-<p align="center">
+![Project Image]<p align="center">
   <img src="https://www.thoughtco.com/thmb/hjMwH9eE8aVeN7WTV1ySOdx5pIo=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-913546552-fa035f709f834b94a911e5b1a18db29b.jpg">
 </p>
 
