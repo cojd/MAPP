@@ -45,6 +45,32 @@ Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 4. Android Debug Bridge (ADB) https://developer.android.com/studio/releases/platform-tools
 5. ODK-X app designer https://github.com/odk-x/app-designer/releases/tag/2.1.6
 
+#### Install on Device 
+You will need to install both of the following apps on your Android Device.
+1. ODK-X tables https://docs.odk-x.org/tables-install/
+2. ODK-X services https://docs.odk-x.org/services-install/
+
+#### Install Application 
+1. Download project 
+`git clone https://github.com/poliakosOSU/OSU_Capstone_MAFE.git`
+2. Transfer files from app project repo to app-designer
+Copy the config file from 
+`OSU_Capstone_MAFE/odk_app/`
+and replace the config file in
+`app-designer-2.1.6/app/`
+3. Enable Developer options on your Android Device
+4. Connect Android Device to computer
+5. Open your terminal and navigate to the root of the app-designer directory and run the following command
+`grunt adbpush`
+
+#### Using Appllication
+1. On your Android open the previously installed ODK-X tables app
+2. In the top right corner select the Preferences tab
+3. Press the Reset Configuration Button
+4. Go back to the home menu of the application, you can now use the app.
+
+
+
 
 
 ## References
