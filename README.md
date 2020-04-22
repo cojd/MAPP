@@ -54,10 +54,15 @@ You will need to install both of the following apps on your Android Device.
 1. Download project 
 `git clone https://github.com/poliakosOSU/OSU_Capstone_MAFE.git`
 2. Transfer files from app project repo to app-designer
+
 Copy the config file from 
+
 `OSU_Capstone_MAFE/odk_app/`
+
 and replace the config file in
+
 `app-designer-2.1.6/app/`
+
 3. Enable Developer options on your Android Device
 4. Connect Android Device to computer
 5. Open your terminal and navigate to the root of the app-designer directory and run the following command
