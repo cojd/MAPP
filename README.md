@@ -11,6 +11,7 @@ You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
 - [Installation](#installation)
+- [License](#license)
 - [Author Info](#authors)
 
 ---
@@ -26,7 +27,7 @@ Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 - HTML
 - CSS
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research)
 
 ---
 
@@ -69,13 +70,14 @@ and replace the config file in
 2. In the top right corner select the Preferences tab
 3. Press the Reset Configuration Button
 4. Go back to the home menu of the application, you can now use the app.
-[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research-(MAFE))
 
-<!---## License
+[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research)
+
+## License
 
 MIT License
 
-Copyright (c) [2017] [Sergei Poliakov and Joseph Landreville]
+Copyright (c) [2020] [Sergei Poliakov and Joseph Landreville]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -94,8 +96,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
---->
 
+[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research)
 
 ---
 
