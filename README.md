@@ -4,7 +4,7 @@ Mobile Application for Forest Ecology Research
 
 ![Project Image](https://scx2.b-cdn.net/gfx/news/2018/europeslostf.jpg)
 
-> This is a ReadMe template to help save you time and effort.
+<!--- > This is a ReadMe template to help save you time and effort. --->
 
 ---
 
