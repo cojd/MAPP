@@ -12,10 +12,7 @@ Mobile Application for Forest Ecology Research
 You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
-- [Technologies]
-- [How To Use](#how-to-use)
-- [References](#references)
-- [License](#license)
+- [Installation](#installation)
 - [Author Info](#author-info)
 
 ---
@@ -76,14 +73,6 @@ and replace the config file in
 4. Go back to the home menu of the application, you can now use the app.
 
 
-
-
-
-## References
-[Back To The Top](#read-me-template)
-
----
-
 <!---## License
 
 MIT License
@@ -115,4 +104,5 @@ SOFTWARE.
 ## Authors
 - Sergei Poliakov
 - Joseph Landreville
+
 [Back To The Top](#read-me-template)
