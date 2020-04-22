@@ -1,8 +1,6 @@
-# OSU_Capstone_MAFE
-Mobile Application for Forest Ecology Research
 # Mobile Application for Forest Ecology Research (MAFE)
 
-![Project Image](https://scx2.b-cdn.net/gfx/news/2018/europeslostf.jpg)
+![Project Image](https://www.thoughtco.com/thmb/hjMwH9eE8aVeN7WTV1ySOdx5pIo=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-913546552-fa035f709f834b94a911e5b1a18db29b.jpg)
 
 <!--- > This is a ReadMe template to help save you time and effort. --->
 
@@ -71,7 +69,7 @@ and replace the config file in
 2. In the top right corner select the Preferences tab
 3. Press the Reset Configuration Button
 4. Go back to the home menu of the application, you can now use the app.
-
+[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research-(MAFE))
 
 <!---## License
 
@@ -105,4 +103,4 @@ SOFTWARE.
 - Sergei Poliakov
 - Joseph Landreville
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research-(MAFE))
