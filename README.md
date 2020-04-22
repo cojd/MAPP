@@ -63,6 +63,7 @@ You will need to install both of the following apps on your Android Device.
 3. Enable Developer options on your Android Device
 4. Connect Android Device to computer
 5. Open your terminal and navigate to the root of the app-designer directory and run the following command
+
 `grunt adbpush`
 
 #### Using Appllication
