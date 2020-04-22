@@ -1,4 +1,4 @@
-# Mobile Application for Forest Ecology Research (MAFE)
+# Mobile Application for Forest Ecology Research 
 
 ![Project Image](https://www.thoughtco.com/thmb/hjMwH9eE8aVeN7WTV1ySOdx5pIo=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-913546552-fa035f709f834b94a911e5b1a18db29b.jpg)
 
@@ -103,4 +103,4 @@ SOFTWARE.
 - Sergei Poliakov
 - Joseph Landreville
 
-[Back To The Top](#mobile-application-for-forest-ecology-research-(-mafe-))
+[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research)
