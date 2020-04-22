@@ -1,7 +1,7 @@
 # Mobile Application for Forest Ecology Research 
 
 <p align="center">
-  <img src="https://scx2.b-cdn.net/gfx/news/2018/europeslostf.jpg" width="460" height="300">
+  <img src="https://scx2.b-cdn.net/gfx/news/2018/europeslostf.jpg" >
 </p>
 
 ---
