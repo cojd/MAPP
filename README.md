@@ -21,12 +21,14 @@ You're sections headers will be used to reference location of destination.
 
 ## Description
 
-Creating ReadMe's for your Github repository can be tedious.  I hope this template can save you time and effort as well as provide you with some consistency across your projects.
+Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 
 #### Technologies
 
-- Technology 1
-- Technology 2
+- ODK-X
+- JavaScript
+- HTML
+- CSS
 
 [Back To The Top](#read-me-template)
 
