@@ -103,4 +103,4 @@ SOFTWARE.
 - Sergei Poliakov
 - Joseph Landreville
 
-[Back To The Top](#Mobile-Application-for-Forest-Ecology-Research-(MAFE))
+[Back To The Top](#mobile-application-for-forest-ecology-research-(mafe))
