@@ -12,6 +12,7 @@ Mobile Application for Forest Ecology Research
 You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
+- [Technologies]
 - [How To Use](#how-to-use)
 - [References](#references)
 - [License](#license)
@@ -69,7 +70,7 @@ and replace the config file in
 `grunt adbpush`
 
 #### Using Appllication
-1. On your Android open the previously installed ODK-X tables app
+1. On your Android Device, open the previously installed ODK-X tables app
 2. In the top right corner select the Preferences tab
 3. Press the Reset Configuration Button
 4. Go back to the home menu of the application, you can now use the app.
@@ -83,11 +84,11 @@ and replace the config file in
 
 ---
 
-## License
+<!---## License
 
 MIT License
 
-Copyright (c) [2017] [James Q Quick]
+Copyright (c) [2017] [Sergei Poliakov and Joseph Landreville]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -106,14 +107,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+--->
 
-[Back To The Top](#read-me-template)
 
 ---
 
-## Author Info
-
-- Twitter - [@jamesqquick](https://twitter.com/jamesqquick)
-- Website - [James Q Quick](https://jamesqquick.com)
-
+## Authors
+- Sergei Poliakov
+- Joseph Landreville
 [Back To The Top](#read-me-template)
