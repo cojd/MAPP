@@ -21,6 +21,9 @@ $(function () {
 });
 
 function bindButtons() {
+  var remeasureFormButton = $('#stand-doc-form');
+  remeasureFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/stand_doc_form.html')});
+
   var remeasureFormButton = $('#remeasure-form');
   remeasureFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/tag_picker.html')});
 

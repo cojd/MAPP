@@ -43,22 +43,23 @@ $(function () {
                  LEFT OUTER JOIN measure 
                    ON prev_data.StandID=measure.stand
                   AND prev_data.plot=measure.plot
-                  AND prev_data.tag=measure.tag `; // trailing space here is important 
+                  AND prev_data.tag=measure.tag`;
   let p = [params.stand];
 
   switch (params.type)
   {
     case Constants.PlotTypes.REFERENCE_STAND:
-      query += `WHERE prev_data.StandID=? AND measure.tag IS NULL`;
+      query += ` WHERE prev_data.StandID=? AND measure.tag IS NULL`;
       break;
     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
-      query += `WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL`;
+      query += ` WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL`;
       p.push(params.plot);
       break;
     default:
       console.log('missing_trees.js: THIS REALLY SHOULDN\'T HAPPEN');
       break;
   }
+  query += ' AND prev_data.PrevStatus!=6' // ignore dead trees
 
   odkData.arbitraryQuery('prev_data', query, p, null, null, success, console.log);
 });

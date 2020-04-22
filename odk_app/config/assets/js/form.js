@@ -5,8 +5,8 @@ $(function () {
   // populateSelects();
   Utils.populateSelects();
 
-  // set up custom form validation
-  bindFormValidation(); // function from validate.js
+  // set up custom form validation if it was included
+  if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
 
   // get params from session variables. (stand, plot, status, etc.)
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
@@ -90,7 +90,7 @@ function watchForm()
     {
       let data = formatFormData(f.serializeArray()); // grab the form data and pass it to the formatter
       console.log(data);
-      createRow(f.attr('id'), data); // pass it and the form id to the create row function
+      createRow(f.data('table'), data); // pass it and the form data-table attribute to the create row function
     }
   });
 }
