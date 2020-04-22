@@ -34,20 +34,18 @@ Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 
 ---
 
-## How To Use
+<!--- ## How To Use --->
 
-#### Installation
+## Installation
+#### Dependencies
+1. Java Run Time Environment https://java.com/en/download/
+2. Node.js https://nodejs.org/en/ 
+3. Grunt
+`npm install -g grunt-cli`
+4. Android Debug Bridge (ADB) https://developer.android.com/studio/releases/platform-tools
+5. ODK-X app designer https://github.com/odk-x/app-designer/releases/tag/2.1.6
 
 
-
-#### API Reference
-
-```html
-    <p>dummy code</p>
-```
-[Back To The Top](#read-me-template)
-
----
 
 ## References
 [Back To The Top](#read-me-template)
