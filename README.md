@@ -1,8 +1,7 @@
 # Mobile Application for Forest Ecology Research 
 
-![Project Image] (https://phys.org/news/2018-01-europe-lost-forests-coverage-halved.html)
 <p align="center">
-  <img src="https://phys.org/news/2018-01-europe-lost-forests-coverage-halved.html" width="460" height="300">
+  <img src="https://scx2.b-cdn.net/gfx/news/2018/europeslostf.jpg" width="460" height="300">
 </p>
 
 ---
