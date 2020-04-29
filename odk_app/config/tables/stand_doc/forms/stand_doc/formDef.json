@@ -32,8 +32,24 @@
         "aspect": "default",
         "key": "defaultViewType",
         "type": "string",
-        "value": "SPREADSHEET",
+        "value": "LIST",
         "_row_num": 2
+      },
+      {
+        "partition": "Table",
+        "aspect": "default",
+        "key": "detailViewFileName",
+        "type": "string",
+        "value": "config/tables/stand_doc/html/stand_doc_detail.html",
+        "_row_num": 3
+      },
+      {
+        "partition": "Table",
+        "aspect": "default",
+        "key": "listViewFileName",
+        "type": "string",
+        "value": "config/tables/stand_doc/html/stand_doc_list.html",
+        "_row_num": 4
       }
     ],
     "survey": [
@@ -809,7 +825,14 @@
         "_aspect": "default",
         "_key": "defaultViewType",
         "_type": "string",
-        "_value": "SPREADSHEET"
+        "_value": "LIST"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "detailViewFileName",
+        "_type": "string",
+        "_value": "config/tables/stand_doc/html/stand_doc_detail.html"
       },
       {
         "_partition": "Table",
@@ -817,6 +840,13 @@
         "_key": "displayName",
         "_type": "object",
         "_value": "{\"text\":\"Stand Documentation\"}"
+      },
+      {
+        "_partition": "Table",
+        "_aspect": "default",
+        "_key": "listViewFileName",
+        "_type": "string",
+        "_value": "config/tables/stand_doc/html/stand_doc_list.html"
       }
     ]
   }

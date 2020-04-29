@@ -5,9 +5,10 @@ $(function () {
   console.log('params');
   console.log(params);
 
+  let p = {}
   if (params) {
     // remove tree specific data from query results just to be safe
-    let p = { type: params.type, stand: params.stand };
+    p = { type: params.type, stand: params.stand };
     if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) p.plot = params.plot;
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(p));
     localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({}));
@@ -16,23 +17,39 @@ $(function () {
     $('#plot').val(p.plot);
   }
 
-
-  bindButtons();
+  bindButtons(p);
 });
 
-function bindButtons() {
-  var remeasureFormButton = $('#stand-doc-form');
-  remeasureFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/stand_doc_form.html')});
-
+function bindButtons(params) {
+  // links to generic html pages
   var remeasureFormButton = $('#remeasure-form');
   remeasureFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/tag_picker.html')});
-
+  
   var ingrowthFormButton = $('#ingrowth-form');
   ingrowthFormButton.on('click', function () {odkTables.launchHTML(null, 'config/assets/ingrowth_form.html')});
-
+  
   var missingTreesButton = $('#missing-trees');
   missingTreesButton.on('click', function () {odkTables.launchHTML(null, 'config/assets/missing_trees.html')});
+  
+  var standDocFormButton = $('#stand-doc-form');
+  standDocFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/stand_doc_form.html')});
+  
+  // for the list views we can set a filter on the DB query so we only get records matching the stand and plot if it is given
+  let query = null, prev_query = null, selection_args = null;
+  if (params)
+  {
+    query = 'stand=?';
+    prev_query = 'StandID=?';                 // UNIFY THIS
+    selection_args = [params.stand];
+    if ('plot' in params)
+    {
+      query += ' AND plot=?';
+      prev_query += ' AND Plot=?';            // PLEASE
+      selection_args.push(params.plot);
+    }
+  }
 
+  // links to Tables list views
   var remeasureListButton = $('#measure-list');
   remeasureListButton.on(
     'click',
@@ -40,8 +57,8 @@ function bindButtons() {
       odkTables.openTableToListView(
         null,
         'measure',
-        null,
-        null,
+        query,
+        selection_args,
         null);
     }
   );
@@ -54,8 +71,8 @@ function bindButtons() {
       odkTables.openTableToListView(
         null,
         'mortality',
-        null,
-        null,
+        query,
+        selection_args,
         null);
     }
   );
@@ -67,8 +84,22 @@ function bindButtons() {
       odkTables.openTableToSpreadsheetView(
         null,
         'prev_data',
+        prev_query,
+        selection_args);
+    }
+  );
+  
+  var standDocListButton = $('#stand-doc-list');
+  standDocListButton.on(
+    'click',
+    function () {
+      odkTables.openTableToListView(
         null,
+        'stand_doc',
+        query,
+        selection_args,
         null);
     }
   );
+  
 }
