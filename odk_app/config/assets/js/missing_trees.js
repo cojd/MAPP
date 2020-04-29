@@ -18,16 +18,9 @@ $(function () {
       let species = result.getData(row, "Species");
       let status = result.getData(row, "PrevStatus");
       
-      let item = $(`
-      <div class="card">
-        <div class="card-body">
-          <h5>` + tag + ` | <span class="badge badge-primary">` + stand + `</span> <span class="badge badge-success">` + plot + `</span> <span class="badge badge-info">` + TreeID + `</span></h5>
-          <i>` + DataLists.SpeciesList[species] + `</i> - ` + DataLists.StatusList[status] + `
-        </div>
-      </div>
-      `);
+      let item = $('<tr> <th scope="row">' + tag + '</th> <td>' + stand + '</td> <td>' + plot + '</td> <td>' + DataLists.SpeciesList[species] + '</td> <td>' + DataLists.StatusList[status] + '</td> </tr>');
 
-      $('.tree-list').append(item);
+      $('.tree-list tbody').append(item);
     }
   }
 
@@ -43,22 +36,23 @@ $(function () {
                  LEFT OUTER JOIN measure 
                    ON prev_data.StandID=measure.stand
                   AND prev_data.plot=measure.plot
-                  AND prev_data.tag=measure.tag `; // trailing space here is important 
+                  AND prev_data.tag=measure.tag`;
   let p = [params.stand];
 
   switch (params.type)
   {
     case Constants.PlotTypes.REFERENCE_STAND:
-      query += `WHERE prev_data.StandID=? AND measure.tag IS NULL`;
+      query += ' WHERE prev_data.StandID=? AND measure.tag IS NULL';
       break;
     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
-      query += `WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL`;
+      query += ' WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL';
       p.push(params.plot);
       break;
     default:
       console.log('missing_trees.js: THIS REALLY SHOULDN\'T HAPPEN');
       break;
   }
+  query += ' AND prev_data.PrevStatus!=6' // ignore dead trees
 
   odkData.arbitraryQuery('prev_data', query, p, null, null, success, console.log);
 });
