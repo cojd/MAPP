@@ -14,6 +14,7 @@
   <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
   <script type="text/javascript" src="js/Utils.js"></script>
   <script type="text/javascript" src="js/picker.js"></script>
+  <script type="text/javascript" src="js/validate.js"></script>
   <script type="text/javascript" src="StaticData.js"></script>
 </head>
 
@@ -37,13 +38,13 @@
             <input type="number" class="form-control" name="tag" id="tag" placeholder="Enter a tag to search..." required>
             <div class="invalid-feedback">You must select a valid tree.</div>
           </div>
-          
-          <div class="form-group"> 
+
+          <div class="form-group">
             <select class="form-control" name="results" id="results" required>
               <option value="">Please select a tree...</option>
             </select>
           </div>
-          
+
           <div class="form-group">
             <label for="status">Status</label>
             <select class="form-control" name="status" id="status" data-options-list="StatusList" required>
@@ -51,7 +52,7 @@
               <div class="invalid-feedback">You must select a status.</div>
             </select>
           </div>
-      
+
           <button type="submit" class="btn btn-primary">Remeasure</button>
         </form>
 

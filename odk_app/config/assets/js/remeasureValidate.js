@@ -43,9 +43,18 @@ function setDefaults_remeasure(){
 
 
 function setRequired_remeasure(){
+  // let statusVal = Number($('select#status').val())
+
+  // 9 represents 'Not Found'
+  // if(statusVal != 9){
+      $('input#dbh_r').prop('required',true)
+      $('select#overall_vigor_r').prop('required', true)
+      $('select#main_stem_r').prop('required', true)
+      $('select#rooting_r').prop('required',true)
       $('input#lean_angle_r').prop('required',true)
       $('input#crown_percentage_r').prop('required',true)
       $('input#tree_percentage_r').prop('required',true)
+    // }
 }
 
 
@@ -93,13 +102,10 @@ function dbhCheck_remeasure(){
 
 
 function leanAngleCheck_remeasure(){
-
   let leanAngl = $("input#lean_angle_r")
-
 
   leanAngl.change(() => {
     let leanAnglVal = Number(leanAngl.val())
-    //console.log(leanAnglVal)
 
     if(leanAnglVal < 0 || leanAnglVal > 120){
       $('#lean_angl_check_r').modal('show')
@@ -119,9 +125,13 @@ function clearCrownAndTreePct_remeasure(){
 
   mainStem.change(() => {
     let mainStemVal = Number(mainStem.val())
-    if(mainStemVal === 2)
+    if(mainStemVal === 2){
       $('input#crown_percentage_r').val(" ")
       $('input#tree_percentage_r').val(" ")
+    } else {
+      $('input#crown_percentage_r').val(100)
+      $('input#tree_percentage_r').val(100)
+    }
   })
 
 }
