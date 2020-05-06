@@ -23,6 +23,9 @@ function setRequired_mortality(){
   let mainStem = $('select#main_stem_m')
   let rooting = $('select#rooting_m')
 
+  $('select#main_stem_m').prop('required',true)
+  $('select#proximate').prop('required',true)
+
   mainStem.change(() =>{
     let mainStemVal = Number(mainStem.val())
     let rootingVal = Number(rooting.val())

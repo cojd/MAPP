@@ -38,6 +38,7 @@ function bindIngrowthValidate(){
 
 
 function statusDefault_ingrowth(){
+
   $('select#status_i option[value="2"]').attr("selected",true);
   $('select#overall_vigor_i option[value="1"]').attr("selected",true)
   $('select#main_stem_i option[value="1"]').attr("selected",true)
@@ -50,12 +51,15 @@ function statusDefault_ingrowth(){
 
 function setRequired_ingrowth(){
 
+  $('input#dbh_r').prop('required',true)
   $('select#overall_vigor_i').prop('required',true)
   $('select#main_stem_i').prop('required',true)
   $('select#rooting_i').prop('required',true)
   $('input#lean_angle_i').prop('required',true)
   $('input#crown_percentage_i').prop('required',true)
   $('input#tree_percentage_i').prop('required',true)
+  $('input#canopy_class_i').prop('required',true) // not working for some reason
+  $('input#crown_ratio_i').prop('required',true)
 
 }
 
