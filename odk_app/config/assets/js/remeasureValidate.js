@@ -1,27 +1,25 @@
-// Need to set required fields
+
 function bindRemeasureValidate(){
 
-  setDefaults_remeasure()
+  // get current params, using params.status for setting required fields
+  let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
 
-  setRequired_remeasure()
+  if (params.status != 9){
+    setDefaults_remeasure()
+  }
+
+  setRequired_remeasure(params)
 
   dbhCheck_remeasure() // still need database look up
-  $('input#dbh_r').change(() => { dbhCheck_remeasure(); });
 
   leanAngleCheck_remeasure()
-  $('input#lean_angle_r').change(() => {leanAngleCheck_remeasure()})
 
   // if main stem is set to 2 clear crown and tree pct defaults
   clearCrownAndTreePct_remeasure()
-  $('select#main_stem_r').change(() => { crownPercentageCheck_remeasure(); });
 
   crownPercentageCheck_remeasure()
-  $('input#crown_percentage_r').change(() => { crownPercentageCheck_remeasure(); });
-  $('select#main_stem_r').change(() => { crownPercentageCheck_remeasure(); });
 
   treePercentageCheck_remeasure()
-  $('input#tree_percentage_r').change(() => { treePercentageCheck_remeasure(); });
-  $('input#crown_percentage_r').change(() => { treePercentageCheck_remeasure(); });
 
   // mapping
   fromCheck_remeasure() // need to do database look up
@@ -42,11 +40,10 @@ function setDefaults_remeasure(){
 }
 
 
-function setRequired_remeasure(){
-  // let statusVal = Number($('select#status').val())
+function setRequired_remeasure(params){
 
   // 9 represents 'Not Found'
-  // if(statusVal != 9){
+  if(params.status != 9){
       $('input#dbh_r').prop('required',true)
       $('select#overall_vigor_r').prop('required', true)
       $('select#main_stem_r').prop('required', true)
@@ -54,7 +51,15 @@ function setRequired_remeasure(){
       $('input#lean_angle_r').prop('required',true)
       $('input#crown_percentage_r').prop('required',true)
       $('input#tree_percentage_r').prop('required',true)
-    // }
+    } else { // possibly don't need
+      $('input#dbh_r').prop('disabled', true)
+      $('select#overall_vigor_r').prop('disabled', true)
+      $('select#main_stem_r').prop('disabled', true)
+      $('select#rooting_r').prop('disabled', true)
+      $('input#lean_angle_r').prop('disabled', true)
+      $('input#crown_percentage_r').prop('disabled', true)
+      $('input#tree_percentage_r').prop('disabled', true)
+    }
 }
 
 
@@ -230,10 +235,12 @@ function fromCheck_remeasure(){
 
 function distanceCheck_remeasure(){
 
+
   let distance = $('input#distance_r')
 
   distance.change(()=>{
     let distanceVal = Number(distance.val())
+    console.log("distanceVal " + distanceVal)
 
     if(distanceVal < 0.1 || distanceVal > 25.0){
       $('#distance_check_op1_r').modal('show')
@@ -242,19 +249,21 @@ function distanceCheck_remeasure(){
         $('#distance_r').val(" ") // clear value
         $('#distance_check_op1_r').modal('hide')
       })
-    } else if (distanceVal > 10)
+    } else if (distanceVal > 10){
     $('#distance_check_op2_r').modal('show')
 
     $( "#ok_distance_check_op2_r" ).click(function() {
       // $('#distance_r').val(" ") // clear value
       $('#distance_check_op2_r').modal('hide')
     })
+    }
   })
 }
 
 function azimuthCheck_remeasure(){
 
   let azimuth = $('input#azimuth_r')
+
 
   azimuth.change(()=>{
       let azimuthVal = Number(azimuth.val())

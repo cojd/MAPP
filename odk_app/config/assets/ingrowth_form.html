@@ -68,7 +68,6 @@
             <label for="dbh">DBH (cm)</label>
             <input type="number" class="form-control" name="dbh" id="dbh_i" step=".1">
           </div>
-
           <!-- modal option1 (if dbhVal < 5) -->
           <div class="modal fade" id="dbh_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op1_Label_i" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -117,7 +116,7 @@
             <input type="number" step="0.01" class="form-control" name="crown_ratio" id="crown_ratio_i" max="100" min="1">
             <div class="invalid-feedback">Crown ratio must be within the range 1-100.</div>
           </div>
-          <!-- Crown Ratio Check -->
+          <!-- Crown Ratio Check Modal-->
           <div class="modal fade" id="crown_ratio_check_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crown_ratio_check_Label_i" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -156,7 +155,6 @@
             <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle_i" min="0" max="120">
             <div class="invalid-feedback">Lean angle must be within the range 0-120.</div>
           </div>
-
           <!-- Lean Angle check modal (must be in range 0 to 120) -->
           <div class="modal fade" id="lean_angl_check_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_i" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -174,9 +172,8 @@
 
           <div class="form-group">
             <label for="crown_percentage">Crown percentage</label>
-            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_i">
-            <!-- <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_i" min="0" max="100"> -->
-            <!-- <div class="invalid-feedback">Crown percentage must be within the range 0-100.</div> -->
+            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_i" min="0" max="100">
+            <div class="invalid-feedback">Crown percentage must be within the range 0-100.</div>
           </div>
           <!-- Option 1 (mainStemVal == 2 && crownPrctVal == 100) -->
           <div class="modal fade" id="crwn_pct_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op1_i" aria-hidden="true">
@@ -209,9 +206,8 @@
 
           <div class="form-group">
             <label for="tree_percentage">Tree percentage</label>
-            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_i">
-            <!-- <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_i" min="0" max="100"> -->
-            <!-- <div class="invalid-feedback">Tree percentage must be within the range 0-100.</div> -->
+            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_i" min="0" max="100">
+            <div class="invalid-feedback">Tree percentage must be within the range 0-100.</div>
           </div>
           <!-- Option 1  (treePctVal < crownPctVal) -->
           <div class="modal fade" id="tree_pct_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_i" aria-hidden="true">
@@ -267,11 +263,53 @@
                 <input type="number" step="0.01" class="form-control" name="distance" id="distance_i" min="0.1" max="25.0">
                 <div class="invalid-feedback">Distance must be within the range 0.1-25.0</div>
               </div>
+              <!-- Distance Option 1  (distanceVal < 0.1 || distanceVal > 25.0) -->
+              <div class="modal fade" id="distance_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="distance_check_Label_op1_i" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="distance_check_Label_op1_i">Distance Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Distance must be within the range 0.1-25.0</p>
+                      <button type="button" id="ok_distance_check_op1_i" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Distance Option 2 (distanceVal > 10) -->
+              <div class="modal fade" id="distance_check_op2_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="distance_check_Label_op2_i" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="distance_check_Label_op1_i">Distance Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Distance > 10m? Check entry or choose a closer tree.</p>
+                      <button type="button" id="ok_distance_check_op2_i" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="form-group">
                 <label for="azimuth">Azimuth</label>
                 <input type="number" class="form-control" name="azimuth" id="azimuth_i" min="0" max="360">
                 <div class="invalid-feedback">Azimuth must be within the range 0-360</div>
               </div>
+              <!-- Azimuth Check -->
+              <div class="modal fade" id="azimuth_check_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="azimuth_check_Label_i" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="azimuth_check_Label_i">Azimuth Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Azimuth must be within the range 0 and 360.</p>
+                      <button type="button" id="ok_azimuth_check_i" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
             </div>
           </div>
