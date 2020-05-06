@@ -93,25 +93,169 @@
             <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle_m" data-prev-action="prepend" min="0" max="120">
             <div class="invalid-feedback">Lean angle must be within the range 0-120.</div>
           </div>
+          <!-- Option 1 (must be in range 0 to 120) -->
+          <div class="modal fade" id="lean_angl_check_op1_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_op1_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="lean_angl_Label_op1_m">Lean Angle Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Lean angle must be within the range 0-120.</p>
+                  <button type="button" id="ok_lean_angl_op1_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2 warning (leanAnglVal > 100)-->
+          <div class="modal fade" id="lean_angl_check_op2_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_op2_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="lean_angl_Label_op2_m">Lean Angle Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Lean angle > 100 deg - check it again.</p>
+                  <button type="button" id="ok_lean_angl_op2_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="crown_percentage_m">Crown percentage</label>
             <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_m" min="0" max="100">
               <div class="invalid-feedback">Lean angle must be within the range 0-100.</div>
           </div>
+          <!-- Option 1 (mainStemVal == 2 && crownPrctVal == 100) -->
+          <div class="modal fade" id="crwn_pct_check_op1_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op1_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="crwn_pct_Label_op1_m">Crown Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>If main stem is 2 then crown % must be < 100%.</p>
+                  <button type="button" id="ok_crwn_pct_op1_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2  (must be in range 0 to 100) -->
+          <div class="modal fade" id="crwn_pct_check_op2_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op2_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="crwn_pct_Label_op2_m">Crown Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Crown percentage must be within the range 0-100.</p>
+                  <button type="button" id="ok_crwn_pct_op2_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="tree_percentage_m">Tree percentage</label>
             <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_m" min="0" max="100">
             <div class="invalid-feedback">Tree percentage must be within the range 0-100.</div>
           </div>
+          <!-- Option 1  (treePctVal < crownPctVal) -->
+          <div class="modal fade" id="tree_pct_check_op1_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op1_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree % cannot be less then crown %.</p>
+                  <button type="button" id="ok_tree_pct_op1_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2  (treePctVal === 100 && mainStemVal === 2) -->
+          <div class="modal fade" id="tree_pct_check_op2_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op2_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree % cannot be less than 100% if Main_Stem=2 (broken).</p>
+                  <button type="button" id="ok_tree_pct_op2_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 3 (treePctVal < 100 && mainStemVal === 1) -->
+          <div class="modal fade" id="tree_pct_check_op3_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op3_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op3_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>If tree % < 100 then Main_Stem must be 2 or 3 (broken).</p>
+                  <button type="button" id="ok_tree_pct_op3_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 4 (treePctVal < 0 || treePctVal > 100) -->
+          <div class="modal fade" id="tree_pct_check_op4_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op4_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op4_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree percentage must be within the range 0-100.</p>
+                  <button type="button" id="ok_tree_pct_op4_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="ground_percentage_m">Ground percentage</label>
             <input type="number" step="0.01" class="form-control" name="ground_percentage" id="ground_percentage_m" min="-1" max="100">
             <div class="invalid-feedback">Ground percentage must be within the range -1 - 100.</div>
           </div>
+          <!-- Ground Percentage Check -->
+          <div class="modal fade" id="ground_pct_check_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ground_pct_Label_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ground_pct_Label_m">Ground Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Ground percentage must be within the range -1 - 100.</p>
+                  <button type="button" id="ok_ground_pct_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="support_percentage_m">Support percentage</label>
             <input type="number" step="0.01" class="form-control" name="support_percentage" id="support_percentage_m" min="-1" max="100">
             <div class="invalid-feedback">Support percentage must be within the range -1 - 100.</div>
+          </div>
+          <!-- Support Percentage Check -->
+          <div class="modal fade" id="support_pct_check_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="support_pct_Label_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="support_pct_Label_m">Ground Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Support percentage must be within the range -1 - 100.</p>
+                  <button type="button" id="ok_support_pct_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

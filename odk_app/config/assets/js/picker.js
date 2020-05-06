@@ -15,14 +15,14 @@ $(function () {
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
-  
+
   if (params) {
     // remove tree specific data from query results just to be safe
     let p = { type: params.type, stand: params.stand };
     if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) p.plot = params.plot;
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(p));
     localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({}));
-    
+
     $('#stand').val(p.stand);
     $('#plot').val(p.plot);
   }
@@ -121,7 +121,7 @@ function queryDB(table, query, params) {
       r['comments']   = result.getData(row, "PrevComments");
       // records.push(r);
       // build a string from some of the values
-      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status]; 
+      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status];
       records[r.plot] = r;
       record_strings[r.plot] = st;
     }
@@ -132,7 +132,7 @@ function queryDB(table, query, params) {
     let res_select = $('#results');
     res_select.html('<option value="">Please select a tree...</option>');
     if (records.length === 0) // we didn't get any records for that stand/plot/tag combo so the input is invalid
-    { 
+    {
       tag.setCustomValidity('is-invalid');
       // res_div.val('');
       // res_div.addClass('is-invalid');
@@ -142,11 +142,11 @@ function queryDB(table, query, params) {
     else // we did get a record
     {
       res_select.append(Utils.genSelectOptions(record_strings));
-      
+
       // if only one result just set the value of the select
       let keys = Object.keys(record_strings);
-      if (keys.length === 1) res_select.val(keys[0]); 
-    
+      if (keys.length === 1) res_select.val(keys[0]);
+
       // let p = res_select.val();
       // let r = records[p];
       // console.log(p);
