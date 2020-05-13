@@ -45,9 +45,24 @@
             </div>
             <div class="form-group col-4">
               <label for="tag">Tag</label>
-              <input type="number" class="form-control" name="tag" id="tag">
+              <input type="number" class="form-control" name="tag" id="tag_i">
               <div class="invalid-feedback">Tag number cannot be 2.</div>
             </div>
+            <!-- Tag Ceck -->
+            <div class="modal fade" id="tag_check_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tag_Label_i" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="tag_Label_i">Tag Check</h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>Tree already exists in database.</p>
+                    <button type="button" id="ok_tag_i" class="btn btn-primary">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
           </div>
 
