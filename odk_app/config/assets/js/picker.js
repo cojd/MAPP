@@ -126,6 +126,7 @@ function queryDB(table, query, params) {
       record_strings[r.plot] = st;
     }
 
+
     // grab the results div and set its value and validity depending on if we found a matching record
     let tag = $('input#tag')[0];
     // let res_div = $('#result-tag');

@@ -225,8 +225,94 @@ function treePercentageCheck_ingrowth(){
 
 function fromCheck_ingrowth(){
   // 0 only allowed in fixed radius plots
+  let fromTag = $('input#from_tag_i')
 
+  fromTag.change(()=>{
 
+    let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
+
+    let success = function(result) {
+      if(result.getCount() === 0){
+        // alert("Tree Not Found")
+        search_newTrees(params)
+      } else {
+        // alert("Tree Found")
+        console.log("Tree Found")
+      }
+    }
+
+    let failure = function(result){
+      console.log("fromCheck_ingrowth(): database look up failed")
+      alert("fromCheck_ingrowth(): database look up failed")
+    }
+
+    let query = `SELECT * FROM prev_data
+                          WHERE prev_data.StandID=?
+                            AND prev_data.tag=?`;
+
+    let bindParams = [params.stand, fromTag.val()]
+
+    switch(params.type)
+    {
+      case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        // alert("accesed fixed radius plot")
+        if(Number(fromTag.val()) === 0){
+          // alert("fixed r plot from tag selected is 0")
+          return;
+        }
+        query += ` AND prev_data.plot=?`
+        bindParams.push(params.plot)
+     default:
+        break;
+    }
+
+    odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
+
+  })
+
+  function search_newTrees(params){
+
+    let success = function(result){
+      if(result.getCount() === 0){
+        $('#from_check_i').modal('show')
+
+        $( "#ok_from_check_i" ).click(function() {
+          $('#from_tag_i').val(" ") // clear value
+          $('#from_check_i').modal('hide')
+        })
+
+      } else{
+        // alert("Tree Found in search_newTrees")
+        console.log("succes")
+      }
+    }
+
+    let failure = function(result){
+      console.log("fromCheck_ingrowth(): database look up failed")
+      alert("fromCheck_ingrowth(): database look up failed (search_newTrees)")
+    }
+
+    let query = `SELECT * FROM measure
+                          WHERE measure.stand=?
+                            AND measure.tag=?`;
+
+   let bindParams = [params.stand, fromTag.val()]
+
+   switch(params.type)
+   {
+     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        // value of 0 zero selected, only allowed for fixed radius plots
+       if(Number(fromTag.val()) === 0){
+         return;
+       }
+       query += ` AND measure.plot=?`
+       bindParams.push(params.plot)
+     default:
+      break;
+   }
+
+   odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
+  }
 }
 
 function distanceCheck_ingrowth(){
