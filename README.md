@@ -39,8 +39,9 @@ Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 2. Node.js https://nodejs.org/en/ 
 3. Grunt
 `npm install -g grunt-cli`
-4. Android Debug Bridge (ADB) https://developer.android.com/studio/releases/platform-tools
-5. ODK-X app designer https://github.com/odk-x/app-designer/releases/tag/2.1.6
+4. Android Studio https://developer.android.com/studio
+5. Android Debug Bridge (ADB) https://developer.android.com/studio/releases/platform-tools
+6. ODK-X app designer https://github.com/odk-x/app-designer/releases/tag/2.1.6
 
 #### Install on Device 
 You will need to install both of the following apps on your Android Device.
