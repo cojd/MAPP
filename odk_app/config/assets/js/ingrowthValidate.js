@@ -227,64 +227,92 @@ function fromCheck_ingrowth(){
   // 0 only allowed in fixed radius plots
   let fromTag = $('input#from_tag_i')
 
-  //let fromTagVal = Number(from)
-
   fromTag.change(()=>{
 
-  let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
+    let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
 
-  let success = function(result) {
-    if(result.getCount() === 0){
-      alert("Tree Not Found")
-    } else {
-
-
-
-    alert("Tree Found")
-    // alert("result" + result.getCount())
-    //   for (var row = 0; row < result.getCount(); row++){
-    //     var r = {};
-    //
-    //     r['tag'] = result.getData(row, "Tag");
-    //     r['species'] = result.getData(row, "Species");
-    //     r['stand'] = result.getData(row, "StandID")
-    //     r['status'] = result.getData(row, "PrevStatus");
-    //   }
-
-    // alert("Tag value " + r.tag)
-    //alert("Tag " + tag + " of species " species)
-    //let tagValue = $(tag)
-    // let standValue = $(stand)
-    // alert("Stand Value " + standValue.val())
-    // let statusVal = $(status)
-    // alert("Status Value " + statusVal.val())
-    // let speciesVal = $("Species " + species.val())
-    // alert(String(speciesVal))
+    let success = function(result) {
+      if(result.getCount() === 0){
+        // alert("Tree Not Found")
+        search_newTrees(params)
+      } else {
+        // alert("Tree Found")
+        console.log("Tree Found")
+      }
     }
+
+    let failure = function(result){
+      console.log("fromCheck_ingrowth(): database look up failed")
+      alert("fromCheck_ingrowth(): database look up failed")
+    }
+
+    let query = `SELECT * FROM prev_data
+                          WHERE prev_data.StandID=?
+                            AND prev_data.tag=?`;
+
+    let bindParams = [params.stand, fromTag.val()]
+
+    switch(params.type)
+    {
+      case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        // alert("accesed fixed radius plot")
+        if(Number(fromTag.val()) === 0){
+          // alert("fixed r plot from tag selected is 0")
+          return;
+        }
+        query += ` AND prev_data.plot=?`
+        bindParams.push(params.plot)
+     default:
+        break;
+    }
+
+    odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
+
+  })
+
+  function search_newTrees(params){
+
+    let success = function(result){
+      if(result.getCount() === 0){
+        $('#from_check_i').modal('show')
+
+        $( "#ok_from_check_i" ).click(function() {
+          $('#from_tag_i').val(" ") // clear value
+          $('#from_check_i').modal('hide')
+        })
+
+      } else{
+        // alert("Tree Found in search_newTrees")
+        console.log("succes")
+      }
+    }
+
+    let failure = function(result){
+      console.log("fromCheck_ingrowth(): database look up failed")
+      alert("fromCheck_ingrowth(): database look up failed (search_newTrees)")
+    }
+
+    let query = `SELECT * FROM measure
+                          WHERE measure.stand=?
+                            AND measure.tag=?`;
+
+   let bindParams = [params.stand, fromTag.val()]
+
+   switch(params.type)
+   {
+     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        // value of 0 zero selected, only allowed for fixed radius plots
+       if(Number(fromTag.val()) === 0){
+         return;
+       }
+       query += ` AND measure.plot=?`
+       bindParams.push(params.plot)
+     default:
+      break;
+   }
+
+   odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
   }
-
-  let failure = function(result){
-    console.log("fromCheck_ingrowth(): database look up failed")
-    alert("fromCheck_ingrowth(): database look up failed")
-  }
-
-  let query = `SELECT * FROM prev_data
-                        LEFT OUTER JOIN measure
-                          ON prev_data.Tag=measure.tag
-                        WHERE prev_data.StandID=?
-                          AND prev_data.tag=?`;
-  //
-  // alert("params.stand " + params.stand)
-  //
-  alert("params.stand " + params.stand )
-  let bindParams = [params.stand, fromTag.val()]
-  //let query = `SELECT COUNT(1) FROM prev_data LEFT OUTER JOIN measure ON prev_data.Tag=measure.tag WHERE prev_data.tag=?`
-
-  //let bindParams = [fromTag.val()]
-
-  odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
-
-})
 }
 
 function distanceCheck_ingrowth(){
