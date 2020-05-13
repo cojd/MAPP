@@ -12,11 +12,11 @@ function failure(error) {
 
 function success(result) {
                   // this must be a regular function not a arrow function
-  $('[data-column-name]').each(function() {
+  $('[data-column_name]').each(function() {
     let key = $(this).data('column-name');
     let val = result.get(key);
     console.log('record_detail.js ' + key + ': ' + val);
-    $('[data-column-name=\"' + key + '\"]').val(val);
+    $(this).val(val);
   });
 
 }

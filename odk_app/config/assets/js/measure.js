@@ -23,26 +23,34 @@ $(function () {
 function bindButtons(params) {
   // links to generic html pages
   var remeasureFormButton = $('#remeasure-form');
-  remeasureFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/tag_picker.html')});
-  
+  remeasureFormButton.on('click', function () {
+    odkTables.launchHTML(null, 'config/assets/tag_picker.html')
+  });
+
   var ingrowthFormButton = $('#ingrowth-form');
-  ingrowthFormButton.on('click', function () {odkTables.launchHTML(null, 'config/assets/ingrowth_form.html')});
-  
+  ingrowthFormButton.on('click', function () {
+    Utils.save_value_to_params("form_def", "ingrowth");
+    odkTables.launchHTML(null, 'config/assets/form.html')
+  });
+
   var missingTreesButton = $('#missing-trees');
-  missingTreesButton.on('click', function () {odkTables.launchHTML(null, 'config/assets/missing_trees.html')});
-  
+  missingTreesButton.on('click', function () {
+    odkTables.launchHTML(null, 'config/assets/missing_trees.html')
+  });
+
   var standDocFormButton = $('#stand-doc-form');
-  standDocFormButton.on('click', function() {odkTables.launchHTML(null, 'config/assets/stand_doc_form.html')});
-  
+  standDocFormButton.on('click', function () {
+    Utils.save_value_to_params("form_def", "stand_doc");
+    odkTables.launchHTML(null, 'config/assets/form.html')
+  });
+
   // for the list views we can set a filter on the DB query so we only get records matching the stand and plot if it is given
   let query = null, prev_query = null, selection_args = null;
-  if (params)
-  {
+  if (params) {
     query = 'stand=?';
     prev_query = 'StandID=?';                 // UNIFY THIS
     selection_args = [params.stand];
-    if ('plot' in params)
-    {
+    if ('plot' in params) {
       query += ' AND plot=?';
       prev_query += ' AND Plot=?';            // PLEASE
       selection_args.push(params.plot);
@@ -54,6 +62,8 @@ function bindButtons(params) {
   remeasureListButton.on(
     'click',
     function () {
+      Utils.save_value_to_params("form_def", "remeasure");
+      Utils.save_value_to_params("editing", true);
       odkTables.openTableToListView(
         null,
         'measure',
@@ -68,6 +78,8 @@ function bindButtons(params) {
   mortalityListButton.on(
     'click',
     function () {
+      Utils.save_value_to_params("form_def", "mortality");
+      Utils.save_value_to_params("editing", true);
       odkTables.openTableToListView(
         null,
         'mortality',
@@ -88,11 +100,13 @@ function bindButtons(params) {
         selection_args);
     }
   );
-  
+
   var standDocListButton = $('#stand-doc-list');
   standDocListButton.on(
     'click',
     function () {
+      Utils.save_value_to_params("form_def", "stand_doc");
+      Utils.save_value_to_params("editing", true);
       odkTables.openTableToListView(
         null,
         'stand_doc',
@@ -101,5 +115,5 @@ function bindButtons(params) {
         null);
     }
   );
-  
+
 }

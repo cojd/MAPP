@@ -21,6 +21,9 @@ function setValidityMsg(elem, msg, defaultMsg)
 function tag_validate()
 {
   let tag = $('input#tag');
-  if (Number(tag.val()) !== 2) tag[0].setCustomValidity("");
-  else                         tag[0].setCustomValidity("Tag number cannot be 2.");
+  if (tag.length)
+  {
+    if (Number(tag.val()) !== 2) tag[0].setCustomValidity("");
+    else                         tag[0].setCustomValidity("Tag number cannot be 2.");
+  }
 }

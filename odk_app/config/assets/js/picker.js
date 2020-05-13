@@ -15,14 +15,14 @@ $(function () {
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
   console.log('params');
   console.log(params);
-
+  
   if (params) {
     // remove tree specific data from query results just to be safe
     let p = { type: params.type, stand: params.stand };
     if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) p.plot = params.plot;
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(p));
     localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify({}));
-
+    
     $('#stand').val(p.stand);
     $('#plot').val(p.plot);
   }
@@ -51,21 +51,18 @@ function watchForm(params)
       params.tag = tag;
       params.status = status; // status goes in params here since we select it in the UI not from the DB
       params.plot = plot;
+
+      if (Number(params.status) === 6) params.form_def = 'mortality';
+      else                             params.form_def = 'remeasure';
+            
       console.log('params final');
       console.log(params);
       // store it in session variables
       localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
       // store the queried tree data in session variables
       localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
-      // and move to the correct form
-      if (Number(params.status) === 6) {
-        // window.location.replace('./mortality_form.html');
-        odkTables.launchHTML(null, 'config/assets/mortality_form.html')
-      }
-      else {
-        // window.location.replace('./remeasure_form.html');
-        odkTables.launchHTML(null, 'config/assets/remeasure_form.html')
-      }
+      
+      odkTables.launchHTML(null, 'config/assets/form.html') // move to the form
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback
   });
@@ -121,39 +118,26 @@ function queryDB(table, query, params) {
       r['comments']   = result.getData(row, "PrevComments");
       // records.push(r);
       // build a string from some of the values
-      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status];
+      let st = 'Stand: ' + r.stand + ' | Plot: ' + r.plot + ' | Tag: ' + r.tag + ' | Status: ' + DataLists.StatusList[r.status]; 
       records[r.plot] = r;
       record_strings[r.plot] = st;
     }
 
     // grab the results div and set its value and validity depending on if we found a matching record
     let tag = $('input#tag')[0];
-    // let res_div = $('#result-tag');
     let res_select = $('#results');
     res_select.html('<option value="">Please select a tree...</option>');
     if (records.length === 0) // we didn't get any records for that stand/plot/tag combo so the input is invalid
-    {
+    { 
       tag.setCustomValidity('is-invalid');
-      // res_div.val('');
-      // res_div.addClass('is-invalid');
-      // res_select.val('');
-      // res_select.addClass('is-invalid');
     }
     else // we did get a record
     {
       res_select.append(Utils.genSelectOptions(record_strings));
-
+      
       // if only one result just set the value of the select
       let keys = Object.keys(record_strings);
       if (keys.length === 1) res_select.val(keys[0]);
-
-      // let p = res_select.val();
-      // let r = records[p];
-      // console.log(p);
-
-      // // res_div.removeClass('is-invalid'); // remove the class if it was there
-      // res_select.removeClass('is-invalid'); // remove the class if it was there
-      // tag.setCustomValidity(''); // set the input to valid
     }
   }
 
