@@ -14,7 +14,7 @@ function bindIngrowthValidate(){
  // changes defaults if status is changed
  statusOnChangeDefaults_ingrowth()
 
- tagCheck_ingrowth()
+tagCheck_ingrowth()
 
  dbhCheck_ingrowth()
 
@@ -97,11 +97,10 @@ function tagCheck_ingrowth(){
   let tag = $('input#tag')
 
   tag.change(()=>{
-    // alert("accesed")
     let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
 
     let success = function(result) {
-      if(result.getCount() > 0){ // or !==
+      if(result.getCount() > 0){ // usually 1, but can be more sometimes in special cases
         $('#tag_check_i').modal('show')
 
         $( "#ok_tag_i" ).click(function() {
@@ -110,7 +109,8 @@ function tagCheck_ingrowth(){
         })
 
       } else if (result.getCount() === 0){
-        console.log("tree not found")
+        search_newTrees(params)
+        // console.log("tree not found")
       } else {
         console.log("error")
       }
@@ -139,6 +139,53 @@ function tagCheck_ingrowth(){
     odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
 
   })
+
+  function search_newTrees(params){
+
+    let success = function(result){
+      if(result.getCount() > 0){ // or !==
+        $('#tag_check_i').modal('show')
+
+        $( "#ok_tag_i" ).click(function() {
+          $('tag').val(" ") // clear value
+          $('#tag_check_i').modal('hide')
+        })
+
+      } else if (result.getCount() === 0){
+        console.log("tree not found")
+        // success, we can continue
+      } else {
+        console.log("error")
+      }
+    }
+
+    let failure = function(result){
+      console.log("fromCheck_ingrowth(): database look up failed")
+      alert("fromCheck_ingrowth(): database look up failed (search_newTrees)")
+    }
+
+    let query = `SELECT * FROM measure
+                          WHERE measure.stand=?
+                            AND measure.tag=?`;
+
+   let bindParams = [params.stand, tag.val()]
+
+   switch(params.type)
+   {
+     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        // value of 0 zero selected, only allowed for fixed radius plots
+       if(Number(fromTag.val()) === 0){
+         return;
+       }
+       query += ` AND measure.plot=?`
+       bindParams.push(params.plot)
+     default:
+      break;
+   }
+
+   odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
+  }
+
 }
 
 function dbhCheck_ingrowth(){
