@@ -14,6 +14,8 @@ function bindIngrowthValidate(){
  // changes defaults if status is changed
  statusOnChangeDefaults_ingrowth()
 
+ tagCheck_ingrowth()
+
  dbhCheck_ingrowth()
 
  crownRatioCheck_ingrowth()
@@ -87,6 +89,55 @@ function statusOnChangeDefaults_ingrowth(){
       $('input#crown_percentage_i').val(" ")
       $('input#tree_percentage_i').val(" ")
     }
+  })
+}
+
+
+function tagCheck_ingrowth(){
+  let tag = $('input#tag_i')
+
+  tag.change(()=>{
+    // alert("accesed")
+    let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
+
+    let success = function(result) {
+      if(result.getCount() > 0){ // or !==
+        $('#tag_check_i').modal('show')
+
+        $( "#ok_tag_i" ).click(function() {
+          $('tag_i').val(" ") // clear value
+          $('#tag_check_i').modal('hide')
+        })
+
+      } else if (result.getCount() === 0){
+        console.log("tree not found")
+      } else {
+        console.log("error")
+      }
+    }
+
+    let failure = function(result){
+      console.log("tagCheck_ingrowth(): database look up failed")
+      alert("tagCheck_ingrowth(): database look up failed")
+    }
+
+    let query = `SELECT * FROM prev_data
+                          WHERE prev_data.StandID=?
+                            AND prev_data.tag=?`;
+
+    let bindParams = [params.stand, tag.val()]
+
+    switch(params.type)
+    {
+      case Constants.PlotTypes.FIXED_RADIUS_PLOT:
+        query += ` AND prev_data.plot=?`
+        bindParams.push(params.plot)
+     default:
+        break;
+    }
+
+    odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
+
   })
 }
 

@@ -18,9 +18,10 @@ function setValidityMsg(elem, msg, defaultMsg)
   if (defaultMsg) elem.next('.invalid-feedback').text(defaultMsg);
 }
 
+//possibly remove
 function tag_validate()
 {
-  let tag = $('input#tag');
+  let tag = $('input#tag_i');
   if (Number(tag.val()) !== 2) tag[0].setCustomValidity("");
   else                         tag[0].setCustomValidity("Tag number cannot be 2.");
 }
