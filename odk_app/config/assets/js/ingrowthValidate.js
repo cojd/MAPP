@@ -225,8 +225,66 @@ function treePercentageCheck_ingrowth(){
 
 function fromCheck_ingrowth(){
   // 0 only allowed in fixed radius plots
+  let fromTag = $('input#from_tag_i')
+
+  //let fromTagVal = Number(from)
+
+  fromTag.change(()=>{
+
+  let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
+
+  let success = function(result) {
+    if(result.getCount() === 0){
+      alert("Tree Not Found")
+    } else {
 
 
+
+    alert("Tree Found")
+    // alert("result" + result.getCount())
+    //   for (var row = 0; row < result.getCount(); row++){
+    //     var r = {};
+    //
+    //     r['tag'] = result.getData(row, "Tag");
+    //     r['species'] = result.getData(row, "Species");
+    //     r['stand'] = result.getData(row, "StandID")
+    //     r['status'] = result.getData(row, "PrevStatus");
+    //   }
+
+    // alert("Tag value " + r.tag)
+    //alert("Tag " + tag + " of species " species)
+    //let tagValue = $(tag)
+    // let standValue = $(stand)
+    // alert("Stand Value " + standValue.val())
+    // let statusVal = $(status)
+    // alert("Status Value " + statusVal.val())
+    // let speciesVal = $("Species " + species.val())
+    // alert(String(speciesVal))
+    }
+  }
+
+  let failure = function(result){
+    console.log("fromCheck_ingrowth(): database look up failed")
+    alert("fromCheck_ingrowth(): database look up failed")
+  }
+
+  let query = `SELECT * FROM prev_data
+                        LEFT OUTER JOIN measure
+                          ON prev_data.Tag=measure.tag
+                        WHERE prev_data.StandID=?
+                          AND prev_data.tag=?`;
+  //
+  // alert("params.stand " + params.stand)
+  //
+  alert("params.stand " + params.stand )
+  let bindParams = [params.stand, fromTag.val()]
+  //let query = `SELECT COUNT(1) FROM prev_data LEFT OUTER JOIN measure ON prev_data.Tag=measure.tag WHERE prev_data.tag=?`
+
+  //let bindParams = [fromTag.val()]
+
+  odkData.arbitraryQuery('prev_data',query, bindParams, null, null, success, failure)
+
+})
 }
 
 function distanceCheck_ingrowth(){
