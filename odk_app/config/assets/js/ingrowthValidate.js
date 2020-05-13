@@ -94,7 +94,7 @@ function statusOnChangeDefaults_ingrowth(){
 
 
 function tagCheck_ingrowth(){
-  let tag = $('input#tag_i')
+  let tag = $('input#tag')
 
   tag.change(()=>{
     // alert("accesed")
@@ -105,7 +105,7 @@ function tagCheck_ingrowth(){
         $('#tag_check_i').modal('show')
 
         $( "#ok_tag_i" ).click(function() {
-          $('tag_i').val(" ") // clear value
+          $('tag').val(" ") // clear value
           $('#tag_check_i').modal('hide')
         })
 
