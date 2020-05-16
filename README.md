@@ -69,7 +69,7 @@ Android Studio emulator.
 
 * If a device does not already exist, select **Create Device...** otherwise
 select a device from the given options and start it. 
-* The rest of the instructions from here on will be the same if installing 
+* The rest of the instructions from here on will be the same as if installing 
 on a physical device.
 
 #### Install Application 
