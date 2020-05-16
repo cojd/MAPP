@@ -60,7 +60,7 @@ Android Studio emulator.
   <img width="651" height="477" src="images/androidStudioHome.PNG" >
 </p
   
-* From the dropdown menu selecet **AVD manager**
+* From the dropdown menu select **AVD manager**
 * A window like this should open
 
 <p align="center">
