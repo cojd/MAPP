@@ -50,6 +50,16 @@ You will need to install the following apps on your Android Device.
 3. ODK-X services
 https://docs.odk-x.org/basics-install/
 
+If you do not have a physical device you can use the
+Android Studio emulator.
+
+1. Open Android Studio and select configure on the bottom right of the screen.
+
+<p align="center">
+  <img width="850" height="460" src="images/androidStudioHome.PNG" >
+</p
+
+
 #### Install Application 
 1. Download project 
 `git clone https://github.com/poliakosOSU/OSU_Capstone_MAFE.git`
