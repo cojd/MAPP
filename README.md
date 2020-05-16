@@ -48,6 +48,7 @@ You will need to install the following apps on your Android Device.
 * OI File Manager
 * ODK-X tables
 * ODK-X services
+
 https://docs.odk-x.org/basics-install/
 
 If you do not have a physical device you can use the
@@ -59,7 +60,9 @@ Android Studio emulator.
   <img width="651" height="477" src="images/androidStudioHome.PNG" >
 </p
   
+  
 2. From the dropdown menu selecet **AVD manager**
+
 3. A window like this should open
 
 <p align="center">
