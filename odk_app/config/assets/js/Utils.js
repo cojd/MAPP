@@ -2,17 +2,6 @@
 
 const Utils = {
 
-  // create a unique id. used when creating a record in the DB
-  genUUID: function () {
-    var d = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0;
-      d = Math.floor(d / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
-  },
-
   // returns a string containing option elements from a json key/value list 
   genSelectOptions: function (OptionsJSON, filter) {
     var selectItems = '';

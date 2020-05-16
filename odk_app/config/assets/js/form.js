@@ -298,7 +298,7 @@ function createRow(tableId, data) {
   }
   
   console.log(tableId);
-  odkData.addRow(tableId, data, Utils.genUUID(), success, console.log);
+  odkData.addRow(tableId, data, odkCommon.genUUID(), success, console.log);
 }
 
 function editRow(tableId, rowId, data) {
