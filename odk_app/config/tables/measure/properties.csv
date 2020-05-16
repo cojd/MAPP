@@ -9,6 +9,6 @@ Column,status,displayChoicesList,object,"[{""choice_list_name"":""tree_status"",
 FormType,default,FormType.formType,string,SURVEY
 SurveyUtil,default,SurveyUtil.formId,string,measure
 Table,default,defaultViewType,string,LIST
-Table,default,detailViewFileName,string,config/tables/measure/html/ingrowth_detail.html
+Table,default,detailViewFileName,string,config/assets/form.html
 Table,default,displayName,object,"{""text"":""Remeasure Form""}"
 Table,default,listViewFileName,string,config/tables/measure/html/ingrowth_list.html

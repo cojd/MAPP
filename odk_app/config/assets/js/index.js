@@ -38,6 +38,10 @@ function loadDataIntoSelects()
     $('#rs_stand').append(st);
     $('#frp_stand').append(st);
   }
+
+  let standFailure = function (error) {
+    alert("Stand DB query failed!\n\nIf you just pushed a config to the device, you'll probably need to reset the app configuration in settings.");
+  }
   
   let plotSuccess = function (result) {
     records = {};
@@ -58,7 +62,7 @@ function loadDataIntoSelects()
   ///////////////////////////////////////////
 
   // populate stand selects
-  odkData.arbitraryQuery('prev_data', 'SELECT DISTINCT StandID FROM prev_data', [], null, null, standSuccess, console.log);
+  odkData.arbitraryQuery('prev_data', 'SELECT DISTINCT StandID FROM prev_data', [], null, null, standSuccess, standFailure);
 
   // populate plot select every time frp_stand changes value
   let frp_stand = $('#frp_stand');
