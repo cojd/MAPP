@@ -5,16 +5,25 @@ $(function () {
   console.log('params');
   console.log(params);
 
-  if (params.form_def) buildForm(params.form_def); // creates form elements based on definitions from FormDefs.js
+  if (params.form_def) buildForm(params.form_def, params.editing); // creates form elements based on definitions from FormDefs.js
+  else
+  {
+    alert('form_def was not set somehow, so the form can\'t be built. This is a bug.');
+    return;
+  }
 
   // add options to selects
   Utils.populateSelects();
 
-  // grab prev tree record stored in session variables
-  let prev = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
-  console.log('prev');
-  console.log(prev);
-  populateFormFromPrev(prev, params.editing); // do stuff with the prev data
+  if (!params.editing)
+  {
+    // grab prev tree record stored in session variables
+    let prev = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
+    console.log('prev');
+    console.log(prev);
+    populateFormFromPrev(prev); // do stuff with the prev data
+  }
+  else populateFormForEdit();
 
   // set these for ingrowth since it can't get them from prev
   if ('stand' in params) $('#stand').val(params.stand);
@@ -24,11 +33,9 @@ $(function () {
     $('#status-display').val(params.status); // set the value of the select which the user can actually see
     $('#status').val(params.status); // set the value of the hidden input
 
-    // we have to do it this way since <select> elements don't have proper support for the readonly attribute
-    // setting the status select as disabled prevents the user from clicking on the select to change its value
-    // however, that also removes it from the form's output when we serialize it later on
-
-    // having a disabled select and a hidden input solves this issue
+    // selects which get their values auto-filled from prev will get their hidden elements set in populateFormFromPrev
+    // however, the value for status is set in tag_picker.html so we have to set it separately here
+    // status gets set to prev_status during populateFormFromPrev, so here we set it to the correct value
   }
 
   // set up custom form validation if it was included
@@ -37,55 +44,79 @@ $(function () {
   watchForm(params); // catch / handle form submission
 });
 
-function handleViewDataForEdit(inputs)
+///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////// HANDLE FORM VALUE POPULATION
+///////////////////////////////////////////////////////////
+
+// get both current and previous data for the tree we are editing, create the prepends and replace all other values
+function populateFormForEdit() // callback hell
 {
-  let success = function (result) {
-    $.each(inputs, function () { // just set the value of each input with column_name set to prev[column_name]
-      let e = $(this);
-      let key = e.data('column_name');
-      let value = result.get(key);
-      e.val(value);
-    });
+  let viewSuccess = function (viewResults) { // 2 - we get the records
+    let stand = viewResults.get('stand');
+    let plot  = viewResults.get('plot');
+    let tag   = viewResults.get('tag');
+ 
+    var prevSuccess = function (prevResults) { // 4 - we get the previous data and do things with both it and the current data
+      let len = prevResults.getCount();
+      
+      let prev = {};
+      if (len > 0) {
+        prev['_id']        = prevResults.getData(0, "_id");
+        prev['TreeID']     = prevResults.getData(0, "TreeID");
+        prev['stand']      = prevResults.getData(0, "StandID");
+        prev['plot']       = prevResults.getData(0, "Plot");
+        prev['tag']        = prevResults.getData(0, "Tag");
+        prev['PrevYear']   = prevResults.getData(0, "PrevYear");
+        prev['species']    = prevResults.getData(0, "Species");
+        prev['status']     = prevResults.getData(0, "PrevStatus");
+        prev['dbh']        = prevResults.getData(0, "PrevDBH");
+        prev['main_stem']  = prevResults.getData(0, "PrevMS");
+        prev['rooting']    = prevResults.getData(0, "PrevRT");
+        prev['lean_angle'] = prevResults.getData(0, "PrevLA");
+        prev['comments']   = prevResults.getData(0, "PrevComments");
+      }
+
+      if (len > 1) alert(`Found multiple records for Stand:${stand}, Plot:${plot}, Tag:${tag} when trying to find previous data for that combination. Skipping adding previous data bubbles.`);
+      else         populateFormFromPrev(prev); // add previous data prepends
+      
+      let inputs = $('[data-column_name]');
+      $.each(inputs, function () { // just set the value of each input with column_name set to prev[column_name]
+        let e = $(this);
+        let key = e.data('column_name');
+        let value = viewResults.get(key);
+        if (value !== null && value !== undefined) e.val(value); // replace all input values with the actual values for the record being edited
+      });
+    }
+
+    // 3 - now that we have the current data, we query for the previous data for this tree
+    odkData.query('prev_data', 'StandID=? AND Plot=? AND Tag=?', [stand, plot, tag], null, null, '_savepoint_timestamp', 'DESC', 1, 0, null, prevSuccess, console.log);
   }
 
-  let failure = function(error) {
-    console.log('record_detail.js getViewData error: ' + error);
-  }
-
-  odkData.getViewData(success, failure);
+  // 1 - we query for the current values of the record we are editing
+  odkData.getViewData(viewSuccess, console.log); // if we get them we go to success, otherwise log the error
 }
 
 // add the previous data to the DOM somehow, where applicable
-function populateFormFromPrev(prev, editing) {
+function populateFormFromPrev(prev) {  
   let inputs = $('[data-column_name]');
-  if (editing === true) // if editing is set to true
-  {
-    handleViewDataForEdit(inputs);
-  }
-  else // otherwise follow what is set in prev_action for every element with column_name set
-  {
-    // iterate through each value in prev
-    $.each(inputs, function() {
-      let e = $(this); // grab the element with column_name=key
-      let a = e.data('prev_action');
-      
-      if (!a) return; // continue if it didnt have prev_action set
-      
-      let key = e.data('column_name');
-      let value = prev[key];
-      console.log(`populateFormFromPrev: ${key}: ${value}`);
-      if (a === "replace") {
-        e.val(value); // if the action is replace then just set the value
-      }
-      else if (a === "prepend") { // otherwise append some html somewhere relative to the input
-        let l = e.prev('label');
-        let b = ` <span class="badge badge-success">Previously ${value}</span>`;
-        l.append(b);
-      }
-    });
-  }
-
-  // $('#species-display').val(prev['species']); // do this for species in remeasure. need to carry this along but cant do it through the loop above. same thing as status
+  // iterate through each value in prev
+  $.each(inputs, function() {
+    let e = $(this); // grab the element with column_name=key
+    let a = e.data('prev_action');
+    
+    if (!a) return; // continue if it didnt have prev_action set
+    
+    let key = e.data('column_name');
+    let value = prev[key];
+    console.log(`populateFormFromPrev: ${key}: ${value}`);
+    if (a === "prepend") {
+      // append some html somewhere relative to the input
+      let l = e.prev('label');
+      let b = ` <span class="badge badge-success">Previously ${value}</span>`;
+      l.append(b);
+    }
+    else if (a === "replace") e.val(value); // if the action is replace then just set the value
+  });
 }
 
 ///////////////////////////////////////////////////////////
@@ -114,15 +145,25 @@ function buildSections(sections) {
       }
       else if (input.html_element === 'select') {
         let special = input.readonly && !input.disabled;
+        let special_suffix = (special ? '-display' : '');
+
         elem_html = $(`
-          <select class="form-control" name="${input.column_name}" id="${input.column_name}">
+          <select class="form-control" name="${input.column_name + special_suffix}" id="${id + special_suffix}">
             <option value="">${(input.default_option ? input.default_option : "Please select an option...")}</option>
           </select>
         `);
-        if (special) // selects dont have proper support for readonly so we create a hidden input and a disabled select as a workaround
+        if (special)
         {
+          // we have to do it this way since <select> elements don't have proper support for the readonly attribute
+          // setting the a select as disabled prevents the user from clicking on the select to change its value
+          // however, that also removes it from the form's output when we serialize it later on
+
+          // having a disabled select and a hidden input solves this issue
+
           elem_html.attr({ readonly: true, disabled: true });
-          group_html.append(`<input type="hidden" name="${input.column_name}" id="${id}">`);
+          let hidden_input = $(`<input type="hidden" name="${input.column_name}" id="${id}" ${(special ? `data-column_name="${input.column_name}"` : '')}>`);
+          hidden_input.data('prev_action', input.data_attributes.prev_action); // this prev_action will probably always be replace
+          group_html.append(hidden_input);
         }
       }
       else if (input.html_element === 'textarea') {
@@ -181,7 +222,7 @@ function buildCards(f, fd) {
   }
 }
 
-function buildForm(form) {
+function buildForm(form, editing) {
   let f = $('form');
   let fd = FORM_DEFS[form];
 
@@ -191,7 +232,7 @@ function buildForm(form) {
   buildCards(f, fd); // builds and appends cards to form
   // append submit and back buttons
   f.append(` 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">${(editing ? 'Update' : 'Submit')}</button>
     <button type="button" onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
   `);
   // its important to have the type of the cancel button set to button so it doesnt also submit the form when clicked
@@ -210,7 +251,7 @@ function watchForm(params) {
     event.stopPropagation();
     let data = formatFormData(f.serializeArray()); // grab the form data and pass it to the formatter
     console.log(data);
-
+    
     if (f[0].checkValidity() === false) {
       // if the form is not valid
       f.addClass('was-validated'); // add the class so bootstrap can do its thing
@@ -234,14 +275,14 @@ function formatFormData(formData) {
       data[item.name] = item.value; // add it to our output as a key value pair
     }
   }
-  return data; // our output is a JSON object of the form {"key":"value", ...}
+  return data; // our output is a JS object of the form {"key":"value", ...}
 }
 
 function createRow(tableId, data) {
   var success = function (result) {
     console.log("SUCCESS!");
     console.log(result);
-
+    
     // reset params and exit window
     let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
     let np = { type: params.type, stand: params.stand, form_def: tableId };
@@ -249,7 +290,7 @@ function createRow(tableId, data) {
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(np))
     odkCommon.closeWindow(0, null);
   }
-
+  
   console.log(tableId);
   odkData.addRow(tableId, data, Utils.genUUID(), success, console.log);
 }
@@ -258,14 +299,15 @@ function editRow(tableId, rowId, data) {
   let success = function (result) {
     console.log("SUCCESS!");
     console.log(result);
-
+    
     // reset params and exit window
     let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
-    let np = { type: params.type, stand: params.stand, form_def: tableId, editing: true };
+    let np = { type: params.type, stand: params.stand, form_def: params.form_def, editing: true };
     if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) np.plot = params.plot;
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(np))
     odkCommon.closeWindow(0, null);
   }
-
+  
   odkData.updateRow(tableId, data, rowId, success, console.log);
 }
+

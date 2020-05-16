@@ -86,7 +86,7 @@ function bindSearchChange(params)
         queryDB('prev_data', 'StandID=? AND Plot=? AND Tag=?', [params.stand, params.plot, qd.val()]);
         break;
       default:
-        console.log("UNKNOWN PLOT TYPE!!!");
+        console.log("picker.js:bindSearchChange(): UNKNOWN PLOT TYPE!!!");
         break;
     }
   });

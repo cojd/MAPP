@@ -210,6 +210,7 @@ const FORM_DEFS = {
                 column_name: 'from_tag',
                 label: 'From (tag)',
                 html_element: 'input',
+                html_attributes: { type: 'number' },
               },
               {
                 id: 'distance_r',
@@ -346,7 +347,6 @@ const FORM_DEFS = {
                 label: 'DBH (cm)',
                 html_element: 'input',
                 html_attributes: { type: 'number' },
-                data_attributes: { prev_action: 'prepend' },
               },
               {
                 raw_html: '<!-- modal option1(if dbhVal < 5) --> <div class="modal fade" id="dbh_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op1_Label_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="dbh_check_op1_Label_i">DBH Check</h5> </div> <div class="modal-body"> <p>Dbh is < 5 cm - is that correct?</p> <button type="button" id="yes_dbh_op1_i" class="btn btn-primary">Yes</button> <button type="button" id="no_dbh_op1_i" class="btn btn-danger">No</button> </div> </div> </div> </div>'
@@ -423,7 +423,6 @@ const FORM_DEFS = {
                   min: 0,
                   max: 120,
                 },
-                data_attributes: { prev_action: 'prepend' },
               },
               {
                 raw_html: '<!-- Lean Angle check modal (must be in range 0 to 120) --> <div class="modal fade" id="lean_angl_check_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="lean_angl_Label_i">Lean Angle Check</h5> </div> <div class="modal-body"> <p>Lean angle must be within the range 0-120.</p> <button type="button" id="ok_lean_angl_i" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
@@ -479,6 +478,7 @@ const FORM_DEFS = {
                 column_name: 'from_tag',
                 label: 'From (tag)',
                 html_element: 'input',
+                html_attributes: { type: 'number' },
               },
               {
                 id: 'distance_i',
@@ -602,7 +602,7 @@ const FORM_DEFS = {
                 column_name: 'species',
                 label: "Species",
                 html_element: 'select',
-                readonly: true,
+                disabled: true,
                 default_option: 'No previous value...',
                 data_attributes: {
                   prev_action: 'replace',

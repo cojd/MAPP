@@ -62,7 +62,6 @@ function bindButtons(params) {
   remeasureListButton.on(
     'click',
     function () {
-      Utils.save_value_to_params("form_def", "remeasure");
       Utils.save_value_to_params("editing", true);
       odkTables.openTableToListView(
         null,
@@ -78,7 +77,6 @@ function bindButtons(params) {
   mortalityListButton.on(
     'click',
     function () {
-      Utils.save_value_to_params("form_def", "mortality");
       Utils.save_value_to_params("editing", true);
       odkTables.openTableToListView(
         null,
@@ -105,7 +103,6 @@ function bindButtons(params) {
   standDocListButton.on(
     'click',
     function () {
-      Utils.save_value_to_params("form_def", "stand_doc");
       Utils.save_value_to_params("editing", true);
       odkTables.openTableToListView(
         null,

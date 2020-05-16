@@ -30,7 +30,7 @@ const Utils = {
     let option_output = {};
     $('select').each(function () {
       let elem = $(this);
-      let list_name = elem.data('options_list'); // read in the list name from the select's data-options-list attribute
+      let list_name = elem.data('options_list'); // read in the list name from the select's data-options_list attribute
       if (!list_name) return; // if it didn't have options list set then continue
 
       if (!(list_name in option_output)) { // gen the options for that list if we haven't already
