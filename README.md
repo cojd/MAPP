@@ -56,7 +56,7 @@ Android Studio emulator.
 1. Open Android Studio and select configure on the bottom right of the screen.
 
 <p align="center">
-  <img width="850" height="460" src="images/androidStudioHome.PNG" >
+  <img width="400" height="400" src="images/androidStudioHome.PNG" >
 </p
 
 
