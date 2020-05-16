@@ -169,6 +169,12 @@ function buildSections(sections) {
       else if (input.html_element === 'textarea') {
         elem_html = $(`<textarea class="form-control" name="${input.column_name}" id="${id}"></textarea>`);
       }
+      else if (input.modal === true)
+      {
+        let mdl = FormTemplates.modal(input);
+        final_html.append(mdl);
+        continue;
+      }
       else if ('raw_html' in input) // if it wasnt one of those but we have something in raw html
       {
         final_html.append(input.raw_html); // append that
