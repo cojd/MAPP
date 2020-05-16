@@ -340,6 +340,21 @@ const FORM_DEFS = {
                 html_attributes: { type: 'number' },
               },
               {
+                // From Check
+                modal: true,
+                modal_id: 'from_check_r',
+                label_id: 'from_check_Label_r',
+                title: 'From Check',
+                text: 'Tree does not exist.',
+                buttons: [
+                  {
+                    id: 'ok_from_check_r',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
+              },
+              {
                 id: 'distance_r',
                 column_name: 'distance',
                 label: 'Distance (m)',
@@ -486,6 +501,21 @@ const FORM_DEFS = {
                 html_element: "input",
                 html_attributes: { type: 'number' },
                 data_attributes: { prev_action: 'replace' },
+              },
+              {
+                // Tag check
+                modal: true,
+                modal_id: 'tag_check_i',
+                label_id: 'tag_Label_i',
+                title: 'Tag Check',
+                text: 'Tree already exists in database.',
+                buttons: [
+                  {
+                    id: 'ok_tag_i',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
               },
             ], // inputs
           },
@@ -759,6 +789,21 @@ const FORM_DEFS = {
                 label: 'From (tag)',
                 html_element: 'input',
                 html_attributes: { type: 'number' },
+              },
+              {
+                // From Check
+                modal: true,
+                modal_id: 'from_check_i',
+                label_id: 'from_check_Label_i',
+                title: 'From Check',
+                text: 'Tree does not exist.',
+                buttons: [
+                  {
+                    id: 'ok_from_check_i',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
               },
               {
                 id: 'distance_i',
