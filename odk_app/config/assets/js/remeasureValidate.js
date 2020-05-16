@@ -143,12 +143,6 @@ function clearCrownAndTreePct_remeasure(){
 
 function crownPercentageCheck_remeasure(){
   let crownPct = $('input#crown_percentage_r')
-  // let crownPctVal = Number(crownPct.val())
-  // let mainStemVal = Number($('select#main_stem_r').val())
-  //
-  // if(mainStemVal === 2 && crownPctVal === 100){
-  //   setValidityMsg(crownPct, 'If main stem is 2 then crown % must be < 100%')
-  // }
 
   crownPct.change(() => {
     let crownPctVal = Number(crownPct.val())
@@ -173,19 +167,8 @@ function crownPercentageCheck_remeasure(){
 }
 
 function treePercentageCheck_remeasure(){
-  // let tree = $('input#tree_percentage_i')
-  // let treeVal = Number(tree.val())
-  let treePct = $('input#tree_percentage_r')
-  // let crownPctVal = Number($('input#crown_percentage_r').val())
-  // let mainStemVal = Number($('select#main_stem_r').val())
 
-  // if(treeVal < crownVal){
-  //   setValidityMsg(tree, 'Tree % cannot be less then crown %.')
-  // } else if(treeVal == 100 && mainStemVal == 2){
-  //   setValidityMsg(tree, 'Tree % cannot be less than 100% if Main_Stem=2 (broken)')
-  // } else if(treeVal == 100 && mainStemVal == 1){
-  //   setValidityMsg(tree, 'If tree % < 100 then Main_Stem must be 2 or 3 (broken)')
-  // }
+  let treePct = $('input#tree_percentage_r')
 
   treePct.change(() =>{
     let treePctVal = Number(treePct.val())
@@ -268,6 +251,7 @@ function fromCheck_remeasure(){
         }
         query += ` AND prev_data.plot=?`
         bindParams.push(params.plot)
+        break;
      default:
         break;
     }
@@ -313,6 +297,7 @@ function fromCheck_remeasure(){
        }
        query += ` AND measure.plot=?`
        bindParams.push(params.plot)
+       break;
      default:
       break;
    }

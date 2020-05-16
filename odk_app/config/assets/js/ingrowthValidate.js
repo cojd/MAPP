@@ -132,6 +132,7 @@ function tagCheck_ingrowth(){
       case Constants.PlotTypes.FIXED_RADIUS_PLOT:
         query += ` AND prev_data.plot=?`
         bindParams.push(params.plot)
+        break;
      default:
         break;
     }
@@ -173,12 +174,10 @@ function tagCheck_ingrowth(){
    switch(params.type)
    {
      case Constants.PlotTypes.FIXED_RADIUS_PLOT:
-        // value of 0 zero selected, only allowed for fixed radius plots
-       if(Number(fromTag.val()) === 0){
-         return;
-       }
+
        query += ` AND measure.plot=?`
        bindParams.push(params.plot)
+       break;
      default:
       break;
    }
@@ -360,6 +359,7 @@ function fromCheck_ingrowth(){
         }
         query += ` AND prev_data.plot=?`
         bindParams.push(params.plot)
+        break;
      default:
         break;
     }
@@ -405,6 +405,7 @@ function fromCheck_ingrowth(){
        }
        query += ` AND measure.plot=?`
        bindParams.push(params.plot)
+       break;
      default:
       break;
    }
