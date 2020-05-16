@@ -59,16 +59,16 @@ Android Studio emulator.
   <img width="651" height="477" src="images/androidStudioHome.PNG" >
 </p
   
-2. From the dropdown menu selecet **AVD manager**
-3. A window like this should open
+1. From the dropdown menu selecet **AVD manager**
+1. A window like this should open
 
 <p align="center">
   <img width="655" height="482" src="images/avdMenu.PNG" >
 </p
 
-4. If a device does not already exist, select **Create Device...** otherwise
+1. If a device does not already exist, select **Create Device...** otherwise
 select a device from the given options and start it. 
-5. The rest of the instructions from here on will be the same if installing 
+1. The rest of the instructions from here on will be the same if installing 
 on a physical device.
 
 #### Install Application 
