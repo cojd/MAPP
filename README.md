@@ -54,7 +54,7 @@ You will need to install the following apps on your Android Device.
 https://docs.odk-x.org/basics-install/
 
 If you do not have a physical device you can use the
-Android Studio emulator.
+Android Studio Emulator.
 
 * Open Android Studio and press **configure** on the bottom right of the screen.
 
