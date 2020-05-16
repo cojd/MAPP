@@ -62,7 +62,7 @@ function watchForm(params)
       // store the queried tree data in session variables
       localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
       
-      odkTables.launchHTML(null, 'config/assets/form.html') // move to the form
+      odkTables.launchHTML(null, 'config/assets/html/form.html') // move to the form
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback
   });

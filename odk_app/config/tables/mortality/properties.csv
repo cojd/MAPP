@@ -13,6 +13,6 @@ Column,rooting,displayChoicesList,object,"[{""choice_list_name"":""rooting"",""d
 FormType,default,FormType.formType,string,SURVEY
 SurveyUtil,default,SurveyUtil.formId,string,mortality
 Table,default,defaultViewType,string,LIST
-Table,default,detailViewFileName,string,config/assets/form.html
+Table,default,detailViewFileName,string,config/assets/html/form.html
 Table,default,displayName,object,"{""text"":""Mortality""}"
 Table,default,listViewFileName,string,config/tables/mortality/html/mortality_list.html

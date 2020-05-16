@@ -24,24 +24,24 @@ function bindButtons(params) {
   // links to generic html pages
   var remeasureFormButton = $('#remeasure-form');
   remeasureFormButton.on('click', function () {
-    odkTables.launchHTML(null, 'config/assets/tag_picker.html')
+    odkTables.launchHTML(null, 'config/assets/html/tag_picker.html')
   });
 
   var ingrowthFormButton = $('#ingrowth-form');
   ingrowthFormButton.on('click', function () {
     Utils.save_value_to_params("form_def", "ingrowth");
-    odkTables.launchHTML(null, 'config/assets/form.html')
+    odkTables.launchHTML(null, 'config/assets/html/form.html')
   });
 
   var missingTreesButton = $('#missing-trees');
   missingTreesButton.on('click', function () {
-    odkTables.launchHTML(null, 'config/assets/missing_trees.html')
+    odkTables.launchHTML(null, 'config/assets/html/missing_trees.html')
   });
 
   var standDocFormButton = $('#stand-doc-form');
   standDocFormButton.on('click', function () {
     Utils.save_value_to_params("form_def", "stand_doc");
-    odkTables.launchHTML(null, 'config/assets/form.html')
+    odkTables.launchHTML(null, 'config/assets/html/form.html')
   });
 
   // for the list views we can set a filter on the DB query so we only get records matching the stand and plot if it is given

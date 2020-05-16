@@ -17,7 +17,7 @@ function bindPlotSubmit(e, prefix, key)
     };
     console.log(JSON.stringify(params));
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
-    odkTables.launchHTML(params, 'config/assets/measure.html')
+    odkTables.launchHTML(params, 'config/assets/html/measure.html')
   });
 }
 
