@@ -69,7 +69,7 @@ Android Studio emulator.
   <img width="655" height="482" src="images/avdMenu.PNG" >
 </p
 
-* If a device does not already exist, select **Create Device...** otherwise
+* If a device does not already exist, select **Create Virtual Device...** otherwise
 select a device from the given options and start it. 
 * The rest of the instructions from here on will be the same as if installing 
 on a physical device.
