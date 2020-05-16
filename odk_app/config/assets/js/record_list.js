@@ -36,6 +36,8 @@ var success = function (resultSet) {
     }
   });
 
+  if (resultSet.getCount() > 0) $('.empty-message').hide();
+  
   // Iterate through the query results, rendering list items
   for (var i = 0; i < resultSet.getCount(); i++) {
     if (tableId === 'stand_doc') appendStandDocItem(i, resultSet);
