@@ -45,8 +45,9 @@ Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 
 #### Install on Device 
 You will need to install both of the following apps on your Android Device.
-1. ODK-X tables https://docs.odk-x.org/tables-install/
-2. ODK-X services https://docs.odk-x.org/services-install/
+1. ODK-X tables
+2. ODK-X services
+https://docs.odk-x.org/basics-install/
 
 #### Install Application 
 1. Download project 
