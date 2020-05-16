@@ -45,33 +45,31 @@ Data collection app for the Pacific Northwest Permanent Sample Plot Program.
 
 #### Install on Device 
 You will need to install the following apps on your Android Device.
-* OI File Manager
-* ODK-X tables
-* ODK-X services
+1. OI File Manager
+2. ODK-X tables
+3. ODK-X services
 
 https://docs.odk-x.org/basics-install/
 
 If you do not have a physical device you can use the
 Android Studio emulator.
 
-1. Open Android Studio and press **configure** on the bottom right of the screen.
+* Open Android Studio and press **configure** on the bottom right of the screen.
 
 <p align="center">
   <img width="651" height="477" src="images/androidStudioHome.PNG" >
 </p
   
-  
-2. From the dropdown menu selecet **AVD manager**
-
-3. A window like this should open
+* From the dropdown menu selecet **AVD manager**
+* A window like this should open
 
 <p align="center">
   <img width="655" height="482" src="images/avdMenu.PNG" >
 </p
 
-4. If a device does not already exist, select **Create Device...** otherwise
+* If a device does not already exist, select **Create Device...** otherwise
 select a device from the given options and start it. 
-5. The rest of the instructions from here on will be the same if installing 
+* The rest of the instructions from here on will be the same if installing 
 on a physical device.
 
 #### Install Application 
