@@ -99,6 +99,15 @@ on a physical device.
 3. Press the Reset Configuration Button
 4. Go back to the home menu of the application, you can now use the app.
 
+#### Syncing to a server
+1. Connect the Android device to OSU's VPN following their [setup instructions](https://oregonstate.teamdynamix.com/TDClient/1935/Portal/KB/ArticleDet?ID=51185).
+2. In ODK Services go to settings and enable user restrictions with "password" as the admin password in the next screen. (Temporary password for testing.)
+3. Go to the new "Manage ability to change server settings" screen and enable "unsafe/unsecure Authentication".
+4. In "server settings" set the server url to "http://field.forestry.oregonstate.edu/
+5. Get to the [sync screen](https://docs.odk-x.org/_images/services-sync.png) and click change user. (Easiest way to get there is by clicking the icon of two arrows in a circle from the top bar in the landing page in Tables.)
+6. Use "guest" and "password" as the username and password then click authenticate.
+7. After having created some records through Tables you should now be able to click the big "sync now" button and have those records synced to the remote server.
+
 [Back To The Top](#Mobile-Application-for-Forest-Ecology-Research)
 
 ## License
