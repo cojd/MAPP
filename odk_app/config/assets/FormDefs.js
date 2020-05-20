@@ -99,7 +99,7 @@ const FORM_DEFS = {
                 column_name: 'dbh',
                 label: 'DBH (cm)',
                 html_element: 'input',
-                html_attributes: { type: 'number' },
+                html_attributes: { type: 'number', step: '0.1' },
                 data_attributes: { prev_action: 'prepend' },
               },
               {
@@ -542,7 +542,7 @@ const FORM_DEFS = {
                 column_name: 'dbh',
                 label: 'DBH (cm)',
                 html_element: 'input',
-                html_attributes: { type: 'number' },
+                html_attributes: { type: 'number', step: '0.1' },
               },
               {
                 // modal option1(if dbhVal < 5)
