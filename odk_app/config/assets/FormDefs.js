@@ -156,7 +156,7 @@ const FORM_DEFS = {
                 column_name: 'main_stem',
                 label: 'Main stem (MS)',
                 html_element: 'select',
-                data_attributes: { 
+                data_attributes: {
                   prev_action: 'prepend',
                   options_list: 'MainStemList',
                 },
@@ -646,6 +646,20 @@ const FORM_DEFS = {
                   options_list: 'MainStemList',
                 },
               },
+              {
+                modal: true,
+                modal_id: 'main_stem_check_i',
+                label_id: '"main_stem_check_Label_i',
+                title: 'Main Stem Check',
+                text: 'Main stem cannot = 3 for live trees.',
+                buttons: [
+                  {
+                  id: 'ok_main_stem_i',
+                  text: 'Ok',
+                  context_class: 'primary',
+                },
+              ],
+            },
               {
                 id: 'rooting_i',
                 column_name: 'rooting',

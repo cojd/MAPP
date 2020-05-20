@@ -20,6 +20,8 @@ tagCheck_ingrowth()
 
  crownRatioCheck_ingrowth()
 
+  mainStemCheck_ingrowth()
+
  leanAngleCheck_ingrowth()
 
  // if main stem is set to 2 clear crown pct default
@@ -238,6 +240,30 @@ function crownRatioCheck_ingrowth(){
     }
   })
 }
+
+function mainStemCheck_ingrowth(){
+  let mainStem = $("select#main_stem_i")
+  let statusVal = Number($('select#status_i').val())
+
+
+  mainStem.change(() => {
+
+    let mainStemVal = Number(mainStem.val())
+
+    if((statusVal === 1 || statusVal === 2 || statusVal === 3) && mainStemVal === 3){
+      $('#main_stem_check_i').modal('show')
+
+      $('#ok_main_stem_i').click(function() {
+        $('select#main_stem_i option[value="1"]').attr("selected",true)
+         // $('select#main_stem_i option[value="3"]').attr("selected",false)
+        $('#main_stem_check_i').modal('hide')
+      })
+    }
+
+  })
+
+}
+
 
 function leanAngleCheck_ingrowth(){
   let leanAngl = $("input#lean_angle_i")
