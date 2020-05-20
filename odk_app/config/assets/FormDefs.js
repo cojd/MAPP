@@ -1410,7 +1410,7 @@ const FORM_DEFS = {
               },
               {
                 column_name: "hours_worked",
-                label: "Update directions",
+                label: "Hours worked",
                 html_element: "textarea",
                 html_attributes: {rows: 3},
               },
