@@ -17,8 +17,9 @@ $(function () {
       let tag = result.getData(row, "Tag");
       let species = result.getData(row, "Species");
       let status = result.getData(row, "PrevStatus");
+      let dbh = result.getData(row, "PrevDBH");
       
-      let item = $('<tr> <th scope="row">' + tag + '</th> <td>' + stand + '</td> <td>' + plot + '</td> <td>' + DataLists.SpeciesList[species] + '</td> <td>' + DataLists.StatusList[status] + '</td> </tr>');
+      let item = $('<tr> <th scope="row">' + tag + '</th> <td>' + stand + '</td> <td>' + plot + '</td> <td>' + DataLists.SpeciesList[species] + '</td> <td>' + DataLists.StatusList[status] + '</td> <td>' + dbh + '</td> </tr>');
 
       $('.tree-list tbody').append(item);
     }
