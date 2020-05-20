@@ -127,7 +127,7 @@ function buildSections(sections) {
   let final_html = $(`<div class="card-body"></div>`);
   for (let i = 0; i < sections.length; i++) {
     let section = sections[i];
-    if (section.header) final_html += `<h5 class="mb-0">${section.header}</h5><hr/>`;
+    if (section.header) final_html.append(`<h5 class="mb-0">${section.header}</h5><hr/>`);
 
     // add input elements
     for (let j = 0; j < section.inputs.length; j++) {

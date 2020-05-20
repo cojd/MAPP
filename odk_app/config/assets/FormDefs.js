@@ -1029,6 +1029,11 @@ const FORM_DEFS = {
                   options_list: 'RootingList',
                 },
               },
+            ]
+          },
+          {
+            header: 'Standing portion',
+            inputs: [
               {
                 id: 'lean_angle_m',
                 column_name: 'lean_angle',
@@ -1194,6 +1199,11 @@ const FORM_DEFS = {
                 ],
                 // raw_html: '<!-- Option 4 (treePctVal < 0 || treePctVal > 100) --> <div class="modal fade" id="tree_pct_check_op4_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op4_m" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op4_m">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree percentage must be within the range 0-100.</p> <button type="button" id="ok_tree_pct_op4_m" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
+            ]
+          },
+          {
+            header: 'Down portion',
+            inputs: [
               {
                 id: 'ground_percentage_m',
                 column_name: 'ground_percentage',
