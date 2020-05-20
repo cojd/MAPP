@@ -1,6 +1,9 @@
 
 function bindMortalityValidtate(){
 
+
+  blankFieldMsgs_mortality()
+
   setRequired_mortality()
 
   leangAngleCheck_mortality()
@@ -18,6 +21,13 @@ function bindMortalityValidtate(){
 
 }
 
+function blankFieldMsgs_mortality(){
+  let rooting = $('select#rooting_m')
+
+  // rooting.change(() => {
+  //   if rooting
+  // })
+}
 
 function setRequired_mortality(){
   let mainStem = $('select#main_stem_m')
