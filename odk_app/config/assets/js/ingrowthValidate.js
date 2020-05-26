@@ -55,14 +55,15 @@ function statusDefault_ingrowth(){
 
 function setRequired_ingrowth(){
 
-  $('input#dbh_r').prop('required',true)
+  $('select#species_i').prop('required',true)
+  $('input#dbh_i').prop('required',true)
   $('select#overall_vigor_i').prop('required',true)
   $('select#main_stem_i').prop('required',true)
   $('select#rooting_i').prop('required',true)
   $('input#lean_angle_i').prop('required',true)
   $('input#crown_percentage_i').prop('required',true)
   $('input#tree_percentage_i').prop('required',true)
-  $('input#canopy_class_i').prop('required',true) // not working for some reason
+  $('select#canopy_class_i').prop('required',true)
   $('input#crown_ratio_i').prop('required',true)
 
 }
