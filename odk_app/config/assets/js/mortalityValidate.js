@@ -1,9 +1,6 @@
 
 function bindMortalityValidtate(){
 
-
-  blankFieldMsgs_mortality()
-
   setRequired_mortality()
 
   leangAngleCheck_mortality()
@@ -19,14 +16,6 @@ function bindMortalityValidtate(){
   // cases arise
   supportPercentageCheck_mortality()
 
-}
-
-function blankFieldMsgs_mortality(){
-  let rooting = $('select#rooting_m')
-
-  // rooting.change(() => {
-  //   if rooting
-  // })
 }
 
 function setRequired_mortality(){
