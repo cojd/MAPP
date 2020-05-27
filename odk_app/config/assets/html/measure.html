@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="../libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-  <link href="../css/form.css" type="text/css" rel="stylesheet" />
+  <link href="../css/main.css" type="text/css" rel="stylesheet" />
   <script type="text/javascript" src="../commonDefinitions.js"></script>
   <script type="text/javascript" src="../libs/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="../libs/jquery-migrate-3.0.0.js"></script>
@@ -20,62 +20,67 @@
 <body id="main">
 
   <div class="container">
+    <div class="row">
+      <div class="col content">
 
-    <label for="params">Location</label>
-    <div class="form-group">
-      <input class="form-control p-1" name="stand" id="stand" type="text" placeholder="Stand not specified." readonly disabled>
-      <input class="form-control p-1" name="plot" id="plot" type="text" placeholder="Plot not specified." readonly disabled>
+        <label for="params">Location</label>
+        <div class="form-group">
+          <input class="form-control p-1" name="stand" id="stand" type="text" placeholder="Stand not specified." readonly disabled>
+          <input class="form-control p-1" name="plot" id="plot" type="text" placeholder="Plot not specified." readonly disabled>
+        </div>
+        
+        <hr/>
+        
+        <div class="d-flex flex-column">
+          <div class="row btn-row">
+            <div class="col">
+              <a id="remeasure-form" class="btn btn-block btn-primary" href="#" role="button">Remeasure a tagged tree</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="ingrowth-form" class="btn btn-block btn-primary" href="#" role="button">Measure ingrowth</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="measure-list" class="btn btn-block btn-secondary" href="#" role="button">View/edit measurement data</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="mortality-list" class="btn btn-block btn-secondary" href="#" role="button">View/edit mortality data</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="missing-trees" class="btn btn-block btn-success" href="#" role="button">Missing trees</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="prev-data-list" class="btn btn-block btn-secondary" href="#" role="button">View previous data</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="stand-doc-form" class="btn btn-block btn-info" href="#" role="button">Create stand doc</a>
+            </div>
+          </div>
+          <div class="row btn-row">
+            <div class="col">
+              <a id="stand-doc-list" class="btn btn-block btn-secondary" href="#" role="button">View/edit stand docs</a>
+            </div>
+          </div>
+
+        </div>
+
+        <hr/>
+
+        <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
+        
+      </div>
     </div>
-    
-    <hr/>
-    
-    <div class="d-flex flex-column">
-      <div class="row btn-row">
-        <div class="col">
-          <a id="remeasure-form" class="btn btn-block btn-primary" href="#" role="button">Remeasure a tagged tree</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="ingrowth-form" class="btn btn-block btn-primary" href="#" role="button">Measure ingrowth</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="measure-list" class="btn btn-block btn-secondary" href="#" role="button">View/edit measurement data</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="mortality-list" class="btn btn-block btn-secondary" href="#" role="button">View/edit mortality data</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="missing-trees" class="btn btn-block btn-success" href="#" role="button">Missing trees</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="prev-data-list" class="btn btn-block btn-secondary" href="#" role="button">View previous data</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="stand-doc-form" class="btn btn-block btn-info" href="#" role="button">Create stand doc</a>
-        </div>
-      </div>
-      <div class="row btn-row">
-        <div class="col">
-          <a id="stand-doc-list" class="btn btn-block btn-secondary" href="#" role="button">View/edit stand docs</a>
-        </div>
-      </div>
-
-    </div>
-
-    <hr/>
-
-    <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
   </div>
 
 </body>

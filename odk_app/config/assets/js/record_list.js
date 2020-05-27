@@ -8,25 +8,26 @@ $(function () {
   if (search.length) search.change(() => { // this search bar doesn't exist in the stand docs records list, only for measure and mortality
     let val = search.val();
     let records = $('.item_space');
-    if (val)
+    if (val) // if we have something to search for
     {
       let shown = 0;
-      records.each(function(index) { // this probably wont perform very well if the list has a lot of records in it. this and pagination or requerying would probably be better
+      // this probably wont perform very well if the list has a lot of records in it. this and pagination or requerying would probably be better
+      records.each(function(index) { // go through each item card
         let record = $(this);
-        if (record.data('tag') == val)
+        if (record.data('tag') == val) // check if it's tag matches and show it
         {
           record.show();
           shown++;
         }
-        else record.hide();
+        else record.hide(); // if it doesnt, hide it
       });
-      if (shown > 0) $('.empty-message').hide();
+      if (shown > 0) $('.empty-message').hide(); // at the end we decide if we should show or hide the empty results message
       else $('.empty-message').show();
     }
-    else 
+    else // we didn't have a value to search for when it changed
     {
-      records.show();
-      if (records.length > 0) $('.empty-message').hide();
+      records.show(); // show all records
+      if (records.length > 0) $('.empty-message').hide(); // hide the empty message if we have records
     }
   });
 });
@@ -92,7 +93,7 @@ function appendStandDocItem(row, resultSet) {
   item.addClass('item_space');
 
   // Add the item to the list
-  $('.container').append(item);
+  $('.insert-target').append(item);
 }
 
 function appendTreeItem(row, resultSet, tableId) {
@@ -123,5 +124,5 @@ function appendTreeItem(row, resultSet, tableId) {
   else                   item.data('form_def', 'remeasure')
 
   // Add the item to the list
-  $('.container').append(item);
+  $('.insert-target').append(item);
 }
