@@ -6,7 +6,7 @@
 --->
 
 <p align="center">
-  <img width="850" height="460" src="odk_app/config/assets/img/index_cover.jpg" >
+  <img width="600" height="460" src="odk_app/config/assets/img/index_cover.jpg" >
 </p>
 
 ---
