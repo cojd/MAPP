@@ -48,7 +48,7 @@
         "aspect": "default",
         "key": "listViewFileName",
         "type": "string",
-        "value": "config/tables/measure/html/ingrowth_list.html",
+        "value": "config/assets/html/tree_record_list.html",
         "_row_num": 4
       }
     ],
@@ -3331,7 +3331,7 @@
         "_aspect": "default",
         "_key": "listViewFileName",
         "_type": "string",
-        "_value": "config/tables/measure/html/ingrowth_list.html"
+        "_value": "config/assets/html/tree_record_list.html"
       }
     ]
   }

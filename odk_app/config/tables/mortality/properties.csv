@@ -15,4 +15,4 @@ SurveyUtil,default,SurveyUtil.formId,string,mortality
 Table,default,defaultViewType,string,LIST
 Table,default,detailViewFileName,string,config/assets/html/form.html
 Table,default,displayName,object,"{""text"":""Mortality""}"
-Table,default,listViewFileName,string,config/tables/mortality/html/mortality_list.html
+Table,default,listViewFileName,string,config/assets/html/tree_record_list.html

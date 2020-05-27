@@ -2,16 +2,34 @@
 'use strict';
 
 $(function () {
-  resume();
-});
-
-// The first function called on load
-function resume() {
-  // Retrieves the query data from the database
-  // Sets displayGroup as the success callback
-  // and cbFailure as the fail callback
   odkData.getViewData(success, cbFailure);
-};
+
+  let search = $('#tag-search');
+  if (search.length) search.change(() => { // this search bar doesn't exist in the stand docs records list, only for measure and mortality
+    let val = search.val();
+    let records = $('.item_space');
+    if (val)
+    {
+      let shown = 0;
+      records.each(function(index) { // this probably wont perform very well if the list has a lot of records in it. this and pagination or requerying would probably be better
+        let record = $(this);
+        if (record.data('tag') == val)
+        {
+          record.show();
+          shown++;
+        }
+        else record.hide();
+      });
+      if (shown > 0) $('.empty-message').hide();
+      else $('.empty-message').show();
+    }
+    else 
+    {
+      records.show();
+      if (records.length > 0) $('.empty-message').hide();
+    }
+  });
+});
 
 // Display the list of results
 var success = function (resultSet) {
@@ -96,7 +114,8 @@ function appendTreeItem(row, resultSet, tableId) {
     `;
   var item = $(h);
   item.attr('id', resultSet.getRowId(row));
-  item.attr('rowId', resultSet.getRowId(row));
+  item.attr('rowId', resultSet.getRowId(row)); // dont think this is used
+  item.data('tag', tag);
   item.addClass('item_space');
 
   if      (is_mortality) item.data('form_def', 'mortality');

@@ -11,4 +11,4 @@ SurveyUtil,default,SurveyUtil.formId,string,measure
 Table,default,defaultViewType,string,LIST
 Table,default,detailViewFileName,string,config/assets/html/form.html
 Table,default,displayName,object,"{""text"":""Remeasure Form""}"
-Table,default,listViewFileName,string,config/tables/measure/html/ingrowth_list.html
+Table,default,listViewFileName,string,config/assets/html/tree_record_list.html

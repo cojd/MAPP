@@ -45,7 +45,7 @@ function bindButtons(params) {
   });
 
   // for the list views we can set a filter on the DB query so we only get records matching the stand and plot if it is given
-  let query = null, prev_query = null, selection_args = null;
+  let query = null, prev_query = null, orderBy = 'ORDER BY stand, tag, plot', selection_args = null;
   if (params) {
     query = 'stand=?';
     prev_query = 'StandID=?';                 // UNIFY THIS
@@ -63,10 +63,10 @@ function bindButtons(params) {
     'click',
     function () {
       Utils.save_value_to_params("editing", true);
-      odkTables.openTableToListView(
+      odkTables.openTableToListViewArbitraryQuery(
         null,
         'measure',
-        query,
+        'SELECT * FROM measure WHERE ' + query + ' ' + orderBy,
         selection_args,
         null);
     }
@@ -78,10 +78,10 @@ function bindButtons(params) {
     'click',
     function () {
       Utils.save_value_to_params("editing", true);
-      odkTables.openTableToListView(
+      odkTables.openTableToListViewArbitraryQuery(
         null,
         'mortality',
-        query,
+        'SELECT * FROM mortality WHERE ' + query + ' ' + orderBy,
         selection_args,
         null);
     }
