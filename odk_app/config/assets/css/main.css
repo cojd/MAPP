@@ -36,7 +36,7 @@
 
 .index-img-card button {
   position: absolute;
-  background-color: #0008;
+  background-color: transparent;
   border-color: #fff;
   bottom: 2rem;
   right: 2rem;
