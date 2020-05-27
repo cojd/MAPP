@@ -4,6 +4,13 @@
   <img width="850" height="460" src="https://scx2.b-cdn.net/gfx/news/2018/europeslostf.jpg" >
 </p>
 
+<!---
+<p align="center">
+  <img width="800" height="560" src="odk_app/config/assets/img/index_cover.jpg" >
+</p>
+--->
+
+
 ---
 
 ### Table of Contents
