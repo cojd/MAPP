@@ -203,7 +203,7 @@ function leangAngleCheck_mortality(){
 
   leanAngle.change(()=>{
     let leanAngleVal = Number(leanAngle.val())
-    alert("test")
+
     if(leanAngleVal < 0 || leanAngleVal > 120){
       $('#lean_angl_check_op1_m').modal('show')
 
