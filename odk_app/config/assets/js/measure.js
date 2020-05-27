@@ -50,7 +50,7 @@ function bindButtons(params) {
     query = 'stand=?';
     prev_query = 'StandID=?';                 // UNIFY THIS
     selection_args = [params.stand];
-    if ('plot' in params) {
+    if (params.type === Constants.PlotTypes.FIXED_RADIUS_PLOT) {
       query += ' AND plot=?';
       prev_query += ' AND Plot=?';            // PLEASE
       selection_args.push(params.plot);
