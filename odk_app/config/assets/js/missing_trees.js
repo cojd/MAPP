@@ -25,35 +25,39 @@ $(function () {
     }
   }
 
-  // this queries on a join table between prev_data and remeasure where
-  // the stand, plot, and tag values match between the two tables
+  // this queries on a join table between prev_data, measure and mortality where
+  // the stand, plot, and tag values match between the three tables
   // and the stand and plot values match what the user entered on the landing page
-  // and the tag value of the remeasure table is null 
+  // and the tag value of both the measure and mortality tables are null 
 
   // this all serves to find all prev_data records for the chosen [stand, plot] for which there
-  // is no corresponding record in remeasure with matching stand, plot, tag values
+  // is no corresponding record in measure or mortality with matching stand, plot, tag values
   let query = `SELECT * 
                  FROM prev_data
                  LEFT OUTER JOIN measure 
                    ON prev_data.StandID=measure.stand
                   AND prev_data.plot=measure.plot
-                  AND prev_data.tag=measure.tag`;
+                  AND prev_data.tag=measure.tag
+                 LEFT OUTER JOIN mortality
+                   ON prev_data.StandID=mortality.stand
+                  AND prev_data.plot=mortality.plot
+                  AND prev_data.tag=mortality.tag`;
   let p = [params.stand];
 
   switch (params.type)
   {
     case Constants.PlotTypes.REFERENCE_STAND:
-      query += ' WHERE prev_data.StandID=? AND measure.tag IS NULL';
+      query += ' WHERE prev_data.StandID=? AND measure.tag IS NULL AND mortality.tag IS NULL';
       break;
     case Constants.PlotTypes.FIXED_RADIUS_PLOT:
-      query += ' WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL';
+      query += ' WHERE prev_data.StandID=? AND prev_data.plot=? AND measure.tag IS NULL AND mortality.tag IS NULL';
       p.push(params.plot);
       break;
     default:
       console.log('missing_trees.js: THIS REALLY SHOULDN\'T HAPPEN');
       break;
   }
-  query += ' AND prev_data.PrevStatus!=6' // ignore dead trees
+  query += ' AND prev_data.PrevStatus!=6' // dont display dead trees in prev_data as missing
 
   odkData.arbitraryQuery('prev_data', query, p, null, null, success, console.log);
 });
