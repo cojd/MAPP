@@ -90,7 +90,7 @@ const FORM_DEFS = {
       },
       {
         id: 'details',
-        header: 'Details',
+        header: 'Remeasurement data',
         sections: [
           {
             inputs: [
