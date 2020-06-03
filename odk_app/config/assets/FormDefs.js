@@ -786,6 +786,20 @@ const FORM_DEFS = {
                 ],
                 // raw_html: '<!-- Option 2  (treePctVal < 0 || treePctVal > 100) --> <div class="modal fade" id="tree_pct_check_op2_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op2_i">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree percentage must be within the range 0-100.</p> <button type="button" id="ok_tree_pct_op2_i" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
+              {
+                modal: true,
+                modal_id: 'tree_pct_check_op3_i',
+                label_id: 'tree_pct_Label_op3_i',
+                title: 'Tree Percentage Check',
+                text: 'Tree percentage cannot be 100 when main_stem=2.',
+                buttons: [
+                  {
+                    id: 'ok_tree_pct_op3_i',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
+              },
             ], // inputs
           },
         ], // sections
@@ -1208,7 +1222,7 @@ const FORM_DEFS = {
                 id: 'ground_percentage_m',
                 column_name: 'ground_percentage',
                 label: 'Ground percentage',
-                invalid_feedback: 'Ground percentage must be within the range -1 - 100.',
+                invalid_feedback: 'Ground percentage range = 0 to 100 (or -1 if not found).',
                 html_element: 'input',
                 html_attributes: {
                   type: 'number',
@@ -1223,7 +1237,7 @@ const FORM_DEFS = {
                 modal_id: 'ground_pct_check_m',
                 label_id: 'ground_pct_Label_m',
                 title: 'Ground Percentage Check',
-                text: 'Ground percentage must be within the range -1 - 100.',
+                text: 'Ground percentage range = 0 to 100 (or -1 if not found).',
                 buttons: [
                   {
                     id: 'ok_ground_pct_m',
@@ -1237,7 +1251,7 @@ const FORM_DEFS = {
                 id: 'support_percentage_m',
                 column_name: 'support_percentage',
                 label: 'Support percentage',
-                invalid_feedback: 'Support percentage must be within the range -1 - 100.',
+                invalid_feedback: 'Support percentage range = 0 to 100 (or -1 if not found). ',
                 html_element: 'input',
                 html_attributes: {
                   type: 'number',
@@ -1252,7 +1266,7 @@ const FORM_DEFS = {
                 modal_id: 'support_pct_check_m',
                 label_id: 'support_pct_Label_m',
                 title: 'Support Percentage Check',
-                text: 'Support percentage must be within the range -1 - 100.',
+                text: 'Support percentage range = 0 to 100 (or -1 if not found). ',
                 buttons: [
                   {
                     id: 'ok_support_pct_m',

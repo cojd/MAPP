@@ -14,18 +14,18 @@ function bindIngrowthValidate(){
  // changes defaults if status is changed
  statusOnChangeDefaults_ingrowth()
 
-tagCheck_ingrowth()
+ tagCheck_ingrowth()
 
  dbhCheck_ingrowth()
 
  crownRatioCheck_ingrowth()
 
-  mainStemCheck_ingrowth()
+ mainStemCheck_ingrowth()
 
  leanAngleCheck_ingrowth()
 
  // if main stem is set to 2 clear crown pct default
- clearCrownPct_ingrowth()
+ clearCrownAndTree_Pct_ingrowth()
 
  crownPercentageCheck_ingrowth()
 
@@ -107,7 +107,7 @@ function tagCheck_ingrowth(){
         $('#tag_check_i').modal('show')
 
         $( "#ok_tag_i" ).click(function() {
-          $('tag').val(" ") // clear value
+          $('#tag').val(" ") // clear value
           $('#tag_check_i').modal('hide')
         })
 
@@ -151,7 +151,7 @@ function tagCheck_ingrowth(){
         $('#tag_check_i').modal('show')
 
         $( "#ok_tag_i" ).click(function() {
-          $('tag').val(" ") // clear value
+          $('#tag').val(" ") // clear value
           $('#tag_check_i').modal('hide')
         })
 
@@ -283,15 +283,18 @@ function leanAngleCheck_ingrowth(){
   })
 }
 
-function clearCrownPct_ingrowth(){
+function clearCrownAndTree_Pct_ingrowth(){
   let mainStem = $('select#main_stem_i')
 
   mainStem.change(() => {
     let mainStemVal = Number(mainStem.val())
     if(mainStemVal === 2){
       $('input#crown_percentage_i').val(" ")
+      $('input#tree_percentage_i').val(" ")
+
     } else {
       $('input#crown_percentage_i').val(100)
+      $('input#tree_percentage_i').val(100)
     }
   })
 }
@@ -328,6 +331,7 @@ function treePercentageCheck_ingrowth(){
   treePct.change(() => {
     let treePctVal = Number(treePct.val())
     let crownPctVal = Number($('input#crown_percentage_i').val())
+    let mainStemVal = Number($('select#main_stem_i').val())
 
     if(treePctVal < crownPctVal){
       $('#tree_pct_check_op1_i').modal('show')
@@ -343,6 +347,14 @@ function treePercentageCheck_ingrowth(){
         $('#tree_percentage_i').val(" ") // clear value
         $('#tree_pct_check_op2_i').modal('hide')
       })
+    } else if(mainStemVal === 2 && treePctVal === 100){
+      $('#tree_pct_check_op3_i').modal('show')
+
+      $( "#ok_tree_pct_op3_i" ).click(function() {
+        $('#tree_percentage_i').val(" ") // clear value
+        $('#tree_pct_check_op3_i').modal('hide')
+      })
+
     }
   })
 }

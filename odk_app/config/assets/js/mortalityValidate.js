@@ -39,6 +39,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',true) // 10
       $('input#ground_percentage_m').prop('required', false) //12
       $('input#support_percentage_m').prop('required',false) //13
+
+      //enable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', false) // 8
+      $('input#crown_percentage_m').prop('disabled', false) // 9
+      $('input#tree_percentage_m').prop('disabled', false) // 10
     } else if(mainStemVal == 2 && (rootingVal == 1 || rootingVal == 2)){
       // if ms-2 and r-1 || r-2
       $('select#rooting_m').prop('required',true) //6
@@ -47,6 +52,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',true) // 10
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
+
+      //enable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', false) // 8
+      $('input#crown_percentage_m').prop('disabled', false) // 9
+      $('input#tree_percentage_m').prop('disabled', false) // 10
     } else if(mainStemVal == 3 && (rootingVal == 1 || rootingVal == 2)){
     // if ms-3 and r-1 || r-2
       $('select#rooting_m').prop('required',false) //6
@@ -55,6 +65,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',false) // 10  changed
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
+
+      //disable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', true) // 8
+      $('input#crown_percentage_m').prop('disabled', true) // 9
+      $('input#tree_percentage_m').prop('disabled', true) // 10
     } else if(mainStemVal == 1 && rootingVal == 3) {
       // if ms-1 and r3
       $('select#rooting_m').prop('required',true) //6  // changed
@@ -104,6 +119,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',true) // 10   changed
       $('input#ground_percentage_m').prop('required',false) //12
       $('input#support_percentage_m').prop('required',false) //13
+
+      //enable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', false) // 8
+      $('input#crown_percentage_m').prop('disabled', false) // 9
+      $('input#tree_percentage_m').prop('disabled', false) // 10
     } else if(mainStemVal == 2){
       // if ms-2
       $('select#rooting_m').prop('required',true) //6
@@ -112,6 +132,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',true) // 10  changed
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
+
+      //enable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', false) // 8
+      $('input#crown_percentage_m').prop('disabled', false) // 9
+      $('input#tree_percentage_m').prop('disabled', false) // 10
     } else if(mainStemVal == 3){
       // if ms-3
       $('select#rooting_m').prop('required',true) //6 //changed
@@ -120,6 +145,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required', false) // 10
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
+
+      //disable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', true) // 8
+      $('input#crown_percentage_m').prop('disabled', true) // 9
+      $('input#tree_percentage_m').prop('disabled', true) // 10
     }
   })
 
@@ -135,6 +165,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',true) // 10
       $('input#ground_percentage_m').prop('required', false) //12
       $('input#support_percentage_m').prop('required',false) //13
+
+      //enable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', false) // 8
+      $('input#crown_percentage_m').prop('disabled', false) // 9
+      $('input#tree_percentage_m').prop('disabled', false) // 10
     } else if(rootingVal == 3  && mainStemVal == 1){
       // if r-3 and ms-1
       $('select#rooting_m').prop('required',false) //6
@@ -157,6 +192,11 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',true) // 10
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
+
+      //enable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', false) // 8
+      $('input#crown_percentage_m').prop('disabled', false) // 9
+      $('input#tree_percentage_m').prop('disabled', false) // 10
     } else if(rootingVal == 3 && mainStemVal == 2){
       // if r-3 and ms-2
       $('select#rooting_m').prop('required',true) //6
@@ -179,6 +219,13 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required',false) // 10    chagned
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
+
+
+      //disable inputs for the fields
+      $('input#lean_angle_m').prop('disabled', true) // 8
+      $('input#crown_percentage_m').prop('disabled', true) // 9
+      $('input#tree_percentage_m').prop('disabled', true) // 10
+
     } else if(rootingVal == 3 && mainStemVal == 3){
       // if r-3 and ms-3
       $('select#rooting_m').prop('required',false) //6
