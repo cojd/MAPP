@@ -206,7 +206,7 @@ function buildCards(f, fd) {
       <div class="card" id="${card.id}-card"></div>
     `);
     let header_html = $(`
-      <div class="card-header" id="${card.id}-header">${card.header}</div>
+      <div class="card-header" id="${card.id}-header"><strong>${card.header}</strong></div>
     `);
     let body_html = buildSections(card.sections);
 

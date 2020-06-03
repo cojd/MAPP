@@ -67,7 +67,7 @@ const FORM_DEFS = {
               },
               {
                 column_name: 'status',
-                label: "Status",
+                label: "Current Status",
                 html_element: 'select',
                 readonly: true,
                 default_option: 'Failed to load status...',
@@ -326,7 +326,7 @@ const FORM_DEFS = {
       },
       {
         id: 'mapping',
-        header: 'Mapping',
+        header: 'Mapping (click to expand)',
         collapsable: true,
         collapsed: true,
         sections: [
@@ -806,7 +806,7 @@ const FORM_DEFS = {
       },
       {
         id: 'mapping',
-        header: 'Mapping',
+        header: 'Mapping (click to expand)',
         collapsable: true,
         sections: [
           {
