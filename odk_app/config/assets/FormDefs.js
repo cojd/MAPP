@@ -162,6 +162,20 @@ const FORM_DEFS = {
                 },
               },
               {
+                modal: true,
+                modal_id: 'main_stem_check_r',
+                label_id: 'main_stem_check_Label_r',
+                title: 'Main Stem Check',
+                text: 'Main stem cannot = 3 for live trees.',
+                buttons: [
+                  {
+                  id: 'ok_main_stem_r',
+                  text: 'Ok',
+                  context_class: 'primary',
+                  },
+                ],
+              },
+              {
                 id: 'rooting_r',
                 column_name: 'rooting',
                 label: 'Rooting',
@@ -171,6 +185,20 @@ const FORM_DEFS = {
                   options_list: 'RootingList',
                 },
               },
+              {
+                modal: true,
+                modal_id: 'rooting_check_r',
+                label_id: 'rooting_check_Label_r',
+                title: 'Rooting Check',
+                text: 'Rooting cannot = 3 for live trees.',
+                buttons: [
+                  {
+                  id: 'ok_rooting_r',
+                  text: 'Ok',
+                  context_class: 'primary',
+                },
+              ],
+             },
               {
                 id: 'lean_angle_r',
                 column_name: 'lean_angle',
@@ -257,12 +285,12 @@ const FORM_DEFS = {
                 },
               },
               {
-                // Option 1  (treePctVal < crownPctVal)
+                // Option 1 (treePctVal <== crownPctVal && mainStemVal === 2)
                 modal: true,
                 modal_id: 'tree_pct_check_op1_r',
                 label_id: 'tree_pct_Label_op1_r',
                 title: 'Tree Percentage Check',
-                text: 'Tree % cannot be less then crown %.',
+                text: 'If Main_stem = 2, %Crown must be < %Tree.',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op1_r',
@@ -270,15 +298,14 @@ const FORM_DEFS = {
                     context_class: 'primary',
                   },
                 ],
-                // raw_html: '<!-- Option 1  (treePctVal < crownPctVal) --> <div class="modal fade" id="tree_pct_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_r" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op1_r">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree % cannot be less then crown %.</p> <button type="button" id="ok_tree_pct_op1_r" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
               {
-                // Option 2  (treePctVal === 100 && mainStemVal === 2)
+                // Option 2  (treePctVal < crownPctVal)
                 modal: true,
                 modal_id: 'tree_pct_check_op2_r',
                 label_id: 'tree_pct_Label_op2_r',
                 title: 'Tree Percentage Check',
-                text: 'Tree % cannot be less than 100% if Main_Stem=2 (broken).',
+                text: 'Tree % cannot be less then crown %.',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op2_r',
@@ -286,15 +313,15 @@ const FORM_DEFS = {
                     context_class: 'primary',
                   },
                 ],
-                // raw_html: '<!-- Option 2  (treePctVal === 100 && mainStemVal === 2) --> <div class="modal fade" id="tree_pct_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_r" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op2_r">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree % cannot be less than 100% if Main_Stem=2 (broken).</p> <button type="button" id="ok_tree_pct_op2_r" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
+                // raw_html: '<!-- Option 1  (treePctVal < crownPctVal) --> <div class="modal fade" id="tree_pct_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_r" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op1_r">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree % cannot be less then crown %.</p> <button type="button" id="ok_tree_pct_op1_r" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
               {
-                // Option 3 (treePctVal < 100 && mainStemVal === 1)
+                // Option 3  (treePctVal === 100 && mainStemVal === 2)
                 modal: true,
                 modal_id: 'tree_pct_check_op3_r',
                 label_id: 'tree_pct_Label_op3_r',
                 title: 'Tree Percentage Check',
-                text: 'If tree % < 100 then Main_Stem must be 2 or 3 (broken).',
+                text: 'Tree % cannot be less than 100% if Main_Stem=2 (broken).',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op3_r',
@@ -302,18 +329,34 @@ const FORM_DEFS = {
                     context_class: 'primary',
                   },
                 ],
-                // raw_html: '<!-- Option 3 (treePctVal < 100 && mainStemVal === 1) --> <div class="modal fade" id="tree_pct_check_op3_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op3_r" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op3_r">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>If tree % < 100 then Main_Stem must be 2 or 3 (broken).</p> <button type="button" id="ok_tree_pct_op3_r" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
+                // raw_html: '<!-- Option 2  (treePctVal === 100 && mainStemVal === 2) --> <div class="modal fade" id="tree_pct_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_r" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op2_r">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree % cannot be less than 100% if Main_Stem=2 (broken).</p> <button type="button" id="ok_tree_pct_op2_r" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
               {
-                // Option 4 (treePctVal < 0 || treePctVal > 100)
+                // Option 4 (treePctVal < 100 && mainStemVal === 1)
                 modal: true,
                 modal_id: 'tree_pct_check_op4_r',
                 label_id: 'tree_pct_Label_op4_r',
                 title: 'Tree Percentage Check',
-                text: 'Tree percentage must be within the range 0-100.',
+                text: 'If tree % < 100 then Main_Stem must be 2 or 3 (broken).',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op4_r',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
+                // raw_html: '<!-- Option 3 (treePctVal < 100 && mainStemVal === 1) --> <div class="modal fade" id="tree_pct_check_op3_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op3_r" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op3_r">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>If tree % < 100 then Main_Stem must be 2 or 3 (broken).</p> <button type="button" id="ok_tree_pct_op3_r" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
+              },
+              {
+                // Option 5 (treePctVal < 0 || treePctVal > 100)
+                modal: true,
+                modal_id: 'tree_pct_check_op5_r',
+                label_id: 'tree_pct_Label_op5_r',
+                title: 'Tree Percentage Check',
+                text: 'Tree percentage must be within the range 0-100.',
+                buttons: [
+                  {
+                    id: 'ok_tree_pct_op5_r',
                     text: 'Ok',
                     context_class: 'primary',
                   },
@@ -345,7 +388,7 @@ const FORM_DEFS = {
                 modal_id: 'from_check_r',
                 label_id: 'from_check_Label_r',
                 title: 'From Check',
-                text: 'Tree does not exist.',
+                text: 'Tag number not in database.',
                 buttons: [
                   {
                     id: 'ok_from_check_r',
@@ -389,7 +432,7 @@ const FORM_DEFS = {
                 modal_id: 'distance_check_op2_r',
                 label_id: 'distance_check_Label_op2_r',
                 title: 'Distance Check',
-                text: 'Distance > 10m? Check entry or choose a closer tree.',
+                text: 'Distance > 18m? Check entry or choose a closer tree.',
                 buttons: [
                   {
                     id: 'ok_distance_check_op2_r',
@@ -508,7 +551,7 @@ const FORM_DEFS = {
                 modal_id: 'tag_check_i',
                 label_id: 'tag_Label_i',
                 title: 'Tag Check',
-                text: 'Tree already exists in database.',
+                text: 'Tree already recorded.',
                 buttons: [
                   {
                     id: 'ok_tag_i',
@@ -571,7 +614,7 @@ const FORM_DEFS = {
                 modal_id: 'dbh_check_op2_i',
                 label_id: 'dbh_check_op2_Label_i',
                 title: 'DBH Check',
-                text: 'Dbh > 10 cm - is that correct?',
+                text: 'Dbh > 20 cm - is that correct?',
                 buttons: [
                   {
                     id: 'yes_dbh_op2_i',
@@ -649,9 +692,9 @@ const FORM_DEFS = {
               {
                 modal: true,
                 modal_id: 'main_stem_check_i',
-                label_id: '"main_stem_check_Label_i',
+                label_id: 'main_stem_check_Label_i',
                 title: 'Main Stem Check',
-                text: 'Main stem cannot = 3 for live trees.',
+                text: 'Main_stem cannot = 3 for live trees.',
                 buttons: [
                   {
                   id: 'ok_main_stem_i',
@@ -670,6 +713,20 @@ const FORM_DEFS = {
                   options_list: 'RootingList',
                 },
               },
+              {
+                modal: true,
+                modal_id: 'rooting_check_i',
+                label_id: 'rooting_check_Label_i',
+                title: 'Rooting Check',
+                text: 'Rooting cannot = 3 for live trees.',
+                buttons: [
+                  {
+                  id: 'ok_rooting_i',
+                  text: 'Ok',
+                  context_class: 'primary',
+                },
+              ],
+            },
               {
                 id: 'lean_angle_i',
                 column_name: 'lean_angle',
@@ -754,13 +811,13 @@ const FORM_DEFS = {
                   step: 0.01,
                 },
               },
+              // Option 1  (treePctVal <= crownPctVal && mainStemVal == 2)
               {
-                // Option 1  (treePctVal < crownPctVal)
                 modal: true,
                 modal_id: 'tree_pct_check_op1_i',
                 label_id: 'tree_pct_Label_op1_i',
                 title: 'Tree Percentage Check',
-                text: 'Tree % cannot be less then crown %.',
+                text: 'If Main_Stem=2, %Crown must be < %Tree.',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op1_i',
@@ -768,15 +825,14 @@ const FORM_DEFS = {
                     context_class: 'primary',
                   },
                 ],
-                // raw_html: '<!-- Option 1  (treePctVal < crownPctVal) --> <div class="modal fade" id="tree_pct_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op1_i">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree % cannot be less then crown %.</p> <button type="button" id="ok_tree_pct_op1_i" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
               {
-                // Option 2  (treePctVal < 0 || treePctVal > 100)
+                // Option 2  (treePctVal < crownPctVal)
                 modal: true,
                 modal_id: 'tree_pct_check_op2_i',
                 label_id: 'tree_pct_Label_op2_i',
                 title: 'Tree Percentage Check',
-                text: 'Tree percentage must be within the range 0-100.',
+                text: 'Tree % cannot be less then crown %.',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op2_i',
@@ -784,17 +840,50 @@ const FORM_DEFS = {
                     context_class: 'primary',
                   },
                 ],
-                // raw_html: '<!-- Option 2  (treePctVal < 0 || treePctVal > 100) --> <div class="modal fade" id="tree_pct_check_op2_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op2_i">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree percentage must be within the range 0-100.</p> <button type="button" id="ok_tree_pct_op2_i" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
+                // raw_html: '<!-- Option 1  (treePctVal < crownPctVal) --> <div class="modal fade" id="tree_pct_check_op1_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op1_i">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree % cannot be less then crown %.</p> <button type="button" id="ok_tree_pct_op1_i" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
               },
               {
+                // Option 3  (treePctVal < 0 || treePctVal > 100)
                 modal: true,
                 modal_id: 'tree_pct_check_op3_i',
                 label_id: 'tree_pct_Label_op3_i',
                 title: 'Tree Percentage Check',
-                text: 'Tree percentage cannot be 100 when main_stem=2.',
+                text: 'Tree percentage must be within the range 0-100.',
                 buttons: [
                   {
                     id: 'ok_tree_pct_op3_i',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
+                // raw_html: '<!-- Option 2  (treePctVal < 0 || treePctVal > 100) --> <div class="modal fade" id="tree_pct_check_op2_i" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_i" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="tree_pct_Label_op2_i">Tree Percentage Check</h5> </div> <div class="modal-body"> <p>Tree percentage must be within the range 0-100.</p> <button type="button" id="ok_tree_pct_op2_i" class="btn btn-primary">Ok</button> </div> </div> </div> </div>',
+              },
+              // Option 4  else if(mainStemVal === 2 && treePctVal === 100)
+              {
+                modal: true,
+                modal_id: 'tree_pct_check_op4_i',
+                label_id: 'tree_pct_Label_op4_i',
+                title: 'Tree Percentage Check',
+                // text: 'Tree percentage cannot be 100 when main_stem=2.',
+                text: '%Tree must be < 100% if Main_Stem must=2.',
+                buttons: [
+                  {
+                    id: 'ok_tree_pct_op4_i',
+                    text: 'Ok',
+                    context_class: 'primary',
+                  },
+                ],
+              },
+              // Option 5  else if(treePctVal < 100 && mainStemVal === 1)
+              {
+                modal: true,
+                modal_id: 'tree_pct_check_op5_i',
+                label_id: 'tree_pct_Label_op5_i',
+                title: 'Tree Percentage Check',
+                text: 'If %tree < 100 then Main_stem must be 2 or 3.',
+                buttons: [
+                  {
+                    id: 'ok_tree_pct_op5_i',
                     text: 'Ok',
                     context_class: 'primary',
                   },
@@ -824,7 +913,7 @@ const FORM_DEFS = {
                 modal_id: 'from_check_i',
                 label_id: 'from_check_Label_i',
                 title: 'From Check',
-                text: 'Tree does not exist.',
+                text: 'Tag number not in database.',
                 buttons: [
                   {
                     id: 'ok_from_check_i',
@@ -868,7 +957,7 @@ const FORM_DEFS = {
                 modal_id: 'distance_check_op2_i',
                 label_id: 'distance_check_Label_op2_i',
                 title: 'Distance Check',
-                text: 'Distance > 10m? Check entry or choose a closer tree.',
+                text: 'Distance > 18m? Check entry or choose a closer tree.',
                 buttons: [
                   {
                     id: 'ok_distance_check_op2_i',

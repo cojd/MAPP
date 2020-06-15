@@ -31,7 +31,7 @@ function setRequired_mortality(){
 
     // order matters
 
-    if(mainStemVal == 1 && (rootingVal == 1 || rootingVal == 2)){
+    if(mainStemVal === 1 && (rootingVal === 1 || rootingVal === 2)){
       // if ms-1 and r-1 || r-2
       $('select#rooting_m').prop('required',false) //6
       $('input#lean_angle_m').prop('required',true) // 8
@@ -40,11 +40,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required', false) //12
       $('input#support_percentage_m').prop('required',false) //13
 
-      //enable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', false) // 8
       $('input#crown_percentage_m').prop('disabled', false) // 9
       $('input#tree_percentage_m').prop('disabled', false) // 10
-    } else if(mainStemVal == 2 && (rootingVal == 1 || rootingVal == 2)){
+      $('input#ground_percentage_m').prop('disabled', true) //12
+      $('input#support_percentage_m').prop('disabled', true) //13
+
+    } else if(mainStemVal === 2 && (rootingVal === 1 || rootingVal === 2)){
       // if ms-2 and r-1 || r-2
       $('select#rooting_m').prop('required',true) //6
       $('input#lean_angle_m').prop('required',true) // 8
@@ -53,24 +56,30 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //enable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', false) // 8
       $('input#crown_percentage_m').prop('disabled', false) // 9
       $('input#tree_percentage_m').prop('disabled', false) // 10
-    } else if(mainStemVal == 3 && (rootingVal == 1 || rootingVal == 2)){
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
+
+    } else if(mainStemVal === 3 && (rootingVal === 1 || rootingVal === 2)){
     // if ms-3 and r-1 || r-2
       $('select#rooting_m').prop('required',false) //6
-      $('input#lean_angle_m').prop('required',false) // 8        changed
-      $('input#crown_percentage_m').prop('required',false) // 9  changed
-      $('input#tree_percentage_m').prop('required',false) // 10  changed
+      $('input#lean_angle_m').prop('required',false) // 8
+      $('input#crown_percentage_m').prop('required',false) // 9
+      $('input#tree_percentage_m').prop('required',false) // 10
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
-    } else if(mainStemVal == 1 && rootingVal == 3) {
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
+
+    } else if(mainStemVal === 1 && rootingVal === 3) {
       // if ms-1 and r3
       $('select#rooting_m').prop('required',true) //6  // changed
       $('input#lean_angle_m').prop('required',false) // 8
@@ -79,12 +88,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
 
-    } else if(mainStemVal == 2 && rootingVal == 3){
+    } else if(mainStemVal === 2 && rootingVal === 3){
       // if ms-2 and r3
       $('select#rooting_m').prop('required',true) //6
       $('input#lean_angle_m').prop('required',false) // 8
@@ -92,26 +103,31 @@ function setRequired_mortality(){
       $('input#tree_percentage_m').prop('required', false) // 10
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
-      //disable inputs for the fields
+
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', true) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
 
-    } else if(mainStemVal == 3 && rootingVal == 3){
+    } else if(mainStemVal === 3 && rootingVal === 3){
       // if ms-3 and r3
       $('select#rooting_m').prop('required',false) //6
-      $('input#lean_angle_m').prop('required',false) // 8
+      $('input#lean_angle_m').prop('required', false) // 8
       $('input#crown_percentage_m').prop('required', false) // 9
       $('input#tree_percentage_m').prop('required', false) // 10
-      $('input#ground_percentage_m').prop('required',true) //12
-      $('input#support_percentage_m').prop('required',true) //13
+      $('input#ground_percentage_m').prop('required', true) //12
+      $('input#support_percentage_m').prop('required', true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
 
-    } else if(mainStemVal == 1){
+    } else if(mainStemVal === 1){
       // if ms-1
       $('select#rooting_m').prop('required',true) //6            changed
       $('input#lean_angle_m').prop('required',true) // 8         changed
@@ -120,11 +136,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',false) //12
       $('input#support_percentage_m').prop('required',false) //13
 
-      //enable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', false) // 8
       $('input#crown_percentage_m').prop('disabled', false) // 9
       $('input#tree_percentage_m').prop('disabled', false) // 10
-    } else if(mainStemVal == 2){
+      $('input#ground_percentage_m').prop('disabled', true) //12
+      $('input#support_percentage_m').prop('disabled', true) //13
+
+    } else if(mainStemVal === 2){
       // if ms-2
       $('select#rooting_m').prop('required',true) //6
       $('input#lean_angle_m').prop('required',true) // 8         changed
@@ -133,11 +152,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //enable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', false) // 8
       $('input#crown_percentage_m').prop('disabled', false) // 9
       $('input#tree_percentage_m').prop('disabled', false) // 10
-    } else if(mainStemVal == 3){
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
+
+    } else if(mainStemVal === 3){
       // if ms-3
       $('select#rooting_m').prop('required',true) //6 //changed
       $('input#lean_angle_m').prop('required',false) // 8
@@ -146,10 +168,13 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
+
     }
   })
 
@@ -157,7 +182,7 @@ function setRequired_mortality(){
     let rootingVal = Number(rooting.val())
     let mainStemVal = Number(mainStem.val())
 
-    if((rootingVal == 1 || rootingVal == 2) && mainStemVal == 1){
+    if((rootingVal === 1 || rootingVal === 2) && mainStemVal === 1){
       // if r-1 || r-2 and ms-1
       $('select#rooting_m').prop('required',false) //6
       $('input#lean_angle_m').prop('required',true) // 8
@@ -166,11 +191,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required', false) //12
       $('input#support_percentage_m').prop('required',false) //13
 
-      //enable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', false) // 8
       $('input#crown_percentage_m').prop('disabled', false) // 9
       $('input#tree_percentage_m').prop('disabled', false) // 10
-    } else if(rootingVal == 3  && mainStemVal == 1){
+      $('input#ground_percentage_m').prop('disabled', true) //12
+      $('input#support_percentage_m').prop('disabled', true) //13
+
+    } else if(rootingVal === 3  && mainStemVal === 1){
       // if r-3 and ms-1
       $('select#rooting_m').prop('required',false) //6
       $('input#lean_angle_m').prop('required',false) // 8
@@ -179,12 +207,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
 
-    } else if((rootingVal == 1 || rootingVal == 2) && mainStemVal == 2){
+    } else if((rootingVal === 1 || rootingVal === 2) && mainStemVal === 2){
       // if r-1 || r-2 and ms-2
       $('select#rooting_m').prop('required',true) //6
       $('input#lean_angle_m').prop('required',true) // 8
@@ -193,11 +223,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //enable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', false) // 8
       $('input#crown_percentage_m').prop('disabled', false) // 9
       $('input#tree_percentage_m').prop('disabled', false) // 10
-    } else if(rootingVal == 3 && mainStemVal == 2){
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
+
+    } else if(rootingVal === 3 && mainStemVal === 2){
       // if r-3 and ms-2
       $('select#rooting_m').prop('required',true) //6
       $('input#lean_angle_m').prop('required',false) // 8
@@ -206,12 +239,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) // 12
+      $('input#support_percentage_m').prop('disabled', false) // 13
 
-    } else if((rootingVal == 1 || rootingVal == 2) && mainStemVal == 3){
+    } else if((rootingVal === 1 || rootingVal === 2) && mainStemVal === 3){
       // if r-1 || r-2 and ms-3
       $('select#rooting_m').prop('required',false) //6
       $('input#lean_angle_m').prop('required',false) // 8          changed
@@ -220,13 +255,14 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
 
-    } else if(rootingVal == 3 && mainStemVal == 3){
+    } else if(rootingVal === 3 && mainStemVal === 3){
       // if r-3 and ms-3
       $('select#rooting_m').prop('required',false) //6
       $('input#lean_angle_m').prop('required',false) // 8
@@ -235,10 +271,12 @@ function setRequired_mortality(){
       $('input#ground_percentage_m').prop('required',true) //12
       $('input#support_percentage_m').prop('required',true) //13
 
-      //disable inputs for the fields
+      // false = "field enabled", true = "field disabled (nulled out)"
       $('input#lean_angle_m').prop('disabled', true) // 8
       $('input#crown_percentage_m').prop('disabled', true) // 9
       $('input#tree_percentage_m').prop('disabled', true) // 10
+      $('input#ground_percentage_m').prop('disabled', false) //12
+      $('input#support_percentage_m').prop('disabled', false) //13
 
     }
   })

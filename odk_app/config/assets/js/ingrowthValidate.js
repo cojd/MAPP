@@ -22,6 +22,8 @@ function bindIngrowthValidate(){
 
  mainStemCheck_ingrowth()
 
+ rootingCheck_ingrowth()
+
  leanAngleCheck_ingrowth()
 
  // if main stem is set to 2 clear crown pct default
@@ -32,7 +34,7 @@ function bindIngrowthValidate(){
  treePercentageCheck_ingrowth()
 
  // mapping
- fromCheck_ingrowth() // need to do database look up
+ fromCheck_ingrowth()
 
  distanceCheck_ingrowth()
 
@@ -55,6 +57,8 @@ function statusDefault_ingrowth(){
 
 function setRequired_ingrowth(){
 
+  $('input#plot').prop('required',true)
+  $('input#tag').prop('required', true)
   $('select#species_i').prop('required',true)
   $('input#dbh_i').prop('required',true)
   $('select#overall_vigor_i').prop('required',true)
@@ -211,7 +215,7 @@ function dbhCheck_ingrowth(){
     }
 
     //check if greater than 10 cm
-    if(dbhVal > 10){
+    if(dbhVal > 20){
       $('#dbh_check_op2_i').modal('show')
       $( "#yes_dbh_op2_i" ).click(function() {
         $('#dbh_check_op2_i').modal('hide')
@@ -255,14 +259,28 @@ function mainStemCheck_ingrowth(){
       $('#main_stem_check_i').modal('show')
 
       $('#ok_main_stem_i').click(function() {
-        $('select#main_stem_i option[value="1"]').attr("selected",true)
-         // $('select#main_stem_i option[value="3"]').attr("selected",false)
-        $('#main_stem_check_i').modal('hide')
+         $('#main_stem_check_i').modal('hide')
       })
     }
-
   })
+}
 
+function rootingCheck_ingrowth(){
+  let rooting = $("select#rooting_i")
+  let statusVal = Number($('select#status_i').val())
+
+  rooting.change(() => {
+
+    let rootingVal = Number(rooting.val())
+
+    if((statusVal === 1 || statusVal === 2 || statusVal === 3) && rootingVal === 3){
+      $('#rooting_check_i').modal('show')
+
+      $('#ok_rooting_i').click(function() {
+         $('#rooting_check_i').modal('hide')
+      })
+    }
+  })
 }
 
 
@@ -333,28 +351,41 @@ function treePercentageCheck_ingrowth(){
     let crownPctVal = Number($('input#crown_percentage_i').val())
     let mainStemVal = Number($('select#main_stem_i').val())
 
-    if(treePctVal < crownPctVal){
+    if(treePctVal <= crownPctVal && mainStemVal == 2){
       $('#tree_pct_check_op1_i').modal('show')
 
       $( "#ok_tree_pct_op1_i" ).click(function() {
         $('#tree_percentage_i').val(" ") // clear value
         $('#tree_pct_check_op1_i').modal('hide')
       })
-    } else if(treePctVal < 0 || treePctVal > 100){
+    } else if(treePctVal < crownPctVal){
       $('#tree_pct_check_op2_i').modal('show')
 
       $( "#ok_tree_pct_op2_i" ).click(function() {
         $('#tree_percentage_i').val(" ") // clear value
         $('#tree_pct_check_op2_i').modal('hide')
       })
-    } else if(mainStemVal === 2 && treePctVal === 100){
+    } else if(treePctVal < 0 || treePctVal > 100){
       $('#tree_pct_check_op3_i').modal('show')
 
       $( "#ok_tree_pct_op3_i" ).click(function() {
         $('#tree_percentage_i').val(" ") // clear value
         $('#tree_pct_check_op3_i').modal('hide')
       })
+    } else if(mainStemVal === 2 && treePctVal === 100){
+      $('#tree_pct_check_op4_i').modal('show')
 
+      $( "#ok_tree_pct_op4_i" ).click(function() {
+        $('#tree_percentage_i').val(" ") // clear value
+        $('#tree_pct_check_op4_i').modal('hide')
+      })
+    } else if(treePctVal < 100 && mainStemVal === 1){
+      $('#tree_pct_check_op5_i').modal('show')
+
+      $( "#ok_tree_pct_op5_i" ).click(function() {
+        $('#tree_percentage_i').val(" ") // clear value
+        $('#tree_pct_check_op5_i').modal('hide')
+      })
     }
   })
 }
@@ -467,7 +498,7 @@ function distanceCheck_ingrowth(){
         $('#distance_i').val(" ") // clear value
         $('#distance_check_op1_i').modal('hide')
       })
-    } else if (distanceVal > 10){
+    } else if (distanceVal > 18){
     $('#distance_check_op2_i').modal('show')
 
     $( "#ok_distance_check_op2_i" ).click(function() {

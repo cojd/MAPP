@@ -12,6 +12,10 @@ function bindRemeasureValidate(){
 
   dbhCheck_remeasure() // still need database look up
 
+  mainStemCheck_remeasure()
+
+  rootingCheck_remeasure()
+
   leanAngleCheck_remeasure()
 
   // if main stem is set to 2 clear crown and tree pct defaults
@@ -105,6 +109,38 @@ function dbhCheck_remeasure(){
 
 }
 
+function mainStemCheck_remeasure(){
+  let mainStem = $('select#main_stem_r')
+
+  mainStem.change(() =>{
+    let mainStemVal = Number(mainStem.val())
+
+    if(mainStemVal === 3){
+      $('#main_stem_check_r').modal('show')
+
+      $('#ok_main_stem_r').click(function() {
+         $('#main_stem_check_r').modal('hide')
+      })
+    }
+  })
+}
+
+function rootingCheck_remeasure(){
+  let rooting = $("select#rooting_r")
+
+  rooting.change(() => {
+
+    let rootingVal = Number(rooting.val())
+
+    if(rootingVal === 3){
+      $('#rooting_check_r').modal('show')
+
+      $('#ok_rooting_r').click(function() {
+         $('#rooting_check_r').modal('hide')
+      })
+    }
+  })
+}
 
 function leanAngleCheck_remeasure(){
   let leanAngl = $("input#lean_angle_r")
@@ -175,23 +211,23 @@ function treePercentageCheck_remeasure(){
     let crownPctVal = Number($('input#crown_percentage_r').val())
     let mainStemVal = Number($('select#main_stem_r').val())
 
-      if(treePctVal < crownPctVal){
-       $('#tree_pct_check_op1_r').modal('show')
+      if(treePctVal <= crownPctVal && mainStemVal == 2){
+        $('#tree_pct_check_op1_r').modal('show')
 
-       $( "#ok_tree_pct_op1_r" ).click(function() {
+        $( "#ok_tree_pct_op1_r" ).click(function() {
+          $('#tree_percentage_r').val(" ") // clear value
+          $('#tree_pct_check_op1_r').modal('hide')
+        })
+
+      } else if(treePctVal < crownPctVal){
+       $('#tree_pct_check_op2_r').modal('show')
+
+       $( "#ok_tree_pct_op2_r" ).click(function() {
          $('#tree_percentage_r').val(" ") // clear value
-         $('#tree_pct_check_op1_r').modal('hide')
+         $('#tree_pct_check_op2_r').modal('hide')
        })
 
       } else if(treePctVal === 100 && mainStemVal === 2){
-        $('#tree_pct_check_op2_r').modal('show')
-
-        $( "#ok_tree_pct_op2_r" ).click(function() {
-          $('#tree_percentage_r').val(" ") // clear value
-          $('#tree_pct_check_op2_r').modal('hide')
-        })
-
-      } else if(treePctVal < 100 && mainStemVal === 1){
         $('#tree_pct_check_op3_r').modal('show')
 
         $( "#ok_tree_pct_op3_r" ).click(function() {
@@ -199,14 +235,22 @@ function treePercentageCheck_remeasure(){
           $('#tree_pct_check_op3_r').modal('hide')
         })
 
-      } else if(treePctVal < 0 || treePctVal > 100){
+      } else if(treePctVal < 100 && mainStemVal === 1){
         $('#tree_pct_check_op4_r').modal('show')
 
         $( "#ok_tree_pct_op4_r" ).click(function() {
           $('#tree_percentage_r').val(" ") // clear value
           $('#tree_pct_check_op4_r').modal('hide')
         })
-    }
+
+      } else if(treePctVal < 0 || treePctVal > 100){
+        $('#tree_pct_check_op5_r').modal('show')
+
+        $( "#ok_tree_pct_op5_r" ).click(function() {
+          $('#tree_percentage_r').val(" ") // clear value
+          $('#tree_pct_check_op5_r').modal('hide')
+        })
+      }
   })
 
 
@@ -322,7 +366,7 @@ function distanceCheck_remeasure(){
         $('#distance_r').val(" ") // clear value
         $('#distance_check_op1_r').modal('hide')
       })
-    } else if (distanceVal > 10){
+    } else if (distanceVal > 18){
     $('#distance_check_op2_r').modal('show')
 
     $( "#ok_distance_check_op2_r" ).click(function() {
