@@ -3,7 +3,7 @@ function bindMortalityValidtate(){
 
   setRequired_mortality()
 
-  leangAngleCheck_mortality()
+  leanAngleCheck_mortality()
 
   crownPercentageCheck_mortality()
 
@@ -283,7 +283,7 @@ function setRequired_mortality(){
 }
 
 
-function leangAngleCheck_mortality(){
+function leanAngleCheck_mortality(){
   let leanAngle = $('input#lean_angle_m')
 
   leanAngle.change(()=>{
