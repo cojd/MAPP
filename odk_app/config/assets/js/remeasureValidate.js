@@ -55,7 +55,7 @@ function setRequired_remeasure(params){
       $('input#lean_angle_r').prop('required',true)
       $('input#crown_percentage_r').prop('required',true)
       $('input#tree_percentage_r').prop('required',true)
-    } else { // possibly don't need
+    } else { 
       $('input#dbh_r').prop('disabled', true)
       $('select#overall_vigor_r').prop('disabled', true)
       $('select#main_stem_r').prop('disabled', true)
