@@ -22,8 +22,14 @@ $(function () {
     console.log('prev');
     console.log(prev);
     populateFormFromPrev(prev); // do stuff with the prev data
+  
+    // set up custom form validation if it was included
+    if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
   }
-  else populateFormForEdit();
+  else populateFormForEdit(function () {
+    // need this in a callback so it happens after we grab prev from the DB, not during (race condition)
+    if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
+  });
 
   // set these for ingrowth since it can't get them from prev
   if ('stand' in params) $('#stand').val(params.stand);
@@ -38,9 +44,6 @@ $(function () {
     // status gets set to prev_status during populateFormFromPrev, so here we set it to the correct value
   }
 
-  // set up custom form validation if it was included
-  if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
-
   watchForm(params); // catch / handle form submission
 });
 
@@ -49,7 +52,7 @@ $(function () {
 ///////////////////////////////////////////////////////////
 
 // get both current and previous data for the tree we are editing, create the prepends and replace all other values
-function populateFormForEdit() // callback hell
+function populateFormForEdit(callback) // callback hell
 {
   let viewSuccess = function (viewResults) { // 2 - we get the records
     let stand = viewResults.get('stand');
@@ -86,6 +89,8 @@ function populateFormForEdit() // callback hell
         let value = viewResults.get(key);
         if (value !== null && value !== undefined) e.val(value); // replace all input values with the actual values for the record being edited
       });
+
+      callback();
     }
 
     // 3 - now that we have the current data, we query for the previous data for this tree

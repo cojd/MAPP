@@ -54,15 +54,22 @@ function watchForm(params)
 
       if (Number(params.status) === 6) params.form_def = 'mortality';
       else                             params.form_def = 'remeasure';
-            
-      console.log('params final');
-      console.log(params);
-      // store it in session variables
-      localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
-      // store the queried tree data in session variables
-      localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
       
-      odkTables.launchHTML(null, 'config/assets/html/form.html') // move to the form
+      tree_measured(params.stand, params.plot, params.tag, function (results) {
+        if (results.getCount() > 0)
+        {
+          alert('Tree already measured!');
+          return;
+        }
+        console.log('params final');
+        console.log(params);
+        // store it in session variables
+        localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
+        // store the queried tree data in session variables
+        localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
+        
+        odkTables.launchHTML(null, 'config/assets/html/form.html') // move to the form
+      });
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback
   });
@@ -72,6 +79,31 @@ function watchForm(params)
 //////////////////////////////////////////////////////// HANDLE DB QUERY
 ////////////////////////////////////////////////////////
 
+// check if tree exists in measure or mortality
+function tree_measured(stand, plot, tag, success_callback)
+{
+  // have to do multiple left joins on prev_data here since sqlite doesnt seem to support full joins
+  let query = `
+    SELECT * 
+      FROM prev_data
+      LEFT OUTER JOIN measure 
+        ON prev_data.StandID=measure.stand
+       AND prev_data.plot=measure.plot
+       AND prev_data.tag=measure.tag
+      LEFT OUTER JOIN mortality
+        ON prev_data.StandID=mortality.stand
+       AND prev_data.plot=mortality.plot
+       AND prev_data.tag=mortality.tag
+     WHERE (measure.stand=? AND measure.plot=? AND measure.tag=?) OR (mortality.stand=? AND mortality.plot=? AND mortality.tag=?)
+  `;
+
+  let p = [stand, plot, tag, stand, plot, tag];
+  console.log(p)
+  odkData.arbitraryQuery('measure', query, p, null, null, success_callback, console.log);
+}
+
+
+// get previous data
 function bindSearchChange(params)
 {
   // query for the right plot type
@@ -122,15 +154,15 @@ function queryDB(table, query, params) {
       records[r.plot] = r;
       record_strings[r.plot] = st;
     }
-
-
+    
     // grab the results div and set its value and validity depending on if we found a matching record
-    let tag = $('input#tag')[0];
+    let tag_elem   = $('input#tag')[0];
     let res_select = $('#results');
     res_select.html('<option value="">Please select a tree...</option>');
+    
     if (records.length === 0) // we didn't get any records for that stand/plot/tag combo so the input is invalid
     { 
-      tag.setCustomValidity('is-invalid');
+      tag_elem.setCustomValidity('is-invalid');
     }
     else // we did get a record
     {

@@ -1455,19 +1455,19 @@ const FORM_DEFS = {
                 column_name: 'comment_1',
                 label: 'Comment 1',
                 html_element: 'select',
-                data_attributes: { options_list: 'CommentList' },
+                data_attributes: { options_list: 'MortalityCommentList' },
               },
               {
                 column_name: 'comment_2',
                 label: 'Comment 2',
                 html_element: 'select',
-                data_attributes: { options_list: 'CommentList' },
+                data_attributes: { options_list: 'MortalityCommentList' },
               },
               {
                 column_name: 'comment_3',
                 label: 'Comment 3',
                 html_element: 'select',
-                data_attributes: { options_list: 'CommentList' },
+                data_attributes: { options_list: 'MortalityCommentList' },
               },
               {
                 column_name: 'comment_custom',
