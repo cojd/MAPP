@@ -175,11 +175,17 @@ const DataLists = {
     70: '70 - Physically removed from plot',
   },
   MortalityCommentList: {
+    'Annosus root disease (Heterobasadion annosum)': 'Annosus root disease (Heterobasadion annosum)',
+    'Armillaria root disease': 'Armillaria root disease',
+    'Douglas-fir bark beetle (Dendroctonus pseudotsugae)': 'Douglas-fir bark beetle (Dendroctonus pseudotsugae)',
+    'Fir engraver (Scolytus ventralis)': 'Fir engraver (Scolytus ventralis)',
+    'Ips pine engraver (Ips spp.)': 'Ips pine engraver (Ips spp.)',
     'Laminated root rot (Coniferiporia sulphurascens)': 'Laminated root rot (Coniferiporia sulphurascens)',
-    'Mountain pine beetle (Dendroctonus pond.)': 'Mountain pine beetle (Dendroctonus pond.)',
+    'Mountain pine beetle (Dendroctonus ponderosae)': 'Mountain pine beetle (Dendroctonus ponderosae)',
     'Stem rot (Phellinus pini)': 'Stem rot (Phellinus pini)',
     'Top not found': 'Top not found',
     'Velvet top butt rot (Phaeolus schweinitzii)': 'Velvet top butt rot (Phaeolus schweinitzii)',
+    'Wood borers': 'Wood borers',
   },
 }
 Object.freeze(DataLists);
