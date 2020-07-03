@@ -9,6 +9,7 @@
   <script type="text/javascript" src="../commonDefinitions.js"></script>
   <script type="text/javascript" src="../libs/jquery-3.4.1.js"></script>
   <script type="text/javascript" src="../libs/jquery-migrate-3.0.0.js"></script>
+  <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../../system/js/odkCommon.js"></script>
   <script type="text/javascript" src="../../../system/js/odkData.js"></script>
   <script type="text/javascript" src="../../../system/tables/js/odkTables.js"></script>
@@ -68,5 +69,29 @@
   </div>
   
 </body>
+
+<div class="modal fade" id="alert_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tree Already Measured</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>This tree has already been recorded. Are you sure you wish to continue?</p>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="remeasure_override_check">
+          <label class="form-check-label" for="remeasure_override_check">Yes, I'd like to remeasure it anyway.</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="remeasure_override_continue">Continue</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </html>

@@ -58,7 +58,19 @@ function watchForm(params)
       tree_measured(params.stand, params.plot, params.tag, function (results) {
         if (results.getCount() > 0)
         {
-          alert('Tree already measured!');
+          // alert('Tree already measured!');
+          $('#alert_modal').modal('show');
+          $("#remeasure_override_continue").on('click', function(event) {
+            if ($('#remeasure_override_check').is(':checked'))
+            {
+              console.log('params final');
+              console.log(params);
+              localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
+              localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
+              odkTables.launchHTML(null, 'config/assets/html/form.html');
+            }
+            else $('#alert_modal').modal('hide');
+          });
           return;
         }
         console.log('params final');
@@ -68,7 +80,7 @@ function watchForm(params)
         // store the queried tree data in session variables
         localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
         
-        odkTables.launchHTML(null, 'config/assets/html/form.html') // move to the form
+        odkTables.launchHTML(null, 'config/assets/html/form.html'); // move to the form
       });
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback
