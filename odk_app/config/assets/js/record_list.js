@@ -1,5 +1,5 @@
 /* global $, odkTables, odkData, odkCommon */
-'use strict';
+let records = {};
 
 $(function () {
   odkData.getViewData(success, cbFailure);
@@ -45,10 +45,14 @@ var success = function (resultSet) {
     let containingDiv = jqueryObject.closest('.item_space');
     let rowId = containingDiv.attr('rowId');
     let form_def = containingDiv.data('form_def');
+    let new_status = containingDiv.data('new_status');
 
     if (rowId !== null && rowId !== undefined) {
+      localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[rowId]));
+
       Utils.save_value_to_params('rowId', rowId);
       Utils.save_value_to_params('form_def', form_def);
+      Utils.save_value_to_params('status', new_status);
       // Opens the detail view from the file specified in
       // the properties worksheet
       odkTables.openDetailView(null, tableId, rowId, null);
@@ -97,32 +101,45 @@ function appendStandDocItem(row, resultSet) {
 }
 
 function appendTreeItem(row, resultSet, tableId) {
-  let is_mortality = tableId === "mortality";
   // Creates the item space and stores the row ID in it
   let tag = resultSet.getData(row, 'tag');
-  var stand = resultSet.getData(row, 'stand');
-  var plot = resultSet.getData(row, 'plot');
-  var TreeID = resultSet.getData(row, 'TreeID');
-  var species = resultSet.getData(row, 'species');
-  var status = resultSet.getData(row, 'status');
-  let h = `
+  let stand = resultSet.getData(row, 'stand');
+  let plot = resultSet.getData(row, 'plot');
+  let TreeID = resultSet.getData(row, 'TreeID');
+  let species = resultSet.getData(row, 'species');
+  let status = resultSet.getData(row, 'status');
+
+  Utils.get_tree_prev(stand, plot, tag, function(prev) {
+    
+    let is_mortality = tableId === "mortality";
+    if (is_mortality)
+    {
+      species = prev.species;
+      status = 6;
+    }
+    
+    let h = `
     <div class="card">
-      <div class="card-body">
-        <h5>${tag} | <span class="badge badge-primary">${stand}</span> <span class="badge badge-success">${plot}</span></h5>
-        ${(!is_mortality ? `<i>${DataLists.SpeciesList[species]}</i> - ${DataLists.StatusList[status]}` : '')}
-      </div>
+    <div class="card-body">
+    <h5>${tag} | <span class="badge badge-primary">${stand}</span> <span class="badge badge-success">${plot}</span></h5>
+    <i>${DataLists.SpeciesList[species]}</i> - ${DataLists.StatusList[status]}
+    </div>
     </div>
     `;
-  var item = $(h);
-  item.attr('id', resultSet.getRowId(row));
-  item.attr('rowId', resultSet.getRowId(row)); // dont think this is used
-  item.data('tag', tag);
-  item.addClass('item_space');
+    let item = $(h);
+    item.attr('id', resultSet.getRowId(row));
+    item.attr('rowId', resultSet.getRowId(row)); // dont think this is used
+    item.data('tag', tag);
+    item.data('new_status', status);
+    item.addClass('item_space');
+    records[resultSet.getRowId(row)] = prev;
+    
+    if      (is_mortality) item.data('form_def', 'mortality');
+    else if (status === 2) item.data('form_def', 'ingrowth');
+    else                   item.data('form_def', 'remeasure')
+  
+    // Add the item to the list
+    $('.insert-target').append(item);
+  });
 
-  if      (is_mortality) item.data('form_def', 'mortality');
-  else if (status === 2) item.data('form_def', 'ingrowth');
-  else                   item.data('form_def', 'remeasure')
-
-  // Add the item to the list
-  $('.insert-target').append(item);
 }

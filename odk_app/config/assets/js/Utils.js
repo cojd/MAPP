@@ -35,7 +35,31 @@ const Utils = {
     params[key] = value;
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
   },
+  get_tree_prev: function (stand, plot, tag, callback) {
+    var prevSuccess = function (prevResults) {
+      let len = prevResults.getCount();
 
+      let prev = {};
+      if (len > 0) {
+        prev['_id'] = prevResults.getData(0, "_id");
+        prev['TreeID'] = prevResults.getData(0, "TreeID");
+        prev['stand'] = prevResults.getData(0, "StandID");
+        prev['plot'] = prevResults.getData(0, "Plot");
+        prev['tag'] = prevResults.getData(0, "Tag");
+        prev['PrevYear'] = prevResults.getData(0, "PrevYear");
+        prev['species'] = prevResults.getData(0, "Species");
+        prev['status'] = prevResults.getData(0, "PrevStatus");
+        prev['dbh'] = prevResults.getData(0, "PrevDBH");
+        prev['main_stem'] = prevResults.getData(0, "PrevMS");
+        prev['rooting'] = prevResults.getData(0, "PrevRT");
+        prev['lean_angle'] = prevResults.getData(0, "PrevLA");
+        prev['comments'] = prevResults.getData(0, "PrevComments");
+        callback(prev);
+      }
+    }
+
+    odkData.query('prev_data', 'StandID=? AND Plot=? AND Tag=?', [stand, plot, tag], null, null, '_savepoint_timestamp', 'DESC', 1, 0, null, prevSuccess, console.log);
+  },
 }
 
 Object.freeze(Utils);

@@ -15,21 +15,14 @@ $(function () {
   // add options to selects
   Utils.populateSelects();
 
-  if (!params.editing)
-  {
-    // grab prev tree record stored in session variables
-    let prev = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
-    console.log('prev');
-    console.log(prev);
-    populateFormFromPrev(prev); // do stuff with the prev data
-  
-    // set up custom form validation if it was included
-    if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
-  }
-  else populateFormForEdit(function () {
-    // need this in a callback so it happens after we grab prev from the DB, not during (race condition)
-    if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
-  });
+  // grab prev tree record stored in session variables
+  let prev = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
+  console.log('prev');
+  console.log(prev);
+  populateFormFromPrev(prev); // do stuff with the prev data
+
+  // set up custom form validation if it was included
+  if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
 
   // set these for ingrowth since it can't get them from prev
   if ('stand' in params) $('#stand').val(params.stand);
@@ -50,56 +43,6 @@ $(function () {
 ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////// HANDLE FORM VALUE POPULATION
 ///////////////////////////////////////////////////////////
-
-// get both current and previous data for the tree we are editing, create the prepends and replace all other values
-function populateFormForEdit(callback) // callback hell
-{
-  let viewSuccess = function (viewResults) { // 2 - we get the records
-    let stand = viewResults.get('stand');
-    let plot  = viewResults.get('plot');
-    let tag   = viewResults.get('tag');
- 
-    var prevSuccess = function (prevResults) { // 4 - we get the previous data and do things with both it and the current data
-      let len = prevResults.getCount();
-      
-      let prev = {};
-      if (len > 0) {
-        prev['_id']        = prevResults.getData(0, "_id");
-        prev['TreeID']     = prevResults.getData(0, "TreeID");
-        prev['stand']      = prevResults.getData(0, "StandID");
-        prev['plot']       = prevResults.getData(0, "Plot");
-        prev['tag']        = prevResults.getData(0, "Tag");
-        prev['PrevYear']   = prevResults.getData(0, "PrevYear");
-        prev['species']    = prevResults.getData(0, "Species");
-        prev['status']     = prevResults.getData(0, "PrevStatus");
-        prev['dbh']        = prevResults.getData(0, "PrevDBH");
-        prev['main_stem']  = prevResults.getData(0, "PrevMS");
-        prev['rooting']    = prevResults.getData(0, "PrevRT");
-        prev['lean_angle'] = prevResults.getData(0, "PrevLA");
-        prev['comments']   = prevResults.getData(0, "PrevComments");
-      }
-
-      if (len > 1) alert(`Found multiple records for Stand:${stand}, Plot:${plot}, Tag:${tag} when trying to find previous data for that combination. Skipping adding previous data bubbles.`);
-      else         populateFormFromPrev(prev); // add previous data prepends
-      
-      let inputs = $('[data-column_name]');
-      $.each(inputs, function () { // just set the value of each input with column_name set to prev[column_name]
-        let e = $(this);
-        let key = e.data('column_name');
-        let value = viewResults.get(key);
-        if (value !== null && value !== undefined) e.val(value); // replace all input values with the actual values for the record being edited
-      });
-
-      callback();
-    }
-
-    // 3 - now that we have the current data, we query for the previous data for this tree
-    odkData.query('prev_data', 'StandID=? AND Plot=? AND Tag=?', [stand, plot, tag], null, null, '_savepoint_timestamp', 'DESC', 1, 0, null, prevSuccess, console.log);
-  }
-
-  // 1 - we query for the current values of the record we are editing
-  odkData.getViewData(viewSuccess, console.log); // if we get them we go to success, otherwise log the error
-}
 
 // add the previous data to the DOM somehow, where applicable
 function populateFormFromPrev(prev) {  
