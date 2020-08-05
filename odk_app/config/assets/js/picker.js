@@ -30,6 +30,8 @@ $(function () {
   // watch the searchbar for when it changes so we can query the DB
   bindSearchChange(params);
 
+  bindRemeasureOverride(params.stand);
+
   // grab the form and do custom submission logic
   watchForm(params);
 
@@ -55,33 +57,14 @@ function watchForm(params)
       if (Number(params.status) === 6) params.form_def = 'mortality';
       else                             params.form_def = 'remeasure';
       
-      tree_measured(params.stand, params.plot, params.tag, function (results) {
-        if (results.getCount() > 0)
-        {
-          // alert('Tree already measured!');
-          $('#alert_modal').modal('show');
-          $("#remeasure_override_continue").on('click', function(event) {
-            if ($('#remeasure_override_check').is(':checked'))
-            {
-              console.log('params final');
-              console.log(params);
-              localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
-              localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
-              odkTables.launchHTML(null, 'config/assets/html/form.html');
-            }
-            else $('#alert_modal').modal('hide');
-          });
-          return;
-        }
-        console.log('params final');
-        console.log(params);
-        // store it in session variables
-        localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
-        // store the queried tree data in session variables
-        localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
-        
-        odkTables.launchHTML(null, 'config/assets/html/form.html'); // move to the form
-      });
+      console.log('params final');
+      console.log(params);
+      // store it in session variables
+      localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(params));
+      // store the queried tree data in session variables
+      localStorage.setItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS, JSON.stringify(records[plot]));
+      
+      odkTables.launchHTML(null, 'config/assets/html/form.html'); // move to the form
     }
     else f.addClass('was-validated'); // if form was invalid add class to show feedback
   });
@@ -136,6 +119,36 @@ function bindSearchChange(params)
   });
 }
 
+function bindRemeasureOverride(stand)
+{
+  let plot_select = $('#results');
+  
+  // look for when the plot changes so we can check if the [stand, plot, tag] combo exists in the DB
+  plot_select.change(() => {
+    let tag = $('input#tag').val();
+    let plot = plot_select.val();
+
+    if (!isNaN(tag) && !isNaN(plot))
+    {
+      console.log(stand);
+      console.log(plot);
+      console.log(tag);
+      tree_measured(stand, plot, tag, function(results) {
+        if (results.getCount() > 0)
+        {
+          $('#alert_modal').modal('show');
+        }
+      });
+    }
+  });
+
+  // watch for when the "modal_no" button is clicked so we can clear the fields
+  $('#modal_no').click(() => {
+    $('input#tag').val("");
+    $('select#results').val("");
+  });
+}
+
 function queryDB(table, query, params) {
   var failureFn = function (errorMsg) {
     console.log(errorMsg); // puke and die
@@ -182,7 +195,11 @@ function queryDB(table, query, params) {
       
       // if only one result just set the value of the select
       let keys = Object.keys(record_strings);
-      if (keys.length === 1) res_select.val(keys[0]);
+      if (keys.length === 1)
+      {
+        res_select.val(keys[0]);
+        res_select.change(); // fire the change event so bindRemeasureOverride can pick it up (note this only fires the jQuery event; non-jQuery event listeners wont see it)
+      }
     }
   }
 

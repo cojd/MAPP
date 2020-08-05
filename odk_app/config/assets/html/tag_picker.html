@@ -75,20 +75,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Tree Already Measured</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
       <div class="modal-body">
-        <p>This tree has already been recorded. Are you sure you wish to continue?</p>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="remeasure_override_check">
-          <label class="form-check-label" for="remeasure_override_check">Yes, I'd like to remeasure it anyway.</label>
-        </div>
+        <p>This tree has already been recorded. Are you sure you wish to create another record for this tree?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="remeasure_override_continue">Continue</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+        <button type="button" class="btn btn-primary" id="modal_yes" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-secondary" id="modal_no" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
