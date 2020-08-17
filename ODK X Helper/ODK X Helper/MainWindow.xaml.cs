@@ -1,25 +1,27 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
-using System.Collections.Generic;
+// using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
+// using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+// using System.Net.Http;
+// using System.Net.Http.Headers;
+// using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+// using System.Windows.Controls;
+// using System.Windows.Data;
+// using System.Windows.Documents;
+// using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-//using System.Windows.Shapes;
-using System.Xml.Linq;
+// using System.Windows.Media.Imaging;
+// using System.Windows.Navigation;
+// using System.Windows.Shapes;
+// using System.Xml.Linq;
+
+// sorry
 
 namespace ODK_X_Helper
 {
@@ -141,20 +143,21 @@ namespace ODK_X_Helper
         {
             string[] urls = new string[]
             {
-                WebRequest("https://github.com/opendatakit/services/releases/latest", "application/html"),
-                WebRequest("https://github.com/opendatakit/survey/releases/latest", "application/html"),
-                WebRequest("https://github.com/opendatakit/tables/releases/latest", "application/html"),
+                WebRequest("https://github.com/odk-x/services/releases/latest", "application/html"),
+                WebRequest("https://github.com/odk-x/survey/releases/latest", "application/html"),
+                WebRequest("https://github.com/odk-x/tables/releases/latest", "application/html"),
                 WebRequest("https://github.com/openintents/filemanager/releases/latest", "application/html")
             };
 
             WebClient client = new WebClient();
             for (int i = 0; i < 4; i++)
             {
-                string name = "opendatakit";
+                string name = "odk-x";
                 if (i == 3) name = "openintents";
                 string url = "https://github.com" + Regex.Match(urls[i], @"/" + name + @".*\.apk").ToString();
                 string filename = Path.GetFileName(url);
                 string outpath = AppDomain.CurrentDomain.BaseDirectory + @"downloads\";
+                // File.WriteAllText(outpath + name + i + ".html", urls[i]); // uncomment to get files for what it is scraping
                 WriteConsoleOut("Downloading - " + url + " ...\n");
 
                 if (!Directory.Exists(outpath)) Directory.CreateDirectory(outpath);
