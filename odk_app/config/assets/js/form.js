@@ -20,10 +20,13 @@ $(function () {
   console.log('prev');
   console.log(prev);
   populateFormFromPrev(prev); // do stuff with the prev data
-
+  
   // set up custom form validation if it was included
   if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
-
+  
+  // insert the current data from the record if we're editing a record
+  if (params.editing) populateFormForEdit();
+  
   // set these for ingrowth since it can't get them from prev
   if ('stand' in params) $('#stand').val(params.stand);
   if ('plot' in params) $('#plot').val(params.plot);
@@ -65,6 +68,20 @@ function populateFormFromPrev(prev) {
     }
     else if (a === "replace") e.val(value); // if the action is replace then just set the value
   });
+}
+
+function populateFormForEdit()
+{
+  let viewSuccess = function (viewResults) {
+    let inputs = $('[data-column_name]');
+    $.each(inputs, function () { // just set the value of each input with column_name set to prev[column_name]
+      let e = $(this);
+      let key = e.data('column_name');
+      let value = viewResults.get(key);
+      if (value !== null && value !== undefined) e.val(value); // replace all input values with the actual values for the record being edited
+    });
+  }
+  odkData.getViewData(viewSuccess, console.log); // if we get data we go to success, otherwise log the error
 }
 
 ///////////////////////////////////////////////////////////

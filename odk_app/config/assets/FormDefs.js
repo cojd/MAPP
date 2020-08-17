@@ -1542,7 +1542,7 @@ const FORM_DEFS = {
 
 };
 
-Object.freeze(Utils);
+Object.freeze(FORM_DEFS);
 
 const FormTemplates = {
   modal: function (modal_obj) {
