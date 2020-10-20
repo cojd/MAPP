@@ -119,7 +119,7 @@ function appendTreeItem(row, resultSet, tableId) {
     }
     
     let h = `
-    <div class="card">
+    <div class="card ${(status === 2 ? "ingrowth-card" : "")}">
     <div class="card-body">
     <h5>${tag} | <span class="badge badge-primary">${stand}</span> <span class="badge badge-success">${plot}</span></h5>
     <i>${DataLists.SpeciesList[species]}</i> - ${DataLists.StatusList[status]}
@@ -141,5 +141,4 @@ function appendTreeItem(row, resultSet, tableId) {
     // Add the item to the list
     $('.insert-target').append(item);
   });
-
 }

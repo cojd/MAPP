@@ -56,9 +56,15 @@ const Utils = {
         prev['comments'] = prevResults.getData(0, "PrevComments");
         callback(prev);
       }
+      else callback(null);
     }
 
-    odkData.query('prev_data', 'StandID=? AND Plot=? AND Tag=?', [stand, plot, tag], null, null, '_savepoint_timestamp', 'DESC', 1, 0, null, prevSuccess, console.log);
+    var prevFailure = function (err) {
+      console.log(err);
+      callback(null);
+    }
+
+    odkData.query('prev_data', 'StandID=? AND Plot=? AND Tag=?', [stand, plot, tag], null, null, '_savepoint_timestamp', 'DESC', 1, 0, null, prevSuccess, prevFailure);
   },
 }
 

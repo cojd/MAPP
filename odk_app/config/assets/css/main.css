@@ -42,3 +42,8 @@
   right: 2rem;
 }
 
+.card.ingrowth-card .card-body {
+    border-left: green solid 0.25rem;
+    border-radius: .25rem;
+}
+

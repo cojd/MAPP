@@ -19,7 +19,7 @@ $(function () {
   let prev = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
   console.log('prev');
   console.log(prev);
-  populateFormFromPrev(prev); // do stuff with the prev data
+  if (prev !== null) populateFormFromPrev(prev); // do stuff with the prev data
   
   // set up custom form validation if it was included
   if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
@@ -47,10 +47,10 @@ $(function () {
 /////////////////////////////////////////////////////////// HANDLE FORM VALUE POPULATION
 ///////////////////////////////////////////////////////////
 
-// add the previous data to the DOM somehow, where applicable
+// add the previous data to the form somehow, where applicable
 function populateFormFromPrev(prev) {  
   let inputs = $('[data-column_name]');
-  // iterate through each value in prev
+  // iterate through each of the inputs with data-column_name set
   $.each(inputs, function() {
     let e = $(this); // grab the element with column_name=key
     let a = e.data('prev_action');
@@ -74,7 +74,7 @@ function populateFormForEdit()
 {
   let viewSuccess = function (viewResults) {
     let inputs = $('[data-column_name]');
-    $.each(inputs, function () { // just set the value of each input with column_name set to prev[column_name]
+    $.each(inputs, function () { // just set the value of each input with column_name set to its value from the view
       let e = $(this);
       let key = e.data('column_name');
       let value = viewResults.get(key);
