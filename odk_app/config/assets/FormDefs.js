@@ -1102,6 +1102,14 @@ const FORM_DEFS = {
                   options_list: 'StatusList',
                 },
               },
+              {
+                column_name: 'dbh',
+                label: "Previous DBH",
+                html_element: 'input',
+                readonly: true,
+                html_attributes: { type: 'number' },
+                data_attributes: { prev_action: 'replace' },
+              },
             ], // inputs
           },
         ], // sections
