@@ -20,13 +20,13 @@ $(function () {
   console.log('prev');
   console.log(prev);
   if (prev !== null) populateFormFromPrev(prev); // do stuff with the prev data
-  
+
   // set up custom form validation if it was included
   if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
-  
+
   // insert the current data from the record if we're editing a record
   if (params.editing) populateFormForEdit();
-  
+
   // set these for ingrowth since it can't get them from prev
   if ('stand' in params) $('#stand').val(params.stand);
   if ('plot' in params) $('#plot').val(params.plot);
@@ -48,15 +48,15 @@ $(function () {
 ///////////////////////////////////////////////////////////
 
 // add the previous data to the form somehow, where applicable
-function populateFormFromPrev(prev) {  
+function populateFormFromPrev(prev) {
   let inputs = $('[data-column_name]');
   // iterate through each of the inputs with data-column_name set
   $.each(inputs, function() {
     let e = $(this); // grab the element with column_name=key
     let a = e.data('prev_action');
-    
+
     if (!a) return; // continue if it didnt have prev_action set
-    
+
     let key = e.data('column_name');
     let value = prev[key];
     console.log(`populateFormFromPrev: ${key}: ${value}`);
@@ -202,7 +202,7 @@ function buildForm(form, editing) {
   f.append(`<h3 class="mb-0">${fd.header}</h3>`); // append form header
   buildCards(f, fd); // builds and appends cards to form
   // append submit and back buttons
-  f.append(` 
+  f.append(`
     <button type="submit" class="btn btn-primary">${(editing ? 'Update' : 'Submit')}</button>
     <button type="button" onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
   `);
@@ -222,7 +222,12 @@ function watchForm(params) {
     event.stopPropagation();
     let data = formatFormData(f.serializeArray()); // grab the form data and pass it to the formatter
     console.log(data);
-    
+    console.log(data.dbh);
+    //NOTE: previous dbh was only added for viewing
+    // delete previous dbh, so form can be submitted
+    delete data.dbh
+
+
     if (f[0].checkValidity() === false) {
       // if the form is not valid
       f.addClass('was-validated'); // add the class so bootstrap can do its thing
@@ -253,7 +258,7 @@ function createRow(tableId, data) {
   var success = function (result) {
     console.log("SUCCESS!");
     console.log(result);
-    
+
     // reset params and exit window
     let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
     let np = { type: params.type, stand: params.stand, form_def: tableId };
@@ -261,7 +266,7 @@ function createRow(tableId, data) {
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(np))
     odkCommon.closeWindow(0, null);
   }
-  
+
   console.log(tableId);
   odkData.addRow(tableId, data, odkCommon.genUUID(), success, console.log);
 }
@@ -270,7 +275,7 @@ function editRow(tableId, rowId, data) {
   let success = function (result) {
     console.log("SUCCESS!");
     console.log(result);
-    
+
     // reset params and exit window
     let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
     let np = { type: params.type, stand: params.stand, form_def: params.form_def, editing: true };
@@ -278,7 +283,6 @@ function editRow(tableId, rowId, data) {
     localStorage.setItem(Constants.LocalStorageKeys.SELECTION_PARAMS, JSON.stringify(np))
     odkCommon.closeWindow(0, null);
   }
-  
+
   odkData.updateRow(tableId, data, rowId, success, console.log);
 }
-
