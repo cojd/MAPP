@@ -1,8 +1,10 @@
 
 function bindRemeasureValidate(){
-
+  
   // get current params, using params.status for setting required fields
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
+  
+  if (params.form_def === "stand_doc") return; // just bail if we're editing a stand doc
 
   if (params.status != 9){
     setDefaults_remeasure()

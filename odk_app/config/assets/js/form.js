@@ -2,7 +2,7 @@
 $(function () {
   // get params from session variables. (stand, plot, status, etc.)
   let params = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.SELECTION_PARAMS));
-  console.log('params');
+  console.log('params:');
   console.log(params);
 
   if (params.form_def) buildForm(params.form_def, params.editing); // creates form elements based on definitions from FormDefs.js
@@ -15,11 +15,16 @@ $(function () {
   // add options to selects
   Utils.populateSelects();
 
-  // grab prev tree record stored in session variables
-  let prev = JSON.parse(localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS));
-  console.log('prev');
-  console.log(prev);
-  if (prev !== null) populateFormFromPrev(prev); // do stuff with the prev data
+  // grab prev tree record stored in session variables if it exists
+  let ls_prev_string = localStorage.getItem(Constants.LocalStorageKeys.TREE_QUERY_RESULTS);
+  if (ls_prev_string !== "undefined") // why would they do this to us
+  {
+    let prev = JSON.parse(ls_prev_string);
+    console.log('prev:');
+    console.log(prev);
+
+    if (prev !== null) populateFormFromPrev(prev); // do stuff with the prev data
+  }
 
   // set up custom form validation if it was included
   if (typeof bindFormValidation == "function") bindFormValidation(); // function from validate.js
@@ -104,42 +109,57 @@ function buildSections(sections) {
         </div>
       `);
       let elem_html = null;
-      // first check if were adding one of the three supported types
+
+      /////////////////////////////////////////////////
+      // ADDING INPUT ELEMENT
+      /////////////////////////////////////////////////
       if (input.html_element === 'input') {
         elem_html = $(`<input class="form-control" name="${input.column_name}" id="${id}">`);
       }
+      /////////////////////////////////////////////////
+      // ADDING SELECT ELEMENT
+      /////////////////////////////////////////////////
       else if (input.html_element === 'select') {
         let special = input.readonly && !input.disabled;
         let special_suffix = (special ? '-display' : '');
-
+        
         elem_html = $(`
-          <select class="form-control" name="${input.column_name + special_suffix}" id="${id + special_suffix}">
-            <option value="">${(input.default_option ? input.default_option : "Please select an option...")}</option>
-          </select>
+        <select class="form-control" name="${input.column_name + special_suffix}" id="${id + special_suffix}">
+        <option value="">${(input.default_option ? input.default_option : "Please select an option...")}</option>
+        </select>
         `);
         if (special)
         {
           // we have to do it this way since <select> elements don't have proper support for the readonly attribute
           // setting the a select as disabled prevents the user from clicking on the select to change its value
           // however, that also removes it from the form's output when we serialize it later on
-
+          
           // having a disabled select and a hidden input solves this issue
-
+          
           elem_html.attr({ readonly: true, disabled: true });
           let hidden_input = $(`<input type="hidden" name="${input.column_name}" id="${id}" ${(special ? `data-column_name="${input.column_name}"` : '')}>`);
           hidden_input.data('prev_action', input.data_attributes.prev_action); // this prev_action will probably always be replace
           group_html.append(hidden_input);
         }
       }
+      /////////////////////////////////////////////////
+      // ADDING TEXTAREA ELEMENT
+      /////////////////////////////////////////////////
       else if (input.html_element === 'textarea') {
         elem_html = $(`<textarea class="form-control" name="${input.column_name}" id="${id}"></textarea>`);
       }
+      /////////////////////////////////////////////////
+      // ADDING MODAL
+      /////////////////////////////////////////////////
       else if (input.modal === true)
       {
         let mdl = FormTemplates.modal(input);
         final_html.append(mdl);
         continue;
       }
+      /////////////////////////////////////////////////
+      // ADDING THROUGH RAW_HTML
+      /////////////////////////////////////////////////
       else if ('raw_html' in input) // if it wasnt one of those but we have something in raw html
       {
         final_html.append(input.raw_html); // append that
@@ -225,7 +245,7 @@ function watchForm(params) {
     console.log(data.dbh);
     //NOTE: previous dbh was only added for viewing
     // delete previous dbh, so form can be submitted
-    delete data.dbh
+    if (params.form_def && params.form_def == "mortality") delete data.dbh;
 
 
     if (f[0].checkValidity() === false) {

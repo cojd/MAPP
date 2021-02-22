@@ -104,11 +104,11 @@ function bindButtons(params) {
     'click',
     function () {
       Utils.save_value_to_params("editing", true);
-      odkTables.openTableToListView(
+      odkTables.openTableToListViewArbitraryQuery(
         null,
         'stand_doc',
-        query,
-        selection_args,
+        'SELECT * FROM stand_doc WHERE stand=? ORDER BY stand',
+        [params.stand],
         null);
     }
   );
