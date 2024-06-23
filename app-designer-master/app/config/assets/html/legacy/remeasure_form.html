@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link href="css/main.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="commonDefinitions.js"></script>
+  <script type="text/javascript" src="libs/jquery-3.4.1.js"></script>
+  <script type="text/javascript" src="libs/jquery-migrate-3.0.0.js"></script>
+  <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../system/js/odkCommon.js"></script>
+  <script type="text/javascript" src="../../system/js/odkData.js"></script>
+  <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
+  <script type="text/javascript" src="js/Utils.js"></script>
+  <script type="text/javascript" src="js/form.js"></script>
+  <!-- Most likely change structure later -->
+  <script type="text/javascript" src="js/validate.js"></script>
+  <script type="text/javascript" src="js/remeasureValidate.js"></script>
+  <script type="text/javascript" src="js/ingrowthValidate.js"></script>  <!-- not being used -->
+  <script type="text/javascript" src="js/mortalityValidate.js"></script>
+  <!--          CHANGE       -->
+  <script type="text/javascript" src="StaticData.js"></script>
+</head>
+
+<body id="main">
+
+  <div class="container">
+    <form data-table="measure" novalidate> <!-- id here is measure since ingrowth and reameasure forms share a table -->
+
+      <h3 class="mb-0">Remeasure Form</h3>
+
+      <div class="card" id="card-tree-info">
+        <div class="card-header">Tree info</div>
+        <div class="card-body">
+
+          <div class="form-row">
+
+            <div class="form-group col-3">
+              <label for="TreeID">TreeID</label>
+              <input class="form-control" name="TreeID" id="TreeID" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-3">
+              <label for="stand">Stand</label>
+              <input class="form-control" name="stand" id="stand" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-3">
+              <label for="plot">Plot</label>
+              <input type="number" class="form-control" name="plot" id="plot" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-3">
+              <label for="tag">Tag</label>
+              <input type="number" class="form-control" name="tag" id="tag" data-prev-action="replace" readonly>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="species">Species</label>
+            <select class="form-control" name="species" id="display_species" data-prev-action="replace" data-options-list="SpeciesList" readonly disabled>
+              <option value="">No previous value...</option>
+            </select>
+            <input type="hidden" name="species" id="species" data-prev-action="replace"> <!--this is where the value for species is actually read. need to set prev-action since prev sets the value -->
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-6">
+              <label for="status">Previous Status</label>
+              <select class="form-control" name="status" id="prev_status" data-prev-action="replace" data-options-list="StatusList" readonly disabled>
+                <option value="">No previous value...</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label for="status">New Status</label>
+              <select class="form-control" name="status" id="display_status" data-options-list="StatusList" readonly disabled>
+                <option value="">Failed to load status...</option>
+              </select>
+              <input type="hidden" name="status" id="status"> <!--this is where the value for status is actually read from when submitting, check form.js for more-->
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="comment_custom_previous">Previous comments</label>
+            <textarea class="form-control" name="comments" id="comments" rows="3" data-prev-action="replace" readonly disabled></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card" id="card-details">
+        <div class="card-header">Details</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="dbh">DBH (cm)</label>
+            <input type="number" class="form-control" name="dbh" id="dbh_r" data-prev-action="prepend" step=".1">
+          </div>
+          <!-- Option1 (if dbhVal < 5) -->
+          <div class="modal fade" id="dbh_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op1_Label_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dbh_check_op1_Label_r">DBH Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Dbh is less than previous - is that correct?</p>
+                  <button type="button" id="yes_dbh_op1_r" class="btn btn-primary">Yes</button>
+                  <button type="button" id="no_dbh_op1_r" class="btn btn-danger">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option2 (if dbhVal > 10) -->
+          <div class="modal fade" id="dbh_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dbh_check_op2_Label_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dbh_check_op2_Label_r">DBH Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Dbh increased > 5 cm - is that correct?</p>
+                  <button type="button" id="yes_dbh_op2_r" class="btn btn-primary">Yes</button>
+                  <button type="button" id="no_dbh_op2_r" class="btn btn-danger">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="overall_vigor">Overall vigor (OV)</label>
+            <select class="form-control" name="overall_vigor" id="overall_vigor_r" data-options-list="TreeVigorList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="main_stem">Main stem (MS)</label>
+            <select class="form-control" name="main_stem" id="main_stem_r" data-prev-action="prepend" data-options-list="MainStemList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rooting">Rooting</label>
+            <select class="form-control" name="rooting" id="rooting_r" data-prev-action="prepend" data-options-list="RootingList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lean_angle">Lean angle (deg)</label>
+            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle_r" data-prev-action="prepend" min="0" max="120">
+            <div class="invalid-feedback">Lean angle must be within the range 0-120.</div>
+          </div>
+          <!-- Lean Angle Check Modal (must be in range 0 to 120) -->
+          <div class="modal fade" id="lean_angl_check_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="lean_angl_Label_r">Lean Angle Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Lean angle must be within the range 0-120.</p>
+                  <button type="button" id="ok_lean_angl_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="crown_percentage">Crown percentage</label>
+            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_r" min="0" max="100">
+            <div class="invalid-feedback">Crown percentage must be within the range 0-100.</div>
+          </div>
+          <!-- Option 1  (mainStemVal == 2 && crownPrctVal == 100) -->
+          <div class="modal fade" id="crwn_pct_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op1_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="crwn_pct_Label_op1_r">Crown Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>If main stem is 2 then crown % must be < 100%.</p>
+                  <button type="button" id="ok_crwn_pct_op1_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2  (must be in range 0 to 100) -->
+          <div class="modal fade" id="crwn_pct_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op2_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="crwn_pct_Label_op2_r">Crown Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Crown percentage must be within the range 0-100.</p>
+                  <button type="button" id="ok_crwn_pct_op2_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tree_percentage">Tree percentage</label>
+            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_r" min="0" max="100">
+            <div class="invalid-feedback">Tree percentage must be within the range 0-100.</div>
+          </div>
+          <!-- Option 1  (treePctVal < crownPctVal) -->
+          <div class="modal fade" id="tree_pct_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op1_r">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree % cannot be less then crown %.</p>
+                  <button type="button" id="ok_tree_pct_op1_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2  (treePctVal === 100 && mainStemVal === 2) -->
+          <div class="modal fade" id="tree_pct_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op2_r">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree % cannot be less than 100% if Main_Stem=2 (broken).</p>
+                  <button type="button" id="ok_tree_pct_op2_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 3 (treePctVal < 100 && mainStemVal === 1) -->
+          <div class="modal fade" id="tree_pct_check_op3_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op3_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op3_r">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>If tree % < 100 then Main_Stem must be 2 or 3 (broken).</p>
+                  <button type="button" id="ok_tree_pct_op3_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 4 (treePctVal < 0 || treePctVal > 100) -->
+          <div class="modal fade" id="tree_pct_check_op4_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op4_r" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op4_r">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree percentage must be within the range 0-100.</p>
+                  <button type="button" id="ok_tree_pct_op4_r" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="accordion" id="mapping">
+        <div class="card" id="card-mapping">
+          <div class="card-header" id="mapping-header">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#mapping-collapse" aria-expanded="false" aria-controls="mapping-collapse">
+                Mapping
+              </button>
+            </h2>
+          </div>
+
+          <div id="mapping-collapse" class="collapse" aria-labelledby="mapping-header" data-parent="#mapping">
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="from_tag">From (tag)</label>
+                <input type="number" class="form-control" name="from_tag" id="from_tag_r">
+              </div>
+              <!-- From Check  -->
+              <div class="modal fade" id="from_check_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="from_check_Label_r" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="from_check_Label_r">From Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Tree does not exist.</p>
+                      <button type="button" id="ok_from_check_r" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="distance">Distance (m)</label>
+                <input type="number" step="0.01" class="form-control" name="distance" id="distance_r" min="0.1" max="25.0">
+                <div class="invalid-feedback">Distance must be within the range 0.1-25.0</div>
+              </div>
+              <!-- Distance Option 1  (distanceVal < 0.1 || distanceVal > 25.0) -->
+              <div class="modal fade" id="distance_check_op1_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="distance_check_Label_op1_r" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="distance_check_Label_op1_r">Distance Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Distance must be within the range 0.1-25.0</p>
+                      <button type="button" id="ok_distance_check_op1_r" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Distance Option 2 (distanceVal > 10) -->
+              <div class="modal fade" id="distance_check_op2_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="distance_check_Label_op2_r" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="distance_check_Label_op1_r">Distance Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Distance > 10m? Check entry or choose a closer tree.</p>
+                      <button type="button" id="ok_distance_check_op2_r" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="azimuth">Azimuth</label>
+                <input type="number" class="form-control" name="azimuth" id="azimuth_r" min="0" max="360">
+                <div class="invalid-feedback">Azimuth must be within the range 0-360</div>
+              </div>
+              <!-- Azimuth Check Modal-->
+              <div class="modal fade" id="azimuth_check_r" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="azimuth_check_Label_r" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="azimuth_check_Label_r">Azimuth Check</h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>Azimuth must be within the range 0 and 360.</p>
+                      <button type="button" id="ok_azimuth_check_r" class="btn btn-primary">Ok</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="card" id="card-comments">
+        <div class="card-header">Comments</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="comment_1">Comment 1</label>
+            <select class="form-control" name="comment_1" id="comment_1" data-options-list="CommentList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment_2">Comment 2</label>
+            <select class="form-control" name="comment_2" id="comment_2" data-options-list="CommentList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment_3">Comment 3</label>
+            <select class="form-control" name="comment_3" id="comment_3" data-options-list="CommentList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment_custom">Custom comment</label>
+            <textarea class="form-control" name="comment_custom" id="comment_custom" rows="3"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
+      <!-- <button onClick="window.history.back()" class="btn btn-danger">Cancel</button> -->
+      <!-- <a class="btn btn-danger" href="./index.html" role="button">Cancel</a> -->
+    </form>
+  </div>
+
+</body>
+
+</html>

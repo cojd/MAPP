@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../assets/libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../../assets/css/main.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../assets/commonDefinitions.js"></script>
+    <script type="text/javascript" src="../tableSpecificDefinitions.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/jquery-migrate-3.0.0.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkCommon.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkData.js"></script>
+    <script type="text/javascript" src="../../../../system/tables/js/odkTables.js"></script>
+    <script type="text/javascript" src="../../../assets/js/Utils.js"></script>
+    <script type="text/javascript" src="../../../assets/js/record_detail.js"></script>
+    <script type="text/javascript" src="../../../assets/StaticData.js"></script>
+</head>
+
+<body id="main">
+
+    <div class="container">
+        <form data-table="stand_doc" novalidate>
+
+            <h3 class="mb-0">Stand Documentation Form</h3>
+
+            <div class="card" id="card-tree-info">
+                <div class="card-header">Stand info</div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label for="stand">Stand</label>
+                        <input class="form-control" name="stand" id="stand" data-prev-action="replace" data-column-name="stand" readonly disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="update_directions">Update directions</label>
+                        <textarea class="form-control" name="update_directions" id="update_directions" data-column-name="update_directions" rows="3" readonly disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="disturbance">Disturbance</label>
+                        <textarea class="form-control" name="disturbance" id="disturbance" data-column-name="disturbance" rows="3" readonly disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="plot_posts">Plot posts</label>
+                        <textarea class="form-control" name="plot_posts" id="plot_posts" data-column-name="plot_posts" rows="3" readonly disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="hours_worked">Hours worked</label>
+                        <textarea class="form-control" name="hours_worked" id="hours_worked" data-column-name="hours_worked" rows="3" readonly disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="est_ingrowth">Estimated ingrowth</label>
+                        <textarea class="form-control" name="est_ingrowth" id="est_ingrowth" data-column-name="est_ingrowth" rows="3" readonly disabled></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
+            <!-- <button onClick="window.history.back()" class="btn btn-danger">Cancel</button> -->
+            <!-- <a class="btn btn-danger" href="./index.html" role="button">Cancel</a> -->
+        </form>
+    </div>
+
+</body>
+
+</html>

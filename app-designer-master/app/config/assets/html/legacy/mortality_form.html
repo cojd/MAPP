@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link href="css/main.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="commonDefinitions.js"></script>
+  <script type="text/javascript" src="libs/jquery-3.4.1.js"></script>
+  <script type="text/javascript" src="libs/jquery-migrate-3.0.0.js"></script>
+  <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../system/js/odkCommon.js"></script>
+  <script type="text/javascript" src="../../system/js/odkData.js"></script>
+  <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
+  <script type="text/javascript" src="js/Utils.js"></script>
+  <script type="text/javascript" src="js/form.js"></script>
+  <script type="text/javascript" src="js/validate.js"></script>
+  <script type="text/javascript" src="js/ingrowthValidate.js"></script>
+  <script type="text/javascript" src="js/remeasureValidate.js"></script>
+  <script type="text/javascript" src="js/mortalityValidate.js"></script>
+  <script type="text/javascript" src="StaticData.js"></script>
+</head>
+
+<body id="main">
+
+  <div class="container">
+    <form data-table="mortality" novalidate>
+
+      <h3 class="mb-0">Mortality Form</h3>
+
+      <div class="card" id="card-tree-info">
+        <div class="card-header">Tree Info</div>
+        <div class="card-body">
+
+          <div class="form-row">
+
+            <div class="form-group col-3">
+              <label for="TreeID">TreeID</label>
+              <input class="form-control" name="TreeID" id="TreeID" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-3">
+              <label for="stand">Stand</label>
+              <input class="form-control" name="stand" id="stand" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-3">
+              <label for="plot">Plot</label>
+              <input type="number" class="form-control" name="plot" id="plot" data-prev-action="replace" readonly>
+            </div>
+            <div class="form-group col-3">
+              <label for="tag">Tag</label>
+              <input type="number" class="form-control" name="tag" id="tag" data-prev-action="replace" readonly>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-8">
+              <label for="species">Species</label>
+              <select class="form-control" name="species" id="species" data-prev-action="replace" data-options-list="SpeciesList" readonly disabled>
+                <option value="">No previous value...</option>
+              </select>
+            </div>
+            <div class="form-group col-4">
+              <label for="status">Previous Status</label>
+              <select class="form-control" name="status" id="status" data-prev-action="replace" data-options-list="StatusList" readonly disabled>
+                <option value="">No previous value...</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card" id="card-details">
+        <div class="card-header">Details</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="main_stem_m">Main stem (MS)</label>
+            <select class="form-control" name="main_stem" id="main_stem_m" data-prev-action="prepend" data-options-list="MainStemList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rooting_m">Rooting</label>
+            <select class="form-control" name="rooting" id="rooting_m" data-prev-action="prepend" data-options-list="RootingList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lean_angle_m">Lean angle (deg)</label>
+            <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle_m" data-prev-action="prepend" min="0" max="120">
+            <div class="invalid-feedback">Lean angle must be within the range 0-120.</div>
+          </div>
+          <!-- Option 1 (must be in range 0 to 120) -->
+          <div class="modal fade" id="lean_angl_check_op1_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_op1_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="lean_angl_Label_op1_m">Lean Angle Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Lean angle must be within the range 0-120.</p>
+                  <button type="button" id="ok_lean_angl_op1_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2 warning (leanAnglVal > 100)-->
+          <div class="modal fade" id="lean_angl_check_op2_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="lean_angl_Label_op2_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="lean_angl_Label_op2_m">Lean Angle Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Lean angle > 100 deg - check it again.</p>
+                  <button type="button" id="ok_lean_angl_op2_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="crown_percentage_m">Crown percentage</label>
+            <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage_m" min="0" max="100">
+              <div class="invalid-feedback">Lean angle must be within the range 0-100.</div>
+          </div>
+          <!-- Option 1 (mainStemVal == 2 && crownPrctVal == 100) -->
+          <div class="modal fade" id="crwn_pct_check_op1_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op1_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="crwn_pct_Label_op1_m">Crown Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>If main stem is 2 then crown % must be < 100%.</p>
+                  <button type="button" id="ok_crwn_pct_op1_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2  (must be in range 0 to 100) -->
+          <div class="modal fade" id="crwn_pct_check_op2_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="crwn_pct_Label_op2_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="crwn_pct_Label_op2_m">Crown Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Crown percentage must be within the range 0-100.</p>
+                  <button type="button" id="ok_crwn_pct_op2_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tree_percentage_m">Tree percentage</label>
+            <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage_m" min="0" max="100">
+            <div class="invalid-feedback">Tree percentage must be within the range 0-100.</div>
+          </div>
+          <!-- Option 1  (treePctVal < crownPctVal) -->
+          <div class="modal fade" id="tree_pct_check_op1_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op1_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op1_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree % cannot be less then crown %.</p>
+                  <button type="button" id="ok_tree_pct_op1_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 2  (treePctVal === 100 && mainStemVal === 2) -->
+          <div class="modal fade" id="tree_pct_check_op2_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op2_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op2_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree % cannot be less than 100% if Main_Stem=2 (broken).</p>
+                  <button type="button" id="ok_tree_pct_op2_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 3 (treePctVal < 100 && mainStemVal === 1) -->
+          <div class="modal fade" id="tree_pct_check_op3_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op3_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op3_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>If tree % < 100 then Main_Stem must be 2 or 3 (broken).</p>
+                  <button type="button" id="ok_tree_pct_op3_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Option 4 (treePctVal < 0 || treePctVal > 100) -->
+          <div class="modal fade" id="tree_pct_check_op4_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tree_pct_Label_op4_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tree_pct_Label_op4_m">Tree Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Tree percentage must be within the range 0-100.</p>
+                  <button type="button" id="ok_tree_pct_op4_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ground_percentage_m">Ground percentage</label>
+            <input type="number" step="0.01" class="form-control" name="ground_percentage" id="ground_percentage_m" min="-1" max="100">
+            <div class="invalid-feedback">Ground percentage must be within the range -1 - 100.</div>
+          </div>
+          <!-- Ground Percentage Check -->
+          <div class="modal fade" id="ground_pct_check_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ground_pct_Label_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ground_pct_Label_m">Ground Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Ground percentage must be within the range -1 - 100.</p>
+                  <button type="button" id="ok_ground_pct_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="support_percentage_m">Support percentage</label>
+            <input type="number" step="0.01" class="form-control" name="support_percentage" id="support_percentage_m" min="-1" max="100">
+            <div class="invalid-feedback">Support percentage must be within the range -1 - 100.</div>
+          </div>
+          <!-- Support Percentage Check -->
+          <div class="modal fade" id="support_pct_check_m" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="support_pct_Label_m" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="support_pct_Label_m">Ground Percentage Check</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Support percentage must be within the range -1 - 100.</p>
+                  <button type="button" id="ok_support_pct_m" class="btn btn-primary">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card" id="card-conditions">
+        <div class="card-header">Conditions</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="condition_1">Condition 1</label>
+            <select class="form-control" name="condition_1" id="condition_1" data-options-list="ConditionList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="condition_2">Condition 2</label>
+            <select class="form-control" name="condition_2" id="condition_2" data-options-list="ConditionList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="condition_3">Condition 3</label>
+            <select class="form-control" name="condition_3" id="condition_3" data-options-list="ConditionList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="condition_4">Condition 4</label>
+            <select class="form-control" name="condition_4" id="condition_4" data-options-list="ConditionList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card" id="card-proximate-predisposing">
+        <div class="card-header">Proximate/Predisposing</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="proximate">Proximate</label>
+            <select class="form-control" name="proximate" id="proximate" data-options-list="ProximatePredisposingList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="predisposing">Predisposing</label>
+            <select class="form-control" name="predisposing" id="predisposing" data-options-list="ProximatePredisposingList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="accordion" id="comments-previous">
+        <div class="card" id="card-comments-previous">
+          <div class="card-header" id="comments-previous-header">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#comments-previous-collapse"
+                aria-expanded="false" aria-controls="comments-previous-collapse">
+                Previous Comments
+              </button>
+            </h2>
+          </div>
+
+          <div id="comments-previous-collapse" class="collapse" aria-labelledby="comments-previous-header" data-parent="#comments-previous">
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="comment_custom_previous">Previous comments</label>
+                <textarea class="form-control" name="comments" id="comments" rows="3" data-prev-action="replace" readonly disabled></textarea>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card" id="card-mortality-comments">
+        <div class="card-header">Mortality Comments</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label for="mortality_comment_1">Comment 1</label>
+            <select class="form-control" name="comment_1" id="mortality_comment_1" data-options-list="MortalityCommentList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mortality_comment_2">Comment 2</label>
+            <select class="form-control" name="comment_2" id="mortality_comment_2" data-options-list="MortalityCommentList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mortality_comment_3">Comment 3</label>
+            <select class="form-control" name="comment_3" id="mortality_comment_3" data-options-list="MortalityCommentList">
+              <option value="">Please select an option...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mortality_comment_custom">Custom comment</label>
+            <textarea class="form-control" name="comment_custom" id="mortality_comment_custom" rows="3"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button onClick="odkCommon.closeWindow(0, null)" class="btn btn-danger">Back</button>
+      <!-- <button onClick="window.history.back()" class="btn btn-danger">Cancel</button> -->
+      <!-- <a class="btn btn-danger" href="./index.html" role="button">Cancel</a> -->
+    </form>
+  </div>
+
+</body>
+
+</html>

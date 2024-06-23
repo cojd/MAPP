@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=us-ascii">
+<!-- <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link  rel='stylesheet' type='text/css'href='css/animate.css' />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="../app/system/libs/jquery-3.6.0.js"></script>
+<!--<script type="text/javascript" src="../app/system/libs/jquery-migrate-3.3.2.js"></script>-->
+  <script type="text/javascript" src="../app/system/js/odkCommon.js"></script>
+  <script type="text/javascript" src="../app/system/js/odkData.js"></script>
+  <script type="text/javascript" src="../app/system/survey/js/odkSurvey.js"></script>
+  <script src="/node_modules/@sqlite.org/sqlite-wasm/sqlite-wasm/jswasm/sqlite3.js"></script>
+  <script type="text/javascript"> 
+//<![CDATA[
+	
+  var pageStack = [];
+  function resizeIframe(value) {
+        var parts = value.substring(1).split('x');
+        var $el = $('#previewscreen');
+        $el.width(parseInt(parts[0]));
+		var internalHeight = parseInt(parts[1])+1;
+        $el.height(internalHeight); // we somehow lose a pixel?  
+        var cw = document.getElementById('previewscreen').contentWindow;
+		var $bland = $('#blandviewport');
+        var top = $bland.offset().top;
+		var internalHeight = top + 20 + internalHeight + 40 + 30;
+		if ( internalHeight < 1600 ) {
+			internalHeight = 1600;
+		}
+		$bland.height(internalHeight-$bland.offset().top-20-40-30);
+		parent.autoResize(internalHeight);
+        cw.location.reload();
+  }
+  function pushPageAndOpen(value) {
+        var ps = document.getElementById('previewscreen');
+		var parent = ps.parentNode;
+		ps.id = 'previewscreen-' + pageStack.length;
+		pageStack.push(ps.contentWindow.odkSurvey.refId);
+		ps.style.display = 'none';
+		var newIframe = document.createElement('iframe');
+		newIframe.className = 'resizeablescreen';
+		newIframe.setAttribute('name', 'screen');
+		newIframe.id = 'previewscreen';
+		newIframe.src = value;
+		parent.appendChild(newIframe);
+  }
+  function closeAndPopPage() {
+		// this should remove the current iframe and raise the prior one to the foreground
+		if ( pageStack.length > 0 ) {
+			var priorRefId = pageStack.pop();
+			var priorIframe = document.getElementById('previewscreen-' + pageStack.length);
+			var ps = document.getElementById('previewscreen');
+			var parent = ps.parentNode;
+			priorIframe.style.display = 'block';
+			parent.removeChild(ps);
+			priorIframe.id = 'previewscreen';
+			priorIframe.contentWindow.odkSurvey.refId = priorRefId;
+			priorIframe.contentWindow.redrawHook();
+		}
+  }
+
+  function formatBytes(bytes, decimals = 2) {
+	if (bytes === 0) return '0 Bytes';
+
+	const k = 1024;
+	const dm = decimals < 0 ? 0 : decimals;
+	const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+	const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+	return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  }
+
+  function purge() {
+	globalThis.sqlite3InitModule({
+		print: console.log,
+		printErr: console.error
+	}).then(function(sqlite3){
+		const capi = sqlite3.capi; /*C-style API*/
+		const oo = sqlite3.oo1; /*high-level OO API*/;
+		console.log(`sqlite3 version: ${capi.sqlite3_libversion()}`);
+		const bytesBefore = capi.sqlite3_js_kvvfs_size(which='');
+		capi.sqlite3_js_kvvfs_clear(which='');
+		const bytesAfter = capi.sqlite3_js_kvvfs_size(which='');
+		if (bytesAfter > 1) {
+			console.error("Unable to remove database from localStorage - bytes remaining:", bytesAfter); 
+		} else {
+			alert(`Database has been reset. ${formatBytes(bytesBefore)} of memory has been released.`);
+		}
+	});  
+  }
+
+  function backbutton() {
+        var cw = document.getElementById('previewscreen').contentWindow;
+        cw.history.back();
+  }
+  //]]>   
+  </script>
+  <title>OpenDataKit Common Javascript Framework Launcher</title>
+</head>
+
+<body class="fullembedded" onresize="resizeIframe($('#screenchoice').val())" onload="resizeIframe('w480x854')">
+  <noscript>This page requires javascript and a Chrome or WebKit browser</noscript>
+	<div class="flowleft">
+	  <div>
+	  <p class="pb">ODK Survey Framework Page</p>
+	  </div>
+	</div>
+	<div class="flowright">
+	  <div>
+	  <p class="pb">Device Dimension</p>
+	  <select id="screenchoice" name="size" onchange="resizeIframe(this.value)">
+		<option id="w480x854" value="w480x854" selected><label for="w480x854">480 x 854 pixels (Droid)</label></option>
+		<option id="w480x800" value="w480x800" ><label for="w480x800">480 x 800 pixels (Nexus S, Nexus One)</label></option>
+		<option id="w720x1280" value="w720x1280" ><label for="w720x1280">720 x 1280 pixels (Galaxy Nexus)</label></option>
+		<option  id="w768x1280" value="w768x1280" ><label for="w768x1280">768 x 1280 pixels (Nexus 4)</label></option>
+		<option id="w800x1280" value="w800x1280" ><label for="w800x1280">800 x 1280 pixels (Nexus 7)</label></option>
+		<option id="w1024x600" value="w1024x600" ><label for="w1024x600">1024 x 600 pixels (7" Tablet)</label></option>
+		<option id="w1280x800" value="w1280x800" ><label for="w1280x800">1280 x 800 pixels (10.1" Tablet)</label></option>
+		<option id="w2560x1600" value="w2560x1600" ><label for="w2560x1600">2560 x 1600 pixels (Nexus 10)</label></option>
+	  </select>
+	  </div>
+	</div>
+	<div class="flowcenter">
+	  <button class="pbutton" name="purge" id="purge" onclick="purge()" type="button">Purge Database</button>
+	</div>
+	<div class="flowcancel">
+	  <p style="color:blue;">NOTE: vertical scrollbars incorrectly shrink the visible
+	width<br/>w.r.t. the behavior on an Android device</p>
+
+	  <div id="blandviewport" class="bland">
+		<div class="backviewport">
+		  <iframe class="resizeablescreen" id="previewscreen" src="../app/system/index.html?" name="screen" />
+		</div>
+	  </div>
+	</div>
+  </div>
+</body>
+</html>

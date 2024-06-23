@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../assets/libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../../assets/css/main.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../assets/commonDefinitions.js"></script>
+    <script type="text/javascript" src="../tableSpecificDefinitions.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/jquery-migrate-3.0.0.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkCommon.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkData.js"></script>
+    <script type="text/javascript" src="../../../../system/tables/js/odkTables.js"></script>
+    <script type="text/javascript" src="../../../assets/js/Utils.js"></script>
+    <script type="text/javascript" src="../../../assets/js/record_detail.js"></script>
+    <script type="text/javascript" src="../../../assets/StaticData.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card" id="card-tree-info">
+            <div class="card-header">Tree info</div>
+            <div class="card-body">
+
+                <div class="form-row">
+
+                    <div class="form-group col-4">
+                        <label for="stand">Stand</label>
+                        <input class="form-control" name="stand" id="stand" data-prev-action="replace" data-column-name="stand" readonly disabled>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="plot">Plot</label>
+                        <input type="number" class="form-control" name="plot" id="plot" data-prev-action="replace" data-column-name="plot" readonly disabled>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="tag">Tag</label>
+                        <input type="number" class="form-control" name="tag" id="tag" data-column-name="tag" readonly disabled>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card" id="card-details">
+            <div class="card-header">Details</div>
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="species">Species</label>
+                    <select class="form-control" name="species" id="species" data-options-list="SpeciesList" data-column-name="species" readonly disabled>
+                        <option value="">Please select a species...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dbh">DBH (cm)</label>
+                    <input type="number" class="form-control" name="dbh" id="dbh" data-column-name="dbh" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" name="status" id="status" data-options-list="StatusList" data-column-name="status" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="canopy_class">Canopy class</label>
+                    <select class="form-control" name="canopy_class" id="canopy_class" data-options-list="CanopyClassList" data-column-name="canopy_class" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="crown_ratio">Crown ratio (%)</label>
+                    <input type="number" step="0.01" class="form-control" name="crown_ratio" id="crown_ratio" max="100" min="1" data-column-name="crown_ratio" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="overall_vigor">Overall vigor (OV)</label>
+                    <select class="form-control" name="overall_vigor" id="overall_vigor" data-options-list="TreeVigorList" data-column-name="overall_vigor" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="main_stem">Main stem (MS)</label>
+                    <select class="form-control" name="main_stem" id="main_stem" data-options-list="MainStemList" data-column-name="main_stem" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rooting">Rooting</label>
+                    <select class="form-control" name="rooting" id="rooting" data-options-list="RootingList" data-column-name="rooting" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lean_angle">Lean angle (deg)</label>
+                    <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle" min="0" max="120" data-column-name="lean_angle" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="crown_percentage">Crown percentage</label>
+                    <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage" min="0" max="100" data-column-name="crown_percentage" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="tree_percentage">Tree percentage</label>
+                    <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage" min="0" max="100" data-column-name="tree_percentage" readonly disabled>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="accordion" id="mapping">
+            <div class="card" id="card-mapping">
+                <div class="card-header" id="mapping-header">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#mapping-collapse" aria-expanded="false" aria-controls="mapping-collapse">
+                            Mapping
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="mapping-collapse" class="collapse show" aria-labelledby="mapping-header" data-parent="#mapping">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="from_tag">From (tag)</label>
+                            <input type="number" class="form-control" name="from_tag" id="from_tag" data-column-name="from_tag" readonly disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="distance">Distance (m)</label>
+                            <input type="number" step="0.01" class="form-control" name="distance" id="distance" min="0.1" max="25.0" data-column-name="distance" readonly disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="azimuth">Azimuth</label>
+                            <input type="number" class="form-control" name="azimuth" id="azimuth" min="0" max="360" data-column-name="azimuth" readonly disabled>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card" id="card-comments">
+            <div class="card-header">Comments</div>
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="comment_1">Comment 1</label>
+                    <select class="form-control" name="comment_1" id="comment_1" data-options-list="CommentList" data-column-name="comment_1" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment_2">Comment 2</label>
+                    <select class="form-control" name="comment_2" id="comment_2" data-options-list="CommentList" data-column-name="comment_2" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment_3">Comment 3</label>
+                    <select class="form-control" name="comment_3" id="comment_3" data-options-list="CommentList" data-column-name="comment_3" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment_custom">Custom comment</label>
+                    <textarea class="form-control" name="comment_custom" id="comment_custom" rows="3" data-column-name="comment_custom" readonly disabled></textarea>
+                </div>
+
+            </div>
+        </div>
+            
+    </div>
+
+</body>
+
+</html>

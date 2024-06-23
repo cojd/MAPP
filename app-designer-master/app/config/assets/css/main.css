@@ -1,0 +1,49 @@
+.card {
+  margin-bottom: 1rem;
+}
+
+.btn-row {
+  margin-bottom: 0.5rem;
+}
+
+#search, #tree-result {
+  margin-bottom: 0.5rem;
+}
+
+.card-img-overlay {
+  background-color: #0006;
+}
+
+.content {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-body-container {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.index-img-card .card-title {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.index-img-card .card-text {
+  font-style: italic;
+}
+
+.index-img-card button {
+  position: absolute;
+  background-color: transparent;
+  border-color: #fff;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.card.ingrowth-card .card-body {
+    border-left: green solid 0.25rem;
+    border-radius: .25rem;
+}
+

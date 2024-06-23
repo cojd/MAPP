@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../assets/libs/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../../assets/css/main.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../assets/commonDefinitions.js"></script>
+    <script type="text/javascript" src="../tableSpecificDefinitions.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/jquery-migrate-3.0.0.js"></script>
+    <script type="text/javascript" src="../../../assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkCommon.js"></script>
+    <script type="text/javascript" src="../../../../system/js/odkData.js"></script>
+    <script type="text/javascript" src="../../../../system/tables/js/odkTables.js"></script>
+    <script type="text/javascript" src="../../../assets/js/Utils.js"></script>
+    <script type="text/javascript" src="../../../assets/js/record_detail.js"></script>
+    <script type="text/javascript" src="../../../assets/StaticData.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card" id="card-tree-info">
+            <div class="card-header">Tree info</div>
+            <div class="card-body">
+        
+                <div class="form-group">
+                    <label for="TreeID">TreeID</label>
+                    <input class="form-control" name="TreeID" id="TreeID" data-column-name="TreeID" readonly disabled>
+                </div>
+        
+                <div class="form-row">
+        
+                    <div class="form-group col-4">
+                        <label for="stand">Stand</label>
+                        <input class="form-control" name="stand" id="stand" data-column-name="stand" readonly disabled>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="plot">Plot</label>
+                        <input type="number" class="form-control" name="plot" id="plot" data-column-name="plot" readonly disabled>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="tag">Tag</label>
+                        <input type="number" class="form-control" name="tag" id="tag" data-column-name="tag" readonly disabled>
+                    </div>
+        
+                </div>
+        
+            </div>
+        </div>
+        
+        <div class="card" id="card-details">
+            <div class="card-header">Details</div>
+            <div class="card-body">
+        
+                <div class="form-group">
+                    <label for="main_stem">Main stem (MS)</label>
+                    <select class="form-control" name="main_stem" id="main_stem" data-options-list="MainStemList" data-column-name="main_stem" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rooting">Rooting</label>
+                    <select class="form-control" name="rooting" id="rooting" data-options-list="RootingList" data-column-name="rooting" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lean_angle">Lean angle (deg)</label>
+                    <input type="number" step="0.01" class="form-control" name="lean_angle" id="lean_angle" data-column-name="lean_angle" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="crown_percentage">Crown percentage</label>
+                    <input type="number" step="0.01" class="form-control" name="crown_percentage" id="crown_percentage" data-column-name="crown_percentage" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="tree_percentage">Tree percentage</label>
+                    <input type="number" step="0.01" class="form-control" name="tree_percentage" id="tree_percentage" data-column-name="tree_percentage" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="ground_percentage">Ground percentage</label>
+                    <input type="number" step="0.01" class="form-control" name="ground_percentage" id="ground_percentage" data-column-name="ground_percentage" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="support_percentage">Support percentage</label>
+                    <input type="number" step="0.01" class="form-control" name="support_percentage" id="support_percentage" data-column-name="support_percentage" readonly disabled>
+                </div>
+        
+            </div>
+        </div>
+        
+        <div class="card" id="card-conditions">
+            <div class="card-header">Conditions</div>
+            <div class="card-body">
+        
+                <div class="form-group">
+                    <label for="condition_1">Condition 1</label>
+                    <select class="form-control" name="condition_1" id="condition_1" data-options-list="ConditionList" data-column-name="condition_1" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="condition_2">Condition 2</label>
+                    <select class="form-control" name="condition_2" id="condition_2" data-options-list="ConditionList" data-column-name="condition_2" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="condition_3">Condition 3</label>
+                    <select class="form-control" name="condition_3" id="condition_3" data-options-list="ConditionList" data-column-name="condition_3" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="condition_4">Condition 4</label>
+                    <select class="form-control" name="condition_4" id="condition_4" data-options-list="ConditionList" data-column-name="condition_4" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+        
+            </div>
+        </div>
+        
+        <div class="card" id="card-proximate-predisposing">
+            <div class="card-header">Proximate/Predisposing</div>
+            <div class="card-body">
+        
+                <div class="form-group">
+                    <label for="proximate">Proximate</label>
+                    <select class="form-control" name="proximate" id="proximate" data-options-list="ProximatePredisposingList" data-column-name="proximate" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="predisposing">Predisposing</label>
+                    <select class="form-control" name="predisposing" id="predisposing" data-options-list="ProximatePredisposingList" data-column-name="predisposing" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+        
+            </div>
+        </div>
+        
+        <div class="card" id="card-mortality-comments">
+            <div class="card-header">Mortality Comments</div>
+            <div class="card-body">
+        
+                <div class="form-group">
+                    <label for="mortality_comment_1">Comment 1</label>
+                    <select class="form-control" name="comment_1" id="mortality_comment_1" data-options-list="MortalityCommentList" data-column-name="comment_1" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mortality_comment_2">Comment 2</label>
+                    <select class="form-control" name="comment_2" id="mortality_comment_2" data-options-list="MortalityCommentList" data-column-name="comment_2" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mortality_comment_3">Comment 3</label>
+                    <select class="form-control" name="comment_3" id="mortality_comment_3" data-options-list="MortalityCommentList" data-column-name="comment_3" readonly disabled>
+                        <option value="">Please select an option...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mortality_comment_custom">Custom comment</label>
+                    <textarea class="form-control" name="comment_custom" id="mortality_comment_custom" rows="3" data-column-name="comment_custom" readonly disabled></textarea>
+                </div>
+        
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
